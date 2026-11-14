@@ -24,6 +24,7 @@ module PollisCompetitions
 import DBInterface
 import Downloads
 import DuckDB
+import ForecastM4Benchmark
 import TOML
 import Tables
 using Dates: now, UTC
@@ -42,5 +43,7 @@ include("m5.jl")
 include("m6.jl")
 include("download.jl")
 include("tables.jl")
+include("measures.jl")
+include("benchmarks.jl")
 
 end

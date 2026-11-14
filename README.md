@@ -65,6 +65,20 @@ The files of the source are removed once converted. A file whose SHA-256 is not 
 
 The tables are Parquet files, which Julia reads through DuckDB, filtered first: `query(sql)` runs any SQL on them.
 
+## Scores
+
+`scores(id; entries)` computes the scores of the entries whose forecasts are on this computer, as the organisers' code computes them, in the columns of `published_scores`. `score(id, forecasts)` scores a table of the user's own (series, h and value), each series forecast over its whole horizon. So far M4: sMAPE and MASE, means over the series of each frequency, each domain and all of them, and OWA, which weighs them against those of Naive2 on the same series and needs its forecasts (`download_forecasts("m4"; entries = ["Naive2"])`).
+
+```julia
+mine = PC.scores("m4"; entries = ["118", "Naive2"])
+yearly = PC.forecasts("m4"; entry = "118", frequency = "Yearly")
+PC.score("m4", (; series = yearly.series, h = yearly.h, value = yearly.value))
+```
+
+`benchmarks(id; methods, series)` computes on this computer the forecasts of M4's eight statistical benchmarks (Naive, sNaive, Naive2, SES, Holt, Damped, Theta and Com) from the values the forecasters saw, with [ForecastM4Benchmark.jl](https://github.com/Trumpingtons/ForecastM4Benchmark.jl), which computes them as the organisers did: method, series, h and value, so that `score` scores each method.
+
+The scores of all 61 entries of M4 agree with `Evaluation and Ranks.xlsx`: sMAPE and MASE to the three decimals it gives. The sheet computes OWA from those rounded values, so that an OWA far above 1 can differ from the one computed here in the fourth significant digit (12.8399 for 12.8386).
+
 In each series of the Monash archive, the values the forecasters saw come first, then the values of the horizon: so it is for the 23,000 series of M4 Yearly, which the archive and the files of M4's organisers give with the same values. The archive gives no domain.
 
 `data/others.toml` holds competitions that are not M competitions, kept for a later group: the package does not read it.
