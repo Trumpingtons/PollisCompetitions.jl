@@ -38,6 +38,8 @@ include("fetch.jl")
 include("parquet.jl")
 include("monash.jl")
 include("m4.jl")
+include("m5.jl")
+include("m6.jl")
 include("download.jl")
 include("tables.jl")
 

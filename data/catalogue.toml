@@ -2,14 +2,18 @@
 # files are fetched from their source, each checked against its SHA-256, and converted on the user's computer.
 #
 # `format` says how its files are read: "monash", a zip of one .tsf file of the Monash Time Series Forecasting Archive
-# for each frequency, or "m4", the repository of M4. In each series of the Monash archive, the values the forecasters
-# saw come first, then the `horizon` values their forecasts were scored on: so it is for the 23,000 series of M4
-# Yearly, which the archive and the files of the organisers give with the same values. The `period` of a file of the
-# archive is the seasonal period of its frequency, 1 for M3 Other, for which the archive gives no frequency.
+# for each frequency; "m4", the repository of M4; "m5", the files of the organisers of M5 on Google Drive, with the
+# scores of their repository; "m6", the repository of M6. In each series of the Monash archive, the values the
+# forecasters saw come first, then the `horizon` values their forecasts were scored on: so it is for the 23,000 series
+# of M4 Yearly, which the archive and the files of the organisers give with the same values. The `period` of a file of
+# the archive is the seasonal period of its frequency, 1 for M3 Other, for which the archive gives no frequency.
 #
-# `papers` are keys of PollisReferences. `entries` is the number of entries whose forecasts are published, `measures`
-# the measures of the scores published with them. A file plays a `role`: "series" (a frequency of the Monash archive),
-# "info", "train" and "test" (the series of M4), "entries", "scores" and "forecasts" (those of an `entry`).
+# `papers` are keys of PollisReferences. `entries` is the number of entries whose forecasts are published (for M6, the
+# teams whose submissions are), `measures` the measures of the scores published with them. A file plays a `role`:
+# "series" (a frequency of the Monash archive), "info", "train" and "test" (the series of M4 and M5), "calendar",
+# "prices" and "weights" (those of M5, and the prices of the assets of M6), "submissions" (those of the teams of M6),
+# "entries", "scores" and "forecasts" (those of an `entry`). The forecasts of an entry of M5 are "point" (M5 Accuracy)
+# or "quantiles" (M5 Uncertainty), and an entry is a "submission", with its `rank`, or a "benchmark".
 
 [[competitions]]
 id = "m1"
@@ -734,3 +738,1498 @@ entry = "sNaive"
 url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-sNaive.rar"
 sha256 = "f8bc042a069a564992c6990d425e7392a04e4fc9d652cc2b24108c96ad7d7f36"
 bytes = 2566453
+
+[[competitions]]
+id = "m5"
+name = "M5"
+year = 2020
+format = "m5"
+availability = "Download"
+frequencies = ["Daily"]
+source = "The organisers of M5 (Google Drive) and Mcompetitions/M5-methods"
+source_url = "https://drive.google.com/drive/folders/1D6EWdVSaOtrP1LEFh1REjI3vej6iUS_4"
+revision = "18e4e776cfa1ded3b387fabe008c6c2c44922007"
+licence = "None stated"
+licence_url = "https://github.com/Mcompetitions/M5-methods"
+papers = ["MSA2022a", "MSA2022b", "MSACG...2022a"]
+measures = ["WRMSSE", "WSPL", "Coverage Rate"]
+entries = 130
+
+[[competitions.files]]
+name = "calendar.csv"
+role = "calendar"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1eeU8Me44yzgWsDD0dYrX4xVOixil_H4u"
+sha256 = "568d0fe5f41790142379698732908e4e57432c1c6396f3f59fb880a9c2b54231"
+bytes = 112477
+
+[[competitions.files]]
+name = "sales_train_evaluation.csv"
+role = "train"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1-khP8tp1gRTfaQQV_PlKd6R_3Mw5KiBw"
+sha256 = "c21a519596680feb86f27a9e62f6c8b583f8be60c2c195f080ae8ca2990af2b7"
+bytes = 121168898
+
+[[competitions.files]]
+name = "sales_test_evaluation.csv"
+role = "test"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1Bj7Xj15yn4j6-BM_mpSmOVTV0c2ihEdo"
+sha256 = "73773250dd7f7464f7a1bf3a54874dc7fc8cbb49885cd0bf1efe09bf48fd930d"
+bytes = 3260569
+
+[[competitions.files]]
+name = "sell_prices.csv"
+role = "prices"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1YKo2D7rpg9y5L-qaidUjyJaKvTIR0rMI"
+sha256 = "5c7cf045b1abbdc8d5007809c40b3682c5216075937f93e2cef01caddc4a30d9"
+bytes = 237073689
+
+[[competitions.files]]
+name = "weights_evaluation.csv"
+role = "weights"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1M37c__ioZChCYpY69oXSzBi3bKrKVEkN"
+sha256 = "b430c288d92a0e55e08b76c20aafb4c538469c7ba95e47ab768e37e385299497"
+bytes = 2257736
+
+[[competitions.files]]
+name = "Scores and Ranks.xlsx"
+role = "scores"
+url = "https://github.com/Mcompetitions/M5-methods/raw/18e4e776cfa1ded3b387fabe008c6c2c44922007/Scores%20and%20Ranks.xlsx"
+sha256 = "a1284eb1fd42214ae784366564c9780c1cb40c0694340468e389c9fd46432529"
+bytes = 78009
+
+[[competitions.files]]
+name = "accuracy-0001 YJ_STU.csv"
+role = "forecasts"
+entry = "YJ_STU"
+forecasts = "point"
+kind = "submission"
+rank = 1
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1MEpzUZg3EY8OkrEDN1-kZ0-zxajqi1wc"
+sha256 = "678195194c9e8dec50efc1bfbeb7d4a2247a55c3897127731323c2935caf26a7"
+bytes = 22174818
+
+[[competitions.files]]
+name = "accuracy-0002 Matthias.csv"
+role = "forecasts"
+entry = "Matthias"
+forecasts = "point"
+kind = "submission"
+rank = 2
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1jW8Y__7cBwaBlskvcmn4XAqfEOFu2juj"
+sha256 = "841d0ad925a619e422094843e16426ea6aa67d19b5bc54c78704df1b6df3d47a"
+bytes = 19867676
+
+[[competitions.files]]
+name = "accuracy-0003 mf.csv"
+role = "forecasts"
+entry = "mf"
+forecasts = "point"
+kind = "submission"
+rank = 3
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1fdHbgCG8WnjsQ92t6Vx8N1pOQ2GgLV3t"
+sha256 = "7696c6baf82f0da83ae708d84040401355553c5c949b3ec98ddb2cb970def7bf"
+bytes = 34422545
+
+[[competitions.files]]
+name = "accuracy-0004 monsaraida.csv"
+role = "forecasts"
+entry = "monsaraida"
+forecasts = "point"
+kind = "submission"
+rank = 4
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=14VEFl8ol4BtxibB_w4GCXdEr5j4P--zK"
+sha256 = "6f0a44c85f0fef7c370b66f69a5646fca42748eef1974bef8f7fc7cd726de3c0"
+bytes = 22174695
+
+[[competitions.files]]
+name = "accuracy-0005 Alan Lahoud.csv"
+role = "forecasts"
+entry = "Alan Lahoud"
+forecasts = "point"
+kind = "submission"
+rank = 5
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1y4OU048fY9DeymD5tlFujxFSGMQ6TcBV"
+sha256 = "6397f371142b5de1eae4258a5498bd69d784678f2de6a88158a1443d733920bb"
+bytes = 34388299
+
+[[competitions.files]]
+name = "accuracy-0006 wyzJack_STU.csv"
+role = "forecasts"
+entry = "wyzJack_STU"
+forecasts = "point"
+kind = "submission"
+rank = 6
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1YMmRDS4PtKvm2IkZspvlU3xMvoIFS4ia"
+sha256 = "45a99c88e831bf841ce300acb0d911f4d81a43d820a975eb78c5eda2bcf66d42"
+bytes = 21092901
+
+[[competitions.files]]
+name = "accuracy-0007 RandomLearner.csv"
+role = "forecasts"
+entry = "RandomLearner"
+forecasts = "point"
+kind = "submission"
+rank = 7
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1xbWVGiQIV3FjJd1EHM8-6K677S2yPFIK"
+sha256 = "6f85120188d3546904c8225dd29296f6b375f1a824934fbcab773997e1c03bfd"
+bytes = 34326505
+
+[[competitions.files]]
+name = "accuracy-0008 SHJ.csv"
+role = "forecasts"
+entry = "SHJ"
+forecasts = "point"
+kind = "submission"
+rank = 8
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1K3V2xU1m1EBIBPSeBHldoYMiamqz091x"
+sha256 = "0c80495f5036658688151fd1653495d7c872eb70fbc70098aba4526e05b41db5"
+bytes = 21548677
+
+[[competitions.files]]
+name = "accuracy-0009 gest 2.csv"
+role = "forecasts"
+entry = "gest 2"
+forecasts = "point"
+kind = "submission"
+rank = 9
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1YTdifKTZ3x10oYz-JtKI2auejj_kcSKY"
+sha256 = "44e485524ba79cc7387311bc03eba20babd4a7407e7a426cb1d06d05feaec050"
+bytes = 29089993
+
+[[competitions.files]]
+name = "accuracy-0010 DenisKokosinskiy_STU.csv"
+role = "forecasts"
+entry = "DenisKokosinskiy_STU"
+forecasts = "point"
+kind = "submission"
+rank = 10
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1iISjMtY7eg3JkqmSvX29CHo2qhK2vcwM"
+sha256 = "de0ea91fc237fbc806ab172f71803783bbe020fc3c706086120abdc38eb9a32e"
+bytes = 15698137
+
+[[competitions.files]]
+name = "accuracy-0011 XueWang.csv"
+role = "forecasts"
+entry = "XueWang"
+forecasts = "point"
+kind = "submission"
+rank = 11
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1VQZN2uITFyQ68AmAaLKuruLCj9EBI0c1"
+sha256 = "e10de89eefb6a9088788bf02d392859e77d4a7ea144e9237a7165fde2338dd51"
+bytes = 22084371
+
+[[competitions.files]]
+name = "accuracy-0012 yq_STU.csv"
+role = "forecasts"
+entry = "yq_STU"
+forecasts = "point"
+kind = "submission"
+rank = 12
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1YkeBV4B9fkADBZWPQ4Oy1QXX9yuVMoCi"
+sha256 = "a34856e034bd4c7ad28489230ad02cc8d3fd2dcc04e6b333165dda514cfb2311"
+bytes = 34435038
+
+[[competitions.files]]
+name = "accuracy-0013 PoHaoChou.csv"
+role = "forecasts"
+entry = "PoHaoChou"
+forecasts = "point"
+kind = "submission"
+rank = 13
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=14sMFtzFcDBrjSRWExYTK25mG0IJzWF6Y"
+sha256 = "ba78d6e67520176fbd5675d349c458bf9101f3bd12644806054fc86b3d46ec58"
+bytes = 32045346
+
+[[competitions.files]]
+name = "accuracy-0014 Tsuru.csv"
+role = "forecasts"
+entry = "Tsuru"
+forecasts = "point"
+kind = "submission"
+rank = 14
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=10wsX5jgiFz6lSRVH5ITk5ikh60GpXwrD"
+sha256 = "c9efa3f8f3afbbec1dd380ab38456695ad53547cf10a3932a47e8b28b6bbd83f"
+bytes = 24047675
+
+[[competitions.files]]
+name = "accuracy-0015 bk_18.csv"
+role = "forecasts"
+entry = "bk_18"
+forecasts = "point"
+kind = "submission"
+rank = 15
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1FpjKY5nAyUA76J1EcGOWrQzFN98IKObM"
+sha256 = "d551911256c6e06257b2eddbf6dd56dba046d8aa9d31f3dcd606122f7741b324"
+bytes = 34406470
+
+[[competitions.files]]
+name = "accuracy-0016 N60610.csv"
+role = "forecasts"
+entry = "N60610"
+forecasts = "point"
+kind = "submission"
+rank = 16
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1QsWyWOWhWMbiLNkRA08Bat4ZQ5t_3wcF"
+sha256 = "fa19f02cff6b9155750e275ef5da79da083e04d2436172c254880f05b26770e7"
+bytes = 19804796
+
+[[competitions.files]]
+name = "accuracy-0017 MonashSL_STU.csv"
+role = "forecasts"
+entry = "MonashSL_STU"
+forecasts = "point"
+kind = "submission"
+rank = 17
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1Ar8K758SETcFY7TnYtTWmvxxIIXRqemz"
+sha256 = "64c38d48079662cdf619644e46117edf7395ec6bc874bb218cfd3bc700ca3db5"
+bytes = 13753379
+
+[[competitions.files]]
+name = "accuracy-0018 leoclement.csv"
+role = "forecasts"
+entry = "leoclement"
+forecasts = "point"
+kind = "submission"
+rank = 18
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1tG-94eDZnZCYU_3_w6E7k0tcz8DdVhh6"
+sha256 = "e7a600a4fe20af882a13fa63eab6b9e5860e30e76c1d8aa4480f18b743302325"
+bytes = 34333159
+
+[[competitions.files]]
+name = "accuracy-0019 minghui_Tju.csv"
+role = "forecasts"
+entry = "minghui_Tju"
+forecasts = "point"
+kind = "submission"
+rank = 19
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1QIgydm36ru6toGltLtThUAK8DuugnGlL"
+sha256 = "d53b9065413a0bcb1829cda2e186d45653f644ff9dd69428355b95cd3b22cb3d"
+bytes = 35335251
+
+[[competitions.files]]
+name = "accuracy-0020 zfc613.csv"
+role = "forecasts"
+entry = "zfc613"
+forecasts = "point"
+kind = "submission"
+rank = 20
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1EdP5PVdaNka7Pfryv_OCP8d88RKdZR_G"
+sha256 = "981ea3a1c968902be7e177b57b3a8170b077ff2c8522d0d32e4a3c550a1c4d4e"
+bytes = 21514183
+
+[[competitions.files]]
+name = "accuracy-0021 Nodalpoints.csv"
+role = "forecasts"
+entry = "Nodalpoints"
+forecasts = "point"
+kind = "submission"
+rank = 21
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=14pjH7yYfIFWvJBCTFvKayxHbnTdrdJeJ"
+sha256 = "5f369c19760d464b0505f147c29a07556d0ce731a1eea683f4b85ae943740789"
+bytes = 34295888
+
+[[competitions.files]]
+name = "accuracy-0022 CPUkiller.csv"
+role = "forecasts"
+entry = "CPUkiller"
+forecasts = "point"
+kind = "submission"
+rank = 22
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1csIcEvBAheD4vaoZgBmEsVv0R0TgX_pG"
+sha256 = "5f234025feb049ded7ee4acee77cdfa35dd98ba167fa1924a72efcfe1f2ebeeb"
+bytes = 35264220
+
+[[competitions.files]]
+name = "accuracy-0023 dont overfit.csv"
+role = "forecasts"
+entry = "dont overfit"
+forecasts = "point"
+kind = "submission"
+rank = 23
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1H0sR-5qo2IhmglFHlu4xjz3754SNeSe0"
+sha256 = "5f234025feb049ded7ee4acee77cdfa35dd98ba167fa1924a72efcfe1f2ebeeb"
+bytes = 35264220
+
+[[competitions.files]]
+name = "accuracy-0024 Dan Hargreaves.csv"
+role = "forecasts"
+entry = "Dan Hargreaves"
+forecasts = "point"
+kind = "submission"
+rank = 24
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1L7k938uvNWm-2A2Mk30B_lHfspSl262c"
+sha256 = "3d0889409c7427cf3fc0aa2aceda813638bbc34c6c1fd964a7c6bec620ec87bf"
+bytes = 21551481
+
+[[competitions.files]]
+name = "accuracy-0025 M0T0_STU.csv"
+role = "forecasts"
+entry = "M0T0_STU"
+forecasts = "point"
+kind = "submission"
+rank = 25
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1WQV2yIYesb-2ar53bZA-VloAEszbiEXq"
+sha256 = "2b089ec9cbc1e4a0222320797150d80b794bdb07f8f4132eb3e7b1fcab38f175"
+bytes = 21534326
+
+[[competitions.files]]
+name = "accuracy-0026 Genryu.csv"
+role = "forecasts"
+entry = "Genryu"
+forecasts = "point"
+kind = "submission"
+rank = 26
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1lTLdNpu0jHAMrnaEC2AgsiwXFATISY_P"
+sha256 = "61e6a6316e1e2e7df0787ba07df74994369dd52ea2489523498300152d04dbc4"
+bytes = 35220969
+
+[[competitions.files]]
+name = "accuracy-0027 Moscow Five.csv"
+role = "forecasts"
+entry = "Moscow Five"
+forecasts = "point"
+kind = "submission"
+rank = 27
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1iuxTRKSovmRSA4Rk9ttbQ5U9x8dJURq4"
+sha256 = "ca0c91654b52d8535d61dd6999cddd0d14d7f334c262077a56f4169f815f3154"
+bytes = 34627259
+
+[[competitions.files]]
+name = "accuracy-0028 Daniela A.csv"
+role = "forecasts"
+entry = "Daniela A"
+forecasts = "point"
+kind = "submission"
+rank = 28
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=11e6ke4JZkKL0eLNxwG4UQFsVs_ZNOWsy"
+sha256 = "70a46f9bcb5800d8de9a690cf1e04e9438c9ec33a1a559546f9bdf7f0c971758"
+bytes = 12228952
+
+[[competitions.files]]
+name = "accuracy-0029 shuheioka.csv"
+role = "forecasts"
+entry = "shuheioka"
+forecasts = "point"
+kind = "submission"
+rank = 29
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1oTGzLtEj9V6-1JtYOKZOCF-zJlqD2AgF"
+sha256 = "fd85a9c5ac257647a10f14cf4466b11de00e148a3089fa949c7177dc519233ca"
+bytes = 21545428
+
+[[competitions.files]]
+name = "accuracy-0030 sk 2.csv"
+role = "forecasts"
+entry = "sk 2"
+forecasts = "point"
+kind = "submission"
+rank = 30
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1LogaEEMJcQT8XglBDoRkeiJ1X1gXs-OA"
+sha256 = "2826ae8ff03e62e4b62e5fc9bb227f4d1127e316b165df4609fa79675e7ba4fe"
+bytes = 34319783
+
+[[competitions.files]]
+name = "accuracy-0031 nagao.csv"
+role = "forecasts"
+entry = "nagao"
+forecasts = "point"
+kind = "submission"
+rank = 31
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1GngyajeGi2tMI4oG61K6cZDSGJrzPLf8"
+sha256 = "9cb79daffd59636d41d4f5a3eb9431331a851cb5eebc952adbe279082b086d49"
+bytes = 34402744
+
+[[competitions.files]]
+name = "accuracy-0032 AjayNagar.csv"
+role = "forecasts"
+entry = "AjayNagar"
+forecasts = "point"
+kind = "submission"
+rank = 32
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1p6A9IWWQz9GIm5XWpeIr0ydYjVutcox2"
+sha256 = "a72228301c0a6c80aa4642f381c5e8fd155462ad40f49ef7fc7dd3349d5aa9e2"
+bytes = 34416577
+
+[[competitions.files]]
+name = "accuracy-0033 cjwh.csv"
+role = "forecasts"
+entry = "cjwh"
+forecasts = "point"
+kind = "submission"
+rank = 33
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1jBO-MPAxWAK8QXocUDhfsyaIXf8D7OnI"
+sha256 = "928b9065222e75e6c01c640f3c40edd2a3a984786f539f5394bca3214f2bb323"
+bytes = 21543822
+
+[[competitions.files]]
+name = "accuracy-0034 CWD75.csv"
+role = "forecasts"
+entry = "CWD75"
+forecasts = "point"
+kind = "submission"
+rank = 34
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1my-W3vJOmj5yyXPEPS8nX1z7zIfPPR9n"
+sha256 = "4789c36c2a1c32fdd8d75411170b1b5d350933067667140b7bc845436a9653d1"
+bytes = 34456990
+
+[[competitions.files]]
+name = "accuracy-0035 Groot.csv"
+role = "forecasts"
+entry = "Groot"
+forecasts = "point"
+kind = "submission"
+rank = 35
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1sC8mubL6NfajtnBWlRt3Nc3hKgqLIJCL"
+sha256 = "d33cd51f51a561c229deb9d1853569100e0a6e61da2bed4b557af83525e84435"
+bytes = 22839890
+
+[[competitions.files]]
+name = "accuracy-0036 Astral.csv"
+role = "forecasts"
+entry = "Astral"
+forecasts = "point"
+kind = "submission"
+rank = 36
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1uSufvkJ6d25GWVG0rCoFo_YzPjnZWtZN"
+sha256 = "1b5c2fc5b9bb704c9eb9cef8220317917a4c827ed1d4d2a2e301089f26c82bee"
+bytes = 21536219
+
+[[competitions.files]]
+name = "accuracy-0037 Logistic.csv"
+role = "forecasts"
+entry = "Logistic"
+forecasts = "point"
+kind = "submission"
+rank = 37
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1mYhsOF2ARCAjq549_5PDlZsR_MDVeg4b"
+sha256 = "f062ec95341d1e4548339c0154ba86f2f1392d174b4a6041e4fe8baa4702bd6b"
+bytes = 23389228
+
+[[competitions.files]]
+name = "accuracy-0038 jdsc_perceiving_team.csv"
+role = "forecasts"
+entry = "jdsc_perceiving_team"
+forecasts = "point"
+kind = "submission"
+rank = 38
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1ZcLCtijM_1nrsh3SIOkDkH3co2_Key7x"
+sha256 = "482db11866979eb88f9cef1e3742d77a28882b98b16a10ebd604a6887cb763d5"
+bytes = 31894524
+
+[[competitions.files]]
+name = "accuracy-0039 Abzal.csv"
+role = "forecasts"
+entry = "Abzal"
+forecasts = "point"
+kind = "submission"
+rank = 39
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1ItsT--Of7toKgPsEd3IDkZD3fn3DlXvo"
+sha256 = "019854f843ab409ff0f2ebd6c848cdb2070a1b286114a3f9dc3a97ff9622ae31"
+bytes = 34400651
+
+[[competitions.files]]
+name = "accuracy-0040 Pianus.csv"
+role = "forecasts"
+entry = "Pianus"
+forecasts = "point"
+kind = "submission"
+rank = 40
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=186FAUunNUxMk8mHxVKLIJ6jcHTM-b7sF"
+sha256 = "9fbd7c0c45d84713a33ea390e6650e6a66772a1c48cffc19cec514c7ec34e76c"
+bytes = 19838955
+
+[[competitions.files]]
+name = "accuracy-0041 NAU.csv"
+role = "forecasts"
+entry = "NAU"
+forecasts = "point"
+kind = "submission"
+rank = 41
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1Qjgl9qko2ESoHJy6xeh4h53AeZdjIgKe"
+sha256 = "401656f980cfcedf500a083ca3bbf3aca0afbcb66d8681a11fbe5f139d023017"
+bytes = 34392495
+
+[[competitions.files]]
+name = "accuracy-0042 shirokane_friends.csv"
+role = "forecasts"
+entry = "shirokane_friends"
+forecasts = "point"
+kind = "submission"
+rank = 42
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=10dLmYR8b6zxJApuPRrWs83KqdEDtxoA4"
+sha256 = "696f1dd4a77b34b0f23c949a453e2da121d5e3e86e70b097b8e0767cf6df0322"
+bytes = 21509763
+
+[[competitions.files]]
+name = "accuracy-0043 Alexnet.csv"
+role = "forecasts"
+entry = "Alexnet"
+forecasts = "point"
+kind = "submission"
+rank = 43
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1Rhra8ckJEN0QwEnqL5UN4yXkG-Ydh1_b"
+sha256 = "e32f5706d8980a6aaab843361515e0f20849765d5c86e27d424995a9bedb8177"
+bytes = 25627639
+
+[[competitions.files]]
+name = "accuracy-0044 Griffin_Series.csv"
+role = "forecasts"
+entry = "Griffin_Series"
+forecasts = "point"
+kind = "submission"
+rank = 44
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=18B2GNxNQAhBqeQQZ1G9Ciq_09wFRP4j9"
+sha256 = "6bea535f89865a728ffc0053c7f6a750174a6ffb03f3fa949fc78c4c6abedfda"
+bytes = 34391382
+
+[[competitions.files]]
+name = "accuracy-0045 Hiromitsu Kigure.csv"
+role = "forecasts"
+entry = "Hiromitsu Kigure"
+forecasts = "point"
+kind = "submission"
+rank = 45
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1A4qcQnigquuOTu1okoeZCDRN3p4KLiXg"
+sha256 = "ef0d0beb6b8e8d2776371731056e0457a13f38104620ffd80abc359818f93b45"
+bytes = 21517195
+
+[[competitions.files]]
+name = "accuracy-0046 YK.csv"
+role = "forecasts"
+entry = "YK"
+forecasts = "point"
+kind = "submission"
+rank = 46
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1g01an2RQf4y3N13nEyqaygt_42_CW6oA"
+sha256 = "d1eaf17ca5d1af9492409032957cd049a98bfcf60427d980f97f41f47c4fde96"
+bytes = 12805819
+
+[[competitions.files]]
+name = "accuracy-0047 PASSTA.csv"
+role = "forecasts"
+entry = "PASSTA"
+forecasts = "point"
+kind = "submission"
+rank = 47
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1ECaBkVoHXNkqr_noHiXLTwwyJZtLzSPo"
+sha256 = "602e4e648ce8486228a24f08c2e11642233711f6c497b79573b796be3a55ced8"
+bytes = 22174484
+
+[[competitions.files]]
+name = "accuracy-0048 golubyatniks.csv"
+role = "forecasts"
+entry = "golubyatniks"
+forecasts = "point"
+kind = "submission"
+rank = 48
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=16BisOn2oXt7Ny-zAHtiSp2VTKDT81l4Y"
+sha256 = "7b92f782cf28a400d48b027f73559474bb6284506a5c147ebb600e11867a02a4"
+bytes = 31866709
+
+[[competitions.files]]
+name = "accuracy-0049 belkasanek.csv"
+role = "forecasts"
+entry = "belkasanek"
+forecasts = "point"
+kind = "submission"
+rank = 49
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1WcqXPt04AoYcLqjk-lBdSZ5MyMoKPwIA"
+sha256 = "4f99c2e20f7ad52defc07d4de5d2063590138cef3dd95bad39eab33e87e3c296"
+bytes = 31158661
+
+[[competitions.files]]
+name = "accuracy-0050 Random_prediction.csv"
+role = "forecasts"
+entry = "Random_prediction"
+forecasts = "point"
+kind = "submission"
+rank = 50
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1G4fCgoBNDRaxaV9mGW9DKgC4orwk9slL"
+sha256 = "91d269e9f07a00d73e35f2ef4a921949f89dbf4565ac6868ff7b7b0b723e3ef3"
+bytes = 34375857
+
+[[competitions.files]]
+name = "accuracy-ADIDA.csv"
+role = "forecasts"
+entry = "ADIDA"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1Jzx1gi7tjSbeTB4L3ruF5L9954wVblwK"
+sha256 = "41e6226eb674045824b12cfd4a13b44f8d41e7847ba8f82537bbc476e05a1c83"
+bytes = 32142405
+
+[[competitions.files]]
+name = "accuracy-ARIMAX.csv"
+role = "forecasts"
+entry = "ARIMAX"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1s-7EvS4CcApbLTDdpRVP1ZP57k3iM0SQ"
+sha256 = "caca1a2e517c1a79cf9198741029b879fb0c6b6c61b854ab7110f3ffcf8f6c19"
+bytes = 31012893
+
+[[competitions.files]]
+name = "accuracy-ARIMA_bu.csv"
+role = "forecasts"
+entry = "ARIMA_bu"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=14p7-I9UJJEE4VXBBNNUcwL7uyews5Kqi"
+sha256 = "026b39e7d0c35e88df3c7e9956dfddd8d493d395530338bd6a5f9368f0fc8684"
+bytes = 31591120
+
+[[competitions.files]]
+name = "accuracy-ARIMA_td.csv"
+role = "forecasts"
+entry = "ARIMA_td"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1bJkITKgeeRuF2B8S8bICR4JnJMK3T39V"
+sha256 = "e461a3c2fbed12305ef7ca207c6161442e2a6b8c09670812b08aed81da56bf4d"
+bytes = 31059324
+
+[[competitions.files]]
+name = "accuracy-Com_b.csv"
+role = "forecasts"
+entry = "Com_b"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1ycupgZRLnXR0lOE_6Y3IutCF7LDaDlnu"
+sha256 = "20c61db81992b0ace31caaadcdb9f415488d356a9b7b2318469eff5e70e54437"
+bytes = 32050168
+
+[[competitions.files]]
+name = "accuracy-Com_lg.csv"
+role = "forecasts"
+entry = "Com_lg"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1JDc5OffzXCpqT3U0Q_nj2qDrqd6kn6Fo"
+sha256 = "894ac0620305e46023926fcdecbb90847c7d57e37f32d2b320828f31a424331d"
+bytes = 32031497
+
+[[competitions.files]]
+name = "accuracy-Com_t.csv"
+role = "forecasts"
+entry = "Com_t"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=17BB2V_yVh4deA069G0xcOy26g49riI7R"
+sha256 = "e5667fe41201502bc70875d8e792c862ecfda55d6ec3800541a882968c36cbeb"
+bytes = 31022331
+
+[[competitions.files]]
+name = "accuracy-Com_tb.csv"
+role = "forecasts"
+entry = "Com_tb"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1zmiRqNjPdjv-2qBLF3rcrxZLpCtjeTgP"
+sha256 = "1fa1773d18ea2fb8668e26fb94339fd71a6ea10f25cbb0fa0889f441a42e5132"
+bytes = 31873642
+
+[[competitions.files]]
+name = "accuracy-Croston.csv"
+role = "forecasts"
+entry = "Croston"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1eWtOFdWHuHnt3C23SRKPCZjzq2X7S4iN"
+sha256 = "b760f735f65e3d8ecad44b834ff05396bd8e1a34033259dc269c4b92f1a148a2"
+bytes = 32044097
+
+[[competitions.files]]
+name = "accuracy-ESX.csv"
+role = "forecasts"
+entry = "ESX"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1RrcOs9yz7n4Ph3XRNQmXvMttScDA5yqd"
+sha256 = "e8ec195a583ae5bebed14e5b62ed7d59e0877ddf64057b3ebd314be09d3444fa"
+bytes = 30965988
+
+[[competitions.files]]
+name = "accuracy-ES_bu.csv"
+role = "forecasts"
+entry = "ES_bu"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1T2BRXdTm0wl_EtU0EkQafph2gGFAmVWn"
+sha256 = "b7db32c7572665bcea2a231678e14294db5158e06c50512dc90f58c60f125b64"
+bytes = 31574303
+
+[[competitions.files]]
+name = "accuracy-ES_td.csv"
+role = "forecasts"
+entry = "ES_td"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1nrWLFrgzaN_gPT5m7AX8Ya8rIoGaTI1C"
+sha256 = "1ffc617c58609b7114acd3f82e77b48d2d96aec0b925c769843f0fee1836449b"
+bytes = 30979661
+
+[[competitions.files]]
+name = "accuracy-MA.csv"
+role = "forecasts"
+entry = "MA"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1xSolpBgohNEID1ScRhaHmqQNhG3ly_kr"
+sha256 = "463dc5cd898e4a07d247b774e62b93e8735e89d83efca231ae6ac00d1577e558"
+bytes = 26072985
+
+[[competitions.files]]
+name = "accuracy-MLP_g.csv"
+role = "forecasts"
+entry = "MLP_g"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1SgqWjTAI174q8Ktpf4kG49gsSMg_csQ0"
+sha256 = "2e4e29bce6d95729c4997bea69ef5bade99e0d47ae0fe486a855da7959802120"
+bytes = 32021445
+
+[[competitions.files]]
+name = "accuracy-MLP_l.csv"
+role = "forecasts"
+entry = "MLP_l"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=17309QL_BdJ0rkbcuCkSTsU4Z_5KDtpxm"
+sha256 = "62b2fe7776fe0407e30cdadacab42a8082ab896aaf764836cd0439c8178b7ea7"
+bytes = 32019989
+
+[[competitions.files]]
+name = "accuracy-Naive.csv"
+role = "forecasts"
+entry = "Naive"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1iL1H9KUviQR9-fr2x4WkB93w0oDkjE4H"
+sha256 = "95bedab2f52507a899b28de223368c6632797a51db2395865ee10a517c1427e6"
+bytes = 5464033
+
+[[competitions.files]]
+name = "accuracy-RF_g.csv"
+role = "forecasts"
+entry = "RF_g"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=17zPPIuRMtguiNr0O1ywN4Uw2BlNV_j9u"
+sha256 = "a2b3675f89b5ebc33b8e7a173968662724c2ba9ec9050c2507a755cc87177c1c"
+bytes = 32091025
+
+[[competitions.files]]
+name = "accuracy-RF_l.csv"
+role = "forecasts"
+entry = "RF_l"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1c73KNx_fFFGCO6YhA2La5LDHoL_cKxkR"
+sha256 = "844f23e57c44eed1e4d971fa0944b00e69cd6971e7e29059030730cdf32c3006"
+bytes = 30545453
+
+[[competitions.files]]
+name = "accuracy-SBA.csv"
+role = "forecasts"
+entry = "SBA"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1U9Fp6OU3d23w5Lb7xKPGwjebo4yJoMVj"
+sha256 = "815769dfe0f09802abfb6b87dda737b8d249d700ba7d743cb0a1841fa61326c4"
+bytes = 32086013
+
+[[competitions.files]]
+name = "accuracy-SES.csv"
+role = "forecasts"
+entry = "SES"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1GoYKzTo0V1iM1iTp0TKku9RtmcczQ-vC"
+sha256 = "faa8a11ed231251773422394db5480bf6d64df7223d545005505ef47769b746b"
+bytes = 32226405
+
+[[competitions.files]]
+name = "accuracy-TSB.csv"
+role = "forecasts"
+entry = "TSB"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=12QEOEwosbOYWDL3Ykk0rwu9PIg6l1JxY"
+sha256 = "e027689430eeb8831389a3ea931f00d809ce71e7a3e772e6f80d274ef602c4e7"
+bytes = 32252277
+
+[[competitions.files]]
+name = "accuracy-iMAPA.csv"
+role = "forecasts"
+entry = "iMAPA"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1xLGkME-7eAf0Bc4PtGDpBHO0Ar_XvWtS"
+sha256 = "6266f0162c122cb6e68421c68bd6d18599ce07b2d9b071c613b0e133e2b83b4f"
+bytes = 32161081
+
+[[competitions.files]]
+name = "accuracy-optCroston.csv"
+role = "forecasts"
+entry = "optCroston"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1C5C6Hjts0jjcJ0YREX_etfj9cghNnR-8"
+sha256 = "dfae84ab519d644e1f26f388b2e3c6173bc1ab67f98dfee8ee33cfd4741d7960"
+bytes = 32044321
+
+[[competitions.files]]
+name = "accuracy-sNaive.csv"
+role = "forecasts"
+entry = "sNaive"
+forecasts = "point"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1Nmb5hE9qfla2tNYsfp-oA4GYnBG1ZoNo"
+sha256 = "d8e7f7068837a2bf7fcade4eee32da54e6e70028bd763d4116f922fb5182f020"
+bytes = 5450693
+
+[[competitions.files]]
+name = "uncertainty-0001 Everyday Low SPLices.csv"
+role = "forecasts"
+entry = "Everyday Low SPLices"
+forecasts = "quantiles"
+kind = "submission"
+rank = 1
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1EutuRux4iz8huGZqGUwiHfpbULsbXKLi"
+sha256 = "5d7bc3893ba9ebf0bb8a1a9505ab06d7674694b28b3eed6ed79831cbf02b49d0"
+bytes = 143712879
+
+[[competitions.files]]
+name = "uncertainty-0002 GoodsForecast - Nick Mamonov.csv"
+role = "forecasts"
+entry = "GoodsForecast - Nick Mamonov"
+forecasts = "quantiles"
+kind = "submission"
+rank = 2
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1Kv6R_62zo23Kn3-w93rE9m7C_6XoiveN"
+sha256 = "999c79cf051e7b683943421a401d8297f3c3365906c23238fda4953a930b6bab"
+bytes = 83900971
+
+[[competitions.files]]
+name = "uncertainty-0003 Ouranos.csv"
+role = "forecasts"
+entry = "Ouranos"
+forecasts = "quantiles"
+kind = "submission"
+rank = 3
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1Ny6viGiIdo1ciHok6QMsyzFjALQIEi9e"
+sha256 = "04f2d91b745e33ae7ec8d9cc05c09d990b5963c0f95262f30bd606945b3b98f4"
+bytes = 444270110
+
+[[competitions.files]]
+name = "uncertainty-0004 Marisaka Mozz.csv"
+role = "forecasts"
+entry = "Marisaka Mozz"
+forecasts = "quantiles"
+kind = "submission"
+rank = 4
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1k8yC8XtDpFidTRhmp3TTKJKsRJoV7_ZW"
+sha256 = "91df8e9f1c733420901cd7248cec9ce3422bc4878a272e24e9e5404afc61117c"
+bytes = 73615165
+
+[[competitions.files]]
+name = "uncertainty-0005 IHiroaki.csv"
+role = "forecasts"
+entry = "IHiroaki"
+forecasts = "quantiles"
+kind = "submission"
+rank = 5
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1uNYs6oBRexb0rjKzl51JJJFzTTpktK79"
+sha256 = "848a3e63f903ed18fa4c1ac1f88abc36423b16b0174db05f5bf65314df99f8b7"
+bytes = 341087800
+
+[[competitions.files]]
+name = "uncertainty-0006 WalSmart.csv"
+role = "forecasts"
+entry = "WalSmart"
+forecasts = "quantiles"
+kind = "submission"
+rank = 6
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1KT0FnrYsQx8TplJaGQaPfG0Jm3oFGmOO"
+sha256 = "ed5e2f63351b01dab99cffc7fdf24a42a692e2c90172757cd547dbe12e676ecf"
+bytes = 73150154
+
+[[competitions.files]]
+name = "uncertainty-0007 Ka Ho_STU.csv"
+role = "forecasts"
+entry = "Ka Ho_STU"
+forecasts = "quantiles"
+kind = "submission"
+rank = 7
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1QlHOMmPvhfRJwaW2JT2MSjwL6VnxQQ17"
+sha256 = "0001d242ad1066ab8d7b111e18b029e2cfca7b14052c39fff23f391eafe5422c"
+bytes = 223019880
+
+[[competitions.files]]
+name = "uncertainty-0008 Kazu.csv"
+role = "forecasts"
+entry = "Kazu"
+forecasts = "quantiles"
+kind = "submission"
+rank = 8
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1a-gPuHotkxwvqSJWCthTdICqawVg12Al"
+sha256 = "c77065f2bbb0b25c45cd2e66092838afa6ee4266ef87ea6ffdd4622fc9be4698"
+bytes = 269022213
+
+[[competitions.files]]
+name = "uncertainty-0009 Praveen Adepu.csv"
+role = "forecasts"
+entry = "Praveen Adepu"
+forecasts = "quantiles"
+kind = "submission"
+rank = 9
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1Y_he805gg-S-_G_wTzEmadcXCsvsUHvN"
+sha256 = "6c1f475e3bf06ce741d450c566f87f234124127da1cd7ae4b160653b3dcea6da"
+bytes = 323787469
+
+[[competitions.files]]
+name = "uncertainty-0010 golubyatniks.csv"
+role = "forecasts"
+entry = "golubyatniks"
+forecasts = "quantiles"
+kind = "submission"
+rank = 10
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1KXKwGh4sH3K-wIfYwS_hFq6xogmVgLo1"
+sha256 = "bd03073b8ebd555b5a2bd1aaf4fa309bd70c631daa935a1243890537996cef7f"
+bytes = 73197997
+
+[[competitions.files]]
+name = "uncertainty-0011 Andrij.csv"
+role = "forecasts"
+entry = "Andrij"
+forecasts = "quantiles"
+kind = "submission"
+rank = 11
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1cUw7uorQyge3Tu8ruGTeYSu8otPNTGN3"
+sha256 = "224dcaf3a2dd4b194f5b4cee8faca4a22abca3aaea0d1c7aa8f75edfba8c2806"
+bytes = 359878854
+
+[[competitions.files]]
+name = "uncertainty-0012 Tobias Tesch_STU.csv"
+role = "forecasts"
+entry = "Tobias Tesch_STU"
+forecasts = "quantiles"
+kind = "submission"
+rank = 12
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1KSxQZj3FVfKKdpuMe_49u4BFsivGDcOR"
+sha256 = "01e115411873e5983715d171514b6643715c97ff98da6ec47beebda5de78bc16"
+bytes = 206807212
+
+[[competitions.files]]
+name = "uncertainty-0013 Wal Dash Mart.csv"
+role = "forecasts"
+entry = "Wal Dash Mart"
+forecasts = "quantiles"
+kind = "submission"
+rank = 13
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=12FdiWjLu5xgiXKzx6BXDko2A0BHC6iWA"
+sha256 = "bea75c39ff70d69b5f7d4d22ea99ad1342ef83bc8056687c6da196a9de04ab6d"
+bytes = 116541530
+
+[[competitions.files]]
+name = "uncertainty-0014 A Certain Uncertainty.csv"
+role = "forecasts"
+entry = "A Certain Uncertainty"
+forecasts = "quantiles"
+kind = "submission"
+rank = 14
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1b2u9PKIrAOhh4FBiwJNeMlzsdqXN79KY"
+sha256 = "c7d862a6a3e0028d32b25af7743caf1f2467bb21d43c85764722de6e869c3b2a"
+bytes = 310569863
+
+[[competitions.files]]
+name = "uncertainty-0015 Astral.csv"
+role = "forecasts"
+entry = "Astral"
+forecasts = "quantiles"
+kind = "submission"
+rank = 15
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1lQcJB5w0tiSlwGNPXsb7w_a26iU_Y2U9"
+sha256 = "feac07486fb3b1226a661063888fdaa360b5a323beaacda00c2608dc74e6f470"
+bytes = 299248341
+
+[[competitions.files]]
+name = "uncertainty-0016 toshi_k.csv"
+role = "forecasts"
+entry = "toshi_k"
+forecasts = "quantiles"
+kind = "submission"
+rank = 16
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1f1dl51y4NVFlMnwwq-SvS2FLqZRANXz0"
+sha256 = "bdef862e74504bed1bdab62e8deb17f7b61f306b5004120ab738affcae5048d1"
+bytes = 72679464
+
+[[competitions.files]]
+name = "uncertainty-0017 Random_prediction.csv"
+role = "forecasts"
+entry = "Random_prediction"
+forecasts = "quantiles"
+kind = "submission"
+rank = 17
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1qYvFzpeEQkzFcqUk-l7_PvNOH1Ha6rjn"
+sha256 = "aad4563d7e7ad78ee2b543d40d33e12663c26d00ce5b788ea007657b3e13c11e"
+bytes = 426798212
+
+[[competitions.files]]
+name = "uncertainty-0018 EXTASY.csv"
+role = "forecasts"
+entry = "EXTASY"
+forecasts = "quantiles"
+kind = "submission"
+rank = 18
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1BICaQw034CYcrv1-MuUPAoXnJh_zlXni"
+sha256 = "37a75c1ee896a802513f73703d3745a893716c1bb2c4656725a5762a49380348"
+bytes = 248747263
+
+[[competitions.files]]
+name = "uncertainty-0019 AkiraIshikawa.csv"
+role = "forecasts"
+entry = "AkiraIshikawa"
+forecasts = "quantiles"
+kind = "submission"
+rank = 19
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=11x3rbKGZshL6t98FRJmLYgOCtcsRZ0rm"
+sha256 = "fdbf932a36153f173df821d3289f33fc3b134536962a9410e3685f91177e4d7e"
+bytes = 345706899
+
+[[competitions.files]]
+name = "uncertainty-0020 Peter CXL.csv"
+role = "forecasts"
+entry = "Peter CXL"
+forecasts = "quantiles"
+kind = "submission"
+rank = 20
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1ZPguavP3oz4SvD8RuV8ty-Lj-0T2iIeE"
+sha256 = "9263d44afdaa03c1bcb3fa45b6b0e622ced9410130896314b919758c14ac06bc"
+bytes = 271130783
+
+[[competitions.files]]
+name = "uncertainty-0021 Takuma Omiya.csv"
+role = "forecasts"
+entry = "Takuma Omiya"
+forecasts = "quantiles"
+kind = "submission"
+rank = 21
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1qlwQCO3g5pfV5b66op8iQUM0uULPEUn1"
+sha256 = "ee28d38106f7163fcce498401412083292c19aa3c04316e4d1bf993854ccb04a"
+bytes = 226187245
+
+[[competitions.files]]
+name = "uncertainty-0022 KBU.csv"
+role = "forecasts"
+entry = "KBU"
+forecasts = "quantiles"
+kind = "submission"
+rank = 22
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1RLtRqu7DucEpBxN-dRG6aDSLTtidola6"
+sha256 = "2a1f4dbae56fc250c8f95186549730cf6ded859d93994028fea8ec8ce3892b69"
+bytes = 345316245
+
+[[competitions.files]]
+name = "uncertainty-0023 lkdy.csv"
+role = "forecasts"
+entry = "lkdy"
+forecasts = "quantiles"
+kind = "submission"
+rank = 23
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1ptlwpvMxFYL-eZCvn7GR7L0Ve3caMYrM"
+sha256 = "2a1f4dbae56fc250c8f95186549730cf6ded859d93994028fea8ec8ce3892b69"
+bytes = 345316245
+
+[[competitions.files]]
+name = "uncertainty-0024 Jacques Peeters.csv"
+role = "forecasts"
+entry = "Jacques Peeters"
+forecasts = "quantiles"
+kind = "submission"
+rank = 24
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=17F4Zei-uD2R8zKhR1MDvoCH1rQ3KqtZh"
+sha256 = "fd5d33f739120be09e54b9be5dd99954df25e9f373703d7de8e92b9c996d9033"
+bytes = 461092376
+
+[[competitions.files]]
+name = "uncertainty-0025 Rob Mulla.csv"
+role = "forecasts"
+entry = "Rob Mulla"
+forecasts = "quantiles"
+kind = "submission"
+rank = 25
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1oBP8am6qmOpuYZWJvWywtl97SJH1AP5a"
+sha256 = "e966342b077077b5a1833c7db1f31af2ab421016bf84678b4237f74336f4594d"
+bytes = 440029267
+
+[[competitions.files]]
+name = "uncertainty-0026 Costas Voglis.csv"
+role = "forecasts"
+entry = "Costas Voglis"
+forecasts = "quantiles"
+kind = "submission"
+rank = 26
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1lfoqwQVptdxVWHqdzi4Ko1qkw0FaTs4n"
+sha256 = "ac09aa91a731548b87c026fc7b408e660798ccccf79ad9c3c326ffe57fbba851"
+bytes = 436591060
+
+[[competitions.files]]
+name = "uncertainty-0027 RandomObserver.csv"
+role = "forecasts"
+entry = "RandomObserver"
+forecasts = "quantiles"
+kind = "submission"
+rank = 27
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1XY0mOKT3pReo-5-Sl0Ap6UinLCtcKxhS"
+sha256 = "020ad79b37a15b6b3d98651c68ceff1015437d42418b6419a91b1fe1a8b62dfd"
+bytes = 420940433
+
+[[competitions.files]]
+name = "uncertainty-0028 Appian.csv"
+role = "forecasts"
+entry = "Appian"
+forecasts = "quantiles"
+kind = "submission"
+rank = 28
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1C4cWfLXjRoAm8ZB1D8Ylznt4T0OxeLm4"
+sha256 = "d6186569f2e21ba293be8db22ec2c7267878d2fa34130e54c7945cc83288b6f4"
+bytes = 416206809
+
+[[competitions.files]]
+name = "uncertainty-0029 rapidsai.csv"
+role = "forecasts"
+entry = "rapidsai"
+forecasts = "quantiles"
+kind = "submission"
+rank = 29
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1Jn0y0aoPMJ38xBWbdNME3GJ32_P2DNfW"
+sha256 = "52d0102d69006d742cd034ba8d4c3c4703a714ea03063bc65e4c183c046126a6"
+bytes = 438842298
+
+[[competitions.files]]
+name = "uncertainty-0030 lz1997.csv"
+role = "forecasts"
+entry = "lz1997"
+forecasts = "quantiles"
+kind = "submission"
+rank = 30
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=17QE0vfLY8rhHg3Z_6KSuesEMQGyv-kAs"
+sha256 = "2cc0df096fd94529875faf4bd9c6c5c53110c1da7365c3aed1d2624408544b5d"
+bytes = 271064619
+
+[[competitions.files]]
+name = "uncertainty-0031 Bo Peng.csv"
+role = "forecasts"
+entry = "Bo Peng"
+forecasts = "quantiles"
+kind = "submission"
+rank = 31
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=134fujoX3Bf4CqJ3Eb02dCf8ji74mMvYN"
+sha256 = "f3d7490b18485844a4e5b6ff23bb054ada0984cca39ac5915fcf9cb1669c2857"
+bytes = 415044646
+
+[[competitions.files]]
+name = "uncertainty-0032 shirokane_friends_from_acc.csv"
+role = "forecasts"
+entry = "shirokane_friends_from_acc"
+forecasts = "quantiles"
+kind = "submission"
+rank = 32
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1QhwV_eYJnY5CFlTYCJcg89W48O4uNWPw"
+sha256 = "8f13b5d68a4dd5c626db0872a42240b72f148ff40e0cd326853f3bd736fc6483"
+bytes = 436181502
+
+[[competitions.files]]
+name = "uncertainty-0033 MPWARE.csv"
+role = "forecasts"
+entry = "MPWARE"
+forecasts = "quantiles"
+kind = "submission"
+rank = 33
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1eIv2hwHItO17eNH94b8FUOPgoTeYpuxQ"
+sha256 = "198bd36f871ae778ee0fc2ff8574be2d1f40a0f350a8a42bad81f0e6aba258d8"
+bytes = 396874119
+
+[[competitions.files]]
+name = "uncertainty-0034 Alberto Benayas.csv"
+role = "forecasts"
+entry = "Alberto Benayas"
+forecasts = "quantiles"
+kind = "submission"
+rank = 34
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=14ylvDJhuKcbrkgvXyYMQ4YdDSvJQSRlx"
+sha256 = "3d3c5069d610a602c79443ae7e1effe960854bb24200bae758b7d1c9f999bd7d"
+bytes = 273138109
+
+[[competitions.files]]
+name = "uncertainty-0035 lpyczn.csv"
+role = "forecasts"
+entry = "lpyczn"
+forecasts = "quantiles"
+kind = "submission"
+rank = 35
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1cujzavbkUfdMokH2wt6J81xBkBiGtrWV"
+sha256 = "6cd7bfffcf4b1331b5392f75decf3fd8110940441f20be235f60a03c56d0af19"
+bytes = 294392792
+
+[[competitions.files]]
+name = "uncertainty-0036 PreciseMen.csv"
+role = "forecasts"
+entry = "PreciseMen"
+forecasts = "quantiles"
+kind = "submission"
+rank = 36
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1KQ9Sm9a-aAR0dH2RzbV2in-Rw9nFpUsX"
+sha256 = "d0f7219b6154f7054a5754ba01f2997b174f0f606ca7475655181c476edd3dde"
+bytes = 422629437
+
+[[competitions.files]]
+name = "uncertainty-0037 Volo.csv"
+role = "forecasts"
+entry = "Volo"
+forecasts = "quantiles"
+kind = "submission"
+rank = 37
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1h6Ot0fytoscEsHqzu8TT0LL9kSH5Vudd"
+sha256 = "46186a344ae1afe1215c42e2278ff83907d73442b65cc358dd1a7392b9215b50"
+bytes = 329761727
+
+[[competitions.files]]
+name = "uncertainty-0038 Football_Winer.csv"
+role = "forecasts"
+entry = "Football_Winer"
+forecasts = "quantiles"
+kind = "submission"
+rank = 38
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=11z-XU1hlYV-y31SB2bOSdtI4n87QlRED"
+sha256 = "bcced7829e61ae499ec4e1b346c7bbd98e5465050fcf9b5b5d5586617c2952ac"
+bytes = 272910132
+
+[[competitions.files]]
+name = "uncertainty-0039 sibmike_STU.csv"
+role = "forecasts"
+entry = "sibmike_STU"
+forecasts = "quantiles"
+kind = "submission"
+rank = 39
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1vdKrd8U8zd8x0PdKGMvpt72tJwmC85CT"
+sha256 = "cf8a3e44956f5998e9d885ea02cc841c1944c60bf2c2aa77d1e4713ddb018be5"
+bytes = 437164992
+
+[[competitions.files]]
+name = "uncertainty-0040 Chris X.csv"
+role = "forecasts"
+entry = "Chris X"
+forecasts = "quantiles"
+kind = "submission"
+rank = 40
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1GGAIeGIEU9wkmax3v0EALX0fiEgaDONm"
+sha256 = "7a6e1faeff3ec07167a4259c80187f948c1d12d7723533236b67433936233c19"
+bytes = 393670695
+
+[[competitions.files]]
+name = "uncertainty-0041 KrisztianSz_STU.csv"
+role = "forecasts"
+entry = "KrisztianSz_STU"
+forecasts = "quantiles"
+kind = "submission"
+rank = 41
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1M6tJpXgqcXjaVOpMJZ4OJdB846fMsc62"
+sha256 = "09513f7a7d8596bd4d8fa9ab71b3093088cf5d178ff46922d29938715c13733e"
+bytes = 136029227
+
+[[competitions.files]]
+name = "uncertainty-0042 Onl.csv"
+role = "forecasts"
+entry = "Onl"
+forecasts = "quantiles"
+kind = "submission"
+rank = 42
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1PJT0sRKg9REpAtsI5x_cQ5SqtKVU-ov7"
+sha256 = "8bc96d4ea22fffb43eb62089c1b55ec4d611ca12e4ac51d25345523fa7281984"
+bytes = 75029855
+
+[[competitions.files]]
+name = "uncertainty-0043 shuheioka.csv"
+role = "forecasts"
+entry = "shuheioka"
+forecasts = "quantiles"
+kind = "submission"
+rank = 43
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1ve7pZSudIoiAzCvXdTr1F9wlQ-A5aYRv"
+sha256 = "3510cd6d61cb883d241c5bc46f083ba7a2910b32c62067a28a05549f9392a619"
+bytes = 436474748
+
+[[competitions.files]]
+name = "uncertainty-0044 Dennis Igshv.csv"
+role = "forecasts"
+entry = "Dennis Igshv"
+forecasts = "quantiles"
+kind = "submission"
+rank = 44
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1UJuSyTKXYRkOSZmtezfbVtGBeg0fQo9_"
+sha256 = "49d8e4c549f80d9fb3b5b088b0eeb1b2c4a45574c66d82ba67c73968631b3348"
+bytes = 271123291
+
+[[competitions.files]]
+name = "uncertainty-0045 slaweks.csv"
+role = "forecasts"
+entry = "slaweks"
+forecasts = "quantiles"
+kind = "submission"
+rank = 45
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1fVLsHeVn6hRnpM1JFaWRcXFj040bSv4_"
+sha256 = "c3981e10ae80bd5041d93cd15774d08f3d3f87f7ef0ef2b28bd3d3fc060f87fd"
+bytes = 205109679
+
+[[competitions.files]]
+name = "uncertainty-0046 valeska.csv"
+role = "forecasts"
+entry = "valeska"
+forecasts = "quantiles"
+kind = "submission"
+rank = 46
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1bJLeNNTeAWvEjSqSFKbFbUXsED5uPDa_"
+sha256 = "28236627e0957aa30712f5ba2b538b5dfbf7bf1461241a0ae3efd7aa8c83ef6e"
+bytes = 395966506
+
+[[competitions.files]]
+name = "uncertainty-0047 M0T0.csv"
+role = "forecasts"
+entry = "M0T0"
+forecasts = "quantiles"
+kind = "submission"
+rank = 47
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1vCpqAAK2agE3XhdoOOWW0MH-d2sKOOyC"
+sha256 = "e0cba90e695640166749dc5da43dd381e1454b3107aeae00f64f9bd3e74ba656"
+bytes = 436849916
+
+[[competitions.files]]
+name = "uncertainty-0048 ArshjotKhehra.csv"
+role = "forecasts"
+entry = "ArshjotKhehra"
+forecasts = "quantiles"
+kind = "submission"
+rank = 48
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1LFgSH9jSkv8RJOcjTXmHWjQzQZ6-ELyH"
+sha256 = "6c7f9a0d467397be42ea781f5efcbf3e382a023b5b5bab97556beb6bca8b0028"
+bytes = 288189697
+
+[[competitions.files]]
+name = "uncertainty-0049 Konrad Banachewicz.csv"
+role = "forecasts"
+entry = "Konrad Banachewicz"
+forecasts = "quantiles"
+kind = "submission"
+rank = 49
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1Rf_rJXmW5hK0L7nyj4cUdSjEqNz__eMU"
+sha256 = "bbbed1753dd7062891b1808797dc21629a8fb153ea8d6c7859db2bc0444e34ba"
+bytes = 340770560
+
+[[competitions.files]]
+name = "uncertainty-0050 Lindada.csv"
+role = "forecasts"
+entry = "Lindada"
+forecasts = "quantiles"
+kind = "submission"
+rank = 50
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=14Y6IqeilCixNzMiFsLxhGsfdAn8NLuKX"
+sha256 = "a46d2c72113c1ebbb8960a67701d462b1d63e621f681d1cefb8fab8e4ce099ba"
+bytes = 270203344
+
+[[competitions.files]]
+name = "uncertainty-ARIMA.csv"
+role = "forecasts"
+entry = "ARIMA"
+forecasts = "quantiles"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1I_GwiQekqFB5VxA6AfEYc9ycvlAnxYMk"
+sha256 = "76a7e77921b0f113f5f4c0bf2adf4145eaf004c438e41b833f2ece692bbbc77f"
+bytes = 292650370
+
+[[competitions.files]]
+name = "uncertainty-ETS.csv"
+role = "forecasts"
+entry = "ETS"
+forecasts = "quantiles"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1pFnSIxmJCno3pV9Nql5DnYz64qH54CiH"
+sha256 = "e4c7640f0471b723d2f4674c11d1d441ac4d8dd5af56012faad7f381e4c60d36"
+bytes = 292367192
+
+[[competitions.files]]
+name = "uncertainty-Kernel.csv"
+role = "forecasts"
+entry = "Kernel"
+forecasts = "quantiles"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1AcN2VfjSmJtlzAW6QKjypic77HpjmIWU"
+sha256 = "ae9ee66258a436eae2b90e87be6b08a61371792f466548487f1e27741e05d171"
+bytes = 82211813
+
+[[competitions.files]]
+name = "uncertainty-Naive.csv"
+role = "forecasts"
+entry = "Naive"
+forecasts = "quantiles"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1szxb_PZVKv9_48xoG6cMsYlw8iZBPWmR"
+sha256 = "db0f8da1400944dbb839d8a284d7ba9d83eae0840f402b25f41284cc44784a85"
+bytes = 224331858
+
+[[competitions.files]]
+name = "uncertainty-SES.csv"
+role = "forecasts"
+entry = "SES"
+forecasts = "quantiles"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1smiXtlcmFlDCJ2TbP_ajLyEOc1rKFiqP"
+sha256 = "55af072a17868b76ea684bd2d5478129cfcb3c93400860d83f9e4ac8d4bfd9f0"
+bytes = 293050273
+
+[[competitions.files]]
+name = "uncertainty-sNaive.csv"
+role = "forecasts"
+entry = "sNaive"
+forecasts = "quantiles"
+kind = "benchmark"
+url = "https://drive.usercontent.google.com/download?export=download&confirm=t&id=1qPVevANbXzsYus3dfVU-DGct0g3sJhwZ"
+sha256 = "9fc3599503698453aa6a4cbf0022457cb35ca8a244c224e96a41e69081851cee"
+bytes = 237200448
+
+[[competitions]]
+id = "m6"
+name = "M6"
+year = 2022
+format = "m6"
+availability = "Download"
+frequencies = ["Daily"]
+source = "Mcompetitions/M6-methods"
+source_url = "https://github.com/Mcompetitions/M6-methods"
+revision = "10c553f7a5ffbaf53971ca48ea982b2c0dd952ed"
+licence = "None stated"
+licence_url = "https://github.com/Mcompetitions/M6-methods"
+papers = ["MSHPS...2025a"]
+measures = ["RPS", "IR", "OR"]
+entries = 251
+
+[[competitions.files]]
+name = "assets_m6.csv"
+role = "prices"
+url = "https://github.com/Mcompetitions/M6-methods/raw/10c553f7a5ffbaf53971ca48ea982b2c0dd952ed/assets_m6.csv"
+sha256 = "48c67aa0976ae63de3a6d7a42228ef374d39221734a433c9391572d01e85b20a"
+bytes = 590752
+
+[[competitions.files]]
+name = "submissions.csv"
+role = "submissions"
+url = "https://github.com/Mcompetitions/M6-methods/raw/10c553f7a5ffbaf53971ca48ea982b2c0dd952ed/IJF%20paper/submissions.csv"
+sha256 = "2615d352d04b19b99c0bba91da9bb835403580b5253b539ca75f429ea0408001"
+bytes = 22218846
+
+[[competitions.files]]
+name = "summary_leaderboard.xlsx"
+role = "scores"
+url = "https://github.com/Mcompetitions/M6-methods/raw/10c553f7a5ffbaf53971ca48ea982b2c0dd952ed/IJF%20paper/summary_leaderboard.xlsx"
+sha256 = "8d35b66b476be7587e574a08bfa83f550778639b0c69ff1bc790ccfde15f9bf4"
+bytes = 17195878

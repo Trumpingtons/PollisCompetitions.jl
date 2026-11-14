@@ -196,19 +196,18 @@ function convert_m4(id, source, target; progress = (done, total) -> nothing)
 end
 
 """
-	convert_m4_forecasts(id, file, source, target)
+	convert_m4_forecasts(id, file, entry, source, target)
 
-The point forecasts of the entry of `file`, a RAR archive of the M4 repository holding one CSV file (a series a line:
+The point forecasts of entry `entry` (its number), `file` of the catalogue, a RAR archive of the M4 repository holding one CSV file (a series a line:
 its name, then its forecasts F1, F2 and so on), written to `forecasts/<entry>.parquet` in `target`: `(; entry, series,
 h, value)`. A forecast beyond the horizon of its series is an error. Answers the number of series given every
 forecast of their horizon.
 """
-function convert_m4_forecasts(id, file, source, target)
+function convert_m4_forecasts(id, file, entry, source, target)
 	archive = fetch_file(file, source)
 	csv = only_file(extract(archive, joinpath(source, splitext(file["name"])[1])), ".csv", archive)
 	known = series(id)
 	numbers = Dict(zip(known.name, zip(known.series, known.horizon)))
-	entry = only(row.entry for row in Tables.rows(entries(id)) if row.name == file["entry"])
 	forecasts = (; series = Int32[], h = Int16[], value = Float64[])
 	complete = 0
 	lines = eachline(csv)
@@ -231,7 +230,7 @@ function convert_m4_forecasts(id, file, source, target)
 	with_database() do db
 		writer = TableWriter(db, "forecasts", FORECAST_COLUMNS)
 		add!(writer, forecasts; constants = ("entry" => entry,))
-		write_parquet(writer, joinpath(target, "forecasts", "$(file["entry"]).parquet"); order = "series, h")
+		write_parquet(writer, joinpath(target, "forecasts", "$(entry).parquet"); order = "series, h")
 	end
 	rm(joinpath(source, splitext(file["name"])[1]); recursive = true, force = true)
 	complete

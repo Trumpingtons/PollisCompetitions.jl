@@ -21,7 +21,10 @@ function fetch_file(file, folder)
 	end
 	checksum = sha256_of(partial)
 	if checksum != file["sha256"]
+		page = startswith(lstrip(String(read(partial, 512))), "<")
 		rm(partial; force = true)
+		# A busy source, such as a file of Google Drive downloaded too often in a day, answers a page in its place
+		page && error("$(file["url"]) answered a page, not $(file["name"]): the source may be busy. Try again later.")
 		error("$(file["name"]) from $(file["url"]) is not the file of the catalogue: its SHA-256 is $(checksum), not $(file["sha256"]). The source has changed.")
 	end
 	mv(partial, path; force = true)

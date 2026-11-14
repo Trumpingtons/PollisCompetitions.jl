@@ -59,15 +59,22 @@ function add!(writer::TableWriter, batch; constants = ())
 end
 
 """
-	write_parquet(writer, path; order = "")
+	copy_parquet(db, select, path; order = "")
 
-The table of `writer` written to the Parquet file `path`, compressed with ZSTD, its rows in the order of `order`
-(columns for ORDER BY) when given. The file is written beside `path` first, then put in its place.
+The rows of the query `select` of the database `db` written to the Parquet file `path`, compressed with ZSTD, in the
+order of `order` (columns for ORDER BY) when given. The file is written beside `path` first, then put in its place.
 """
-function write_parquet(writer::TableWriter, path; order = "")
+function copy_parquet(db, select, path; order = "")
 	mkpath(dirname(path))
 	partial = path * ".part"
 	sorted = isempty(order) ? "" : " ORDER BY $(order)"
-	DBInterface.execute(writer.db, "COPY (SELECT * FROM $(writer.name)$(sorted)) TO $(sql_text(partial)) (FORMAT parquet, COMPRESSION zstd)")
+	DBInterface.execute(db, "COPY ($(select)$(sorted)) TO $(sql_text(partial)) (FORMAT parquet, COMPRESSION zstd)")
 	mv(partial, path; force = true)
 end
+
+"""
+	write_parquet(writer, path; order = "")
+
+The table of `writer` written to the Parquet file `path` by `copy_parquet`, its rows in the order of `order`.
+"""
+write_parquet(writer::TableWriter, path; order = "") = copy_parquet(writer.db, "SELECT * FROM $(writer.name)", path; order)
