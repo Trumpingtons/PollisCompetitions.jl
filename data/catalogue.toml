@@ -1,0 +1,736 @@
+# The competitions of PollisCompetitions.jl: one entry each, with its files. Every competition is a Download: its
+# files are fetched from their source, each checked against its SHA-256, and converted on the user's computer.
+#
+# `format` says how its files are read: "monash", a zip of one .tsf file of the Monash Time Series Forecasting Archive
+# for each frequency, or "m4", the repository of M4. In each series of the Monash archive, the values the forecasters
+# saw come first, then the `horizon` values their forecasts were scored on: so it is for the 23,000 series of M4
+# Yearly, which the archive and the files of the organisers give with the same values. The `period` of a file of the
+# archive is the seasonal period of its frequency, 1 for M3 Other, for which the archive gives no frequency.
+#
+# `papers` are keys of PollisReferences. `entries` is the number of entries whose forecasts are published, `measures`
+# the measures of the scores published with them. A file plays a `role`: "series" (a frequency of the Monash archive),
+# "info", "train" and "test" (the series of M4), "entries", "scores" and "forecasts" (those of an `entry`).
+
+[[competitions]]
+id = "m1"
+name = "M1"
+year = 1982
+format = "monash"
+availability = "Download"
+frequencies = ["Yearly", "Quarterly", "Monthly"]
+source = "Monash Time Series Forecasting Archive"
+source_url = "https://zenodo.org/communities/forecasting"
+licence = "CC BY 4.0"
+licence_url = "https://creativecommons.org/licenses/by/4.0/"
+papers = ["MACFH...1982a", "GBWHM2021a"]
+
+[[competitions.files]]
+name = "m1_yearly_dataset.zip"
+role = "series"
+frequency = "Yearly"
+period = 1
+horizon = 6
+record = "https://zenodo.org/records/4656193"
+url = "https://zenodo.org/records/4656193/files/m1_yearly_dataset.zip?download=1"
+sha256 = "334ecda7a9bb5ca15764716958e0087b0db3229ec40d253ffa7603f2ae7d0cf1"
+bytes = 13179
+
+[[competitions.files]]
+name = "m1_quarterly_dataset.zip"
+role = "series"
+frequency = "Quarterly"
+period = 4
+horizon = 8
+record = "https://zenodo.org/records/4656154"
+url = "https://zenodo.org/records/4656154/files/m1_quarterly_dataset.zip?download=1"
+sha256 = "2820f7fab538a4789541468949e52156c72b37a283f5a9d71e4e38a19b60e8c2"
+bytes = 21290
+
+[[competitions.files]]
+name = "m1_monthly_dataset.zip"
+role = "series"
+frequency = "Monthly"
+period = 12
+horizon = 18
+record = "https://zenodo.org/records/4656159"
+url = "https://zenodo.org/records/4656159/files/m1_monthly_dataset.zip?download=1"
+sha256 = "2780e591d1a0e3fb105575b413fcd218d59eac264af045356dbe5f85c9ff470f"
+bytes = 120931
+
+[[competitions]]
+id = "m3"
+name = "M3"
+year = 2000
+format = "monash"
+availability = "Download"
+frequencies = ["Yearly", "Quarterly", "Monthly", "Other"]
+source = "Monash Time Series Forecasting Archive"
+source_url = "https://zenodo.org/communities/forecasting"
+licence = "CC BY 4.0"
+licence_url = "https://creativecommons.org/licenses/by/4.0/"
+papers = ["MH2000a", "GBWHM2021a"]
+
+[[competitions.files]]
+name = "m3_yearly_dataset.zip"
+role = "series"
+frequency = "Yearly"
+period = 1
+horizon = 6
+record = "https://zenodo.org/records/4656222"
+url = "https://zenodo.org/records/4656222/files/m3_yearly_dataset.zip?download=1"
+sha256 = "08a23f5bcc4dc47acc67c8b6f08ad44c04ffcb9d714181a1744f73cdbf8d8510"
+bytes = 50178
+
+[[competitions.files]]
+name = "m3_quarterly_dataset.zip"
+role = "series"
+frequency = "Quarterly"
+period = 4
+horizon = 8
+record = "https://zenodo.org/records/4656262"
+url = "https://zenodo.org/records/4656262/files/m3_quarterly_dataset.zip?download=1"
+sha256 = "c59f208d1ad3d38ff039e0bdc9e356fe7c83019ecd2dcae0a930b607c22b50c2"
+bytes = 96124
+
+[[competitions.files]]
+name = "m3_monthly_dataset.zip"
+role = "series"
+frequency = "Monthly"
+period = 12
+horizon = 18
+record = "https://zenodo.org/records/4656298"
+url = "https://zenodo.org/records/4656298/files/m3_monthly_dataset.zip?download=1"
+sha256 = "80b0c1c92b6273f12d346256d3ee29489a7b081823430ad8b3a1cc01e06ccafd"
+bytes = 336324
+
+[[competitions.files]]
+name = "m3_other_dataset.zip"
+role = "series"
+frequency = "Other"
+period = 1
+horizon = 8
+record = "https://zenodo.org/records/4656335"
+url = "https://zenodo.org/records/4656335/files/m3_other_dataset.zip?download=1"
+sha256 = "0bf0e3a260e8ebfe361e3ccb60f5d1c7fbc2b9918afff1805bccec61a221b43f"
+bytes = 33018
+
+[[competitions]]
+id = "m4"
+name = "M4"
+year = 2018
+format = "m4"
+availability = "Download"
+frequencies = ["Yearly", "Quarterly", "Monthly", "Weekly", "Daily", "Hourly"]
+entries = 61
+source = "Mcompetitions/M4-methods"
+source_url = "https://github.com/Mcompetitions/M4-methods"
+revision = "6c1067e5a57161249b17289a565178dc7a3fb3ca"
+licence = "None stated"
+licence_url = "https://github.com/Mcompetitions/M4-methods"
+papers = ["MSA2018a", "MSA2020a"]
+measures = ["sMAPE", "MASE", "OWA"]
+
+[[competitions.files]]
+name = "M4-info.csv"
+role = "info"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/M4-info.csv"
+sha256 = "26a75cc9b9f65e351b39b0bdbb7e3464ac837df0baf541ab55abdd2ba1a14c88"
+bytes = 4335598
+
+[[competitions.files]]
+name = "Yearly-train.csv"
+role = "train"
+frequency = "Yearly"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Train/Yearly-train.csv"
+sha256 = "6aa668d4f04654c0bf5f07b266a51c556f0df2faf4709f852653755396a249e4"
+bytes = 25355736
+
+[[competitions.files]]
+name = "Quarterly-train.csv"
+role = "train"
+frequency = "Quarterly"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Train/Quarterly-train.csv"
+sha256 = "4450678cd493aa965c14bde984a5b62a66d8c3b2f7af1e53779bc91ff008ccdc"
+bytes = 38788547
+
+[[competitions.files]]
+name = "Monthly-train.csv"
+role = "train"
+frequency = "Monthly"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Train/Monthly-train.csv"
+sha256 = "63aaa56198b4a22279a2fec541f56921f3bed6d8e0f84e550206df9276f2e9b9"
+bytes = 91655432
+
+[[competitions.files]]
+name = "Weekly-train.csv"
+role = "train"
+frequency = "Weekly"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Train/Weekly-train.csv"
+sha256 = "d478d3f6ed673e6ed3c2cb0fbed5425f72eedd51318ebebeb0b5ecfcefc37714"
+bytes = 4015067
+
+[[competitions.files]]
+name = "Daily-train.csv"
+role = "train"
+frequency = "Daily"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Train/Daily-train.csv"
+sha256 = "78e94591c60c06309f1e544fd7b2ccba28f3616b01913dd336a1d1d98483a1ec"
+bytes = 95765153
+
+[[competitions.files]]
+name = "Hourly-train.csv"
+role = "train"
+frequency = "Hourly"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Train/Hourly-train.csv"
+sha256 = "ea59b7783573c49077a835ab6465c7d66f1474783360f310988a9a737fbca62f"
+bytes = 2347115
+
+[[competitions.files]]
+name = "Yearly-test.csv"
+role = "test"
+frequency = "Yearly"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Test/Yearly-test.csv"
+sha256 = "6dc2dd45b3af320389e2d3735cb4b3cdf320b63cbcda15d1a17193ab99702306"
+bytes = 1486434
+
+[[competitions.files]]
+name = "Quarterly-test.csv"
+role = "test"
+frequency = "Quarterly"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Test/Quarterly-test.csv"
+sha256 = "bf1cab3b969a744c220cdc148e3829803eaa5da2754270fc4f376e775cd7d0ae"
+bytes = 1971754
+
+[[competitions.files]]
+name = "Monthly-test.csv"
+role = "test"
+frequency = "Monthly"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Test/Monthly-test.csv"
+sha256 = "5e3538bf23b4a09f4078180c3e2b34859f0382e1c4f22564affc1797e8f3f48f"
+bytes = 7942698
+
+[[competitions.files]]
+name = "Weekly-test.csv"
+role = "test"
+frequency = "Weekly"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Test/Weekly-test.csv"
+sha256 = "3b2bc4be8e636e802260dcd843ca3c5da40536a1fbe1ecb3229a97dae4f44688"
+bytes = 44247
+
+[[competitions.files]]
+name = "Daily-test.csv"
+role = "test"
+frequency = "Daily"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Test/Daily-test.csv"
+sha256 = "633b0815626ae266d36872c4d53e95eb93ee8d43e79587fceec519eba3e6b05e"
+bytes = 576459
+
+[[competitions.files]]
+name = "Hourly-test.csv"
+role = "test"
+frequency = "Hourly"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Dataset/Test/Hourly-test.csv"
+sha256 = "71a57fccb15e534d973626ada4fb87febf789e9317715b7cc6dd3b5f90db6f42"
+bytes = 132820
+
+[[competitions.files]]
+name = "Submission Info.xlsx"
+role = "entries"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/Submission%20Info.xlsx"
+sha256 = "1afeacafcf283a77e0211229cf4c81a54e457a5f6934583dfea9cea5da528ac0"
+bytes = 16845
+
+[[competitions.files]]
+name = "Evaluation and Ranks.xlsx"
+role = "scores"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Evaluation%20and%20Ranks.xlsx"
+sha256 = "9da8ca21011d747daa1de43d4157ed19ad85a089de9ba3a7da39ead78a49d51e"
+bytes = 132659
+
+[[competitions.files]]
+name = "submission-005.rar"
+role = "forecasts"
+entry = "5"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-005.rar"
+sha256 = "3ee322d7a1c12f6e21bf859f10e38a519e27b4a3987112a486958ec6609351df"
+bytes = 7455416
+
+[[competitions.files]]
+name = "submission-009.rar"
+role = "forecasts"
+entry = "9"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-009.rar"
+sha256 = "7e5141acd3e5a74f7aba057a48e8c2f3c049717e01d45d38d59a7c1eb594c366"
+bytes = 10148066
+
+[[competitions.files]]
+name = "submission-024.rar"
+role = "forecasts"
+entry = "24"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-024.rar"
+sha256 = "ec436cc6934c43aa0adac780f87fb69cf7293a1d781fb85db7453640e2ef4ab2"
+bytes = 2960184
+
+[[competitions.files]]
+name = "submission-030.rar"
+role = "forecasts"
+entry = "30"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-030.rar"
+sha256 = "753c9a034307b03135e6e399f5fcf304b17efebd5aa8f2d9f7dea50bd9b29792"
+bytes = 8716554
+
+[[competitions.files]]
+name = "submission-036.rar"
+role = "forecasts"
+entry = "36"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-036.rar"
+sha256 = "24a67a2a8fda9c6eaaf48aabd0f75ea5528e9dbb7e45e59dd2995e569f021539"
+bytes = 7111342
+
+[[competitions.files]]
+name = "submission-039.rar"
+role = "forecasts"
+entry = "39"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-039.rar"
+sha256 = "e1ae3cc48ec7ecd94f2b78bf87797e3c314ebbd6e71413bf8c2a9d1c11b8f7f5"
+bytes = 10037769
+
+[[competitions.files]]
+name = "submission-043.rar"
+role = "forecasts"
+entry = "43"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-043.rar"
+sha256 = "61c384074924044bcb33346efd3c47f0c7c9bfbcda50986e0346a71099a8c1a0"
+bytes = 10386453
+
+[[competitions.files]]
+name = "submission-069.rar"
+role = "forecasts"
+entry = "69"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-069.rar"
+sha256 = "c6455724a8f52a19f5d23625f2b6f6b4ad27ea94465426b85f31ffa6f07b36cd"
+bytes = 5398570
+
+[[competitions.files]]
+name = "submission-070.rar"
+role = "forecasts"
+entry = "70"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-070.rar"
+sha256 = "22755d48caf042326541839e1b3f6cd804eb8ddc11b9487198ebde03484adfde"
+bytes = 8246255
+
+[[competitions.files]]
+name = "submission-072.rar"
+role = "forecasts"
+entry = "72"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-072.rar"
+sha256 = "a6e700d2747f237421d9a90e7febc7de603564ff47a52afdd13f9c78dceac3df"
+bytes = 6975557
+
+[[competitions.files]]
+name = "submission-078.rar"
+role = "forecasts"
+entry = "78"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-078.rar"
+sha256 = "e63f249bc5463095298fb3b6ed0eb5b9450e5ac388b5fee2d0e52122e1f03c1c"
+bytes = 5814778
+
+[[competitions.files]]
+name = "submission-082.rar"
+role = "forecasts"
+entry = "82"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-082.rar"
+sha256 = "aa44ec26245e058b3cb7f1ede1f30b5581a32260f73b188ba3b79dda50e10b04"
+bytes = 9264216
+
+[[competitions.files]]
+name = "submission-091.rar"
+role = "forecasts"
+entry = "91"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-091.rar"
+sha256 = "531a32ad3c8c3add728520cc15780fd67495c7949afe68425f7baee993a999b3"
+bytes = 5552452
+
+[[competitions.files]]
+name = "submission-104.rar"
+role = "forecasts"
+entry = "104"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-104.rar"
+sha256 = "e60ea1f6ede31321fc104869fe9d952408dd26ad344e2b528ea2a0f41cc0cdda"
+bytes = 9353285
+
+[[competitions.files]]
+name = "submission-106.rar"
+role = "forecasts"
+entry = "106"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-106.rar"
+sha256 = "29b56f80a36be9d5186f70a10200d440af0c86ca27578851471360ca93d4382c"
+bytes = 5417593
+
+[[competitions.files]]
+name = "submission-118.rar"
+role = "forecasts"
+entry = "118"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-118.rar"
+sha256 = "6c0f887e1f319f1b089eab9935ba5fa780ef90a214b8eda09584ac50e8ffcee7"
+bytes = 5966729
+
+[[competitions.files]]
+name = "submission-126.rar"
+role = "forecasts"
+entry = "126"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-126.rar"
+sha256 = "d14216bcc0ecd2900e68659253a1812929a34a5da03b03fa212c18349c63b3e3"
+bytes = 8644107
+
+[[competitions.files]]
+name = "submission-132.rar"
+role = "forecasts"
+entry = "132"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-132.rar"
+sha256 = "64b0b6687e4f2b663cfeb8694f90b7bea8d79c85e5295d237b3de2b240c53a5b"
+bytes = 5422265
+
+[[competitions.files]]
+name = "submission-169.rar"
+role = "forecasts"
+entry = "169"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-169.rar"
+sha256 = "728d13b1608f839daa67e4962d3d86f32a1a700c9c21ddc5e80496e1a55e87cc"
+bytes = 4296272
+
+[[competitions.files]]
+name = "submission-191.rar"
+role = "forecasts"
+entry = "191"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-191.rar"
+sha256 = "7e1b3d6cf0e7272d1c99e08cf7a7fe9b3e313af4ce44818db315e938b2a6504b"
+bytes = 7454828
+
+[[competitions.files]]
+name = "submission-211.rar"
+role = "forecasts"
+entry = "211"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-211.rar"
+sha256 = "6cc657c3e60b0e7056919e9b341da416134515498dab3f3a4b0883af9adc2457"
+bytes = 11585430
+
+[[competitions.files]]
+name = "submission-212.rar"
+role = "forecasts"
+entry = "212"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-212.rar"
+sha256 = "0cdc70046f3270a551454ee5f31eee181dab6dec4223841a52b9bd02059b8680"
+bytes = 7580463
+
+[[competitions.files]]
+name = "submission-216.rar"
+role = "forecasts"
+entry = "216"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-216.rar"
+sha256 = "869edb5abe228a255cc1a36aa46afd50f851c975036a93b18233dc736dc0e450"
+bytes = 10398471
+
+[[competitions.files]]
+name = "submission-218.rar"
+role = "forecasts"
+entry = "218"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-218.rar"
+sha256 = "ee1dcd511ea49960c65eb5e809ef3fbb34cec55dd2977bcaa3f2db15c11e7a17"
+bytes = 3849031
+
+[[competitions.files]]
+name = "submission-219.rar"
+role = "forecasts"
+entry = "219"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-219.rar"
+sha256 = "684a4ed52f8a3af753abc091b03a3aec4f792aa221bf445c9237715ab7e18afb"
+bytes = 7546396
+
+[[competitions.files]]
+name = "submission-223.rar"
+role = "forecasts"
+entry = "223"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-223.rar"
+sha256 = "ae0d5fad200083127cf083e7958fd0d63ae9692add67d1ef8346b542957c306c"
+bytes = 8900517
+
+[[competitions.files]]
+name = "submission-225.rar"
+role = "forecasts"
+entry = "225"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-225.rar"
+sha256 = "3d27bddd22db91bd1078350395352674c92b6f20c0207fbcac0e8010a792b6e8"
+bytes = 7075664
+
+[[competitions.files]]
+name = "submission-227.rar"
+role = "forecasts"
+entry = "227"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-227.rar"
+sha256 = "2eca87416089b478c9a90cc8cce5b711f8b687a42cd3debe7574e05c2c30c70d"
+bytes = 9855078
+
+[[competitions.files]]
+name = "submission-231.rar"
+role = "forecasts"
+entry = "231"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-231.rar"
+sha256 = "348c495eab55e5cb3a1a7ff193ab1ce0eb3d59e1f5e01b0300bcfd4e9332ac3f"
+bytes = 7488462
+
+[[competitions.files]]
+name = "submission-234.rar"
+role = "forecasts"
+entry = "234"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-234.rar"
+sha256 = "9262c5da37ad88528d4973d78ecbb2bee9382160fcc1e6ba8f9f6780d7750f30"
+bytes = 10082197
+
+[[competitions.files]]
+name = "submission-235.rar"
+role = "forecasts"
+entry = "235"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-235.rar"
+sha256 = "0a73dabe5f3c8e9b115c3682934be36fea6adb3e1f31afd8e8c38a9a26e5a1ff"
+bytes = 4290322
+
+[[competitions.files]]
+name = "submission-236.rar"
+role = "forecasts"
+entry = "236"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-236.rar"
+sha256 = "dae4060111e19f787b41f21556ef9924cbb288d407d467786daa0244927583b6"
+bytes = 9247658
+
+[[competitions.files]]
+name = "submission-237.rar"
+role = "forecasts"
+entry = "237"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-237.rar"
+sha256 = "d943a988ff4bdc04074964fdecfa68cb9a5fbc8c2a6ff0b059ef94d366cb6e9a"
+bytes = 10561541
+
+[[competitions.files]]
+name = "submission-238.rar"
+role = "forecasts"
+entry = "238"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-238.rar"
+sha256 = "27f9436b74e0b552b9dcbf1d3995bf56a12ad5ccebc2c3cc644a232b67e42c47"
+bytes = 7014756
+
+[[competitions.files]]
+name = "submission-239.rar"
+role = "forecasts"
+entry = "239"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-239.rar"
+sha256 = "3001af95a919c81abd7ba9f5425e839532f3f7f999539e022b522c9d12e28ac7"
+bytes = 7485160
+
+[[competitions.files]]
+name = "submission-241.rar"
+role = "forecasts"
+entry = "241"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-241.rar"
+sha256 = "aee29d632a3aebd7fd54e9ac39321fb2c395a1cbd721ac94b44dc7c10c045c05"
+bytes = 4592445
+
+[[competitions.files]]
+name = "submission-243.rar"
+role = "forecasts"
+entry = "243"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-243.rar"
+sha256 = "0b7662327217c2aaaba8d56e4b8dcc40a9796d10e5ec4f1f445bb84c948faf0b"
+bytes = 5688781
+
+[[competitions.files]]
+name = "submission-244.rar"
+role = "forecasts"
+entry = "244"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-244.rar"
+sha256 = "bdb55056b68ba9e2ed64790ae688ae081dd0433e5ece2ecf5b17714cf65d73bb"
+bytes = 10400155
+
+[[competitions.files]]
+name = "submission-245.rar"
+role = "forecasts"
+entry = "245"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-245.rar"
+sha256 = "714429bc8d3b7002e5562fb28e24aa5175a91f116e90e66af0d4a55d8b2a7a09"
+bytes = 10863595
+
+[[competitions.files]]
+name = "submission-248.rar"
+role = "forecasts"
+entry = "248"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-248.rar"
+sha256 = "5e4cdd4c70894d6387d040be78e308f41fdc6f41f4a61c73ea0658a5596387d5"
+bytes = 6259777
+
+[[competitions.files]]
+name = "submission-249.rar"
+role = "forecasts"
+entry = "249"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-249.rar"
+sha256 = "7837d1061e1b46ea29c399c982322d0a8916aec2f1d5b69f0b75ccb4a8374426"
+bytes = 1263672
+
+[[competitions.files]]
+name = "submission-250.rar"
+role = "forecasts"
+entry = "250"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-250.rar"
+sha256 = "13c1ab90b8882eaa5f5b20b4c1a292a48148099dc264a4e5f68f103b19b550fe"
+bytes = 8893906
+
+[[competitions.files]]
+name = "submission-251.rar"
+role = "forecasts"
+entry = "251"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-251.rar"
+sha256 = "650ec357ec951780d698e39534963dfc626ed60ac417b63ee9d4eccf139dc1d6"
+bytes = 10121341
+
+[[competitions.files]]
+name = "submission-252.rar"
+role = "forecasts"
+entry = "252"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-252.rar"
+sha256 = "13d9f67ac50e0223ebcdecc54ca832bdfac646f6dfdf763882fbe4a026096033"
+bytes = 10382539
+
+[[competitions.files]]
+name = "submission-253.rar"
+role = "forecasts"
+entry = "253"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-253.rar"
+sha256 = "71de37ad56110e877301333df89fb405529a95d22b46a0bd28274e574918a323"
+bytes = 4494006
+
+[[competitions.files]]
+name = "submission-255.rar"
+role = "forecasts"
+entry = "255"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-255.rar"
+sha256 = "2caca7b867dd5d645277995d2173503cc9b35e3a2306bbf297cbb94fb7df55ae"
+bytes = 10174793
+
+[[competitions.files]]
+name = "submission-256.rar"
+role = "forecasts"
+entry = "256"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-256.rar"
+sha256 = "eaca16a0c62e3d7d0d08d3fa56c66be670f3066be60f4b13d3330bf7cb24da47"
+bytes = 10265599
+
+[[competitions.files]]
+name = "submission-258.rar"
+role = "forecasts"
+entry = "258"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-258.rar"
+sha256 = "4c3974d27f19859f07d87336455ea1c4910f475a451b9b02bc4e2efde44b1a4b"
+bytes = 10277773
+
+[[competitions.files]]
+name = "submission-260.rar"
+role = "forecasts"
+entry = "260"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-260.rar"
+sha256 = "b7809163eaa2b3d562f34cb757fe63ec86799e6e2f407f3553ccb9e767d840c8"
+bytes = 10925935
+
+[[competitions.files]]
+name = "submission-ARIMA.rar"
+role = "forecasts"
+entry = "ARIMA"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-ARIMA.rar"
+sha256 = "35417ad558570c1a81b96b2d01998a820b00f48b52bc933037551abce0e339ec"
+bytes = 9152541
+
+[[competitions.files]]
+name = "submission-Com.rar"
+role = "forecasts"
+entry = "Com"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-Com.rar"
+sha256 = "70864e8f2acfc77138f7862b0c5486a4d9840c1a7e8596ea57148b2bf62adb88"
+bytes = 7533799
+
+[[competitions.files]]
+name = "submission-Damped.rar"
+role = "forecasts"
+entry = "Damped"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-Damped.rar"
+sha256 = "a0427b09f3117efaa5cbe839163f597240c0fc1b954640882857be97f17c3352"
+bytes = 7327240
+
+[[competitions.files]]
+name = "submission-ETS.rar"
+role = "forecasts"
+entry = "ETS"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-ETS.rar"
+sha256 = "c9c736d85a5e6723dae5a1fd1b9f93cd6731d1d5cd09a24de193f6ad037f14f7"
+bytes = 8021424
+
+[[competitions.files]]
+name = "submission-Holt.rar"
+role = "forecasts"
+entry = "Holt"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-Holt.rar"
+sha256 = "3a87b1540e65d3c77222a6d5181b2e4a91312df1c50e7ec40721b59d9d9539f6"
+bytes = 7559625
+
+[[competitions.files]]
+name = "submission-MLP.rar"
+role = "forecasts"
+entry = "MLP"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-MLP.rar"
+sha256 = "fbea2021dc1467de2b3258f6fa2fa369e971b3f742b9408e401fc572b21144f9"
+bytes = 10872914
+
+[[competitions.files]]
+name = "submission-Naive.rar"
+role = "forecasts"
+entry = "Naive"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-Naive.rar"
+sha256 = "2c7a63b9fc67025d0afb83ef0f87b5a1395142f9e11f2ee1e1fb7e1415a71d2b"
+bytes = 793728
+
+[[competitions.files]]
+name = "submission-Naive2.rar"
+role = "forecasts"
+entry = "Naive2"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-Naive2.rar"
+sha256 = "beb03737f329449cee17627cf31eed9637416a35b656568702c6fdb6ab607895"
+bytes = 3374505
+
+[[competitions.files]]
+name = "submission-RNN.rar"
+role = "forecasts"
+entry = "RNN"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-RNN.rar"
+sha256 = "0cd08cf700083179ed9421d387ef4371d77e73aa844a98549ce2e221bcd44a2e"
+bytes = 7110050
+
+[[competitions.files]]
+name = "submission-SES.rar"
+role = "forecasts"
+entry = "SES"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-SES.rar"
+sha256 = "7c1865b44461eda647ccee831c92b5b5521d211d78f0433725df2f66851f96b9"
+bytes = 3624429
+
+[[competitions.files]]
+name = "submission-Theta.rar"
+role = "forecasts"
+entry = "Theta"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-Theta.rar"
+sha256 = "57326ea8ab8e3cb98c4267cd5750c128e48b16fff0e53bcb8a11abacf22c5d12"
+bytes = 7531682
+
+[[competitions.files]]
+name = "submission-sNaive.rar"
+role = "forecasts"
+entry = "sNaive"
+url = "https://github.com/Mcompetitions/M4-methods/raw/6c1067e5a57161249b17289a565178dc7a3fb3ca/Point%20Forecasts/submission-sNaive.rar"
+sha256 = "f8bc042a069a564992c6990d425e7392a04e4fc9d652cc2b24108c96ad7d7f36"
+bytes = 2566453
