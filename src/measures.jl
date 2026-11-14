@@ -157,11 +157,11 @@ end
 
 """
 The format of competition `id` if this package scores it, else an error: M1 and M3 ("monash") and M4 by sMAPE, MASE
-and OWA, M5 by the WRMSSE of its point forecasts.
+and OWA, M5 by the WRMSSE of its point forecasts, M6 by the RPS of its forecasts and the IR of its decisions.
 """
 function scored(id)
 	format = competition(id)["format"]
-	format in ("monash", "m4", "m5") || error("$(competition(id)["name"]) is not scored yet: score and scores give the measures of M1, M3 and M4 and the WRMSSE of M5.")
+	format in ("monash", "m4", "m5", "m6") || error("$(competition(id)["name"]) is not scored yet: score and scores give the measures of M1, M3 and M4, the WRMSSE of M5 and the RPS and IR of M6.")
 	info(id) === nothing && error("$(competition(id)["name"]) is not downloaded yet: download(\"$(id)\") first.")
 	format
 end
@@ -169,13 +169,13 @@ end
 """
 	naive2(y, period, horizon)
 
-The forecasts of Naive2 of the values of `y` over `horizon` steps, as ForecastM4Benchmark.jl computes them: the last
+The forecasts of Naive2 of the values of `y` over `horizon` steps, as `M4Benchmarks` computes them: the last
 value, seasonally adjusted when the series passes the seasonality test of M4, times the seasonal index of each step.
 """
 function naive2(y, period, horizon)
 	n = length(y)
-	ForecastM4Benchmark.is_seasonal(y, period) || return fill(Float64(y[n]), horizon)
-	index = ForecastM4Benchmark.seasonal_index(y, period)
+	M4Benchmarks.is_seasonal(y, period) || return fill(Float64(y[n]), horizon)
+	index = M4Benchmarks.seasonal_index(y, period)
 	[y[n] / index[n] * index[n - period + 1 + mod(step - 1, period)] for step in 1:horizon]
 end
 
@@ -220,6 +220,7 @@ level, 1 to 12, and in total.
 function scores(id; entries = nothing)
 	format = scored(id)
 	format == "monash" && error("$(competition(id)["name"]) has no published entries here: score(\"$(id)\", forecasts) scores forecasts of your own.")
+	format == "m6" && return m6_scores(id, entries)
 	known = PollisCompetitions.entries(id)
 	point = Set(Int(entry) for (entry, kind) in zip(known.entry, known.forecasts) if kind == "point")
 	numbers = entries === nothing ? [Int(entry) for entry in known.entry if Int(entry) in point] : [entry_number(id, entry; known) for entry in entries]
@@ -257,21 +258,222 @@ forecasts of all its 30,490 series.
 """
 function score(id, forecasts)
 	format = scored(id)
-	columns = Tables.columntable(forecasts)
-	for name in (:series, :h, :value)
-		haskey(columns, name) || error("The forecasts have no column $(name): they need series, h and value.")
-	end
-	batch = (; entry = fill(Int16(0), length(columns.series)), series = Int32.(columns.series), h = Int16.(columns.h), value = Float64.(columns.value))
+	format == "m6" && return m6_score(id, forecasts)
 	result = with_database() do db
 		format == "m5" ? prepare_m5!(db, id) : (prepare_m4!(db, id); m4_reference!(db, id))
-		writer = TableWriter(db, "given", ["entry" => "SMALLINT", "series" => "INTEGER", "h" => "SMALLINT", "value" => "DOUBLE"])
-		add!(writer, batch)
-		known = format == "m5" ? "m5_keys" : "m4_series"
-		unknown = only_row(db, "SELECT count(DISTINCT series) AS series FROM given WHERE series NOT IN (SELECT series FROM $(known))").series
-		unknown == 0 || error("$(unknown) series of the forecasts are not series of $(competition(id)["name"]).")
+		given!(db, id, format, forecasts)
 		format == "m5" && return m5_summary(db, "given")
 		m4_errors!(db, "m4_errors", "given")
 		m4_summary(db, "m4_errors")
 	end
 	(; measure = result.measure, breakdown = result.breakdown, level = result.level, value = result.value)
+end
+
+"""
+	step_errors(id, forecasts)
+
+The errors of `forecasts`, a table of columns series, h and value, against competition `id` (M1, M3 or M4) at each
+step ahead: series, h, smape (200 times the absolute error over the sum of the absolute actual value and the absolute
+forecast) and mase (the absolute error over the scale of MASE of the series). The means of smape and mase over the
+horizon of a series are its sMAPE and its MASE, as `score` computes them.
+"""
+function step_errors(id, forecasts)
+	format = scored(id)
+	format in ("m5", "m6") && error("$(competition(id)["name"]) is not scored by errors at each step: step_errors gives the errors of M1, M3 and M4.")
+	with_database() do db
+		prepare_m4!(db, id)
+		given!(db, id, format, forecasts)
+		Tables.columntable(DBInterface.execute(db, """SELECT f.series, f.h, 200 * abs(t.value - f.value) / (abs(t.value) + abs(f.value)) AS smape,
+			abs(t.value - f.value) / c.scale AS mase FROM given f JOIN m4_test t USING (series, h) JOIN m4_scale c USING (series) ORDER BY f.series, f.h"""))
+	end
+end
+
+"""
+The table `given` of `db` (entry 0, series, h, value) from `forecasts`, a table of columns series, h and value, whose
+series must be series of competition `id`, of format `format`.
+"""
+function given!(db, id, format, forecasts)
+	columns = Tables.columntable(forecasts)
+	for name in (:series, :h, :value)
+		haskey(columns, name) || error("The forecasts have no column $(name): they need series, h and value.")
+	end
+	batch = (; entry = fill(Int16(0), length(columns.series)), series = Int32.(columns.series), h = Int16.(columns.h), value = Float64.(columns.value))
+	writer = TableWriter(db, "given", ["entry" => "SMALLINT", "series" => "INTEGER", "h" => "SMALLINT", "value" => "DOUBLE"])
+	add!(writer, batch)
+	known = format == "m5" ? "m5_keys" : "m4_series"
+	unknown = only_row(db, "SELECT count(DISTINCT series) AS series FROM given WHERE series NOT IN (SELECT series FROM $(known))").series
+	unknown == 0 || error("$(unknown) series of the forecasts are not series of $(competition(id)["name"]).")
+	db
+end
+
+# ------------------------------------------------------------------------------------------------------------------
+# M6: the RPS of the forecasts and the IR of the decisions, as the organisers' evaluation code computes them
+# (`Baseline for evaluating the hypotheses.R` and `RPS and IR calculation.R` of Mcompetitions/M6-methods)
+# ------------------------------------------------------------------------------------------------------------------
+
+"""The last day of each of the 12 rounds of M6 that were scored; the returns of a round are over the 28 days to it."""
+const M6_ROUND_ENDS = Date.(["2022-04-01", "2022-04-29", "2022-05-27", "2022-06-24", "2022-07-22", "2022-08-19",
+	"2022-09-16", "2022-10-14", "2022-11-11", "2022-12-09", "2023-01-06", "2023-02-03"])
+
+"""
+	m6_prices(id)
+
+The prices of the assets of M6 in each of its 12 rounds, as the organisers' evaluation code takes them: a vector of
+`(; days, symbols, prices)`, for round k the days from 28 days before its last day to that day on which an asset has
+a price, every asset of M6 in `symbols` (the same in every round), and `prices`, a matrix of the assets by the days.
+An asset with no price on a day has its price of the day before; one with no price in the round, as DRE once it was
+taken over, has its last price of all on every day, so that its return is 0.
+"""
+function m6_prices(id)
+	known = query("SELECT symbol, date, price FROM $(table_sql(id, "prices.parquet"))")
+	rows_of = Dict{String, Vector{Int}}()
+	for (k, symbol) in enumerate(known.symbol)
+		push!(get!(rows_of, symbol, Int[]), k)
+	end
+	symbols = sort(collect(keys(rows_of)))
+	for symbol in symbols
+		sort!(rows_of[symbol]; by = k -> known.date[k])
+	end
+	map(M6_ROUND_ENDS) do last_day
+		first_day = last_day - Day(28)
+		days = sort(unique(day for day in known.date if first_day <= day <= last_day))
+		prices = fill(NaN, length(symbols), length(days))
+		for (row, symbol) in enumerate(symbols)
+			inside = [k for k in rows_of[symbol] if first_day <= known.date[k] <= last_day]
+			if isempty(inside)
+				prices[row, :] .= known.price[last(rows_of[symbol])]
+				continue
+			end
+			given = Dict(known.date[k] => known.price[k] for k in inside)
+			for (column, day) in enumerate(days)
+				prices[row, column] = get(given, day, column > 1 ? prices[row, column - 1] : NaN)
+			end
+		end
+		(; days, symbols, prices)
+	end
+end
+
+"""
+	m6_rps(round, probabilities)
+
+The ranked probability score of `probabilities` (a matrix of the assets of `round`, as `m6_prices` gives it, by the
+five ranks, from the lowest returns to the highest) over that round. The assets are ranked by their return from the
+first day of the round to the last, ties at the lowest place, and the places 1 to 20 are rank 1, 21 to 40 rank 2 and
+so on; assets that tie share the ranks of the places they span. The RPS of an asset is the mean of the squared
+differences of the cumulative probabilities from the cumulative ranks, and that of the round their mean over the assets.
+"""
+function m6_rps(round, probabilities)
+	returns = (round.prices[:, end] .- round.prices[:, 1]) ./ round.prices[:, 1]
+	n = length(returns)
+	total = 0.0
+	for i in 1:n
+		place = count(<(returns[i]), returns) + 1
+		tied = count(==(returns[i]), returns)
+		target = zeros(5)
+		for p in place:(place + tied - 1)
+			target[min(5, cld(p, 20))] += 1 / tied
+		end
+		total += sum(abs2, cumsum(target) .- cumsum(probabilities[i, :])) / 5
+	end
+	total / n
+end
+
+"""
+	m6_daily_returns(round, weights)
+
+The log returns of the portfolio of `weights` (one for each asset of `round`, as `m6_prices` gives it, negative for a
+short position) on each day of the round after the first: the log of 1 plus the sum of each asset's weight times its
+return from the day before.
+"""
+m6_daily_returns(round, weights) = [log(1 + sum(weights .* (round.prices[:, t] .- round.prices[:, t - 1]) ./ round.prices[:, t - 1])) for t in 2:size(round.prices, 2)]
+
+"""The information ratio of daily log returns: their sum over their standard deviation (with n - 1)."""
+function information_ratio(returns)
+	mean = sum(returns) / length(returns)
+	sum(returns) / sqrt(sum(abs2, returns .- mean) / (length(returns) - 1))
+end
+
+"""
+	m6_summary(rounds, submitted)
+
+The RPS and the IR of one set of submissions to M6, `submitted` (round => `(; probabilities, weights)`, in the order
+of the assets of `rounds`), as `published_scores` gives them: measure, breakdown, level and value, for each round
+submitted (breakdown month, levels 1 to 12), each quarter (quarter, 1 to 4) and the year (global, Total). The RPS of a
+quarter or of the year is the mean of the RPS of its rounds, and the IR is that of all the daily returns of its rounds.
+"""
+function m6_summary(rounds, submitted)
+	scores = (; measure = String[], breakdown = String[], level = String[], value = Float64[])
+	function add(measure, breakdown, level, value)
+		push!(scores.measure, measure); push!(scores.breakdown, breakdown); push!(scores.level, level); push!(scores.value, value)
+	end
+	rps, daily = Dict{Int, Float64}(), Dict{Int, Vector{Float64}}()
+	for (k, round) in enumerate(rounds)
+		haskey(submitted, k) || continue
+		rps[k] = m6_rps(round, submitted[k].probabilities)
+		daily[k] = m6_daily_returns(round, submitted[k].weights)
+		add("RPS", "month", string(k), rps[k])
+		add("IR", "month", string(k), information_ratio(daily[k]))
+	end
+	for (breakdown, level, months) in vcat([("quarter", string(q), (3q - 2):(3q)) for q in 1:4], [("global", "Total", 1:12)])
+		chosen = [k for k in months if haskey(rps, k)]
+		isempty(chosen) && continue
+		add("RPS", breakdown, level, sum(rps[k] for k in chosen) / length(chosen))
+		add("IR", breakdown, level, information_ratio(reduce(vcat, [daily[k] for k in chosen])))
+	end
+	scores
+end
+
+"""
+The submissions of `columns` (evaluation, the round from 1 to 12; symbol; decision; rank1 to rank5) as `m6_summary`
+takes them, each round's rows put in the order of the assets of `rounds`; every round given must have each asset once.
+"""
+function m6_submitted(rounds, columns)
+	symbols = first(rounds).symbols
+	submitted = Dict{Int, NamedTuple}()
+	for k in sort(unique(Int.(columns.evaluation)))
+		1 <= k <= length(rounds) || error("Round $(k) is not a round of M6: the rounds scored are 1 to $(length(rounds)).")
+		rows = findall(==(k), columns.evaluation)
+		at = Dict(String(columns.symbol[r]) => r for r in rows)
+		length(at) == length(rows) == length(symbols) && all(s -> haskey(at, s), symbols) ||
+			error("Round $(k) must give each of the $(length(symbols)) assets of M6 once.")
+		order = [at[s] for s in symbols]
+		probabilities = Float64.(hcat(columns.rank1[order], columns.rank2[order], columns.rank3[order], columns.rank4[order], columns.rank5[order]))
+		submitted[k] = (; probabilities, weights = Float64.(columns.decision[order]))
+	end
+	submitted
+end
+
+"""
+The scores of M6 of submissions of the user's own, `forecasts`, a table of columns evaluation (the round, 1 to 12),
+symbol, decision and rank1 to rank5: measure, breakdown, level and value, as `m6_summary` gives them.
+"""
+function m6_score(id, forecasts)
+	columns = Tables.columntable(forecasts)
+	for name in (:evaluation, :symbol, :decision, :rank1, :rank2, :rank3, :rank4, :rank5)
+		haskey(columns, name) || error("The submissions have no column $(name): they need evaluation, symbol, decision and rank1 to rank5.")
+	end
+	rounds = m6_prices(id)
+	m6_summary(rounds, m6_submitted(rounds, columns))
+end
+
+"""
+The scores of M6 of its teams (those of `entries`, by number or name, or all of them), from their submissions: entry,
+measure, breakdown, level and value, as `published_scores` gives the organisers' own. The trial run is not scored.
+"""
+function m6_scores(id, entries)
+	known = PollisCompetitions.entries(id)
+	numbers = entries === nothing ? Int.(known.entry) : [entry_number(id, entry; known) for entry in entries]
+	where, parameters = conditions("entry" => numbers)
+	submissions = query("SELECT entry, evaluation, symbol, decision, rank1, rank2, rank3, rank4, rank5 FROM $(table_sql(id, "submissions.parquet"))$(where) AND evaluation BETWEEN 1 AND 12", parameters)
+	rounds = m6_prices(id)
+	result = (; entry = Int16[], measure = String[], breakdown = String[], level = String[], value = Float64[])
+	for number in numbers
+		rows = findall(==(number), submissions.entry)
+		isempty(rows) && continue
+		team = m6_summary(rounds, m6_submitted(rounds, map(column -> column[rows], submissions)))
+		append!(result.entry, fill(Int16(number), length(team.value)))
+		append!(result.measure, team.measure); append!(result.breakdown, team.breakdown)
+		append!(result.level, team.level); append!(result.value, team.value)
+	end
+	result
 end

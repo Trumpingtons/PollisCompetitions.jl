@@ -1,5 +1,5 @@
-"""The eight statistical benchmarks of M4, by the names of their entries: those of ForecastM4Benchmark.jl."""
-const M4_BENCHMARKS = Tuple(string.(ForecastM4Benchmark.BENCHMARKS))
+"""The eight statistical benchmarks of M4, by the names of their entries: those of `M4Benchmarks`."""
+const M4_BENCHMARKS = Tuple(string.(M4Benchmarks.BENCHMARKS))
 
 """
 	benchmarks(id; methods = M4_BENCHMARKS, series = nothing)
@@ -7,7 +7,7 @@ const M4_BENCHMARKS = Tuple(string.(ForecastM4Benchmark.BENCHMARKS))
 The forecasts of the benchmarks of competition `id` (M4) given in `methods`, computed on this computer from the values
 the forecasters saw, for every series or those of `series` (a number or a vector of numbers): method, series, h and
 value, the columns of `forecasts`, so that `score(id, ...)` scores each method. The series are forecast in parallel
-over Julia's threads, by ForecastM4Benchmark.jl, which computes them as the organisers of M4 did.
+over Julia's threads, by `M4Benchmarks`, which computes them as the organisers of M4 did.
 """
 function benchmarks(id::AbstractString; methods = M4_BENCHMARKS, series = nothing)
 	competition(id)["format"] == "m4" || error("$(competition(id)["name"]) has no benchmarks here yet: benchmarks gives those of M4.")
@@ -21,7 +21,7 @@ function benchmarks(id::AbstractString; methods = M4_BENCHMARKS, series = nothin
 	results = Vector{Any}(undef, length(known.series))
 	Threads.@threads for k in eachindex(known.series)
 		stop = k == length(starts) ? length(values.series) : starts[k + 1] - 1
-		results[k] = ForecastM4Benchmark.benchmarks(view(values.value, starts[k]:stop); period = known.period[k], horizon = known.horizon[k])
+		results[k] = M4Benchmarks.benchmarks(view(values.value, starts[k]:stop); period = known.period[k], horizon = known.horizon[k])
 	end
 	columns = (; method = String[], series = Int32[], h = Int16[], value = Float64[])
 	for method in methods, (k, number) in enumerate(known.series)

@@ -24,16 +24,17 @@ module PollisCompetitions
 import DBInterface
 import Downloads
 import DuckDB
-import ForecastM4Benchmark
 import TOML
 import Tables
-using Dates: now, UTC
+using Dates: Date, Day, now, UTC
 using LibArchive_jll: bsdtar
 using SHA: sha256
 
 """Where Pollis keeps the competitions on this computer."""
 const HOME = joinpath(homedir(), ".pollis", "competitions")
 
+include("m4benchmarks/M4Benchmarks.jl")
+import .M4Benchmarks
 include("catalogue.jl")
 include("fetch.jl")
 include("parquet.jl")
