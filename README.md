@@ -30,6 +30,8 @@ Every function answers a table of columns (a NamedTuple of vectors, which Tables
 
 `data/catalogue.toml` describes each competition: its source, the revision of its repository, the licence, the papers (keys of PollisReferences), and each file with its address and SHA-256.
 
+`data/forecasting_datasets.toml` holds the package's entries of the forecasting catalogue of Pollis, the competitions, datasets, curated collections and archives of forecasts that Compose > Forecasting Competitions > Manage Competition Datasets lists, in the fields of the catalogue's schema, which Pollis keeps. The package does not read it.
+
 ## Download
 
 `download(id)` fetches the files of a competition from its source, checks each against the SHA-256 of the catalogue, and converts them on this computer into `~/.pollis/competitions/<id>`, a Parquet file for each table:
@@ -68,6 +70,8 @@ The tables are Parquet files, which Julia reads through DuckDB, filtered first: 
 ## Scores
 
 `scores(id; entries)` computes the scores of the entries whose forecasts are on this computer, as the organisers' code computes them, in the columns of `published_scores`. `score(id, forecasts)` scores a table of the user's own (series, h and value), each series forecast over its whole horizon. For M4: sMAPE and MASE, means over the series of each frequency, each domain and all of them, and OWA, which weighs them against those of Naive2 on the same series and needs its forecasts (`download_forecasts("m4"; entries = ["Naive2"])`). M1 and M3 are scored with the same measures, by frequency and in total, against Naive2 computed on this computer from the values the forecasters saw, since the package has no entries of theirs: `score` scores forecasts of your own, and `scores` has nothing to score. For M5, the WRMSSE of the point forecasts of M5 Accuracy: the forecasts of the 30,490 series are added up into the 42,840 series of its 12 levels, the RMSSE of each is scaled by the mean squared daily change of its training values from its first sale, and the WRMSSE of a level weighs them by `weights`; that of Total is the mean of the 12 levels. The quantile forecasts of M5 Uncertainty are not scored yet.
+
+A dataset of your own is scored the same way: every function that takes the id of a competition takes, in its place, the absolute path of a folder holding `series.parquet` and `observations.parquet` with the columns of a competition's (`is_dataset(path)` says whether a folder does), as Pollis writes them when a dataset is added in Compose > Forecasting Competitions > Manage Competition Datasets. `score(path, forecasts)` scores it as M1 and M3 are scored: sMAPE, MASE and OWA, against Naive2 computed on this computer.
 
 For M6, `scores("m6"; entries)` computes the scores of its teams from their submissions, and `score("m6", submissions)` scores submissions of your own (columns evaluation, the round from 1 to 12, symbol, decision and rank1 to rank5), as the organisers' evaluation code in Mcompetitions/M6-methods computes them: the ranked probability score (RPS) of the probabilities that each asset's return ranks in each fifth of the 100 assets over the 28 days of a round, and the information ratio (IR) of the daily log returns of the portfolio of the decisions, for each round, each quarter and the year. The RPS of a quarter or of the year is the mean of its rounds', and its IR that of all the daily returns of its rounds. The trial run is not scored.
 

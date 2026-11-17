@@ -67,6 +67,32 @@ using PollisCompetitions.M4Benchmarks: BENCHMARKS, benchmarks, holt, is_seasonal
 
 	# The competitions on this computer, downloaded with download(id), against the numbers their papers and files give
 	downloaded(id) = PC.info(id) !== nothing
+	# A dataset of your own: one yearly series, 1, 2, 4 seen and 5, 7 to forecast, forecast 4, 6. Naive2 forecasts 4, 4
+	# (a period of 1 is never seasonal). sMAPE: (200 / 9 + 200 / 13) / 2 = 2200 / 117, and Naive2's (200 / 9 + 600 / 11) / 2
+	# = 3800 / 99. MASE: the mean absolute error, 1, over the mean absolute change of the values seen, (1 + 2) / 2, so
+	# 2 / 3, and Naive2's 2 / (3 / 2) = 4 / 3. OWA: the mean of the two ratios to Naive2's.
+	@testset "A dataset of your own" begin
+		folder = mktempdir()
+		PC.with_database() do db
+			execute(sql) = PC.DuckDB.DBInterface.execute(db, sql)
+			execute("""COPY (SELECT 1::INTEGER AS series, 'mine' AS competition, 'S1' AS name, 'yearly' AS frequency, 1::SMALLINT AS period,
+				2::SMALLINT AS horizon, 'general' AS domain, '2020' AS start) TO '$(joinpath(folder, "series.parquet"))' (FORMAT parquet)""")
+			execute("""COPY (SELECT 1::INTEGER AS series, t::SMALLINT AS t, v::DOUBLE AS value, s AS split
+				FROM (VALUES (1, 1, 'train'), (2, 2, 'train'), (3, 4, 'train'), (4, 5, 'test'), (5, 7, 'test')) AS o(t, v, s))
+				TO '$(joinpath(folder, "observations.parquet"))' (FORMAT parquet)""")
+		end
+		write(joinpath(folder, "dataset.toml"), "[[entry]]\nid = \"mine\"\nname = \"My Dataset\"\n")
+		@test PC.is_dataset(folder) && !PC.is_dataset("m4") && !PC.is_dataset(mktempdir())
+		@test PC.competition(folder)["name"] == "My Dataset"
+		@test PC.series(folder).horizon == [2]
+		scores = PC.score(folder, (; series = [1, 1], h = [1, 2], value = [4.0, 6.0]))
+		total(measure) = only(scores.value[(scores.measure .== measure) .& (scores.breakdown .== "frequency") .& (scores.level .== "Total")])
+		smape, mase = 2200 / 117, 2 / 3
+		@test total("sMAPE") ≈ smape
+		@test total("MASE") ≈ mase
+		@test total("OWA") ≈ (smape / (3800 / 99) + mase / (4 / 3)) / 2
+	end
+
 	@testset "M1 and M3" begin
 		for (id, counts) in (("m1", Dict("Yearly" => 181, "Quarterly" => 203, "Monthly" => 617)),
 				("m3", Dict("Yearly" => 645, "Quarterly" => 756, "Monthly" => 1428, "Other" => 174)))

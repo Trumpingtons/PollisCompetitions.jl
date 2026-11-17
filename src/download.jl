@@ -32,9 +32,13 @@ fingerprint(id) = bytes2hex(sha256(join(sort([file["sha256"] for file in competi
 
 What is on this computer of competition `id`: when it was converted, from which files (their fingerprint), the number
 of rows of each of its tables, and, for each entry whose forecasts are downloaded (by its number), the number of
-series it forecast over their whole horizon. `nothing` when the competition is not downloaded.
+series it forecast over their whole horizon. `nothing` when the competition is not downloaded. For the folder of a
+dataset of your own (`is_dataset`), the folder.
 """
-info(id) = isfile(info_file(id)) ? TOML.parsefile(info_file(id)) : nothing
+function info(id)
+	is_dataset(id) && return Dict("folder" => id)
+	isfile(info_file(id)) ? TOML.parsefile(info_file(id)) : nothing
+end
 
 """
 	download(id; progress = (done, total) -> nothing, keep_source = false)
