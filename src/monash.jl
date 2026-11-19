@@ -4,7 +4,7 @@
 A file of the Monash Time Series Forecasting Archive (.tsf), as `(; frequency, horizon, rows)`: the frequency and the
 horizon of its header (`nothing` when it has none), and each series, `(; name, start, values)`, its start `nothing`
 when the file gives none. The attributes of the header say what comes before the values of a series, separated by
-colons. A missing value, `?`, is an error: the competitions of the catalogue have none.
+colons. A missing value, `?`, is an error.
 """
 function read_tsf(path)
 	attributes = String[]

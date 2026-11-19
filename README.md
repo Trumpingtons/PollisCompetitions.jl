@@ -7,6 +7,7 @@ import PollisCompetitions as PC
 datasets = PC.load_table("dataset_catalog")
 comparisons = PC.load_table("model_comparisons")
 data = PC.load_dataset("nab")
+yearly = PC.series("m4"; frequency = "Yearly")
 ```
 
 Every function answers a table of columns (a NamedTuple of vectors, which Tables.jl reads).
@@ -36,6 +37,22 @@ The database checks each value against its vocabulary and each foreign key. The 
 ## Built-in datasets
 
 A dataset whose delivery is Built-in ships with the package, as a Parquet file named by its `dataset_id` in `data/builtin/`. `connect_db` reads each in place, as the view `builtin."<dataset_id>"`, and `load_dataset(dataset_id)` reads one. A dataset whose delivery is Download is fetched by the user from its `source_url`.
+
+## Data and scores
+
+The data of a forecasting dataset are a folder of Parquet files: in `data/builtin/<dataset_id>` when it is built in, else in `~/.pollis/competitions/<dataset_id>`, with an `info.toml` that says what is there. A dataset of your own is any folder holding `series.parquet` and `observations.parquet`: every function below takes its absolute path in place of an id.
+
+- `series(id)`: series (a number), competition, name, frequency, period (the seasonal period), horizon, domain and start;
+- `observations(id)`: series, t (from 1), value, and split, `train` for the values the forecasters saw and `test` for those their forecasts were scored on;
+- `entries(id)`, `forecasts(id; entry)` and `published_scores(id)`: the entries of a competition, their forecasts and the scores the organisers published, where they are on this computer;
+- `tables(id)` names the tables of a dataset, and `table(id, name; filters...)` reads one; `query(sql)` runs any SQL on them.
+
+`score(id, forecasts)` scores forecasts of your own (series, h and value), each series forecast over its whole horizon, and `scores(id; entries)` scores the published entries: sMAPE, MASE and OWA against Naive2 for M1, M3, M4, Tourism and datasets of your own; the WRMSSE of the point forecasts of M5; the RPS and IR of M6. `step_errors(id, forecasts)` gives the errors at each step ahead, series by series. `benchmarks(id; methods, series)` computes M4's eight statistical benchmarks from the values the forecasters saw.
+
+```julia
+mine = PC.score("m4", (; series = [1, 1], h = [1, 2], value = [7300.0, 7350.0]))
+theirs = PC.scores("m4"; entries = ["118", "Naive2"])
+```
 
 ## Other code
 

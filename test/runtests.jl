@@ -67,6 +67,96 @@ using PollisCompetitions.M4Benchmarks: BENCHMARKS, benchmarks, holt, is_seasonal
 		@test filter(key -> !(key in works), cited) == String[]
 	end
 
+	@testset "Filters" begin
+		@test PC.conditions("frequency" => nothing) == ("", Any[])
+		@test PC.conditions("frequency" => "Yearly", "series" => [1, 2]) == (" WHERE frequency = ? AND series IN (?, ?)", Any["Yearly", 1, 2])
+	end
+
+	# The M competitions whose data are on this computer, against the numbers their papers and files give
+	downloaded(id) = PC.info(id) !== nothing
+	# A dataset of your own: one yearly series, 1, 2, 4 seen and 5, 7 to forecast, forecast 4, 6. Naive2 forecasts 4, 4
+	# (a period of 1 is never seasonal). sMAPE: (200 / 9 + 200 / 13) / 2 = 2200 / 117, and Naive2's (200 / 9 + 600 / 11) / 2
+	# = 3800 / 99. MASE: the mean absolute error, 1, over the mean absolute change of the values seen, (1 + 2) / 2, so
+	# 2 / 3, and Naive2's 2 / (3 / 2) = 4 / 3. OWA: the mean of the two ratios to Naive2's.
+	@testset "A dataset of your own" begin
+		folder = mktempdir()
+		PC.with_database() do db
+			execute(sql) = PC.DuckDB.DBInterface.execute(db, sql)
+			execute("""COPY (SELECT 1::INTEGER AS series, 'mine' AS competition, 'S1' AS name, 'yearly' AS frequency, 1::SMALLINT AS period,
+				2::SMALLINT AS horizon, 'general' AS domain, '2020' AS start) TO '$(joinpath(folder, "series.parquet"))' (FORMAT parquet)""")
+			execute("""COPY (SELECT 1::INTEGER AS series, t::SMALLINT AS t, v::DOUBLE AS value, s AS split
+				FROM (VALUES (1, 1, 'train'), (2, 2, 'train'), (3, 4, 'train'), (4, 5, 'test'), (5, 7, 'test')) AS o(t, v, s))
+				TO '$(joinpath(folder, "observations.parquet"))' (FORMAT parquet)""")
+		end
+		write(joinpath(folder, "dataset.toml"), "[[datasets]]\ndataset_id = \"mine\"\ndataset_name = \"My Dataset\"\n")
+		@test PC.is_dataset(folder) && !PC.is_dataset("m4") && !PC.is_dataset(mktempdir())
+		@test PC.competition(folder)["name"] == "My Dataset"
+		@test PC.series(folder).horizon == [2]
+		scores = PC.score(folder, (; series = [1, 1], h = [1, 2], value = [4.0, 6.0]))
+		total(measure) = only(scores.value[(scores.measure .== measure) .& (scores.breakdown .== "frequency") .& (scores.level .== "Total")])
+		smape, mase = 2200 / 117, 2 / 3
+		@test total("sMAPE") ≈ smape
+		@test total("MASE") ≈ mase
+		@test total("OWA") ≈ (smape / (3800 / 99) + mase / (4 / 3)) / 2
+	end
+
+	@testset "M1 and M3" begin
+		for (id, counts) in (("m1", Dict("Yearly" => 181, "Quarterly" => 203, "Monthly" => 617)),
+				("m3", Dict("Yearly" => 645, "Quarterly" => 756, "Monthly" => 1428, "Other" => 174)))
+			downloaded(id) || continue
+			series = PC.series(id)
+			@test Dict(frequency => count(==(frequency), series.frequency) for frequency in unique(series.frequency)) == counts
+			test = PC.observations(id; series = 1, split = "test")
+			@test length(test.t) == series.horizon[1]
+		end
+	end
+
+	@testset "M4" begin
+		if downloaded("m4")
+			@test length(PC.series("m4").series) == 100000
+			@test length(PC.series("m4"; frequency = "Hourly").series) == 414
+			entries = PC.entries("m4")
+			@test length(entries.entry) == 61
+			@test entries.name[1] == "118" && entries.rank[1] == 1
+			smyl = PC.published_scores("m4"; entry = 1, measure = "sMAPE", breakdown = "frequency")
+			@test smyl.value[findfirst(==("Yearly"), smyl.level)] ≈ 13.176 atol = 0.0005
+			@test PC.entry_number("m4", "118") == 1 && PC.entry_number("m4", 1) == 1
+		end
+	end
+
+	@testset "M5" begin
+		if downloaded("m5")
+			# 3,049 items in 10 stores of 3 states, over 1,969 days, the last 28 to forecast
+			hierarchy = PC.table("m5", "hierarchy")
+			@test length(hierarchy.series) == 30490
+			@test length.(unique.((hierarchy.item, hierarchy.department, hierarchy.category, hierarchy.store, hierarchy.state))) == (3049, 7, 3, 10, 3)
+			@test PC.info("m5")["tables"]["observations"] == 30490 * 1969
+			@test length(PC.observations("m5"; series = 1, split = "test").t) == 28
+			@test length(PC.table("m5", "calendar").t) == 1969
+			# The weights of the series of each of the 12 levels add up to 1
+			weights = PC.table("m5", "weights")
+			@test all(level -> isapprox(sum(weights.weight[weights.level .== level]), 1; atol = 1e-4), 1:12)
+			@test length(weights.level) == 42840
+			entries = PC.entries("m5")
+			@test count(==("point"), entries.forecasts) == 74 && count(==("quantiles"), entries.forecasts) == 56
+			@test_throws ErrorException PC.entry_number("m5", "Random_prediction")
+		end
+	end
+
+	@testset "M6" begin
+		if downloaded("m6")
+			prices = PC.table("m6", "prices")
+			@test length(unique(prices.symbol)) == 100
+			entries = PC.entries("m6")
+			benchmark = only(entries.entry[entries.kind .== "benchmark"])
+			# Probabilities of 0.2 for each fifth score 0.16, whichever fifth the return falls in
+			rps = PC.published_scores("m6"; entry = benchmark, measure = "RPS", breakdown = "month")
+			@test all(value -> isapprox(value, 0.16; atol = 0.005), rps.value)
+			submissions = PC.table("m6", "submissions"; entry = benchmark)
+			@test all(==(0.2), submissions.rank1) && all(==(0.01), submissions.decision)
+		end
+	end
+
 	@testset "Monash archive files" begin
 		folder = mktempdir()
 		path = joinpath(folder, "small.tsf")

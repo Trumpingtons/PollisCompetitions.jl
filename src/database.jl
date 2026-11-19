@@ -1,20 +1,3 @@
-"""A text for SQL: `text` between single quotes, those inside doubled."""
-sql_text(text) = "'" * replace(string(text), "'" => "''") * "'"
-
-"""
-	with_database(f)
-
-`f(db)` with a DuckDB database in memory, closed when `f` returns.
-"""
-function with_database(f)
-	db = DuckDB.DB()
-	try
-		f(db)
-	finally
-		DBInterface.close!(db)
-	end
-end
-
 """The metadata of the package: `datasets.toml`, `models.toml` and `benchmarks.toml`."""
 const METADATA = joinpath(dirname(@__DIR__), "metadata")
 
