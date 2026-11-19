@@ -1039,3 +1039,909 @@ competition_name = "ForecastBench"
 competition_year = 2024
 topic = "Geopolitics"
 source_url = "https://www.forecastbench.org"
+
+# TabArena: the 50 datasets of the OpenML suite tabarena-v0.1 (suite 457), APSFailure left out, each with the
+# splits of its OpenML task.
+
+[[datasets]]
+dataset_id = "airfoil_noise"
+dataset_name = "airfoil_self_noise"
+topic = "Engineering"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Regression"
+rows = 1503
+features = 5
+size_mb = 0.04
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46904"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "amazon_employee_access"
+dataset_name = "Amazon_employee_access"
+competition_name = "Amazon.com - Employee Access Challenge"
+competition_year = 2013
+topic = "Web and IT Operations"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 32769
+features = 9
+size_mb = 1.15
+licence = "Public Domain (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46905"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "annealing"
+dataset_name = "anneal"
+topic = "Engineering"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Multiclass"
+rows = 898
+features = 38
+size_mb = 0.03
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46906"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "used_fiat_500"
+dataset_name = "Another-Dataset-on-used-Fiat-500"
+topic = "Retail"
+data_structure = "Cross-section"
+geometry = "Coordinates"
+response_type = "Regression"
+rows = 1538
+features = 7
+size_mb = 0.03
+licence = "CC0: Public Domain (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46907"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "bank_marketing"
+dataset_name = "bank-marketing"
+topic = "Marketing"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 45211
+features = 13
+size_mb = 1.33
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46910"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "bank_customer_churn"
+dataset_name = "Bank_Customer_Churn"
+topic = "Finance"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 10000
+features = 10
+licence = "Public (via OpenML)"
+delivery = "Download"
+source_url = "https://www.openml.org/d/46911"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "biological_response"
+dataset_name = "Bioresponse"
+competition_name = "Predicting a Biological Response"
+competition_year = 2012
+topic = "Chemistry"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 3751
+features = 1776
+size_mb = 2.9
+licence = "Public Domain (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46912"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "blood_transfusion"
+dataset_name = "blood-transfusion-service-center"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 748
+features = 4
+size_mb = 0.01
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46913"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "customer_churn"
+dataset_name = "churn"
+topic = "Marketing"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 5000
+features = 19
+size_mb = 0.17
+licence = "MIT License (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46915"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "coil_2000_insurance"
+dataset_name = "coil2000_insurance_policies"
+competition_name = "CoIL Challenge 2000"
+competition_year = 2000
+topic = "Marketing"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 9822
+features = 85
+size_mb = 0.41
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46916"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "concrete_strength"
+dataset_name = "concrete_compressive_strength"
+topic = "Engineering"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Regression"
+rows = 1030
+features = 8
+size_mb = 0.03
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46917"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "german_credit"
+dataset_name = "credit-g"
+topic = "Finance"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 1000
+features = 20
+size_mb = 0.02
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46918"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "credit_card_default"
+dataset_name = "credit_card_clients_default"
+topic = "Finance"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 30000
+features = 23
+size_mb = 1.9
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46919"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "airline_satisfaction"
+dataset_name = "customer_satisfaction_in_airline"
+topic = "Transport and Mobility"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 129880
+features = 21
+size_mb = 4.8
+licence = "CC0: Public Domain (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46920"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "pima_diabetes"
+dataset_name = "diabetes"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 768
+features = 8
+size_mb = 0.02
+licence = "CC0: Public Domain (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46921"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "diabetes_130_us"
+dataset_name = "Diabetes130US"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 71518
+features = 47
+size_mb = 2.61
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46922"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "diamonds"
+dataset_name = "diamonds"
+topic = "Retail"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Regression"
+rows = 53940
+features = 9
+size_mb = 1.78
+licence = "MIT License (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46923"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "ecommerce_shipping"
+dataset_name = "E-CommereShippingData"
+topic = "Supply Chain"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 10999
+features = 10
+size_mb = 0.31
+licence = "Public Domain (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46924"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "fitness_club"
+dataset_name = "Fitness_Club"
+topic = "Marketing"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 1500
+features = 6
+size_mb = 0.02
+licence = "Public Domain (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46927"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "food_delivery_time"
+dataset_name = "Food_Delivery_Time"
+topic = "Transport and Mobility"
+data_structure = "Cross-section"
+geometry = "Coordinates"
+response_type = "Regression"
+rows = 45451
+features = 9
+size_mb = 1.57
+licence = "Database Contents License (DbCL) v1.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46928"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "give_me_some_credit"
+dataset_name = "GiveMeSomeCredit"
+competition_name = "Give Me Some Credit"
+competition_year = 2011
+topic = "Finance"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 150000
+features = 10
+licence = "Public (via OpenML)"
+delivery = "Download"
+source_url = "https://www.openml.org/d/46929"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "hazelnut_contamination"
+dataset_name = "hazelnut-spread-contaminant-detection"
+topic = "Chemistry"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 2400
+features = 30
+size_mb = 0.36
+licence = "CC BY-SA (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46930"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "insurance_expenses"
+dataset_name = "healthcare_insurance_expenses"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Regression"
+rows = 1338
+features = 6
+size_mb = 0.03
+licence = "Database Contents License (DbCL) v1.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46931"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "heloc"
+dataset_name = "heloc"
+topic = "Finance"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 10459
+features = 23
+licence = "Public (via OpenML)"
+delivery = "Download"
+source_url = "https://www.openml.org/d/46932"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "hiva"
+dataset_name = "hiva_agnostic"
+competition_name = "Agnostic Learning vs. Prior Knowledge Challenge"
+competition_year = 2007
+topic = "Chemistry"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Multiclass"
+rows = 3845
+features = 1617
+licence = "Public (via OpenML)"
+delivery = "Download"
+source_url = "https://www.openml.org/d/46933"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "house_values"
+dataset_name = "houses"
+topic = "Real Estate"
+data_structure = "Cross-section"
+geometry = "Coordinates"
+response_type = "Regression"
+rows = 20640
+features = 8
+licence = "Public (via OpenML)"
+delivery = "Download"
+source_url = "https://www.openml.org/d/46934"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "data_scientist_job_change"
+dataset_name = "HR_Analytics_Job_Change_of_Data_Scientists"
+topic = "Socioeconomics"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 19158
+features = 12
+size_mb = 0.54
+licence = "CC0: Public Domain (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46935"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "in_vehicle_coupon"
+dataset_name = "in_vehicle_coupon_recommendation"
+topic = "Marketing"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 12684
+features = 24
+size_mb = 0.29
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46937"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "good_customer"
+dataset_name = "Is-this-a-good-customer"
+topic = "Finance"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 1723
+features = 13
+size_mb = 0.04
+licence = "CC0: Public Domain (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46938"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "kdd_cup_2009_appetency"
+dataset_name = "kddcup09_appetency"
+competition_name = "KDD Cup 2009"
+competition_year = 2009
+topic = "Marketing"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 50000
+features = 212
+licence = "Public (via OpenML)"
+delivery = "Download"
+source_url = "https://www.openml.org/d/46939"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "marketing_campaign"
+dataset_name = "Marketing_Campaign"
+topic = "Marketing"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 2240
+features = 25
+licence = "Public (via OpenML)"
+delivery = "Download"
+source_url = "https://www.openml.org/d/46940"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "maternal_health_risk"
+dataset_name = "maternal_health_risk"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Multiclass"
+rows = 1014
+features = 6
+size_mb = 0.01
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46941"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "miami_housing"
+dataset_name = "miami_housing"
+topic = "Real Estate"
+data_structure = "Cross-section"
+geometry = "Coordinates"
+response_type = "Regression"
+rows = 13776
+features = 15
+licence = "CC BY-NC-SA (via OpenML)"
+delivery = "Download"
+source_url = "https://www.openml.org/d/46942"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "naticusdroid"
+dataset_name = "NATICUSdroid"
+topic = "Web and IT Operations"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 7491
+features = 86
+size_mb = 0.24
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46969"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "online_shoppers"
+dataset_name = "online_shoppers_intention"
+topic = "Retail"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 12330
+features = 17
+size_mb = 0.54
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46947"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "protein_structure"
+dataset_name = "physiochemical_protein"
+topic = "Biology"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Regression"
+rows = 45730
+features = 9
+size_mb = 3.7
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46949"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "polish_bankruptcy"
+dataset_name = "polish_companies_bankruptcy"
+topic = "Finance"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 5910
+features = 64
+size_mb = 2.9
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46950"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "qsar_biodegradation"
+dataset_name = "qsar-biodeg"
+topic = "Chemistry"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 1054
+features = 41
+size_mb = 0.08
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46952"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "qsar_tid_11"
+dataset_name = "QSAR-TID-11"
+topic = "Chemistry"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Regression"
+rows = 5742
+features = 1024
+licence = "Public (via OpenML)"
+delivery = "Download"
+source_url = "https://www.openml.org/d/46953"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "qsar_fish_toxicity"
+dataset_name = "QSAR_fish_toxicity"
+topic = "Chemistry"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Regression"
+rows = 907
+features = 6
+size_mb = 0.03
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46954"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "stellar_classification"
+dataset_name = "SDSS17"
+topic = "Physics"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Multiclass"
+rows = 78053
+features = 11
+size_mb = 7.8
+licence = "Public Domain (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46955"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "seismic_bumps"
+dataset_name = "seismic-bumps"
+topic = "Engineering"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 2584
+features = 15
+size_mb = 0.06
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46956"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "splice"
+dataset_name = "splice"
+topic = "Biology"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Multiclass"
+rows = 3190
+features = 60
+size_mb = 0.1
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46958"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "student_dropout"
+dataset_name = "students_dropout_and_academic_success"
+topic = "Socioeconomics"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Multiclass"
+rows = 4424
+features = 36
+size_mb = 0.13
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46960"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "superconductivity"
+dataset_name = "superconductivity"
+topic = "Physics"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Regression"
+rows = 21263
+features = 81
+size_mb = 7.38
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46961"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "taiwan_bankruptcy"
+dataset_name = "taiwanese_bankruptcy_prediction"
+topic = "Finance"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 6819
+features = 94
+size_mb = 4.44
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46962"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "website_phishing"
+dataset_name = "website_phishing"
+topic = "Web and IT Operations"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Multiclass"
+rows = 1353
+features = 9
+size_mb = 0.03
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46963"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "wine_quality"
+dataset_name = "wine_quality"
+topic = "Chemistry"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Regression"
+rows = 6497
+features = 12
+size_mb = 0.22
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46964"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "myocardial_infarction"
+dataset_name = "MIC"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Multiclass"
+rows = 1699
+features = 111
+size_mb = 0.1
+licence = "CC BY 4.0 (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46980"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "jm1_software_defects"
+dataset_name = "jm1"
+topic = "Web and IT Operations"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Binary"
+rows = 10885
+features = 21
+size_mb = 0.56
+licence = "Public Domain (via OpenML)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46979"
+
+  [[datasets.references]]
+  bibtex_key = "EPTHD...2025a"
+  role = "Benchmark"
