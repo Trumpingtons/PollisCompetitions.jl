@@ -1,0 +1,15 @@
+competition = "bank_marketing"
+name = "bank-marketing"
+format = "tabular"
+target = "SubscribeTermDeposit"
+openml_task = 363618
+openml_dataset = 46910
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:07:45.307"
+fingerprint = "4964ebdd04eed78389e7aae34d4d5becd65a1844242fd0ab28b03566dabdfa35"
+
+[tables]
+data = 45211
+splits = 452110

@@ -1,0 +1,15 @@
+competition = "qsar_fish_toxicity"
+name = "QSAR_fish_toxicity"
+format = "tabular"
+target = "LC50"
+openml_task = 363698
+openml_dataset = 46954
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:25.446"
+fingerprint = "6ff1ca2f4917596728cb99fd70bd5eae2987e3bf072d9917fd2d12b12d9f9b3c"
+
+[tables]
+data = 907
+splits = 9070

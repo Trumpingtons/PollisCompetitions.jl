@@ -1,0 +1,15 @@
+competition = "data_scientist_job_change"
+name = "HR_Analytics_Job_Change_of_Data_Scientists"
+format = "tabular"
+target = "LookingForJobChange"
+openml_task = 363679
+openml_dataset = 46935
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:20.282"
+fingerprint = "f2b44cd3cddd84fde03678e31d9d7b16b6333342e6e596d858b988bb5a9297fe"
+
+[tables]
+data = 19158
+splits = 191580

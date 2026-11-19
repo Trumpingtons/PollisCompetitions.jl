@@ -1,0 +1,15 @@
+competition = "wine_quality"
+name = "wine_quality"
+format = "tabular"
+target = "median_wine_quality"
+openml_task = 363708
+openml_dataset = 46964
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:29.966"
+fingerprint = "ee0c4eb3bac0e49d04e5a13253cb03025446309411e7914758f424b2dcc01713"
+
+[tables]
+data = 6497
+splits = 64970

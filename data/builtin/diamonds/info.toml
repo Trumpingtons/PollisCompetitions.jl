@@ -1,0 +1,15 @@
+competition = "diamonds"
+name = "diamonds"
+format = "tabular"
+target = "price"
+openml_task = 363631
+openml_dataset = 46923
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:11.158"
+fingerprint = "da6e04a120ddd7d5004034f418b14ab109f922699ba2864f50da2d87f96a41e5"
+
+[tables]
+data = 53940
+splits = 539400

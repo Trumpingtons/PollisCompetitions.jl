@@ -1,0 +1,15 @@
+competition = "good_customer"
+name = "Is-this-a-good-customer"
+format = "tabular"
+target = "bad_client_target"
+openml_task = 363682
+openml_dataset = 46938
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:20.669"
+fingerprint = "5c6c2dbb6a9c22e1a7f770f55cea39ec3ebbbc06fbd9bb96b0897ffa5e56b1e2"
+
+[tables]
+data = 1723
+splits = 17230

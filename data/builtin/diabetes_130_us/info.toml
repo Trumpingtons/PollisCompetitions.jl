@@ -1,0 +1,15 @@
+competition = "diabetes_130_us"
+name = "Diabetes130US"
+format = "tabular"
+target = "EarlyReadmission"
+openml_task = 363630
+openml_dataset = 46922
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:09.461"
+fingerprint = "3b9bb433077d9686302eac02d27e55c707a7b7d91a0f85a5cf34924d24d980bd"
+
+[tables]
+data = 71518
+splits = 715180

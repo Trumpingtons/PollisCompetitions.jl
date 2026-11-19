@@ -1,0 +1,15 @@
+competition = "amazon_employee_access"
+name = "Amazon_employee_access"
+format = "tabular"
+target = "ResourceApproved"
+openml_task = 363613
+openml_dataset = 46905
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:00.028"
+fingerprint = "88b59ecbf1750f45563f81fc5755434796759a97eb0ebfbac320a07f59577354"
+
+[tables]
+data = 32769
+splits = 327690

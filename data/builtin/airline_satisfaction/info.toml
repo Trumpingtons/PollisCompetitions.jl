@@ -1,0 +1,15 @@
+competition = "airline_satisfaction"
+name = "customer_satisfaction_in_airline"
+format = "tabular"
+target = "satisfaction"
+openml_task = 363628
+openml_dataset = 46920
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:07.048"
+fingerprint = "3fc12cdaf78cb21a737fc6fc36b2e3c58c1fc753dcaf78207c688b5d25631992"
+
+[tables]
+data = 129880
+splits = 1298800

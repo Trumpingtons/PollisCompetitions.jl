@@ -1,0 +1,15 @@
+competition = "pima_diabetes"
+name = "diabetes"
+format = "tabular"
+target = "TestedPositiveForDiabetes"
+openml_task = 363629
+openml_dataset = 46921
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:07.121"
+fingerprint = "108980bec470d3b1e4c2357658a04e77900dd24a93d299d4f943a56487ab52a4"
+
+[tables]
+data = 768
+splits = 7680

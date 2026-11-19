@@ -1,0 +1,15 @@
+competition = "customer_churn"
+name = "churn"
+format = "tabular"
+target = "CustomerChurned"
+openml_task = 363623
+openml_dataset = 46915
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:01.131"
+fingerprint = "9d72b88860710b6098274a8a92bae0752a3064ef2e5d10dbcd8973f44a8cfe38"
+
+[tables]
+data = 5000
+splits = 50000

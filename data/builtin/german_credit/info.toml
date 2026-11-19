@@ -1,0 +1,15 @@
+competition = "german_credit"
+name = "credit-g"
+format = "tabular"
+target = "good_or_bad_customer"
+openml_task = 363626
+openml_dataset = 46918
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:01.500"
+fingerprint = "0be63eb13117d1a598494eca17e8c256abdcb09cd4ea22fef6f4d8300b99d1c0"
+
+[tables]
+data = 1000
+splits = 10000

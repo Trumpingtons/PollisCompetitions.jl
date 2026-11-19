@@ -1,0 +1,15 @@
+competition = "annealing"
+name = "anneal"
+format = "tabular"
+target = "classes"
+openml_task = 363614
+openml_dataset = 46906
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:00.069"
+fingerprint = "4e000d155623580162a08423e2904671e2272762dded1fa764a666cd8a5b37e6"
+
+[tables]
+data = 898
+splits = 8980

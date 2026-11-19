@@ -1,0 +1,15 @@
+competition = "superconductivity"
+name = "superconductivity"
+format = "tabular"
+target = "critical_temp"
+openml_task = 363705
+openml_dataset = 46961
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:29.508"
+fingerprint = "de15ae485bb6007d68609595578025283cb431e373b3a991fa91b054beda0600"
+
+[tables]
+data = 21263
+splits = 212630

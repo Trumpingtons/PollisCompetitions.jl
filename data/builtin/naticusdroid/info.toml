@@ -1,0 +1,15 @@
+competition = "naticusdroid"
+name = "NATICUSdroid"
+format = "tabular"
+target = "Malware"
+openml_task = 363689
+openml_dataset = 46969
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:23.168"
+fingerprint = "8301f692a24c9d632fb4eb8af3c81c001e61a9bdfc59ec5f45895f5d6d8a0da5"
+
+[tables]
+data = 7491
+splits = 74910

@@ -1,0 +1,15 @@
+competition = "stellar_classification"
+name = "SDSS17"
+format = "tabular"
+target = "ObjectType"
+openml_task = 363699
+openml_dataset = 46955
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:28.226"
+fingerprint = "70b6852dc8600984130b961d9fd8b97b5ed014f9bb43c3b06500b45e796ccaf6"
+
+[tables]
+data = 78053
+splits = 780530

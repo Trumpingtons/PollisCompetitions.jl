@@ -1,0 +1,15 @@
+competition = "blood_transfusion"
+name = "blood-transfusion-service-center"
+format = "tabular"
+target = "DonatedBloodInMarch2007"
+openml_task = 363621
+openml_dataset = 46913
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:00.811"
+fingerprint = "8e501117ef562a38f70ee9a7000abb688b49a4ac2ff1242f0f32d3321f895e9f"
+
+[tables]
+data = 748
+splits = 7480

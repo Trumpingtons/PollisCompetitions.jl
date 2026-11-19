@@ -1,0 +1,15 @@
+competition = "biological_response"
+name = "Bioresponse"
+format = "tabular"
+target = "MoleculeElicitsResponse"
+openml_task = 363620
+openml_dataset = 46912
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:00.776"
+fingerprint = "237d4f8e41f870a66b442237a14f4acd1a39a445e19c2151626b4f252b4ee2e8"
+
+[tables]
+data = 3751
+splits = 37510

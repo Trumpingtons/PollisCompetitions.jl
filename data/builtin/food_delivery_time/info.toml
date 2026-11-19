@@ -1,0 +1,15 @@
+competition = "food_delivery_time"
+name = "Food_Delivery_Time"
+format = "tabular"
+target = "Time_taken(min)"
+openml_task = 363672
+openml_dataset = 46928
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:12.863"
+fingerprint = "3c6028115c710c9310e7cd01e458aaf098a925cfd65cb7cd99b17d02682fd451"
+
+[tables]
+data = 45451
+splits = 454510

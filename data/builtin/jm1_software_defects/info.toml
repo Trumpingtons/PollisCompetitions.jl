@@ -1,0 +1,15 @@
+competition = "jm1_software_defects"
+name = "jm1"
+format = "tabular"
+target = "defects"
+openml_task = 363712
+openml_dataset = 46979
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:30.466"
+fingerprint = "ee245250a133bde7515a47aac3c83c69d4b5409c1264bcc565b617ec5482e8a3"
+
+[tables]
+data = 10885
+splits = 108850

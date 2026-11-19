@@ -1,0 +1,15 @@
+competition = "airfoil_noise"
+name = "airfoil_self_noise"
+format = "tabular"
+target = "scaled-sound-pressure"
+openml_task = 363612
+openml_dataset = 46904
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:05:58.973"
+fingerprint = "63c35a4b4e614c8956bfa77b2481296e88ff2dbdbacab2ec7a4332a103f7a315"
+
+[tables]
+data = 1503
+splits = 15030

@@ -1,0 +1,15 @@
+competition = "polish_bankruptcy"
+name = "polish_companies_bankruptcy"
+format = "tabular"
+target = "company_bankrupt"
+openml_task = 363694
+openml_dataset = 46950
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:25.090"
+fingerprint = "d9e07f28a10314b2fe1895e38032910452b3fe0dfe30c635e14e08ccb9ab6f19"
+
+[tables]
+data = 5910
+splits = 59100

@@ -1,0 +1,15 @@
+competition = "student_dropout"
+name = "students_dropout_and_academic_success"
+format = "tabular"
+target = "AcademicOutcome"
+openml_task = 363704
+openml_dataset = 46960
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:28.701"
+fingerprint = "817eecdc11b980b1a974eace2fff08813961c6fc63518e94cd820bfd44068f66"
+
+[tables]
+data = 4424
+splits = 44240

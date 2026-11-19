@@ -1,0 +1,15 @@
+competition = "taiwan_bankruptcy"
+name = "taiwanese_bankruptcy_prediction"
+format = "tabular"
+target = "Bankrupt"
+openml_task = 363706
+openml_dataset = 46962
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:29.764"
+fingerprint = "1cddf1d44667752ce017eb295d30ac577acbb49bfe1e2d9e178e56c13bcdcd7a"
+
+[tables]
+data = 6819
+splits = 68190

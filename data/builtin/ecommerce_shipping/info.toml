@@ -1,0 +1,15 @@
+competition = "ecommerce_shipping"
+name = "E-CommereShippingData"
+format = "tabular"
+target = "ArrivedLate"
+openml_task = 363632
+openml_dataset = 46924
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:11.462"
+fingerprint = "38497c0079d2535d40a52fb771aef3411a617f0bca4732543146d9b6d9752847"
+
+[tables]
+data = 10999
+splits = 109990

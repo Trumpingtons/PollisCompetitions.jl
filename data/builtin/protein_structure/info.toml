@@ -1,0 +1,15 @@
+competition = "protein_structure"
+name = "physiochemical_protein"
+format = "tabular"
+target = "ResidualSize"
+openml_task = 363693
+openml_dataset = 46949
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:24.884"
+fingerprint = "81aca8fbcfdf8311a55111d1a9f8ee2700442af3ac1c3e72a91752ce8f3f210d"
+
+[tables]
+data = 45730
+splits = 457300

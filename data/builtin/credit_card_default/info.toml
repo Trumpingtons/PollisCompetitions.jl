@@ -1,0 +1,15 @@
+competition = "credit_card_default"
+name = "credit_card_clients_default"
+format = "tabular"
+target = "DefaultOnPaymentNextMonth"
+openml_task = 363627
+openml_dataset = 46919
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:02.373"
+fingerprint = "f32f16c1bad50d7a390ef413679e8b31eaa8298e2bdadc034c7647a1b9240b30"
+
+[tables]
+data = 30000
+splits = 300000

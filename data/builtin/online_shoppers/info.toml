@@ -1,0 +1,15 @@
+competition = "online_shoppers"
+name = "online_shoppers_intention"
+format = "tabular"
+target = "Revenue"
+openml_task = 363691
+openml_dataset = 46947
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:23.488"
+fingerprint = "ea4a0a089bdfe78a30270f624a831f2b4ba5ef9c732f9a5976c26386e0f337b4"
+
+[tables]
+data = 12330
+splits = 123300

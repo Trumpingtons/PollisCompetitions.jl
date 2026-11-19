@@ -1,0 +1,15 @@
+competition = "coil_2000_insurance"
+name = "coil2000_insurance_policies"
+format = "tabular"
+target = "MobileHomePolicy"
+openml_task = 363624
+openml_dataset = 46916
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:01.432"
+fingerprint = "37a4ba299d2ee09a3eb1ca3a0b822c55d0b1c0a176cccc891243d66e67fb2f6d"
+
+[tables]
+data = 9822
+splits = 98220

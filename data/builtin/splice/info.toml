@@ -1,0 +1,15 @@
+competition = "splice"
+name = "splice"
+format = "tabular"
+target = "SiteType"
+openml_task = 363702
+openml_dataset = 46958
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:28.506"
+fingerprint = "7979831085896152fdfe9d8f1bf410c162c9d012cd43c7176e0e60c669b60a07"
+
+[tables]
+data = 3190
+splits = 31900

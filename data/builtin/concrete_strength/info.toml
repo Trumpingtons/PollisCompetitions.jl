@@ -1,0 +1,15 @@
+competition = "concrete_strength"
+name = "concrete_compressive_strength"
+format = "tabular"
+target = "ConcreteCompressiveStrength"
+openml_task = 363625
+openml_dataset = 46917
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:01.466"
+fingerprint = "777def115682fda69c210e4ac1824350e3c8b9adf667d95061b46a9fc0830745"
+
+[tables]
+data = 1030
+splits = 10300

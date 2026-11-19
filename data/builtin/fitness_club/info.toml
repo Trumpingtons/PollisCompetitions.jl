@@ -1,0 +1,15 @@
+competition = "fitness_club"
+name = "Fitness_Club"
+format = "tabular"
+target = "attended"
+openml_task = 363671
+openml_dataset = 46927
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:11.502"
+fingerprint = "16c6ec5142c16e99e55c7159165df23be8a21c1aa72c5d11392da8ea49fd7f16"
+
+[tables]
+data = 1500
+splits = 15000

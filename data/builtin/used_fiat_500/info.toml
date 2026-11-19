@@ -1,0 +1,15 @@
+competition = "used_fiat_500"
+name = "Another-Dataset-on-used-Fiat-500"
+format = "tabular"
+target = "price"
+openml_task = 363615
+openml_dataset = 46907
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:00.108"
+fingerprint = "ca0ef3bcbc9e832593577becc69cf17830ca1a29dc14b13013e64bb02217d5f0"
+
+[tables]
+data = 1538
+splits = 15380

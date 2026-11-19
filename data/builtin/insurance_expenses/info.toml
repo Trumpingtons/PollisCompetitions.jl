@@ -1,0 +1,15 @@
+competition = "insurance_expenses"
+name = "healthcare_insurance_expenses"
+format = "tabular"
+target = "charges"
+openml_task = 363675
+openml_dataset = 46931
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:18.573"
+fingerprint = "394bd3179f49e5da95c3fa07ddf5afde870aff02529460799d95cd7fb7313b67"
+
+[tables]
+data = 1338
+splits = 13380

@@ -1,0 +1,15 @@
+competition = "qsar_biodegradation"
+name = "qsar-biodeg"
+format = "tabular"
+target = "Biodegradable"
+openml_task = 363696
+openml_dataset = 46952
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:25.127"
+fingerprint = "e0ee43ad4ed92ba099c1df59c62634bb735904b3382906bc26418fa783a67111"
+
+[tables]
+data = 1054
+splits = 10540

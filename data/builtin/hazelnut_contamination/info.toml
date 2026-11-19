@@ -1,0 +1,15 @@
+competition = "hazelnut_contamination"
+name = "hazelnut-spread-contaminant-detection"
+format = "tabular"
+target = "Contaminated"
+openml_task = 363674
+openml_dataset = 46930
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:18.539"
+fingerprint = "c96dc3105d0ad23582006c944d02f51ace71daa0647a2dc5f0bef90447d75908"
+
+[tables]
+data = 2400
+splits = 24000

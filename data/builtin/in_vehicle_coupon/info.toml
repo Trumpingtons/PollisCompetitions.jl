@@ -1,0 +1,15 @@
+competition = "in_vehicle_coupon"
+name = "in_vehicle_coupon_recommendation"
+format = "tabular"
+target = "AcceptCoupon"
+openml_task = 363681
+openml_dataset = 46937
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:20.614"
+fingerprint = "77dbcabfd1c9f6f8898cbf64820cef1ad9d95d00f6e29ceefdff2344ebcd5e7f"
+
+[tables]
+data = 12684
+splits = 126840

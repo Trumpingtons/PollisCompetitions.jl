@@ -1,0 +1,15 @@
+competition = "maternal_health_risk"
+name = "maternal_health_risk"
+format = "tabular"
+target = "RiskLevel"
+openml_task = 363685
+openml_dataset = 46941
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:22.584"
+fingerprint = "6f1cefffe615a8827ba73bb1aa7e432b7149292222917ee4df5195ca8baed50e"
+
+[tables]
+data = 1014
+splits = 10140

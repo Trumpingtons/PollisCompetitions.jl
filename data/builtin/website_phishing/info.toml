@@ -1,0 +1,15 @@
+competition = "website_phishing"
+name = "website_phishing"
+format = "tabular"
+target = "WebsiteType"
+openml_task = 363707
+openml_dataset = 46963
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:29.804"
+fingerprint = "350f36b5db8c69698a641c8d6357367f40a071b1a657dd3eb716cbc239fdb465"
+
+[tables]
+data = 1353
+splits = 13530

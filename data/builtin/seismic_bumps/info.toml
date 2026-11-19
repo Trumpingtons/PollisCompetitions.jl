@@ -1,0 +1,15 @@
+competition = "seismic_bumps"
+name = "seismic-bumps"
+format = "tabular"
+target = "HighEnergySeismicBump"
+openml_task = 363700
+openml_dataset = 46956
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:28.384"
+fingerprint = "1623fa6240c5b497ec9255567ce7062a0d8d1c0868432b856d7315ba971fc675"
+
+[tables]
+data = 2584
+splits = 25840
