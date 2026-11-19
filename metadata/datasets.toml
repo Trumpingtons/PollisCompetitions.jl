@@ -242,6 +242,9 @@ response_type = "Regression"
 licence = "None stated (redistributed in the CRAN package TSPred)"
 delivery = "Built-in"
 
+  [[datasets.references]]
+  bibtex_key = "WG1994a"
+
 [[datasets]]
 dataset_id = "estsp"
 dataset_name = "ESTSP 2007 / 2008 competitions"
@@ -390,6 +393,9 @@ data_structure = "Panel"
 geometry = "None"
 source_url = "https://arxiv.org/abs/2505.16319"
 
+  [[datasets.references]]
+  bibtex_key = "WGLLS...2025a"
+
 [[datasets]]
 dataset_id = "vn1"
 dataset_name = "VN1 Forecasting – Accuracy Challenge"
@@ -403,6 +409,9 @@ licence = "Not found"
 delivery = "Download"
 source_url = "https://www.datasource.ai/en/home/data-science-competitions-for-startups/phase-2-vn1-forecasting-accuracy-challenge/description"
 
+  [[datasets.references]]
+  bibtex_key = "Van2025a"
+
 [[datasets]]
 dataset_id = "vn2"
 dataset_name = "VN2 Inventory Planning Challenge"
@@ -413,6 +422,9 @@ data_structure = "Panel"
 geometry = "None"
 licence = "Not found"
 delivery = "Download"
+
+  [[datasets.references]]
+  bibtex_key = "Sza2026a"
 
 [[datasets]]
 dataset_id = "grupo_bimbo"
@@ -699,6 +711,9 @@ response_type = "Regression"
 licence = "None stated; ISO New England data, which the organisers did not re-host"
 delivery = "Download"
 
+  [[datasets.references]]
+  bibtex_key = "HXB2019a"
+
 [[datasets]]
 dataset_id = "eunite_2001"
 dataset_name = "EUNITE 2001 Electricity Load Competition"
@@ -708,6 +723,9 @@ topic = "Energy"
 response_type = "Regression"
 licence = "None stated (redistributed in the CRAN package TSPred)"
 delivery = "Built-in"
+
+  [[datasets.references]]
+  bibtex_key = "CCL2004a"
 
 [[datasets]]
 dataset_id = "kdd_cup_2022_wind"
@@ -927,6 +945,9 @@ geometry = "Spatial Weights Matrix"
 licence = "Not found for the data (the MIT licence of the DCRNN repository covers its code)"
 delivery = "Download"
 
+  [[datasets.references]]
+  bibtex_key = "LYSL2018a"
+
 [[datasets]]
 dataset_id = "nyc_taxi_demand"
 dataset_name = "NYC Taxi demand (TLC Trip Record Data)"
@@ -955,6 +976,12 @@ licence = "Mixed: some series are copyrighted, and only a subset is cleared for 
 delivery = "Download"
 source_url = "https://research.stlouisfed.org/econ/mccracken/fred-databases/"
 
+  [[datasets.references]]
+  bibtex_key = "MN2016a"
+
+  [[datasets.references]]
+  bibtex_key = "MN2021a"
+
 [[datasets]]
 dataset_id = "philly_fed_spf"
 dataset_name = "Philadelphia Fed Survey of Professional Forecasters and Real-Time Data Set"
@@ -981,6 +1008,9 @@ data_structure = "Panel"
 geometry = "None"
 delivery = "Download"
 source_url = "https://ral.ucar.edu/solutions/products/camels"
+
+  [[datasets.references]]
+  bibtex_key = "ANMC2017a"
 
 [[datasets]]
 dataset_id = "good_judgment_project"
