@@ -1,28 +1,73 @@
 using Test
+import DBInterface, Downloads, JSON, Tables
 import PollisCompetitions as PC
 using PollisCompetitions.M4Benchmarks: BENCHMARKS, benchmarks, holt, is_seasonal
 
 @testset "PollisCompetitions" begin
-	@testset "Catalogue" begin
-		entries = PC.catalogue()
-		@test [entry["id"] for entry in entries] == ["m1", "m3", "m4", "m5", "m6"]
-		roles = Set(["series", "info", "train", "test", "calendar", "prices", "weights", "submissions", "entries", "scores", "forecasts"])
-		for entry in entries, file in entry["files"]
-			@test file["role"] in roles
-			@test occursin(r"^[0-9a-f]{64}$", file["sha256"])
-			@test startswith(file["url"], "https://")
+	@testset "Metadata" begin
+		folder = mktempdir()
+		write(joinpath(folder, "datasets.toml"), """
+			[[datasets]]
+			dataset_id = "guerry"
+			dataset_name = "Guerry Moral Statistics"
+			topic = "Socioeconomics"
+			data_structure = "Cross-section"
+			geometry = "Polygons"
+			response_type = "Regression"
+			rows = 86
+			features = 23
+			delivery = "Built-in"
+
+			  [[datasets.references]]
+			  bibtex_key = "G1833a"
+			  role = "Primary"
+			""")
+		write(joinpath(folder, "models.toml"), """
+			[[models]]
+			model_id = "sar_ml"
+			model_name = "Spatial Autoregression"
+			estimator_method = "Maximum Likelihood"
+			package = "SpatialDependence"
+			language = "Julia"
+			""")
+		write(joinpath(folder, "benchmarks.toml"), """
+			[[runs]]
+			run_id = "run_001"
+			model_id = "sar_ml"
+			dataset_id = "guerry"
+			split_protocol = "5_fold_spatial"
+
+			  [runs.scores]
+			  RMSE = 4.12
+			  MAE = 3.25
+			""")
+		db = PC.connect_db(; metadata = folder, builtin = folder)
+		try
+			query(sql) = Tables.columntable(DBInterface.execute(db, sql))
+			@test (query("SELECT dataset_id, bibtex_key, role FROM dataset_references"),
+				query("SELECT run_id, model_name, dataset_name, geometry, metric, score FROM model_comparisons ORDER BY metric")) ==
+				((; dataset_id = ["guerry"], bibtex_key = ["G1833a"], role = ["Primary"]),
+				(; run_id = ["run_001", "run_001"], model_name = ["Spatial Autoregression", "Spatial Autoregression"],
+					dataset_name = ["Guerry Moral Statistics", "Guerry Moral Statistics"], geometry = ["Polygons", "Polygons"],
+					metric = ["MAE", "RMSE"], score = [3.25, 4.12]))
+		finally
+			DBInterface.close!(db)
 		end
-		@test count(file -> file["role"] == "forecasts", PC.competition("m4")["files"]) == PC.competition("m4")["entries"] == 61
-		# M5: 24 benchmarks and the top 50 of Accuracy, 6 benchmarks and the top 50 of Uncertainty
-		m5 = PC.files_of("m5", "forecasts")
-		@test length(m5) == PC.competition("m5")["entries"] == 130
-		@test [count(file -> file["forecasts"] == forecasts && file["kind"] == kind, m5) for forecasts in ("point", "quantiles") for kind in ("submission", "benchmark")] == [50, 24, 50, 6]
-		@test sort([file["rank"] for file in m5 if file["kind"] == "submission" && file["forecasts"] == "point"]) == 1:50
-		@test allunique(file["name"] for file in m5)
-		@test_throws ErrorException PC.competition("m7")
+
+		write(joinpath(folder, "datasets.toml"), "[[datasets]]\ndataset_id = \"x\"\ndataset_name = \"X\"\ntopic = \"General\"\ngeometry = \"Lines\"\n")
+		@test_throws Exception PC.connect_db(; metadata = folder, builtin = folder)
+
+		# The metadata of the package loads, and every reference is a work of PollisReferences: of the clone that
+		# POLLIS_REFERENCES names, else of its main branch
+		DBInterface.close!(PC.connect_db())
+		file = haskey(ENV, "POLLIS_REFERENCES") ? joinpath(ENV["POLLIS_REFERENCES"], "data", "references.json") :
+			Downloads.download("https://raw.githubusercontent.com/Trumpingtons/PollisReferences.jl/main/data/references.json")
+		works = Set(work["key"] for work in JSON.parsefile(file)["references"])
+		cited = vcat(PC.load_table("dataset_references").bibtex_key, PC.load_table("model_references").bibtex_key)
+		@test filter(key -> !(key in works), cited) == String[]
 	end
 
-	@testset "Reading the files of the sources" begin
+	@testset "Monash archive files" begin
 		folder = mktempdir()
 		path = joinpath(folder, "small.tsf")
 		write(path, """
@@ -47,107 +92,6 @@ using PollisCompetitions.M4Benchmarks: BENCHMARKS, benchmarks, holt, is_seasonal
 		@test PC.read_tsf(path).rows[1].start === nothing
 		write(path, "@relation Other\n@attribute series_name string\n@data\nT1:5,?\n")
 		@test_throws ErrorException PC.read_tsf(path)
-
-		@test PC.csv_fields("\"Y2\",\"1598\",\"1366\",") == ["Y2", "1598", "1366", ""]
-		@test PC.has_value("7.5") && !PC.has_value("") && !PC.has_value("NA")
-		@test PC.entry_name("005") == "5"
-		@test PC.entry_name("Naive2") == "Naive2"
-
-		write(path, "\"item_id\",\"dept_id\",\"cat_id\",\"store_id\",\"state_id\",\"d_1\",\"d_2\"\n\"FOODS_1_001\",\"FOODS_1\",\"FOODS\",\"CA_1\",\"CA\",3,0\n")
-		@test PC.read_m5_series(path) == (; item = ["FOODS_1_001"], department = ["FOODS_1"], category = ["FOODS"], store = ["CA_1"], state = ["CA"])
-		@test PC.m6_team("cd597d34 StanekF_STU (CERGE-EI)") == (; id = "cd597d34", name = "StanekF_STU (CERGE-EI)")
-		@test PC.m6_team("0b1bfb9c\u00a0Team X") == (; id = "0b1bfb9c", name = "Team X")
-		@test isequal(PC.m6_team("0b1bfb9c"), (; id = "0b1bfb9c", name = missing))
-	end
-
-	@testset "Filters" begin
-		@test PC.conditions("frequency" => nothing) == ("", Any[])
-		@test PC.conditions("frequency" => "Yearly", "series" => [1, 2]) == (" WHERE frequency = ? AND series IN (?, ?)", Any["Yearly", 1, 2])
-	end
-
-	# The competitions on this computer, downloaded with download(id), against the numbers their papers and files give
-	downloaded(id) = PC.info(id) !== nothing
-	# A dataset of your own: one yearly series, 1, 2, 4 seen and 5, 7 to forecast, forecast 4, 6. Naive2 forecasts 4, 4
-	# (a period of 1 is never seasonal). sMAPE: (200 / 9 + 200 / 13) / 2 = 2200 / 117, and Naive2's (200 / 9 + 600 / 11) / 2
-	# = 3800 / 99. MASE: the mean absolute error, 1, over the mean absolute change of the values seen, (1 + 2) / 2, so
-	# 2 / 3, and Naive2's 2 / (3 / 2) = 4 / 3. OWA: the mean of the two ratios to Naive2's.
-	@testset "A dataset of your own" begin
-		folder = mktempdir()
-		PC.with_database() do db
-			execute(sql) = PC.DuckDB.DBInterface.execute(db, sql)
-			execute("""COPY (SELECT 1::INTEGER AS series, 'mine' AS competition, 'S1' AS name, 'yearly' AS frequency, 1::SMALLINT AS period,
-				2::SMALLINT AS horizon, 'general' AS domain, '2020' AS start) TO '$(joinpath(folder, "series.parquet"))' (FORMAT parquet)""")
-			execute("""COPY (SELECT 1::INTEGER AS series, t::SMALLINT AS t, v::DOUBLE AS value, s AS split
-				FROM (VALUES (1, 1, 'train'), (2, 2, 'train'), (3, 4, 'train'), (4, 5, 'test'), (5, 7, 'test')) AS o(t, v, s))
-				TO '$(joinpath(folder, "observations.parquet"))' (FORMAT parquet)""")
-		end
-		write(joinpath(folder, "dataset.toml"), "[[entry]]\nid = \"mine\"\nname = \"My Dataset\"\n")
-		@test PC.is_dataset(folder) && !PC.is_dataset("m4") && !PC.is_dataset(mktempdir())
-		@test PC.competition(folder)["name"] == "My Dataset"
-		@test PC.series(folder).horizon == [2]
-		scores = PC.score(folder, (; series = [1, 1], h = [1, 2], value = [4.0, 6.0]))
-		total(measure) = only(scores.value[(scores.measure .== measure) .& (scores.breakdown .== "frequency") .& (scores.level .== "Total")])
-		smape, mase = 2200 / 117, 2 / 3
-		@test total("sMAPE") ≈ smape
-		@test total("MASE") ≈ mase
-		@test total("OWA") ≈ (smape / (3800 / 99) + mase / (4 / 3)) / 2
-	end
-
-	@testset "M1 and M3" begin
-		for (id, counts) in (("m1", Dict("Yearly" => 181, "Quarterly" => 203, "Monthly" => 617)),
-				("m3", Dict("Yearly" => 645, "Quarterly" => 756, "Monthly" => 1428, "Other" => 174)))
-			downloaded(id) || continue
-			series = PC.series(id)
-			@test Dict(frequency => count(==(frequency), series.frequency) for frequency in unique(series.frequency)) == counts
-			test = PC.observations(id; series = 1, split = "test")
-			@test length(test.t) == series.horizon[1]
-		end
-	end
-
-	@testset "M4" begin
-		if downloaded("m4")
-			@test length(PC.series("m4").series) == 100000
-			@test length(PC.series("m4"; frequency = "Hourly").series) == 414
-			entries = PC.entries("m4")
-			@test length(entries.entry) == 61
-			@test entries.name[1] == "118" && entries.rank[1] == 1
-			smyl = PC.published_scores("m4"; entry = 1, measure = "sMAPE", breakdown = "frequency")
-			@test smyl.value[findfirst(==("Yearly"), smyl.level)] ≈ 13.176 atol = 0.0005
-			@test PC.entry_number("m4", "118") == 1 && PC.entry_number("m4", 1) == 1
-		end
-	end
-
-	@testset "M5" begin
-		if downloaded("m5")
-			# 3,049 items in 10 stores of 3 states, over 1,969 days, the last 28 to forecast
-			hierarchy = PC.table("m5", "hierarchy")
-			@test length(hierarchy.series) == 30490
-			@test length.(unique.((hierarchy.item, hierarchy.department, hierarchy.category, hierarchy.store, hierarchy.state))) == (3049, 7, 3, 10, 3)
-			@test PC.info("m5")["tables"]["observations"] == 30490 * 1969
-			@test length(PC.observations("m5"; series = 1, split = "test").t) == 28
-			@test length(PC.table("m5", "calendar").t) == 1969
-			# The weights of the series of each of the 12 levels add up to 1
-			weights = PC.table("m5", "weights")
-			@test all(level -> isapprox(sum(weights.weight[weights.level .== level]), 1; atol = 1e-4), 1:12)
-			@test length(weights.level) == 42840
-			entries = PC.entries("m5")
-			@test count(==("point"), entries.forecasts) == 74 && count(==("quantiles"), entries.forecasts) == 56
-			@test_throws ErrorException PC.entry_number("m5", "Random_prediction")
-		end
-	end
-
-	@testset "M6" begin
-		if downloaded("m6")
-			prices = PC.table("m6", "prices")
-			@test length(unique(prices.symbol)) == 100
-			entries = PC.entries("m6")
-			benchmark = only(entries.entry[entries.kind .== "benchmark"])
-			# Probabilities of 0.2 for each fifth score 0.16, whichever fifth the return falls in
-			rps = PC.published_scores("m6"; entry = benchmark, measure = "RPS", breakdown = "month")
-			@test all(value -> isapprox(value, 0.16; atol = 0.005), rps.value)
-			submissions = PC.table("m6", "submissions"; entry = benchmark)
-			@test all(==(0.2), submissions.rank1) && all(==(0.01), submissions.decision)
-		end
 	end
 
 	# Two series of M4 (Makridakis, Spiliotis and Assimakopoulos 2020), the values its forecasters saw, and the forecasts of

@@ -1,0 +1,11 @@
+# The Model Catalog of PollisCompetitions.jl: one [[models]] table for each model, with its references.
+# A field left out is unknown, and loads as NULL (missing in Julia).
+#
+#   model_id          the key
+#   model_name        its name
+#   estimator_method  the method it estimates with
+#   package           the package that implements it
+#   language          Julia | Python | R | C/C++ | Fortran
+#
+# [[models.references]] are its references: bibtex_key, a key of PollisReferences, and role, one of
+# Methodology | Software | Other.

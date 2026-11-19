@@ -1,0 +1,8 @@
+# The Benchmarks of PollisCompetitions.jl: one [[runs]] table for each run of a model on a dataset, with its scores.
+#
+#   run_id          the key
+#   model_id        the model, a model_id of models.toml
+#   dataset_id      the dataset, a dataset_id of datasets.toml
+#   split_protocol  how the data were split into training and test
+#
+# [runs.scores] gives the score of each metric, metric = score.

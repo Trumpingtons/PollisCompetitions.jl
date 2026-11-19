@@ -1,0 +1,1066 @@
+# The Dataset Catalog of PollisCompetitions.jl: one [[datasets]] table for each dataset, with its references.
+# A field left out is unknown, and loads as NULL (missing in Julia).
+#
+#   dataset_id        the key
+#   dataset_name      its name
+#   competition_name  the competition it comes from, with competition_year; both or neither
+#   topic             its subject
+#   data_structure    Cross-section | Time-Series | Panel (spatial panels and multi-level longitudinal data included)
+#   geometry          None | Spatial Weights Matrix | Coordinates | Polygons, from the poorest to the richest
+#   response_type     Binary | Multiclass | Ordered | Count | Survival | Regression
+#   rows              rows of the data as stored (for a panel, one for each unit and time)
+#   features          columns other than the response and the identifiers
+#   size_mb           size of its Parquet files
+#   licence           the licence of the data
+#   delivery          Built-in (ships with the package) | Download (fetched by the user)
+#   source_url        where the data come from
+#
+# [[datasets.references]] are its references: bibtex_key, a key of PollisReferences, and role, one of
+# Primary | Competition | Benchmark | Other.
+
+
+[[datasets]]
+dataset_id = "m1"
+dataset_name = "M1 Competition"
+competition_name = "M1 Competition"
+competition_year = 1982
+topic = "General"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+licence = "CC BY 4.0 (via the Monash archive on Zenodo)"
+delivery = "Download"
+
+  [[datasets.references]]
+  bibtex_key = "MACFH...1982a"
+
+  [[datasets.references]]
+  bibtex_key = "GBWHM2021a"
+
+[[datasets]]
+dataset_id = "m2"
+dataset_name = "M2 Competition"
+competition_name = "M2 Competition"
+competition_year = 1993
+topic = "General"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+
+  [[datasets.references]]
+  bibtex_key = "MCHLM...1993a"
+
+[[datasets]]
+dataset_id = "m3"
+dataset_name = "M3 Competition"
+competition_name = "M3 Competition"
+competition_year = 2000
+topic = "General"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+licence = "CC BY 4.0 (via the Monash archive on Zenodo)"
+delivery = "Download"
+
+  [[datasets.references]]
+  bibtex_key = "MH2000a"
+
+  [[datasets.references]]
+  bibtex_key = "GBWHM2021a"
+
+[[datasets]]
+dataset_id = "m4"
+dataset_name = "M4 Competition"
+competition_name = "M4 Competition"
+competition_year = 2018
+topic = "General"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+licence = "None stated in the repository"
+delivery = "Download"
+source_url = "https://github.com/Mcompetitions/M4-methods"
+
+  [[datasets.references]]
+  bibtex_key = "MSA2018a"
+
+  [[datasets.references]]
+  bibtex_key = "MSA2020a"
+
+[[datasets]]
+dataset_id = "m5_accuracy"
+dataset_name = "M5 Forecasting – Accuracy"
+competition_name = "M5 Forecasting – Accuracy"
+competition_year = 2020
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Count"
+licence = "None stated in the repository"
+delivery = "Download"
+source_url = "https://github.com/Mcompetitions/M5-methods"
+
+  [[datasets.references]]
+  bibtex_key = "MSA2022a"
+
+  [[datasets.references]]
+  bibtex_key = "MSA2022b"
+
+  [[datasets.references]]
+  bibtex_key = "MSACG...2022a"
+
+[[datasets]]
+dataset_id = "m5_uncertainty"
+dataset_name = "M5 Forecasting – Uncertainty"
+competition_name = "M5 Forecasting – Uncertainty"
+competition_year = 2020
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/m5-forecasting-uncertainty"
+
+  [[datasets.references]]
+  bibtex_key = "MSA2022a"
+
+  [[datasets.references]]
+  bibtex_key = "MSA2022b"
+
+  [[datasets.references]]
+  bibtex_key = "MSACG...2022a"
+
+[[datasets]]
+dataset_id = "m6"
+dataset_name = "M6 Financial Forecasting Competition"
+competition_name = "M6 Financial Forecasting Competition"
+competition_year = 2022
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+licence = "None stated in the repository"
+delivery = "Download"
+source_url = "https://github.com/Mcompetitions/M6-methods"
+
+  [[datasets.references]]
+  bibtex_key = "MSHPS...2025a"
+
+[[datasets]]
+dataset_id = "tourism_2011"
+dataset_name = "Tourism Forecasting Competition"
+competition_name = "Tourism Forecasting Competition"
+competition_year = 2011
+topic = "Tourism"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+licence = "CC BY 4.0 (via the Monash archive on Zenodo)"
+delivery = "Built-in"
+
+  [[datasets.references]]
+  bibtex_key = "AHSW2011a"
+
+  [[datasets.references]]
+  bibtex_key = "GBWHM2021a"
+
+[[datasets]]
+dataset_id = "tourism_kaggle"
+dataset_name = "Tourism Forecasting Part One / Part Two (Kaggle)"
+competition_name = "Tourism Forecasting Part One / Part Two (Kaggle)"
+competition_year = 2010
+topic = "Tourism"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/tourism1"
+
+[[datasets]]
+dataset_id = "nn3"
+dataset_name = "NN3 Competition"
+competition_name = "NN3 Competition"
+competition_year = 2006
+topic = "General"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+licence = "None stated (redistributed in the CRAN package tscompdata, GPL-3)"
+delivery = "Built-in"
+source_url = "http://www.neural-forecasting-competition.com"
+
+  [[datasets.references]]
+  bibtex_key = "CHN2011a"
+
+[[datasets]]
+dataset_id = "nn5"
+dataset_name = "NN5 Competition (ATM cash withdrawals)"
+competition_name = "NN5 Competition (ATM cash withdrawals)"
+competition_year = 2008
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+licence = "CC BY 4.0 (via the Monash archive on Zenodo)"
+delivery = "Built-in"
+source_url = "http://www.neural-forecasting-competition.com"
+
+[[datasets]]
+dataset_id = "nngc1"
+dataset_name = "NNGC1 – Neural Network Grand Competition"
+competition_name = "NNGC1 – Neural Network Grand Competition"
+competition_year = 2008
+topic = "Transport and Mobility"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+licence = "None stated (redistributed in the CRAN package tscompdata, GPL-3)"
+delivery = "Built-in"
+source_url = "http://www.neural-forecasting-competition.com"
+
+[[datasets]]
+dataset_id = "cif2016"
+dataset_name = "CIF 2016 – Computational Intelligence in Forecasting"
+competition_name = "CIF 2016 – Computational Intelligence in Forecasting"
+competition_year = 2016
+topic = "Finance"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+licence = "CC BY 4.0 (via the Monash archive on Zenodo and OpenML)"
+delivery = "Built-in"
+
+[[datasets]]
+dataset_id = "santa_fe"
+dataset_name = "Santa Fe Time Series Prediction Competition"
+competition_name = "Santa Fe Time Series Prediction Competition"
+competition_year = 1991
+topic = "Physics"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+licence = "None stated (redistributed in the CRAN package TSPred)"
+delivery = "Built-in"
+
+[[datasets]]
+dataset_id = "estsp"
+dataset_name = "ESTSP 2007 / 2008 competitions"
+competition_name = "ESTSP 2007 / 2008 competitions"
+competition_year = 2007
+topic = "General"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+licence = "Not found"
+
+[[datasets]]
+dataset_id = "web_traffic"
+dataset_name = "Web Traffic Time Series Forecasting (Wikipedia)"
+competition_name = "Web Traffic Time Series Forecasting (Wikipedia)"
+competition_year = 2017
+topic = "Web and IT Operations"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/web-traffic-time-series-forecasting"
+
+[[datasets]]
+dataset_id = "rossmann"
+dataset_name = "Rossmann Store Sales"
+competition_name = "Rossmann Store Sales"
+competition_year = 2015
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/rossmann-store-sales"
+
+[[datasets]]
+dataset_id = "recruit"
+dataset_name = "Recruit Restaurant Visitor Forecasting"
+competition_name = "Recruit Restaurant Visitor Forecasting"
+competition_year = 2017
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/recruit-restaurant-visitor-forecasting"
+
+[[datasets]]
+dataset_id = "favorita"
+dataset_name = "Corporación Favorita Grocery Sales Forecasting"
+competition_name = "Corporación Favorita Grocery Sales Forecasting"
+competition_year = 2017
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/favorita-grocery-sales-forecasting"
+
+[[datasets]]
+dataset_id = "store_sales_getting_started"
+dataset_name = "Store Sales – Time Series Forecasting"
+competition_name = "Store Sales – Time Series Forecasting"
+competition_year = 2021
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/store-sales-time-series-forecasting"
+
+[[datasets]]
+dataset_id = "store_item_demand"
+dataset_name = "Store Item Demand Forecasting Challenge"
+competition_name = "Store Item Demand Forecasting Challenge"
+competition_year = 2018
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/demand-forecasting-kernels-only"
+
+[[datasets]]
+dataset_id = "walmart_2014"
+dataset_name = "Walmart Recruiting – Store Sales Forecasting"
+competition_name = "Walmart Recruiting – Store Sales Forecasting"
+competition_year = 2014
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/walmart-recruiting-store-sales-forecasting"
+
+[[datasets]]
+dataset_id = "walmart_weather_2015"
+dataset_name = "Walmart Recruiting II – Sales in Stormy Weather"
+competition_name = "Walmart Recruiting II – Sales in Stormy Weather"
+competition_year = 2015
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Count"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/walmart-recruiting-sales-in-stormy-weather"
+
+[[datasets]]
+dataset_id = "predict_future_sales"
+dataset_name = "Predict Future Sales (1C Company)"
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/competitive-data-science-predict-future-sales"
+
+[[datasets]]
+dataset_id = "rohlik_sales"
+dataset_name = "Rohlik Sales Forecasting Challenge"
+competition_name = "Rohlik Sales Forecasting Challenge"
+competition_year = 2024
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+
+[[datasets]]
+dataset_id = "rohlik_orders"
+dataset_name = "Rohlik Orders Forecasting Challenge"
+competition_name = "Rohlik Orders Forecasting Challenge"
+competition_year = 2024
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/rohlik-orders-forecasting-challenge"
+
+[[datasets]]
+dataset_id = "freshretailnet_50k"
+dataset_name = "FreshRetailNet-50K"
+topic = "Retail"
+data_structure = "Panel"
+geometry = "None"
+source_url = "https://arxiv.org/abs/2505.16319"
+
+[[datasets]]
+dataset_id = "vn1"
+dataset_name = "VN1 Forecasting – Accuracy Challenge"
+competition_name = "VN1 Forecasting – Accuracy Challenge"
+competition_year = 2024
+topic = "Supply Chain"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Count"
+licence = "Not found"
+delivery = "Download"
+source_url = "https://www.datasource.ai/en/home/data-science-competitions-for-startups/phase-2-vn1-forecasting-accuracy-challenge/description"
+
+[[datasets]]
+dataset_id = "vn2"
+dataset_name = "VN2 Inventory Planning Challenge"
+competition_name = "VN2 Inventory Planning Challenge"
+competition_year = 2025
+topic = "Supply Chain"
+data_structure = "Panel"
+geometry = "None"
+licence = "Not found"
+delivery = "Download"
+
+[[datasets]]
+dataset_id = "grupo_bimbo"
+dataset_name = "Grupo Bimbo Inventory Demand"
+competition_name = "Grupo Bimbo Inventory Demand"
+competition_year = 2016
+topic = "Supply Chain"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Count"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/grupo-bimbo-inventory-demand"
+
+[[datasets]]
+dataset_id = "meli_2021"
+dataset_name = "MeLi Data Challenge 2021 (stockout prediction)"
+competition_name = "MeLi Data Challenge 2021 (stockout prediction)"
+competition_year = 2021
+topic = "Supply Chain"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+
+[[datasets]]
+dataset_id = "g_research_crypto"
+dataset_name = "G-Research Crypto Forecasting"
+competition_name = "G-Research Crypto Forecasting"
+competition_year = 2021
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/g-research-crypto-forecasting"
+
+[[datasets]]
+dataset_id = "optiver_rv"
+dataset_name = "Optiver Realized Volatility Prediction"
+competition_name = "Optiver Realized Volatility Prediction"
+competition_year = 2021
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/optiver-realized-volatility-prediction"
+
+[[datasets]]
+dataset_id = "jane_street_2021"
+dataset_name = "Jane Street Market Prediction"
+competition_name = "Jane Street Market Prediction"
+competition_year = 2020
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/jane-street-market-prediction"
+
+[[datasets]]
+dataset_id = "jane_street_2024"
+dataset_name = "Jane Street Real-Time Market Data Forecasting"
+competition_name = "Jane Street Real-Time Market Data Forecasting"
+competition_year = 2024
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/jane-street-real-time-market-data-forecasting"
+
+[[datasets]]
+dataset_id = "ubiquant"
+dataset_name = "Ubiquant Market Prediction"
+competition_name = "Ubiquant Market Prediction"
+competition_year = 2022
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/ubiquant-market-prediction"
+
+[[datasets]]
+dataset_id = "jpx"
+dataset_name = "JPX Tokyo Stock Exchange Prediction"
+competition_name = "JPX Tokyo Stock Exchange Prediction"
+competition_year = 2022
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/jpx-tokyo-stock-exchange-prediction"
+
+[[datasets]]
+dataset_id = "two_sigma_2017"
+dataset_name = "Two Sigma Financial Modeling Challenge"
+competition_name = "Two Sigma Financial Modeling Challenge"
+competition_year = 2016
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/two-sigma-financial-modeling"
+
+[[datasets]]
+dataset_id = "two_sigma_news"
+dataset_name = "Two Sigma: Using News to Predict Stock Movements"
+competition_name = "Two Sigma: Using News to Predict Stock Movements"
+competition_year = 2018
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/two-sigma-financial-news"
+
+[[datasets]]
+dataset_id = "xforecast_2026"
+dataset_name = "XForecast Challenge @ KDD 2026 Finance Day"
+competition_name = "XForecast Challenge @ KDD 2026 Finance Day"
+competition_year = 2026
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/xforecast-challenge-kdd"
+
+  [[datasets.references]]
+  bibtex_key = "LSLLK...2026a"
+
+[[datasets]]
+dataset_id = "winton"
+dataset_name = "The Winton Stock Market Challenge"
+competition_name = "The Winton Stock Market Challenge"
+competition_year = 2015
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/the-winton-stock-market-challenge"
+
+[[datasets]]
+dataset_id = "algorithmic_trading_challenge"
+dataset_name = "Algorithmic Trading Challenge"
+competition_name = "Algorithmic Trading Challenge"
+competition_year = 2011
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+
+[[datasets]]
+dataset_id = "numerai"
+dataset_name = "Numerai Tournament"
+competition_name = "Numerai Tournament"
+competition_year = 2016
+topic = "Finance"
+data_structure = "Panel"
+geometry = "None"
+source_url = "https://numer.ai"
+
+[[datasets]]
+dataset_id = "traffic4cast"
+dataset_name = "IARAI Traffic4cast"
+competition_name = "IARAI Traffic4cast"
+competition_year = 2019
+topic = "Transport and Mobility"
+data_structure = "Panel"
+geometry = "Spatial Weights Matrix"
+response_type = "Regression"
+source_url = "https://www.iarai.ac.at/traffic4cast/"
+
+[[datasets]]
+dataset_id = "kdd_cup_2018"
+dataset_name = "KDD Cup 2018 – Fresh Air"
+competition_name = "KDD Cup 2018 – Fresh Air"
+competition_year = 2018
+topic = "Environment and Climate"
+data_structure = "Panel"
+response_type = "Regression"
+licence = "CC BY 4.0 (via the Monash archive on Zenodo)"
+delivery = "Built-in"
+source_url = "https://biendata.com/competition/kdd_2018/"
+
+[[datasets]]
+dataset_id = "acea_water"
+dataset_name = "Acea Smart Water Analytics"
+competition_name = "Acea Smart Water Analytics"
+competition_year = 2020
+topic = "Hydrology"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/acea-water-prediction"
+
+[[datasets]]
+dataset_id = "ecmwf_ai_weather_quest"
+dataset_name = "ECMWF AI Weather Quest"
+competition_name = "ECMWF AI Weather Quest"
+competition_year = 2025
+topic = "Environment and Climate"
+data_structure = "Panel"
+geometry = "Coordinates"
+response_type = "Regression"
+source_url = "https://aiweatherquest.ecmwf.int"
+
+[[datasets]]
+dataset_id = "zillow_prize"
+dataset_name = "Zillow Prize: Zillow's Home Value Prediction"
+competition_name = "Zillow Prize: Zillow's Home Value Prediction"
+competition_year = 2017
+topic = "Real Estate"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/zillow-prize-1"
+
+[[datasets]]
+dataset_id = "sberbank_housing"
+dataset_name = "Sberbank Russian Housing Market"
+competition_name = "Sberbank Russian Housing Market"
+competition_year = 2017
+topic = "Real Estate"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/sberbank-russian-housing-market"
+
+[[datasets]]
+dataset_id = "godaddy_microbusiness"
+dataset_name = "GoDaddy – Microbusiness Density Forecasting"
+competition_name = "GoDaddy – Microbusiness Density Forecasting"
+competition_year = 2022
+topic = "Macroeconomics"
+data_structure = "Panel"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/godaddy-microbusiness-density-forecasting"
+
+[[datasets]]
+dataset_id = "gefcom2012"
+dataset_name = "GEFCom2012 (load and wind tracks)"
+competition_name = "GEFCom2012 (load and wind tracks)"
+competition_year = 2012
+topic = "Energy"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+source_url = "https://www.kaggle.com/competitions/global-energy-forecasting-competition-2012-load-forecasting"
+
+  [[datasets.references]]
+  bibtex_key = "HPF2014a"
+
+[[datasets]]
+dataset_id = "gefcom2014"
+dataset_name = "GEFCom2014 (load, price, wind, solar)"
+competition_name = "GEFCom2014 (load, price, wind, solar)"
+competition_year = 2014
+topic = "Energy"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+licence = "None stated (data in the appendix of the paper)"
+delivery = "Download"
+
+  [[datasets.references]]
+  bibtex_key = "HPFZT...2016a"
+
+[[datasets]]
+dataset_id = "gefcom2017"
+dataset_name = "GEFCom2017 (hierarchical probabilistic load)"
+competition_name = "GEFCom2017 (hierarchical probabilistic load)"
+competition_year = 2017
+topic = "Energy"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+licence = "None stated; ISO New England data, which the organisers did not re-host"
+delivery = "Download"
+
+[[datasets]]
+dataset_id = "eunite_2001"
+dataset_name = "EUNITE 2001 Electricity Load Competition"
+competition_name = "EUNITE 2001 Electricity Load Competition"
+competition_year = 2001
+topic = "Energy"
+response_type = "Regression"
+licence = "None stated (redistributed in the CRAN package TSPred)"
+delivery = "Built-in"
+
+[[datasets]]
+dataset_id = "kdd_cup_2022_wind"
+dataset_name = "KDD Cup 2022 – Baidu Spatial Dynamic Wind Power Forecasting"
+competition_name = "KDD Cup 2022 – Baidu Spatial Dynamic Wind Power Forecasting"
+competition_year = 2022
+topic = "Energy"
+data_structure = "Panel"
+response_type = "Regression"
+licence = "Not found for the data (the paper is CC BY-NC-ND 4.0)"
+delivery = "Download"
+
+[[datasets]]
+dataset_id = "ashrae_gep3"
+dataset_name = "ASHRAE – Great Energy Predictor III"
+competition_name = "ASHRAE – Great Energy Predictor III"
+competition_year = 2019
+topic = "Energy"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/ashrae-energy-prediction"
+
+[[datasets]]
+dataset_id = "enefit"
+dataset_name = "Enefit – Predict Energy Behavior of Prosumers"
+competition_name = "Enefit – Predict Energy Behavior of Prosumers"
+competition_year = 2023
+topic = "Energy"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/predict-energy-behavior-of-prosumers"
+
+[[datasets]]
+dataset_id = "electricity_load_diagrams"
+dataset_name = "ElectricityLoadDiagrams 2011-2014 (UCI)"
+topic = "Energy"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+licence = "CC BY 4.0 (UCI Machine Learning Repository)"
+delivery = "Download"
+source_url = "https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014"
+
+[[datasets]]
+dataset_id = "london_smart_meters"
+dataset_name = "London Smart Meters"
+topic = "Energy"
+data_structure = "Panel"
+geometry = "None"
+delivery = "Built-in"
+
+[[datasets]]
+dataset_id = "australian_electricity_demand"
+dataset_name = "Australian Electricity Demand"
+topic = "Energy"
+data_structure = "Panel"
+geometry = "None"
+licence = "CC BY 4.0 (via the Monash archive on Zenodo); AEMO data, which AEMO lets anyone use for any purpose with attribution"
+delivery = "Built-in"
+
+[[datasets]]
+dataset_id = "monash_wind_solar"
+dataset_name = "Wind Farms / Solar Power (Monash)"
+topic = "Energy"
+data_structure = "Panel"
+geometry = "None"
+licence = "CC BY 4.0 (via the Monash archive on Zenodo); AEMO data (wind and solar at 4 seconds) and NREL data (solar at 10 minutes)"
+delivery = "Built-in"
+
+[[datasets]]
+dataset_id = "physionet_2012"
+dataset_name = "PhysioNet/CinC Challenge 2012 (ICU mortality)"
+competition_name = "PhysioNet/CinC Challenge 2012 (ICU mortality)"
+competition_year = 2012
+topic = "Health"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Binary"
+licence = "ODC-By-1.0"
+delivery = "Download"
+source_url = "https://physionet.org/content/challenge-2012/"
+
+[[datasets]]
+dataset_id = "physionet_2019"
+dataset_name = "PhysioNet/CinC Challenge 2019 (early sepsis)"
+competition_name = "PhysioNet/CinC Challenge 2019 (early sepsis)"
+competition_year = 2019
+topic = "Health"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Binary"
+licence = "CC BY 4.0"
+delivery = "Download"
+source_url = "https://physionet.org/content/challenge-2019/"
+
+[[datasets]]
+dataset_id = "hirid"
+dataset_name = "HiRID – High time Resolution ICU Dataset"
+topic = "Health"
+data_structure = "Panel"
+geometry = "None"
+source_url = "https://physionet.org/content/hirid/"
+
+[[datasets]]
+dataset_id = "covid19_forecast_hub"
+dataset_name = "US COVID-19 Forecast Hub"
+topic = "Epidemiology"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://github.com/reichlab/covid19-forecast-hub"
+
+  [[datasets.references]]
+  bibtex_key = "CRLBB...2022a"
+
+[[datasets]]
+dataset_id = "european_covid19_forecast_hub"
+dataset_name = "European COVID-19 Forecast Hub"
+topic = "Epidemiology"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+licence = "Each team's own (the repository states none)"
+delivery = "Download"
+source_url = "https://covid19forecasthub.eu"
+
+[[datasets]]
+dataset_id = "cdc_flusight"
+dataset_name = "CDC FluSight"
+topic = "Epidemiology"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+licence = "MIT"
+delivery = "Download"
+source_url = "https://github.com/cdcepi/FluSight-forecast-hub"
+
+[[datasets]]
+dataset_id = "dengai"
+dataset_name = "DengAI: Predicting Disease Spread"
+competition_name = "DengAI: Predicting Disease Spread"
+competition_year = 2016
+topic = "Epidemiology"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Count"
+delivery = "Download"
+source_url = "https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/"
+
+[[datasets]]
+dataset_id = "kaggle_covid19_global"
+dataset_name = "COVID-19 Global Forecasting (weeks 1-5)"
+competition_name = "COVID-19 Global Forecasting (weeks 1-5)"
+competition_year = 2020
+topic = "Epidemiology"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/covid19-global-forecasting-week-1"
+
+[[datasets]]
+dataset_id = "cmapss"
+dataset_name = "NASA C-MAPSS / PHM08 Challenge"
+competition_name = "NASA C-MAPSS / PHM08 Challenge"
+competition_year = 2008
+topic = "Engineering"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+licence = "US government work (NASA); data.gov states no licence"
+delivery = "Download"
+
+[[datasets]]
+dataset_id = "lanl_earthquake"
+dataset_name = "LANL Earthquake Prediction"
+competition_name = "LANL Earthquake Prediction"
+competition_year = 2019
+topic = "Engineering"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/LANL-Earthquake-Prediction"
+
+[[datasets]]
+dataset_id = "bike_sharing_demand"
+dataset_name = "Bike Sharing Demand"
+competition_name = "Bike Sharing Demand"
+competition_year = 2014
+topic = "Transport and Mobility"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Count"
+delivery = "Download"
+source_url = "https://www.kaggle.com/competitions/bike-sharing-demand"
+
+[[datasets]]
+dataset_id = "nab"
+dataset_name = "Numenta Anomaly Benchmark (NAB)"
+topic = "Anomaly Detection"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Binary"
+licence = "MIT"
+delivery = "Built-in"
+source_url = "https://github.com/numenta/NAB"
+
+[[datasets]]
+dataset_id = "yahoo_s5"
+dataset_name = "Yahoo Webscope S5"
+topic = "Anomaly Detection"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Binary"
+
+[[datasets]]
+dataset_id = "metr_la_pems_bay"
+dataset_name = "METR-LA and PEMS-BAY"
+topic = "Transport and Mobility"
+data_structure = "Panel"
+geometry = "Spatial Weights Matrix"
+licence = "Not found for the data (the MIT licence of the DCRNN repository covers its code)"
+delivery = "Download"
+
+[[datasets]]
+dataset_id = "nyc_taxi_demand"
+dataset_name = "NYC Taxi demand (TLC Trip Record Data)"
+topic = "Transport and Mobility"
+data_structure = "Panel"
+response_type = "Count"
+delivery = "Download"
+source_url = "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page"
+
+[[datasets]]
+dataset_id = "largest"
+dataset_name = "LargeST"
+topic = "Transport and Mobility"
+data_structure = "Panel"
+geometry = "Spatial Weights Matrix"
+source_url = "https://github.com/liuxu77/LargeST"
+
+[[datasets]]
+dataset_id = "fred_md_qd"
+dataset_name = "FRED-MD / FRED-QD"
+topic = "Macroeconomics"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+licence = "Mixed: some series are copyrighted, and only a subset is cleared for redistribution"
+delivery = "Download"
+source_url = "https://research.stlouisfed.org/econ/mccracken/fred-databases/"
+
+[[datasets]]
+dataset_id = "philly_fed_spf"
+dataset_name = "Philadelphia Fed Survey of Professional Forecasters and Real-Time Data Set"
+topic = "Macroeconomics"
+response_type = "Regression"
+licence = "Not found"
+delivery = "Download"
+source_url = "https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters"
+
+[[datasets]]
+dataset_id = "ecb_spf"
+dataset_name = "ECB Survey of Professional Forecasters"
+topic = "Macroeconomics"
+response_type = "Regression"
+licence = "ESCB statistics reuse policy: free reuse with the source quoted and the values unchanged"
+delivery = "Built-in"
+source_url = "https://www.ecb.europa.eu/stats/ecb_surveys/survey_of_professional_forecasters/html/index.en.html"
+
+[[datasets]]
+dataset_id = "camels"
+dataset_name = "CAMELS (catchment attributes and streamflow)"
+topic = "Hydrology"
+data_structure = "Panel"
+geometry = "None"
+delivery = "Download"
+source_url = "https://ral.ucar.edu/solutions/products/camels"
+
+[[datasets]]
+dataset_id = "good_judgment_project"
+dataset_name = "Good Judgment Project / IARPA ACE data"
+topic = "Geopolitics"
+licence = "CC0-1.0"
+delivery = "Download"
+
+[[datasets]]
+dataset_id = "metaculus"
+dataset_name = "Metaculus"
+topic = "Geopolitics"
+source_url = "https://www.metaculus.com"
+
+[[datasets]]
+dataset_id = "cluster_traces"
+dataset_name = "Alibaba and Azure cluster/function traces"
+topic = "Web and IT Operations"
+data_structure = "Panel"
+geometry = "None"
+
+[[datasets]]
+dataset_id = "monash"
+dataset_name = "Monash Time Series Forecasting Repository"
+topic = "General"
+data_structure = "Panel"
+geometry = "None"
+response_type = "Regression"
+licence = "CC BY 4.0"
+delivery = "Built-in"
+source_url = "https://forecastingdata.org"
+
+  [[datasets.references]]
+  bibtex_key = "GBWHM2021a"
+
+[[datasets]]
+dataset_id = "gift_eval"
+dataset_name = "GIFT-Eval"
+topic = "General"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+licence = "Apache-2.0"
+delivery = "Download"
+source_url = "https://github.com/SalesforceAIResearch/gift-eval"
+
+[[datasets]]
+dataset_id = "fev_bench"
+dataset_name = "fev-bench"
+topic = "General"
+data_structure = "Time-Series"
+geometry = "None"
+response_type = "Regression"
+delivery = "Download"
+source_url = "https://github.com/autogluon/fev"
+
+[[datasets]]
+dataset_id = "weatherbench2"
+dataset_name = "WeatherBench 2"
+topic = "Environment and Climate"
+data_structure = "Panel"
+geometry = "Coordinates"
+response_type = "Regression"
+source_url = "https://sites.research.google/weatherbench"
+
+[[datasets]]
+dataset_id = "forecastbench"
+dataset_name = "ForecastBench"
+competition_name = "ForecastBench"
+competition_year = 2024
+topic = "Geopolitics"
+source_url = "https://www.forecastbench.org"

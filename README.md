@@ -1,98 +1,47 @@
 # PollisCompetitions.jl
 
-The data of the M forecasting competitions, as their organisers gave them, for [Pollis](https://pollis.org): the series, split into the values the forecasters saw and those their forecasts were scored on, and, where they are published, the entries, their forecasts and their scores.
+Datasets on which models are scored and ranked, for [Pollis](https://pollis.org): the Dataset Catalog, the Model Catalog and the Benchmarks, the scores of each model on each dataset.
 
 ```julia
 import PollisCompetitions as PC
-PC.competitions()
-PC.download("m4")
-PC.download_forecasts("m4"; entries = ["118", "Theta"])
-yearly = PC.series("m4"; frequency = "Yearly")
-values = PC.observations("m4"; series = 1)
-forecasts = PC.forecasts("m4"; entry = "118", frequency = "Yearly")
-scores = PC.published_scores("m4"; measure = "OWA", breakdown = "frequency")
-PC.tables("m5")
-calendar = PC.table("m5", "calendar")
-decisions = PC.table("m6", "submissions"; entry = 1, evaluation = 12)
+datasets = PC.load_table("dataset_catalog")
+comparisons = PC.load_table("model_comparisons")
+data = PC.load_dataset("nab")
 ```
 
 Every function answers a table of columns (a NamedTuple of vectors, which Tables.jl reads).
 
-## Competitions
+## Metadata
 
-| Id | Competition | Series | Frequencies | Entries | Source | Licence of the source | |
-|---|---|---|---|---|---|---|---|
-| `m1` | M1 (1982) | 1,001 | Yearly, Quarterly, Monthly | | Monash Time Series Forecasting Archive | CC BY 4.0 | Download |
-| `m3` | M3 (2000) | 3,003 | Yearly, Quarterly, Monthly, Other | | Monash Time Series Forecasting Archive | CC BY 4.0 | Download |
-| `m4` | M4 (2018) | 100,000 | Yearly, Quarterly, Monthly, Weekly, Daily, Hourly | 61 | Mcompetitions/M4-methods | None stated | Download |
-| `m5` | M5 (2020) | 30,490 | Daily | 130 | The organisers' Google Drive and Mcompetitions/M5-methods | None stated | Download |
-| `m6` | M6 (2022) | 100 assets | Daily | 251 teams | Mcompetitions/M6-methods | None stated | Download |
+The metadata are TOML files in `metadata/`:
 
-`data/catalogue.toml` describes each competition: its source, the revision of its repository, the licence, the papers (keys of PollisReferences), and each file with its address and SHA-256.
+- `datasets.toml`: one `[[datasets]]` table for each dataset, with its `[[datasets.references]]`;
+- `models.toml`: one `[[models]]` table for each model, with its `[[models.references]]`;
+- `benchmarks.toml`: one `[[runs]]` table for each run of a model on a dataset, with its `[runs.scores]`.
 
-`data/forecasting_datasets.toml` holds the package's entries of the forecasting catalogue of Pollis, the competitions, datasets, curated collections and archives of forecasts that Compose > Forecasting Competitions > Manage Competition Datasets lists, in the fields of the catalogue's schema, which Pollis keeps. The package does not read it.
+The header of each file describes its fields. A field left out is unknown, and loads as NULL (`missing` in Julia). A reference is a key of [PollisReferences](https://github.com/Trumpingtons/PollisReferences.jl), from which its DOI and address come; the tests check that every key is there.
 
-## Download
+`connect_db(path = ":memory:")` loads the metadata into a DuckDB database of five tables:
 
-`download(id)` fetches the files of a competition from its source, checks each against the SHA-256 of the catalogue, and converts them on this computer into `~/.pollis/competitions/<id>`, a Parquet file for each table:
+| Table | Key | Columns |
+|---|---|---|
+| `dataset_catalog` | dataset_id | dataset_name, competition_name, competition_year, topic, data_structure, geometry, response_type, rows, features, size_mb, licence, delivery, source_url |
+| `dataset_references` | dataset_id, bibtex_key | role |
+| `model_catalog` | model_id | model_name, estimator_method, package, language |
+| `model_references` | model_id, bibtex_key | role |
+| `benchmarks` | run_id, metric | model_id, dataset_id, split_protocol, score |
 
-- `series`: series (a number), competition, name (as the source names it), frequency, period (the seasonal period), horizon, domain and start (as the source gives it);
-- `observations`: series, t (from 1), value, and split, `train` for the values the forecasters saw and `test` for those their forecasts were scored on;
-- `entries`: entry (a number), name, kind (submission, benchmark or standard), method, team, affiliation, rank, and forecasts (point, quantiles or rank probabilities);
-- `published_scores`: entry, measure, breakdown, level and value, the scores the organisers published.
+The database checks each value against its vocabulary and each foreign key. The view `model_comparisons` joins each score to its model and dataset. `load_table(name)` reads one of the five tables or the view.
 
-M4's entries come from `Submission Info.xlsx`, its scores (the sMAPE, MASE and OWA of each entry by frequency and by domain) from `Evaluation and Ranks.xlsx`.
+## Built-in datasets
 
-M5 is that of the evaluation phase, its private leaderboard: 30,490 series of the unit sales of an item in a store, over 1,969 days, the last 28 to forecast. Its domain is the item's category. Its other tables are:
+A dataset whose delivery is Built-in ships with the package, as a Parquet file named by its `dataset_id` in `data/builtin/`. `connect_db` reads each in place, as the view `builtin."<dataset_id>"`, and `load_dataset(dataset_id)` reads one. A dataset whose delivery is Download is fetched by the user from its `source_url`.
 
-- `hierarchy`: series, item, department, category, store and state, the levels by which M5 adds its series up into 42,840;
-- `calendar`: t, then the columns of `calendar.csv` (the date, the Walmart week `wm_yr_wk`, events and SNAP days);
-- `prices`: series, wm_yr_wk and price, the sell prices of `sell_prices.csv`;
-- `weights`: level (1 to 12), agg_level_1 and agg_level_2 (the names of a series at its level), dollar_sales and weight, from `weights_evaluation.csv`.
+## Other code
 
-Its entries are the 24 benchmarks and the top 50 of M5 Accuracy, with point forecasts, and the 6 benchmarks and the top 50 of M5 Uncertainty, with quantile forecasts. Its scores come from `Scores and Ranks.xlsx`: the WRMSSE of Accuracy and the WSPL of Uncertainty by level (1 to 12, and Total), the WSPL and the coverage rate of Uncertainty by quantile.
-
-M6 has no series to forecast but the monthly returns of 100 assets, of which each team gave the probabilities of ranking in each fifth, and in which it invested. Its tables are:
-
-- `prices`: symbol, date and price, the adjusted close prices of `assets_m6.csv`;
-- `entries`: the teams, by their id, with their names and their rank over the year (M6 Dummy, of equal probabilities and weights, is the benchmark);
-- `submissions`: entry, submission and evaluation (the round of each, 0 for the trial run, then 1 to 12), symbol, decision (the weight invested), rank1 to rank5 (the probabilities of each fifth, from the lowest returns) and active (whether the team could win a prize), from `submissions.csv`; a submission is evaluated in every round until the team submits again;
-- `published_scores`: the RPS, IR and OR of each team by month, quarter and over the year (Total), and of the trial run, from `summary_leaderboard.xlsx`.
-
-`tables(id)` names the tables of a competition on this computer, and `table(id, name; filters...)` reads one, keeping the rows of the values given.
-
-The files of the source are removed once converted. A file whose SHA-256 is not that of the catalogue stops the download: its source has changed.
-
-`download_forecasts(id; entries)` adds the forecasts of the entries given, by number or by name, or of all of them when none are, in `forecasts/<entry>.parquet`, named by the entry's number: entry, series, h and value for point forecasts; entry, level, agg_level_1, agg_level_2, quantile, h and value for the quantile forecasts of M5, which are of its 42,840 series. Of M5, the forecasts of the evaluation phase are kept. M4's forecasts come as RAR archives, which bsdtar of libarchive (LibArchive_jll) reads; all of them take 460 MB to download. The forecasts of M5 take 2.1 GB to download for Accuracy, 16.5 GB for Uncertainty.
-
-The tables are Parquet files, which Julia reads through DuckDB, filtered first: `query(sql)` runs any SQL on them.
-
-## Scores
-
-`scores(id; entries)` computes the scores of the entries whose forecasts are on this computer, as the organisers' code computes them, in the columns of `published_scores`. `score(id, forecasts)` scores a table of the user's own (series, h and value), each series forecast over its whole horizon. For M4: sMAPE and MASE, means over the series of each frequency, each domain and all of them, and OWA, which weighs them against those of Naive2 on the same series and needs its forecasts (`download_forecasts("m4"; entries = ["Naive2"])`). M1 and M3 are scored with the same measures, by frequency and in total, against Naive2 computed on this computer from the values the forecasters saw, since the package has no entries of theirs: `score` scores forecasts of your own, and `scores` has nothing to score. For M5, the WRMSSE of the point forecasts of M5 Accuracy: the forecasts of the 30,490 series are added up into the 42,840 series of its 12 levels, the RMSSE of each is scaled by the mean squared daily change of its training values from its first sale, and the WRMSSE of a level weighs them by `weights`; that of Total is the mean of the 12 levels. The quantile forecasts of M5 Uncertainty are not scored yet.
-
-A dataset of your own is scored the same way: every function that takes the id of a competition takes, in its place, the absolute path of a folder holding `series.parquet` and `observations.parquet` with the columns of a competition's (`is_dataset(path)` says whether a folder does), as Pollis writes them when a dataset is added in Compose > Forecasting Competitions > Manage Competition Datasets. `score(path, forecasts)` scores it as M1 and M3 are scored: sMAPE, MASE and OWA, against Naive2 computed on this computer.
-
-For M6, `scores("m6"; entries)` computes the scores of its teams from their submissions, and `score("m6", submissions)` scores submissions of your own (columns evaluation, the round from 1 to 12, symbol, decision and rank1 to rank5), as the organisers' evaluation code in Mcompetitions/M6-methods computes them: the ranked probability score (RPS) of the probabilities that each asset's return ranks in each fifth of the 100 assets over the 28 days of a round, and the information ratio (IR) of the daily log returns of the portfolio of the decisions, for each round, each quarter and the year. The RPS of a quarter or of the year is the mean of its rounds', and its IR that of all the daily returns of its rounds. The trial run is not scored.
-
-`step_errors(id, forecasts)` gives the errors of forecasts of M1, M3 or M4 at each step ahead, series by series, whose means over the horizon of a series are its sMAPE and its MASE: to see how the errors grow with the horizon, or which series a method forecasts worst.
-
-```julia
-mine = PC.scores("m4"; entries = ["118", "Naive2"])
-yearly = PC.forecasts("m4"; entry = "118", frequency = "Yearly")
-PC.score("m4", (; series = yearly.series, h = yearly.h, value = yearly.value))
-```
-
-`benchmarks(id; methods, series)` computes on this computer the forecasts of M4's eight statistical benchmarks (Naive, sNaive, Naive2, SES, Holt, Damped, Theta and Com) from the values the forecasters saw: method, series, h and value, so that `score` scores each method.
-
-The benchmarks come from the submodule `M4Benchmarks`, which follows the organisers' `Benchmarks and Evaluation.R` (Mcompetitions/M4-methods) step by step: the seasonality test (`SeasonalityTest`), R's `acf` and `decompose`; simple exponential smoothing and Holt's method as `ses` and `holt` of the R package forecast 8.2 fit them (`ets` with additive errors, on the mean squared one-step error, from the starting values of version 8.2, with the recursions of its C code and R's Nelder-Mead optimiser `nmmin`); the least squares line of R's `lsfit` and `lm`, by LINPACK's Householder QR; and Theta as `Theta.classic`. `M4Benchmarks.benchmarks(y; period, horizon)` gives the eight for one series, and `is_seasonal`, `seasonal_index`, `ses`, `holt` and `theta` each part. SES needs more than 6 values, Holt more than 8 and Damped more than 9, as `ets` optimises them; forecast 8.2 falls back to other methods on shorter series, and `M4Benchmarks` stops with an error.
-
-The scores of all 61 entries of M4 agree with `Evaluation and Ranks.xlsx`: sMAPE and MASE to the three decimals it gives. The sheet computes OWA from those rounded values, so that an OWA far above 1 can differ from the one computed here in the fourth significant digit (12.8399 for 12.8386).
-
-In each series of the Monash archive, the values the forecasters saw come first, then the values of the horizon: so it is for the 23,000 series of M4 Yearly, which the archive and the files of M4's organisers give with the same values. The archive gives no domain.
-
-`data/others.toml` holds competitions that are not M competitions, kept for a later group: the package does not read it.
+- `read_tsf(path)` reads a file of the Monash Time Series Forecasting Archive (.tsf).
+- The submodule `M4Benchmarks` computes the eight statistical benchmarks of the M4 forecasting competition (Naive, sNaive, Naive2, SES, Holt, Damped, Theta and Com), as its organisers computed them in `Benchmarks and Evaluation.R` (Mcompetitions/M4-methods), with simple exponential smoothing and Holt's method fitted as R's forecast 8.2 fits them. `M4Benchmarks.benchmarks(y; period, horizon)` gives the eight for one series, and `is_seasonal`, `seasonal_index`, `ses`, `holt` and `theta` each part. On the series of M4 they give the published forecasts of the benchmarks.
 
 ## Licence
 
-MIT, for the code. The data keep the terms of their source: the Monash archive puts CC BY 4.0 on its files; the organisers of M4, M5 and M6 state no licence.
+MIT, for the code. The data keep the terms of their source, which `licence` gives for each dataset.
