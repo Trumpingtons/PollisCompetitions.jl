@@ -33,9 +33,7 @@ delivery = "Download"
 
   [[datasets.references]]
   bibtex_key = "MACFH...1982a"
-
-  [[datasets.references]]
-  bibtex_key = "GBWHM2021a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "m2"
@@ -50,6 +48,7 @@ delivery = "Download"
 
   [[datasets.references]]
   bibtex_key = "MCHLM...1993a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "m3"
@@ -65,9 +64,7 @@ delivery = "Download"
 
   [[datasets.references]]
   bibtex_key = "MH2000a"
-
-  [[datasets.references]]
-  bibtex_key = "GBWHM2021a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "m4"
@@ -84,9 +81,11 @@ source_url = "https://github.com/Mcompetitions/M4-methods"
 
   [[datasets.references]]
   bibtex_key = "MSA2018a"
+  role = "Competition"
 
   [[datasets.references]]
   bibtex_key = "MSA2020a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "m5_accuracy"
@@ -103,12 +102,15 @@ source_url = "https://github.com/Mcompetitions/M5-methods"
 
   [[datasets.references]]
   bibtex_key = "MSA2022a"
+  role = "Competition"
 
   [[datasets.references]]
   bibtex_key = "MSA2022b"
+  role = "Competition"
 
   [[datasets.references]]
   bibtex_key = "MSACG...2022a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "m5_uncertainty"
@@ -124,12 +126,15 @@ source_url = "https://www.kaggle.com/competitions/m5-forecasting-uncertainty"
 
   [[datasets.references]]
   bibtex_key = "MSA2022a"
+  role = "Competition"
 
   [[datasets.references]]
   bibtex_key = "MSA2022b"
+  role = "Competition"
 
   [[datasets.references]]
   bibtex_key = "MSACG...2022a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "m6"
@@ -145,6 +150,7 @@ source_url = "https://github.com/Mcompetitions/M6-methods"
 
   [[datasets.references]]
   bibtex_key = "MSHPS...2025a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "tourism_2011"
@@ -160,9 +166,7 @@ delivery = "Built-in"
 
   [[datasets.references]]
   bibtex_key = "AHSW2011a"
-
-  [[datasets.references]]
-  bibtex_key = "GBWHM2021a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "tourism_kaggle"
@@ -191,6 +195,7 @@ source_url = "http://www.neural-forecasting-competition.com"
 
   [[datasets.references]]
   bibtex_key = "CHN2011a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "nn5"
@@ -244,6 +249,7 @@ delivery = "Built-in"
 
   [[datasets.references]]
   bibtex_key = "WG1994a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "estsp"
@@ -395,6 +401,7 @@ source_url = "https://arxiv.org/abs/2505.16319"
 
   [[datasets.references]]
   bibtex_key = "WGLLS...2025a"
+  role = "Primary"
 
 [[datasets]]
 dataset_id = "vn1"
@@ -411,6 +418,7 @@ source_url = "https://www.datasource.ai/en/home/data-science-competitions-for-st
 
   [[datasets.references]]
   bibtex_key = "Van2025a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "vn2"
@@ -422,9 +430,6 @@ data_structure = "Panel"
 geometry = "None"
 licence = "Not found"
 delivery = "Download"
-
-  [[datasets.references]]
-  bibtex_key = "Sza2026a"
 
 [[datasets]]
 dataset_id = "grupo_bimbo"
@@ -555,6 +560,7 @@ source_url = "https://www.kaggle.com/competitions/xforecast-challenge-kdd"
 
   [[datasets.references]]
   bibtex_key = "LSLLK...2026a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "winton"
@@ -683,6 +689,7 @@ source_url = "https://www.kaggle.com/competitions/global-energy-forecasting-comp
 
   [[datasets.references]]
   bibtex_key = "HPF2014a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "gefcom2014"
@@ -698,6 +705,7 @@ delivery = "Download"
 
   [[datasets.references]]
   bibtex_key = "HPFZT...2016a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "gefcom2017"
@@ -713,6 +721,7 @@ delivery = "Download"
 
   [[datasets.references]]
   bibtex_key = "HXB2019a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "eunite_2001"
@@ -723,9 +732,6 @@ topic = "Energy"
 response_type = "Regression"
 licence = "None stated (redistributed in the CRAN package TSPred)"
 delivery = "Built-in"
-
-  [[datasets.references]]
-  bibtex_key = "CCL2004a"
 
 [[datasets]]
 dataset_id = "kdd_cup_2022_wind"
@@ -845,6 +851,7 @@ source_url = "https://github.com/reichlab/covid19-forecast-hub"
 
   [[datasets.references]]
   bibtex_key = "CRLBB...2022a"
+  role = "Competition"
 
 [[datasets]]
 dataset_id = "european_covid19_forecast_hub"
@@ -947,6 +954,7 @@ delivery = "Download"
 
   [[datasets.references]]
   bibtex_key = "LYSL2018a"
+  role = "Primary"
 
 [[datasets]]
 dataset_id = "nyc_taxi_demand"
@@ -978,9 +986,11 @@ source_url = "https://research.stlouisfed.org/econ/mccracken/fred-databases/"
 
   [[datasets.references]]
   bibtex_key = "MN2016a"
+  role = "Primary"
 
   [[datasets.references]]
   bibtex_key = "MN2021a"
+  role = "Primary"
 
 [[datasets]]
 dataset_id = "philly_fed_spf"
@@ -1011,6 +1021,7 @@ source_url = "https://ral.ucar.edu/solutions/products/camels"
 
   [[datasets.references]]
   bibtex_key = "ANMC2017a"
+  role = "Primary"
 
 [[datasets]]
 dataset_id = "good_judgment_project"
@@ -1057,10 +1068,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46904"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "amazon_employee_access"
 dataset_name = "Amazon_employee_access"
@@ -1077,10 +1084,6 @@ licence = "Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46905"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "annealing"
 dataset_name = "anneal"
@@ -1094,10 +1097,6 @@ size_mb = 0.03
 licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46906"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "used_fiat_500"
@@ -1113,10 +1112,6 @@ licence = "CC0: Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46907"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "bank_marketing"
 dataset_name = "bank-marketing"
@@ -1131,10 +1126,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46910"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "bank_customer_churn"
 dataset_name = "Bank_Customer_Churn"
@@ -1147,10 +1138,6 @@ features = 10
 licence = "Public (via OpenML)"
 delivery = "Download"
 source_url = "https://www.openml.org/d/46911"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "biological_response"
@@ -1168,10 +1155,6 @@ licence = "Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46912"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "blood_transfusion"
 dataset_name = "blood-transfusion-service-center"
@@ -1186,10 +1169,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46913"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "customer_churn"
 dataset_name = "churn"
@@ -1203,10 +1182,6 @@ size_mb = 0.17
 licence = "MIT License (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46915"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "coil_2000_insurance"
@@ -1224,10 +1199,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46916"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "concrete_strength"
 dataset_name = "concrete_compressive_strength"
@@ -1241,10 +1212,6 @@ size_mb = 0.03
 licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46917"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "german_credit"
@@ -1260,10 +1227,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46918"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "credit_card_default"
 dataset_name = "credit_card_clients_default"
@@ -1277,10 +1240,6 @@ size_mb = 1.9
 licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46919"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "airline_satisfaction"
@@ -1296,10 +1255,6 @@ licence = "CC0: Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46920"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "pima_diabetes"
 dataset_name = "diabetes"
@@ -1313,10 +1268,6 @@ size_mb = 0.02
 licence = "CC0: Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46921"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "diabetes_130_us"
@@ -1332,10 +1283,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46922"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "diamonds"
 dataset_name = "diamonds"
@@ -1349,10 +1296,6 @@ size_mb = 1.78
 licence = "MIT License (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46923"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "ecommerce_shipping"
@@ -1368,10 +1311,6 @@ licence = "Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46924"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "fitness_club"
 dataset_name = "Fitness_Club"
@@ -1386,10 +1325,6 @@ licence = "Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46927"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "food_delivery_time"
 dataset_name = "Food_Delivery_Time"
@@ -1403,10 +1338,6 @@ size_mb = 1.57
 licence = "Database Contents License (DbCL) v1.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46928"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "give_me_some_credit"
@@ -1423,10 +1354,6 @@ licence = "Public (via OpenML)"
 delivery = "Download"
 source_url = "https://www.openml.org/d/46929"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "hazelnut_contamination"
 dataset_name = "hazelnut-spread-contaminant-detection"
@@ -1440,10 +1367,6 @@ size_mb = 0.36
 licence = "CC BY-SA (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46930"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "insurance_expenses"
@@ -1459,10 +1382,6 @@ licence = "Database Contents License (DbCL) v1.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46931"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "heloc"
 dataset_name = "heloc"
@@ -1475,10 +1394,6 @@ features = 23
 licence = "Public (via OpenML)"
 delivery = "Download"
 source_url = "https://www.openml.org/d/46932"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "hiva"
@@ -1495,10 +1410,6 @@ licence = "Public (via OpenML)"
 delivery = "Download"
 source_url = "https://www.openml.org/d/46933"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "house_values"
 dataset_name = "houses"
@@ -1511,10 +1422,6 @@ features = 8
 licence = "Public (via OpenML)"
 delivery = "Download"
 source_url = "https://www.openml.org/d/46934"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "data_scientist_job_change"
@@ -1530,10 +1437,6 @@ licence = "CC0: Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46935"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "in_vehicle_coupon"
 dataset_name = "in_vehicle_coupon_recommendation"
@@ -1548,10 +1451,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46937"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "good_customer"
 dataset_name = "Is-this-a-good-customer"
@@ -1565,10 +1464,6 @@ size_mb = 0.04
 licence = "CC0: Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46938"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "kdd_cup_2009_appetency"
@@ -1585,10 +1480,6 @@ licence = "Public (via OpenML)"
 delivery = "Download"
 source_url = "https://www.openml.org/d/46939"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "marketing_campaign"
 dataset_name = "Marketing_Campaign"
@@ -1601,10 +1492,6 @@ features = 25
 licence = "Public (via OpenML)"
 delivery = "Download"
 source_url = "https://www.openml.org/d/46940"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "maternal_health_risk"
@@ -1620,10 +1507,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46941"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "miami_housing"
 dataset_name = "miami_housing"
@@ -1636,10 +1519,6 @@ features = 15
 licence = "CC BY-NC-SA (via OpenML)"
 delivery = "Download"
 source_url = "https://www.openml.org/d/46942"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "naticusdroid"
@@ -1655,10 +1534,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46969"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "online_shoppers"
 dataset_name = "online_shoppers_intention"
@@ -1672,10 +1547,6 @@ size_mb = 0.54
 licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46947"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "protein_structure"
@@ -1691,10 +1562,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46949"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "polish_bankruptcy"
 dataset_name = "polish_companies_bankruptcy"
@@ -1708,10 +1575,6 @@ size_mb = 2.9
 licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46950"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "qsar_biodegradation"
@@ -1727,10 +1590,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46952"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "qsar_tid_11"
 dataset_name = "QSAR-TID-11"
@@ -1743,10 +1602,6 @@ features = 1024
 licence = "Public (via OpenML)"
 delivery = "Download"
 source_url = "https://www.openml.org/d/46953"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "qsar_fish_toxicity"
@@ -1762,10 +1617,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46954"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "stellar_classification"
 dataset_name = "SDSS17"
@@ -1779,10 +1630,6 @@ size_mb = 7.8
 licence = "Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46955"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "seismic_bumps"
@@ -1798,10 +1645,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46956"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "splice"
 dataset_name = "splice"
@@ -1815,10 +1658,6 @@ size_mb = 0.1
 licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46958"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "student_dropout"
@@ -1834,10 +1673,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46960"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "superconductivity"
 dataset_name = "superconductivity"
@@ -1851,10 +1686,6 @@ size_mb = 7.38
 licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46961"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "taiwan_bankruptcy"
@@ -1870,10 +1701,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46962"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "website_phishing"
 dataset_name = "website_phishing"
@@ -1887,10 +1714,6 @@ size_mb = 0.03
 licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46963"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
 
 [[datasets]]
 dataset_id = "wine_quality"
@@ -1906,10 +1729,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46964"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "myocardial_infarction"
 dataset_name = "MIC"
@@ -1924,10 +1743,6 @@ licence = "CC BY 4.0 (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46980"
 
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"
-
 [[datasets]]
 dataset_id = "jm1_software_defects"
 dataset_name = "jm1"
@@ -1941,7 +1756,3 @@ size_mb = 0.56
 licence = "Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46979"
-
-  [[datasets.references]]
-  bibtex_key = "EPTHD...2025a"
-  role = "Benchmark"

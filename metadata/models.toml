@@ -3,9 +3,1355 @@
 #
 #   model_id          the key
 #   model_name        its name
-#   estimator_method  the method it estimates with
+#   estimator_family  the family of its estimator, a model type of TabArena, one of those below
+#   estimator_method  the method it estimates with, one of those of its family:
+#     Foundation Model  Pretrained in-context learner | Pretrained hypernetwork | Fine-tuned pretrained transformer
+#     Tree-based        Gradient-boosted trees | Randomized tree ensemble | Generalized additive model
+#     Neural Network    Multilayer perceptron | Ensemble of multilayer perceptrons | Neural nearest neighbours
+#     Baseline          Nearest neighbours | Penalized linear model
+#     Other             Kernel machine | Piecewise linear regression
 #   package           the package that implements it
 #   language          Julia | Python | R | C/C++ | Fortran
 #
 # [[models.references]] are its references: bibtex_key, a key of PollisReferences, and role, one of
 # Methodology | Software | Other.
+
+# TabArena: the 110 models of its leaderboard, each in its configuration: default, tuned, or tuned and
+# ensembled. The family is TabArena's model type; the package is the one TabArena runs the model with, else the
+# code its paper published.
+
+[[models]]
+model_id = "tabarena_limix_2_1016_default"
+model_name = "LimiX-2-1016 (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "LimiX"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "ZRYZT...2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_kumo_tabular_default"
+model_name = "Kumo-Tabular (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "structured-data-models"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_kumo_tabular_medium_default"
+model_name = "Kumo-Tabular-Medium (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "structured-data-models"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_seldon_default"
+model_name = "Seldon (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "neuralk-oss"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_tabpfn_3_5_default"
+model_name = "TabPFN-3.5 (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabpfn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "JEGBF...2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_inpriora_default"
+model_name = "Inpriora (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "inpriora"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_seldon_mini_default"
+model_name = "Seldon-Mini (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "neuralk-oss"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_kumo_tabular_small_default"
+model_name = "Kumo-Tabular-Small (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "structured-data-models"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_tabfm_default"
+model_name = "TabFM (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabfm"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_causilo_default"
+model_name = "Causilo (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "causilo"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "CJLLY2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabpfn_3_5_fast_default"
+model_name = "TabPFN-3.5-Fast (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabpfn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "JEGBF...2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_mitra_v2_default"
+model_name = "Mitra-v2 (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "autogluon.tabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "TZLHM...2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_exaone_tabular_default"
+model_name = "EXAONE-Tabular (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "exaonetabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "ESCKK...2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tababax_default"
+model_name = "TabAbax (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tababax"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "CGHSW2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabpfn_3_default"
+model_name = "TabPFN-3 (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabpfn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GFKBJ...2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_xiaomi_tabldm_default"
+model_name = "Xiaomi-TabLDM (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "Xiaomi-TabLDM"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_tabpfn_2_6_default"
+model_name = "TabPFN-2.6 (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabpfn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GFKBJ...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabiclv2_default"
+model_name = "TabICLv2 (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabicl"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "QHVL2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_realtabpfn_2_5_tuned_ensembled"
+model_name = "RealTabPFN-2.5 (tuned + ensembled)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabpfn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GFKBJ...2025a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "GAHPM...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabh2o_default"
+model_name = "TabH2O (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "h2ofm"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_realtabpfn_2_5_tuned"
+model_name = "RealTabPFN-2.5 (tuned)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabpfn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GFKBJ...2025a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "GAHPM...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabdpt_1_3_default"
+model_name = "TabDPT-1.3 (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabdpt"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "MTHLC...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabm_a_tuned_ensembled"
+model_name = "TabM-A (tuned + ensembled)"
+estimator_family = "Neural Network"
+estimator_method = "Ensemble of multilayer perceptrons"
+package = "agentic-tabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "SCPB2026a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "GKB2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_realtabpfn_2_5_default"
+model_name = "RealTabPFN-2.5 (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabpfn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GFKBJ...2025a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "GAHPM...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_ftfm_default"
+model_name = "FTFM (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "ftfm"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_realmlp_tuned_ensembled"
+model_name = "RealMLP (tuned + ensembled)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "pytabkit"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "HGS2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabdpt_turbo_default"
+model_name = "TabDPT-Turbo (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabdpt"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "MTHLC...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabdpt_tuned_ensembled"
+model_name = "TabDPT (tuned + ensembled)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabdpt"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "MTHLC...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_mlp_a_tuned_ensembled"
+model_name = "MLP-A (tuned + ensembled)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "agentic-tabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "SCPB2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabm_tuned_ensembled"
+model_name = "TabM (tuned + ensembled)"
+estimator_family = "Neural Network"
+estimator_method = "Ensemble of multilayer perceptrons"
+package = "tabm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GKB2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_lightpfn_default"
+model_name = "LightPFN (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "lightpfn"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_tabm_a_tuned"
+model_name = "TabM-A (tuned)"
+estimator_family = "Neural Network"
+estimator_method = "Ensemble of multilayer perceptrons"
+package = "agentic-tabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "SCPB2026a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "GKB2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_realmlp_tuned"
+model_name = "RealMLP (tuned)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "pytabkit"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "HGS2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_lightgbm_tuned_ensembled"
+model_name = "LightGBM (tuned + ensembled)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "lightgbm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "KMFWC...2017a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_catboost_tuned_ensembled"
+model_name = "CatBoost (tuned + ensembled)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "catboost"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "PGVDG2018a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_catboost_tuned"
+model_name = "CatBoost (tuned)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "catboost"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "PGVDG2018a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabdpt_tuned"
+model_name = "TabDPT (tuned)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabdpt"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "MTHLC...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_iltm_tuned_ensembled"
+model_name = "iLTM (tuned + ensembled)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained hypernetwork"
+package = "iltm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "BCCMI2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabm_tuned"
+model_name = "TabM (tuned)"
+estimator_family = "Neural Network"
+estimator_method = "Ensemble of multilayer perceptrons"
+package = "tabm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GKB2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_modernnca_tuned_ensembled"
+model_name = "ModernNCA (tuned + ensembled)"
+estimator_family = "Neural Network"
+estimator_method = "Neural nearest neighbours"
+package = "TALENT"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "YYZC2024a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "LCZY2024a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_lightgbm_tuned"
+model_name = "LightGBM (tuned)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "lightgbm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "KMFWC...2017a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_chimeraboost_tuned_ensembled"
+model_name = "ChimeraBoost (tuned + ensembled)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "chimeraboost"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_catboost_default"
+model_name = "CatBoost (default)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "catboost"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "PGVDG2018a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabpack_default"
+model_name = "TabPack (default)"
+estimator_family = "Neural Network"
+estimator_method = "Ensemble of multilayer perceptrons"
+package = "tabpackage"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GKRB2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_xgboost_tuned_ensembled"
+model_name = "XGBoost (tuned + ensembled)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "xgboost"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "CG2016a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_limix_default"
+model_name = "LimiX (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "LimiX"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "ZRYYW...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_modernnca_tuned"
+model_name = "ModernNCA (tuned)"
+estimator_family = "Neural Network"
+estimator_method = "Neural nearest neighbours"
+package = "TALENT"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "YYZC2024a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "LCZY2024a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_chimeraboost_tuned"
+model_name = "ChimeraBoost (tuned)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "chimeraboost"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_xrfm_tuned_ensembled"
+model_name = "xRFM (tuned + ensembled)"
+estimator_family = "Other"
+estimator_method = "Kernel machine"
+package = "xrfm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "BHRB2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabswift_default"
+model_name = "TabSwift (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "TabSwift"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_xgboost_tuned"
+model_name = "XGBoost (tuned)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "xgboost"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "CG2016a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabpfnv2_tuned_ensembled"
+model_name = "TabPFNv2 (tuned + ensembled)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabpfn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "HMPKK...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_ctboost_tuned_ensembled"
+model_name = "CTBoost (tuned + ensembled)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "ctboost"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_mitra_default"
+model_name = "Mitra (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "autogluon.tabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "ZMYEA...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabdpt_default"
+model_name = "TabDPT (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabdpt"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "MTHLC...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabicl_default"
+model_name = "TabICL (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabicl"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "QHVL2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_chimeraboost_default"
+model_name = "ChimeraBoost (default)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "chimeraboost"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_mlp_a_tuned"
+model_name = "MLP-A (tuned)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "agentic-tabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "SCPB2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_ctboost_tuned"
+model_name = "CTBoost (tuned)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "ctboost"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_xrfm_tuned"
+model_name = "xRFM (tuned)"
+estimator_family = "Other"
+estimator_method = "Kernel machine"
+package = "xrfm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "BHRB2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabm_default"
+model_name = "TabM (default)"
+estimator_family = "Neural Network"
+estimator_method = "Ensemble of multilayer perceptrons"
+package = "tabm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GKB2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_iltm_tuned"
+model_name = "iLTM (tuned)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained hypernetwork"
+package = "iltm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "BCCMI2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabpfnv2_tuned"
+model_name = "TabPFNv2 (tuned)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabpfn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "HMPKK...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_betatabpfn_default"
+model_name = "BetaTabPFN (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "BETA"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "LY2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_sap_rpt_oss_default"
+model_name = "SAP-RPT-OSS (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "sap_rpt_oss"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "SPST2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_torchmlp_tuned_ensembled"
+model_name = "TorchMLP (tuned + ensembled)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "autogluon.tabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "EMSZL...2020a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabm_a_default"
+model_name = "TabM-A (default)"
+estimator_family = "Neural Network"
+estimator_method = "Ensemble of multilayer perceptrons"
+package = "agentic-tabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "SCPB2026a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "GKB2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_ebm_tuned_ensembled"
+model_name = "EBM (tuned + ensembled)"
+estimator_family = "Tree-based"
+estimator_method = "Generalized additive model"
+package = "interpret"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "LCGH2013a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "NJKC2019a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_tabpfnv2_default"
+model_name = "TabPFNv2 (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabpfn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "HMPKK...2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_modernnca_default"
+model_name = "ModernNCA (default)"
+estimator_family = "Neural Network"
+estimator_method = "Neural nearest neighbours"
+package = "TALENT"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "YYZC2024a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "LCZY2024a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_ebm_tuned"
+model_name = "EBM (tuned)"
+estimator_family = "Tree-based"
+estimator_method = "Generalized additive model"
+package = "interpret"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "LCGH2013a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "NJKC2019a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_realmlp_default"
+model_name = "RealMLP (default)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "pytabkit"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "HGS2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_prismboost_tuned_ensembled"
+model_name = "PrismBoost (tuned + ensembled)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "prismboost"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_xgboost_default"
+model_name = "XGBoost (default)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "xgboost"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "CG2016a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_mlp_a_default"
+model_name = "MLP-A (default)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "agentic-tabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "SCPB2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_extratrees_tuned_ensembled"
+model_name = "ExtraTrees (tuned + ensembled)"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GEW2006a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_torchmlp_tuned"
+model_name = "TorchMLP (tuned)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "autogluon.tabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "EMSZL...2020a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_fastaimlp_tuned_ensembled"
+model_name = "FastaiMLP (tuned + ensembled)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "fastai"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "EMSZL...2020a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HG2020a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_ebm_default"
+model_name = "EBM (default)"
+estimator_family = "Tree-based"
+estimator_method = "Generalized additive model"
+package = "interpret"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "LCGH2013a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "NJKC2019a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_aplr_tuned_ensembled"
+model_name = "APLR (tuned + ensembled)"
+estimator_family = "Other"
+estimator_method = "Piecewise linear regression"
+package = "aplr"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "OD2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_lightgbm_default"
+model_name = "LightGBM (default)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "lightgbm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "KMFWC...2017a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabstar_v1_1_default"
+model_name = "TabSTAR-v1.1 (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Fine-tuned pretrained transformer"
+package = "tabstar"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "ASR2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_prismboost_tuned"
+model_name = "PrismBoost (tuned)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "prismboost"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_extratrees_tuned"
+model_name = "ExtraTrees (tuned)"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GEW2006a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_ctboost_default"
+model_name = "CTBoost (default)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "ctboost"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_randomforest_tuned_ensembled"
+model_name = "RandomForest (tuned + ensembled)"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "Bre2001a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_nori_30m_default"
+model_name = "Nori-30M (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "synthefy-nori"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_nori_default"
+model_name = "Nori (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "synthefy-nori"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_aplr_tuned"
+model_name = "APLR (tuned)"
+estimator_family = "Other"
+estimator_method = "Piecewise linear regression"
+package = "aplr"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "OD2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_randomforest_tuned"
+model_name = "RandomForest (tuned)"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "Bre2001a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_fastaimlp_tuned"
+model_name = "FastaiMLP (tuned)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "fastai"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "EMSZL...2020a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HG2020a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_prismboost_default"
+model_name = "PrismBoost (default)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "prismboost"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_perpetualbooster_tuned_ensembled"
+model_name = "PerpetualBooster (tuned + ensembled)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "perpetual"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_orionmsp_default"
+model_name = "OrionMSP (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "tabtune"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "BSTS2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_iltm_default"
+model_name = "iLTM (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained hypernetwork"
+package = "iltm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "BCCMI2026a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_aplr_default"
+model_name = "APLR (default)"
+estimator_family = "Other"
+estimator_method = "Piecewise linear regression"
+package = "aplr"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "OD2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_torchmlp_default"
+model_name = "TorchMLP (default)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "autogluon.tabular"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "EMSZL...2020a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_perpetualbooster_tuned"
+model_name = "PerpetualBooster (tuned)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "perpetual"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_xrfm_default"
+model_name = "xRFM (default)"
+estimator_family = "Other"
+estimator_method = "Kernel machine"
+package = "xrfm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "BHRB2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_tabflex_default"
+model_name = "TabFlex (default)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained in-context learner"
+package = "ticl"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "ZDKM2025a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tabarena_extratrees_default"
+model_name = "ExtraTrees (default)"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "GEW2006a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_fastaimlp_default"
+model_name = "FastaiMLP (default)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "fastai"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "EMSZL...2020a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HG2020a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_randomforest_default"
+model_name = "RandomForest (default)"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "Bre2001a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_knn_tuned_ensembled"
+model_name = "KNN (tuned + ensembled)"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "CH1967a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_linear_tuned_ensembled"
+model_name = "Linear (tuned + ensembled)"
+estimator_family = "Baseline"
+estimator_method = "Penalized linear model"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "HK1970b"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "Tib1996a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_linear_tuned"
+model_name = "Linear (tuned)"
+estimator_family = "Baseline"
+estimator_method = "Penalized linear model"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "HK1970b"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "Tib1996a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_perpetualbooster_default"
+model_name = "PerpetualBooster (default)"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "perpetual"
+language = "Python"
+
+[[models]]
+model_id = "tabarena_knn_tuned"
+model_name = "KNN (tuned)"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "CH1967a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_linear_default"
+model_name = "Linear (default)"
+estimator_family = "Baseline"
+estimator_method = "Penalized linear model"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "HK1970b"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "Tib1996a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"
+
+[[models]]
+model_id = "tabarena_knn_default"
+model_name = "KNN (default)"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+package = "scikit-learn"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "CH1967a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "PVGMT...2011a"
+  role = "Software"

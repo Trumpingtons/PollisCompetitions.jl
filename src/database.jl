@@ -7,6 +7,22 @@ const BUILTIN = joinpath(dirname(@__DIR__), "data", "builtin")
 """The five tables of the metadata, in the order they are filled: each after the tables its foreign keys name."""
 const METADATA_TABLES = ("dataset_catalog", "dataset_references", "model_catalog", "model_references", "benchmarks")
 
+"""
+The vocabulary of the estimator of a model, in two levels: each estimator family, the model types of TabArena, with its
+estimator methods. A value is added when a model of the catalogue needs it.
+"""
+const ESTIMATOR_METHODS = (
+	"Foundation Model" => ["Pretrained in-context learner", "Pretrained hypernetwork", "Fine-tuned pretrained transformer"],
+	"Tree-based" => ["Gradient-boosted trees", "Randomized tree ensemble", "Generalized additive model"],
+	"Neural Network" => ["Multilayer perceptron", "Ensemble of multilayer perceptrons", "Neural nearest neighbours"],
+	"Baseline" => ["Nearest neighbours", "Penalized linear model"],
+	"Other" => ["Kernel machine", "Piecewise linear regression"],
+)
+
+"""The SQL condition that the estimator method of a model is one of the methods of its estimator family."""
+const ESTIMATOR_CHECK = join(("(estimator_family = '$(family)' AND estimator_method IN ($(join(("'$(method)'" for method in methods), ", "))))"
+	for (family, methods) in ESTIMATOR_METHODS), "\n\t\tOR ")
+
 """The SQL that creates the five tables."""
 const METADATA_SCHEMA = """
 CREATE TABLE dataset_catalog (
@@ -35,9 +51,11 @@ CREATE TABLE dataset_references (
 CREATE TABLE model_catalog (
 	model_id         VARCHAR PRIMARY KEY,
 	model_name       VARCHAR NOT NULL,
+	estimator_family VARCHAR NOT NULL,
 	estimator_method VARCHAR NOT NULL,
 	package          VARCHAR NOT NULL,
-	language         VARCHAR NOT NULL CHECK (language IN ('Julia', 'Python', 'R', 'C/C++', 'Fortran'))
+	language         VARCHAR NOT NULL CHECK (language IN ('Julia', 'Python', 'R', 'C/C++', 'Fortran')),
+	CHECK ($(ESTIMATOR_CHECK))
 );
 CREATE TABLE model_references (
 	model_id   VARCHAR NOT NULL REFERENCES model_catalog (model_id),
@@ -60,7 +78,7 @@ CREATE TABLE benchmarks (
 const METADATA_COLUMNS = Dict(
 	"dataset_catalog" => ["dataset_id", "dataset_name", "competition_name", "competition_year", "topic", "data_structure", "geometry", "response_type", "rows", "features", "size_mb", "licence", "delivery", "source_url"],
 	"dataset_references" => ["dataset_id", "bibtex_key", "role"],
-	"model_catalog" => ["model_id", "model_name", "estimator_method", "package", "language"],
+	"model_catalog" => ["model_id", "model_name", "estimator_family", "estimator_method", "package", "language"],
 	"model_references" => ["model_id", "bibtex_key", "role"],
 	"benchmarks" => ["run_id", "model_id", "dataset_id", "split_protocol", "metric", "score"],
 )
@@ -122,7 +140,7 @@ function connect_db(path::AbstractString = ":memory:"; metadata = METADATA, buil
 		end
 		DBInterface.execute(db, """
 			CREATE VIEW model_comparisons AS
-			SELECT b.run_id, b.model_id, m.model_name, m.estimator_method, m.package, m.language,
+			SELECT b.run_id, b.model_id, m.model_name, m.estimator_family, m.estimator_method, m.package, m.language,
 				b.dataset_id, d.dataset_name, d.data_structure, d.geometry, d.response_type,
 				b.split_protocol, b.metric, b.score
 			FROM benchmarks b

@@ -24,16 +24,17 @@ using PollisCompetitions.M4Benchmarks: BENCHMARKS, benchmarks, holt, is_seasonal
 			""")
 		write(joinpath(folder, "models.toml"), """
 			[[models]]
-			model_id = "sar_ml"
-			model_name = "Spatial Autoregression"
-			estimator_method = "Maximum Likelihood"
-			package = "SpatialDependence"
+			model_id = "ridge"
+			model_name = "Ridge Regression"
+			estimator_family = "Baseline"
+			estimator_method = "Penalized linear model"
+			package = "GLMNet"
 			language = "Julia"
 			""")
 		write(joinpath(folder, "benchmarks.toml"), """
 			[[runs]]
 			run_id = "run_001"
-			model_id = "sar_ml"
+			model_id = "ridge"
 			dataset_id = "guerry"
 			split_protocol = "5_fold_spatial"
 
@@ -47,7 +48,7 @@ using PollisCompetitions.M4Benchmarks: BENCHMARKS, benchmarks, holt, is_seasonal
 			@test (query("SELECT dataset_id, bibtex_key, role FROM dataset_references"),
 				query("SELECT run_id, model_name, dataset_name, geometry, metric, score FROM model_comparisons ORDER BY metric")) ==
 				((; dataset_id = ["guerry"], bibtex_key = ["G1833a"], role = ["Primary"]),
-				(; run_id = ["run_001", "run_001"], model_name = ["Spatial Autoregression", "Spatial Autoregression"],
+				(; run_id = ["run_001", "run_001"], model_name = ["Ridge Regression", "Ridge Regression"],
 					dataset_name = ["Guerry Moral Statistics", "Guerry Moral Statistics"], geometry = ["Polygons", "Polygons"],
 					metric = ["MAE", "RMSE"], score = [3.25, 4.12]))
 		finally
