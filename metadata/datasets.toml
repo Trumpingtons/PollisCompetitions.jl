@@ -911,17 +911,6 @@ delivery = "Download"
 source_url = "https://www.kaggle.com/competitions/bike-sharing-demand"
 
 [[datasets]]
-dataset_id = "nab"
-dataset_name = "Numenta Anomaly Benchmark (NAB)"
-topic = "Anomaly Detection"
-data_structure = "Time-Series"
-geometry = "None"
-response_type = "Binary"
-licence = "MIT"
-delivery = "Built-in"
-source_url = "https://github.com/numenta/NAB"
-
-[[datasets]]
 dataset_id = "yahoo_s5"
 dataset_name = "Yahoo Webscope S5"
 topic = "Anomaly Detection"
@@ -1012,50 +1001,6 @@ dataset_name = "Alibaba and Azure cluster/function traces"
 topic = "Web and IT Operations"
 data_structure = "Panel"
 geometry = "None"
-
-[[datasets]]
-dataset_id = "monash"
-dataset_name = "Monash Time Series Forecasting Repository"
-topic = "General"
-data_structure = "Panel"
-geometry = "None"
-response_type = "Regression"
-licence = "CC BY 4.0"
-delivery = "Built-in"
-source_url = "https://forecastingdata.org"
-
-  [[datasets.references]]
-  bibtex_key = "GBWHM2021a"
-
-[[datasets]]
-dataset_id = "gift_eval"
-dataset_name = "GIFT-Eval"
-topic = "General"
-data_structure = "Time-Series"
-geometry = "None"
-response_type = "Regression"
-licence = "Apache-2.0"
-delivery = "Download"
-source_url = "https://github.com/SalesforceAIResearch/gift-eval"
-
-[[datasets]]
-dataset_id = "fev_bench"
-dataset_name = "fev-bench"
-topic = "General"
-data_structure = "Time-Series"
-geometry = "None"
-response_type = "Regression"
-delivery = "Download"
-source_url = "https://github.com/autogluon/fev"
-
-[[datasets]]
-dataset_id = "weatherbench2"
-dataset_name = "WeatherBench 2"
-topic = "Environment and Climate"
-data_structure = "Panel"
-geometry = "Coordinates"
-response_type = "Regression"
-source_url = "https://sites.research.google/weatherbench"
 
 [[datasets]]
 dataset_id = "forecastbench"
