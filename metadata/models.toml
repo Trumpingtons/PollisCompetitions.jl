@@ -3,17 +3,35 @@
 #
 #   model_id          the key
 #   model_name        its name
-#   estimator_family  the family of its estimator, one of those below: the model types of TabArena, and Statistical
-#                     for the classical methods of forecasting
-#   estimator_method  the method it estimates with, one of those of its family:
+#   estimator_family  the family of its estimator, one of those below: the model types of TabArena, Statistical for
+#                     the classical methods of forecasting, Kernel Methods, Fuzzy System, and Hybrid for a model that
+#                     combines methods of different kinds
+#   estimator_method  the method it estimates with, one of those of its family; that of a Hybrid model names the
+#                     methods it combines:
 #     Foundation Model  Pretrained in-context learner | Pretrained hypernetwork | Fine-tuned pretrained transformer |
 #                       Pretrained time-series forecaster
 #     Tree-based        Gradient-boosted trees | Randomized tree ensemble | Generalized additive model
 #     Neural Network    Multilayer perceptron | Ensemble of multilayer perceptrons | Neural nearest neighbours |
-#                       Recurrent neural network | Convolutional neural network | Transformer
-#     Baseline          Nearest neighbours | Penalized linear model | Linear regression
-#     Statistical       Exponential smoothing | Theta method | ARIMA
-#     Other             Kernel machine | Piecewise linear regression
+#                       Recurrent neural network | Convolutional neural network | Transformer | Functional network |
+#                       Adaptive logic network | Autoencoder | Other neural network
+#     Baseline          Nearest neighbours | Penalized linear model | Linear regression | Polynomial regression |
+#                       Naive forecast | Time series decomposition
+#     Statistical       Exponential smoothing | Theta method | ARIMA | Automatic model selection |
+#                       Other statistical method
+#     Kernel Methods    Support vector machine | Kernel adaptive filtering | Feature-learning kernel machine
+#     Fuzzy System      Fuzzy rule-based system | Neuro-fuzzy system | Fuzzy time series | Fuzzy transform |
+#                       Association rules
+#     Hybrid            Neural networks, Gaussian processes | Neural networks, Gaussian processes, Linear models |
+#                       Time series decomposition, Neural networks, Theta method |
+#                       Self-organising maps, Empirical orthogonal functions |
+#                       Nearest neighbours, Support vector machines | Neural networks, Model trees |
+#                       Neural networks, Nearest neighbours |
+#                       Neural networks, Nearest neighbours, Statistical methods |
+#                       Neural networks, Exponential smoothing | Fuzzy time series, Exponential smoothing |
+#                       Fuzzy time series, ARIMA | Self-organising maps, Multivariate adaptive regression splines |
+#                       Self-organising maps, Intervention analysis | Neural networks, Fuzzy logic |
+#                       Statistical methods, Fuzzy logic
+#     Other             Piecewise linear regression
 #   package           the package that implements it
 #   language          Julia | Python | R | C/C++ | Fortran
 #
@@ -21,8 +39,8 @@
 # Methodology | Software | Other.
 
 # TabArena: the 110 models of its leaderboard, each in its configuration: default, tuned, or tuned and
-# ensembled. The family is TabArena's model type; the package is the one TabArena runs the model with, else the
-# code its paper published.
+# ensembled. The family is TabArena's model type, with xRFM under Kernel Methods; the package is the one TabArena runs
+# the model with, else the code its paper published.
 
 [[models]]
 model_id = "tabarena_limix_2_1016_default"
@@ -579,8 +597,8 @@ language = "Python"
 [[models]]
 model_id = "tabarena_xrfm_tuned_ensembled"
 model_name = "xRFM (tuned + ensembled)"
-estimator_family = "Other"
-estimator_method = "Kernel machine"
+estimator_family = "Kernel Methods"
+estimator_method = "Feature-learning kernel machine"
 package = "xrfm"
 language = "Python"
 
@@ -695,8 +713,8 @@ language = "Python"
 [[models]]
 model_id = "tabarena_xrfm_tuned"
 model_name = "xRFM (tuned)"
-estimator_family = "Other"
-estimator_method = "Kernel machine"
+estimator_family = "Kernel Methods"
+estimator_method = "Feature-learning kernel machine"
 package = "xrfm"
 language = "Python"
 
@@ -1175,8 +1193,8 @@ language = "Python"
 [[models]]
 model_id = "tabarena_xrfm_default"
 model_name = "xRFM (default)"
-estimator_family = "Other"
-estimator_method = "Kernel machine"
+estimator_family = "Kernel Methods"
+estimator_method = "Feature-learning kernel machine"
 package = "xrfm"
 language = "Python"
 
@@ -1466,7 +1484,7 @@ language = "R"
 model_id = "monash_pr"
 model_name = "PR"
 estimator_family = "Baseline"
-estimator_method = "Linear regression"
+estimator_method = "Polynomial regression"
 package = "stats"
 language = "R"
 
@@ -1725,3 +1743,1162 @@ language = "Python"
   [[models.references]]
   bibtex_key = "DKSZ2023a"
   role = "Methodology"
+
+# Tourism forecasting competition: the time series methods of the results tables of its paper (Athanasopoulos, Hyndman,
+# Song and Wu, 2011). SNaïve forecasts each season by its last value, Naïve each year by the last; ARIMA is the
+# algorithm of Hyndman and Khandakar with D = 1 for seasonal series; Damped is ETS(A,Ad,A), or ETS(A,Ad,N) for yearly
+# series; Theta ran in TIFIS CM3, and Forecast Pro is its Extended Edition, version 4, with expert selection. The
+# paper names no package for the others, nor any language.
+
+[[models]]
+model_id = "tourism_snaive"
+model_name = "SNaïve"
+estimator_family = "Baseline"
+estimator_method = "Naive forecast"
+
+[[models]]
+model_id = "tourism_naive"
+model_name = "Naïve"
+estimator_family = "Baseline"
+estimator_method = "Naive forecast"
+
+[[models]]
+model_id = "tourism_arima"
+model_name = "ARIMA"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tourism_ets"
+model_name = "ETS"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+
+  [[models.references]]
+  bibtex_key = "HKSG2002a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tourism_damped"
+model_name = "Damped trend"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+
+  [[models.references]]
+  bibtex_key = "HKSG2002a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tourism_theta"
+model_name = "Theta"
+estimator_family = "Statistical"
+estimator_method = "Theta method"
+package = "TIFIS CM3"
+
+  [[models.references]]
+  bibtex_key = "AN2000a"
+  role = "Methodology"
+
+[[models]]
+model_id = "tourism_forecast_pro"
+model_name = "Forecast Pro"
+estimator_family = "Statistical"
+estimator_method = "Automatic model selection"
+package = "Forecast Pro"
+
+# NN3 competition: the 39 methods of its paper (Crone, Hibon and Nikolopoulos, 2011) that forecast the complete set of
+# 111 series, each named and described as in its Table 3, by the code the competition gave it: C for the contenders in
+# neural networks and computational intelligence, B for the benchmarks and the statistical contenders. The package is
+# the software the paper names.
+
+# B09: An adaptive robustified multi-step-ahead out-of-sample forecasting combination approach
+[[models]]
+model_id = "nn3_b09"
+model_name = "Wildi"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+
+# B07: Exponential smoothing with decomposition, version TIFIS CM3 1.0
+[[models]]
+model_id = "nn3_b07"
+model_name = "Theta"
+estimator_family = "Statistical"
+estimator_method = "Theta method"
+package = "TIFIS CM3"
+
+  [[models.references]]
+  bibtex_key = "AN2000a"
+  role = "Methodology"
+
+# C27: Stepping forward through echoes of the past: forecasting with echo state networks
+[[models]]
+model_id = "nn3_c27"
+model_name = "Illies, Jäger, Kosuchinas, Rincon, Sakenas, Vaskevcius"
+estimator_family = "Neural Network"
+estimator_method = "Recurrent neural network"
+
+# B03: ForecastPro expert selection method, version XE 5.0.2.6
+[[models]]
+model_id = "nn3_b03"
+model_name = "ForecastPro"
+estimator_family = "Statistical"
+estimator_method = "Automatic model selection"
+package = "Forecast Pro"
+
+# B16: Original M3 benchmark for the M3 competition
+[[models]]
+model_id = "nn3_b16"
+model_name = "Dampen ES"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+
+# B17: Original M3 benchmark: equally weighted combination of single, Holt and damped trend exponential smoothing
+[[models]]
+model_id = "nn3_b17"
+model_name = "Comb S-H-D ES"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+
+# B05: Autobox expert system forecast, version 6.0 (June 2007)
+[[models]]
+model_id = "nn3_b05"
+model_name = "Autobox"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+package = "Autobox"
+
+# C03: Automated linear modeling of time series with self adaptive genetic algorithms
+[[models]]
+model_id = "nn3_c03"
+model_name = "Flores, Anaya, Ramirez, Morales"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+
+# B14: Original M3 benchmark for the M3 competition
+[[models]]
+model_id = "nn3_b14"
+model_name = "Single ES"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+
+# B15: Original M3 benchmark for the M3 competition
+[[models]]
+model_id = "nn3_b15"
+model_name = "Holt ES"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+
+# C46: Ensemble regression trees
+[[models]]
+model_id = "nn3_c46"
+model_name = "Chen, Yao"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+
+# C13: Simple kNN-method for time series prediction
+[[models]]
+model_id = "nn3_c13"
+model_name = "D'yakonov"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+
+# B00: Original M3 submission for the M3 competition
+[[models]]
+model_id = "nn3_b00"
+model_name = "Automat NN"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# C50: A combined neural network/Gaussian process regression time series forecasting system
+[[models]]
+model_id = "nn3_c50"
+model_name = "Kamel, Atiya, Gayar, El-Shishiny"
+estimator_family = "Hybrid"
+estimator_method = "Neural networks, Gaussian processes"
+
+# B13: Automatic ARIMA modeling, using TSE-AX
+[[models]]
+model_id = "nn3_b13"
+model_name = "Njimi, Mélard"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+package = "TSE-AX"
+
+# C24: Recurrent neural networks
+[[models]]
+model_id = "nn3_c24"
+model_name = "Abou-Nasr"
+estimator_family = "Neural Network"
+estimator_method = "Recurrent neural network"
+
+# C31: A hybrid approach: structural decomposition, generalised regression neural networks and the Theta model
+[[models]]
+model_id = "nn3_c31"
+model_name = "Theodosiou, Swamy"
+estimator_family = "Hybrid"
+estimator_method = "Time series decomposition, Neural networks, Theta method"
+
+# B06: Official census method
+[[models]]
+model_id = "nn3_b06"
+model_name = "Census X12 ARIMA"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+package = "X-12-ARIMA"
+
+# B02: A naïve multilayer perceptron
+[[models]]
+model_id = "nn3_b02"
+model_name = "Naïve MLP"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# C38: Multilayer perceptron networks
+[[models]]
+model_id = "nn3_c38"
+model_name = "Adeodato, Vasconcelos, Arnaud, Chunha, Monteiro"
+estimator_family = "Neural Network"
+estimator_method = "Ensemble of multilayer perceptrons"
+
+# C26: Multi-resolution time series forecasting using wavelet decomposition
+[[models]]
+model_id = "nn3_c26"
+model_name = "de Vos"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+
+# B01: A naïve support vector regression forecasting approach
+[[models]]
+model_id = "nn3_b01"
+model_name = "Naïve SVR"
+estimator_family = "Kernel Methods"
+estimator_method = "Support vector machine"
+
+# C44: Multiple-model fusion for robust time series forecasting
+[[models]]
+model_id = "nn3_c44"
+model_name = "Yan"
+estimator_family = "Neural Network"
+estimator_method = "Other neural network"
+
+# C11: Combination of two techniques: fuzzy transform and perception-based logical deduction
+[[models]]
+model_id = "nn3_c11"
+model_name = "Perfilieva, Novak, Pavliska, Dvorak, Stepnicka"
+estimator_family = "Fuzzy System"
+estimator_method = "Fuzzy transform"
+
+# C37: Fully-recurrent neural network learned with M.A.P. (Bayesian), Levenberg and genetic algorithms
+[[models]]
+model_id = "nn3_c37"
+model_name = "Duclos-Gosselin"
+estimator_family = "Neural Network"
+estimator_method = "Recurrent neural network"
+
+# C49: Quantum inspired feature selection and neural network models
+[[models]]
+model_id = "nn3_c49"
+model_name = "Schliebs, Platel, Kasabov"
+estimator_family = "Neural Network"
+estimator_method = "Other neural network"
+
+# C59: Time series forecasting using Lipschitz optimal interpolation
+[[models]]
+model_id = "nn3_c59"
+model_name = "Beliakov, Troiano"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+
+# C20: Using first-order difference of time series and bagging of competitive associative nets
+[[models]]
+model_id = "nn3_c20"
+model_name = "Kurogi, Koyama, Tanaka, Sanuki"
+estimator_family = "Neural Network"
+estimator_method = "Other neural network"
+
+# B10: Composite forecasting strategy using seasonal schemata
+[[models]]
+model_id = "nn3_b10"
+model_name = "Beadle"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+
+# B11: Paracaster software by parabolic systems fitting equations consisting of trend + series of sinusoidal error terms
+[[models]]
+model_id = "nn3_b11"
+model_name = "Lewicke"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+package = "Paracaster"
+
+# C36: A non-linear approach (self-organized maps) combined with a linear one (empirical orthogonal functions)
+[[models]]
+model_id = "nn3_c36"
+model_name = "Sorjamaa, Lendasse"
+estimator_family = "Hybrid"
+estimator_method = "Self-organising maps, Empirical orthogonal functions"
+
+# C15: Growing fuzzy inference neural network
+[[models]]
+model_id = "nn3_c15"
+model_name = "Isa"
+estimator_family = "Fuzzy System"
+estimator_method = "Neuro-fuzzy system"
+
+# C28: Windowed wavelet decomposition and gradient boosted trees
+[[models]]
+model_id = "nn3_c28"
+model_name = "Eruhimov, Martyanov, Tuv"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+
+# C51: Dynamic architecture for artificial neural networks
+[[models]]
+model_id = "nn3_c51"
+model_name = "Papadaki, Amaxopolous"
+estimator_family = "Neural Network"
+estimator_method = "Other neural network"
+
+# B04: The naïve method without any seasonality adjustment
+[[models]]
+model_id = "nn3_b04"
+model_name = "Naïve"
+estimator_family = "Baseline"
+estimator_method = "Naive forecast"
+
+# B12: Decomposition to random sequence basis functions and a temperature-dependent SOFTMAX combiner
+[[models]]
+model_id = "nn3_b12"
+model_name = "Hazarika"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+
+# C17: K-nearest-neighbor and support-vector regression
+[[models]]
+model_id = "nn3_c17"
+model_name = "Chang"
+estimator_family = "Hybrid"
+estimator_method = "Nearest neighbours, Support vector machines"
+
+# C30: Neural network-based prediction using long and short term dependence in the learning process
+[[models]]
+model_id = "nn3_c30"
+model_name = "Pucheta, Patino, Kuchen"
+estimator_family = "Neural Network"
+estimator_method = "Other neural network"
+
+# C57: Global neural network ensembles with M5 prime model trees
+[[models]]
+model_id = "nn3_c57"
+model_name = "Corzo, Hong"
+estimator_family = "Hybrid"
+estimator_method = "Neural networks, Model trees"
+
+# NN5 competition: the methods of the results table of its website on the complete set of 111 series that a paper
+# describes, and its benchmarks, each by the code the competition gave it: C for the contenders in neural networks and
+# computational intelligence, B for the benchmarks and the statistical contenders. The package is the software the
+# website names.
+
+# C23: Forecast combination by simple average of neural networks, Gaussian process regression and linear models, with weekly, day of the month and month of the year seasonality
+[[models]]
+model_id = "nn5_c23"
+model_name = "Andrawis, Atiya, El-Shishiny"
+estimator_family = "Hybrid"
+estimator_method = "Neural networks, Gaussian processes, Linear models"
+
+  [[models.references]]
+  bibtex_key = "AAE2011a"
+  role = "Methodology"
+
+# C19: Adaptive fuzzy rule-based systems fitted to the weekly series, with the forecasts disaggregated to days
+[[models]]
+model_id = "nn5_c19"
+model_name = "Luna, Ballini"
+estimator_family = "Fuzzy System"
+estimator_method = "Fuzzy rule-based system"
+
+  [[models.references]]
+  bibtex_key = "LB2011a"
+  role = "Methodology"
+
+# C01: Weighted mean of a neural network ensemble, an ensemble of nearest trajectory models and a model for the 7-day cycle
+[[models]]
+model_id = "nn5_c01"
+model_name = "Wichard"
+estimator_family = "Hybrid"
+estimator_method = "Neural networks, Nearest neighbours"
+
+  [[models.references]]
+  bibtex_key = "Wic2011a"
+  role = "Methodology"
+
+# B01: Autobox expert system forecast
+[[models]]
+model_id = "nn5_b01"
+model_name = "Autobox"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+package = "Autobox"
+
+# C25: Self-organizing fuzzy neural network
+[[models]]
+model_id = "nn5_c25"
+model_name = "Coyle, Prasad, McGinnity"
+estimator_family = "Fuzzy System"
+estimator_method = "Neuro-fuzzy system"
+
+  [[models.references]]
+  bibtex_key = "CPM2010a"
+  role = "Methodology"
+
+# C20: Pseudo self-evolving cerebellar model articulation controller (PSECMAC), an associative memory network
+[[models]]
+model_id = "nn5_c20"
+model_name = "Teddy, Ng"
+estimator_family = "Neural Network"
+estimator_method = "Other neural network"
+
+  [[models.references]]
+  bibtex_key = "TN2011a"
+  role = "Methodology"
+
+# B12: The benchmark Naïve Seasonal
+[[models]]
+model_id = "nn5_b12"
+model_name = "Naïve Seasonal"
+estimator_family = "Baseline"
+estimator_method = "Naive forecast"
+
+# B11: The benchmark Naïve Level
+[[models]]
+model_id = "nn5_b11"
+model_name = "Naïve Level"
+estimator_family = "Baseline"
+estimator_method = "Naive forecast"
+
+# CIF 2015 competition (Computational Intelligence in Forecasting): the methods of the results of its paper
+# (Štěpnička and Burda, 2015), the five of its contenders and the six benchmarks its organisers ran in R, by the
+# names the paper gives them.
+
+# Fuzzy rule-based ensemble of R-ARIMA, R-ETS, R-Theta and R-RW: a weighted average whose weights fuzzy rules infer from features of the series (lfl, R)
+[[models]]
+model_id = "cif2015_r_frbe"
+model_name = "R-FRBE"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+package = "lfl"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "Bur2015a"
+  role = "Software"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# Simple average of the forecasts of R-ARIMA, R-ETS, R-Theta and R-RW (forecast, R)
+[[models]]
+model_id = "cif2015_r_avg"
+model_name = "R-AVG"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# Exponential smoothing with the default settings of the forecast package of R
+[[models]]
+model_id = "cif2015_r_ets"
+model_name = "R-ETS"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "HKSG2002a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# ARIMA with the default settings of the forecast package of R
+[[models]]
+model_id = "cif2015_r_arima"
+model_name = "R-ARIMA"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BJRL2015a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# The Theta method with the default settings of the forecast package of R
+[[models]]
+model_id = "cif2015_r_theta"
+model_name = "R-Theta"
+estimator_family = "Statistical"
+estimator_method = "Theta method"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "AN2000a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# Random walk with the default settings of the forecast package of R
+[[models]]
+model_id = "cif2015_r_rw"
+model_name = "R-RW"
+estimator_family = "Baseline"
+estimator_method = "Naive forecast"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# Combination of Fuzzy and Exponential Models: an ensemble of fuzzy time series with exponential smoothing and of statistical models with fuzzy data
+[[models]]
+model_id = "cif2015_cfesm"
+model_name = "CFESM"
+estimator_family = "Hybrid"
+estimator_method = "Fuzzy time series, Exponential smoothing"
+
+# Adaptive fuzzy c-regression modeling: a first-order Takagi-Sugeno model learned by fuzzy clustering and weighted recursive least squares
+[[models]]
+model_id = "cif2015_afcr"
+model_name = "aFCR"
+estimator_family = "Fuzzy System"
+estimator_method = "Fuzzy rule-based system"
+
+  [[models.references]]
+  bibtex_key = "MLBG2015a"
+  role = "Methodology"
+
+# Multiple time series forecasting based on fuzzy techniques: F-transform decomposition and the most adequate of three fuzzy time series models
+[[models]]
+model_id = "cif2015_mtsf"
+model_name = "MTSF"
+estimator_family = "Fuzzy System"
+estimator_method = "Fuzzy time series"
+
+  [[models.references]]
+  bibtex_key = "AYTZS...2015a"
+  role = "Methodology"
+
+# Fuzzy time series with fuzzy c-means clusters and a new smoothing technique
+[[models]]
+model_id = "cif2015_fts_s"
+model_name = "FTS+S"
+estimator_family = "Fuzzy System"
+estimator_method = "Fuzzy time series"
+
+  [[models.references]]
+  bibtex_key = "SC2015a"
+  role = "Methodology"
+
+# Fuzzy time series with fuzzy c-means clusters and a new smoothing technique, with linear regression when no matching pattern is found
+[[models]]
+model_id = "cif2015_fts_lr"
+model_name = "FTS+LR"
+estimator_family = "Fuzzy System"
+estimator_method = "Fuzzy time series"
+
+  [[models.references]]
+  bibtex_key = "SC2015a"
+  role = "Methodology"
+
+# CIF 2016 competition (Computational Intelligence in Forecasting): the methods of the results of its paper
+# (Štěpnička and Burda, 2017), its contenders and the seven benchmarks of its organisers, by the names the paper
+# gives them.
+
+# LSTM network on the logarithm of the series less its STL seasonal component, added back to the forecasts (S. Smyl)
+[[models]]
+model_id = "cif2016_lstm_des"
+model_name = "LSTM-Des"
+estimator_family = "Neural Network"
+estimator_method = "Recurrent neural network"
+
+  [[models.references]]
+  bibtex_key = "HS1997a"
+  role = "Methodology"
+
+# Weighted average of LSTM, LSTM-Des and an exponential smoothing-style model (S. Smyl)
+[[models]]
+model_id = "cif2016_lstm_es"
+model_name = "LSTM-ES"
+estimator_family = "Hybrid"
+estimator_method = "Neural networks, Exponential smoothing"
+
+  [[models.references]]
+  bibtex_key = "HS1997a"
+  role = "Methodology"
+
+# Exponential smoothing with the default settings of the forecast package of R
+[[models]]
+model_id = "cif2016_es"
+model_name = "ES"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "HKSG2002a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# Multilayer perceptron with a selection of autoregressive lags for trended series
+[[models]]
+model_id = "cif2016_mlp"
+model_name = "MLP"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+  [[models.references]]
+  bibtex_key = "CH2016a"
+  role = "Methodology"
+
+# Vovk's aggregation algorithm over 15 exponential smoothing models, 15 fuzzy exponential smoothing models, 2 theta models and a linear regression
+[[models]]
+model_id = "cif2016_rest"
+model_name = "REST"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+
+# Fuzzy rule-based ensemble of ARIMA, ES, Theta and RW: a weighted average whose weights fuzzy rules infer from features of the series (lfl, R)
+[[models]]
+model_id = "cif2016_frbe"
+model_name = "FRBE"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+package = "lfl"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "Bur2015a"
+  role = "Software"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# Hybrid ensemble: an inverse-sMAPE weighted mean of nearest trajectory, neural network ensemble, trend cycle, autoregressive and returns models
+[[models]]
+model_id = "cif2016_hem"
+model_name = "HEM"
+estimator_family = "Hybrid"
+estimator_method = "Neural networks, Nearest neighbours, Statistical methods"
+
+  [[models.references]]
+  bibtex_key = "Wic2016a"
+  role = "Methodology"
+
+# Simple average of the forecasts of ARIMA, ES, Theta and RW (forecast, R)
+[[models]]
+model_id = "cif2016_avg"
+model_name = "AVG"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# Bagging of exponential smoothing: Box-Cox transformation, STL decomposition and a moving block bootstrap of the remainder
+[[models]]
+model_id = "cif2016_bagged_es"
+model_name = "BaggedES"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+
+  [[models.references]]
+  bibtex_key = "BHB2016a"
+  role = "Methodology"
+
+# LSTM network with peephole connections, one for each horizon, on windows of the logarithm of the series (S. Smyl)
+[[models]]
+model_id = "cif2016_lstm"
+model_name = "LSTM"
+estimator_family = "Neural Network"
+estimator_method = "Recurrent neural network"
+
+  [[models.references]]
+  bibtex_key = "HS1997a"
+  role = "Methodology"
+
+# Adaptive fuzzy c-regression modeling: a first-order Takagi-Sugeno model learned by fuzzy clustering and weighted recursive least squares
+[[models]]
+model_id = "cif2016_afcr"
+model_name = "aFCR"
+estimator_family = "Fuzzy System"
+estimator_method = "Fuzzy rule-based system"
+
+  [[models.references]]
+  bibtex_key = "MLBG2015a"
+  role = "Methodology"
+
+# Pattern-based generalized regression neural network on sliding windows of the series
+[[models]]
+model_id = "cif2016_pb_grnn"
+model_name = "PB-GRNN"
+estimator_family = "Neural Network"
+estimator_method = "Other neural network"
+
+# Pattern-based random forest on sliding windows of the series
+[[models]]
+model_id = "cif2016_pb_rf"
+model_name = "PB-RF"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+
+# ARIMA with the default settings of the forecast package of R
+[[models]]
+model_id = "cif2016_arima"
+model_name = "ARIMA"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BJRL2015a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# Random walk with the default settings of the forecast package of R
+[[models]]
+model_id = "cif2016_rw"
+model_name = "RW"
+estimator_family = "Baseline"
+estimator_method = "Naive forecast"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# The Theta method with the default settings of the forecast package of R
+[[models]]
+model_id = "cif2016_theta"
+model_name = "Theta"
+estimator_family = "Statistical"
+estimator_method = "Theta method"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "AN2000a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+# Pattern-based multilayer perceptron on sliding windows of the series
+[[models]]
+model_id = "cif2016_pb_mlp"
+model_name = "PB-MLP"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# Time series fuzzy inference system: fuzzy c-means memberships into a Pi-Sigma neural network trained by particle swarm optimization
+[[models]]
+model_id = "cif2016_tsfis"
+model_name = "TSFIS"
+estimator_family = "Fuzzy System"
+estimator_method = "Neuro-fuzzy system"
+
+# Exponential smoothing model chosen by AIC, with a bootstrap of the residuals of an AR model fitted to its residuals
+[[models]]
+model_id = "cif2016_boot_expos"
+model_name = "Boot.EXPOS"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+
+  [[models.references]]
+  bibtex_key = "CN2009a"
+  role = "Methodology"
+
+# Fuzzy time series for the F-transform trend and the residuals, with ARIMA for the residuals
+[[models]]
+model_id = "cif2016_mtsfa"
+model_name = "MTSFA"
+estimator_family = "Hybrid"
+estimator_method = "Fuzzy time series, ARIMA"
+
+  [[models.references]]
+  bibtex_key = "AYTZS...2015a"
+  role = "Methodology"
+
+# Fully connected feedforward deep neural network with as many inputs as the lags autocorrelation suggests
+[[models]]
+model_id = "cif2016_fcdnn"
+model_name = "FCDNN"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# Kernel adaptive filtering extended to a multiple-input multiple-output strategy for multi-step-ahead forecasts
+[[models]]
+model_id = "cif2016_msakaf"
+model_name = "MSAKAF"
+estimator_family = "Kernel Methods"
+estimator_method = "Kernel adaptive filtering"
+
+  [[models.references]]
+  bibtex_key = "GCVL2016a"
+  role = "Methodology"
+
+# Hybrid forecasting model: a metaheuristic fuzzy model calibrated by an evolutionary metaheuristic
+[[models]]
+model_id = "cif2016_hfm"
+model_name = "HFM"
+estimator_family = "Fuzzy System"
+estimator_method = "Fuzzy rule-based system"
+
+  [[models.references]]
+  bibtex_key = "CCMSG2016a"
+  role = "Methodology"
+
+# Compact online recurrent network: hidden neurons added or removed by online sequential learning
+[[models]]
+model_id = "cif2016_corn"
+model_name = "CORN"
+estimator_family = "Neural Network"
+estimator_method = "Recurrent neural network"
+
+# Santa Fe Time Series Prediction Competition: the entries received before its deadline that computed their predictions,
+# as the appendix of its overview chapter lists them (Gershenfeld and Weigend, 1994), by the code it gives each
+# entrant, or the entrant's name where the chapter gives it. An entrant with the same code on series A and D is one
+# model.
+
+# W: series A: connectionist network 1-12-12-1 with delay lines, lags 25, 5 and 5 (SPARC 2, 12 hours); series D: connectionist network 1-30-30-1 with delay lines, lags 20, 5 and 5 (SPARC 2, 1 day)
+[[models]]
+model_id = "santa_fe_w"
+model_name = "Wan"
+estimator_family = "Neural Network"
+estimator_method = "Convolutional neural network"
+
+# Sa: series A: local linear, low-pass embedding in 8 dimensions, 4 nearest neighbours (DEC 3100, 20 minutes)
+[[models]]
+model_id = "santa_fe_sa"
+model_name = "Sauer"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+
+# MeL: series A: feedforward network 200-100-1 (Cray Y-MP, 3 hours)
+[[models]]
+model_id = "santa_fe_mel"
+model_name = "MeL"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# N: series A: feedforward network 50-20-1 (SPARC 1, 3 weeks)
+[[models]]
+model_id = "santa_fe_n"
+model_name = "N"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# M: series A: feedforward network 50-350-50-50 (386 PC, 5 days)
+[[models]]
+model_id = "santa_fe_m"
+model_name = "M"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# Can: series A: recurrent network 4-4c-1 (VAX 8530, 1 hour)
+[[models]]
+model_id = "santa_fe_can"
+model_name = "Can"
+estimator_family = "Neural Network"
+estimator_method = "Recurrent neural network"
+
+# U: series A: k-d tree, AIC (VAX 6420, 20 minutes); series D: k-d tree, AIC (VAX 6420, 30 minutes)
+[[models]]
+model_id = "santa_fe_u"
+model_name = "U"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+
+# A: series A: local linear, 21 dimensions, 30 nearest neighbours (SPARC 2, 1 minute)
+[[models]]
+model_id = "santa_fe_a"
+model_name = "A"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+
+# P: series A: local linear, 3-dimensional time delay embedding (Sun, 10 minutes)
+[[models]]
+model_id = "santa_fe_p"
+model_name = "P"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+
+# Sw: series A: feedforward network (SPARC 2, 20 hours)
+[[models]]
+model_id = "santa_fe_sw"
+model_name = "Sw"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# Y: series A: feedforward network with weight decay (SPARC 1, 30 minutes)
+[[models]]
+model_id = "santa_fe_y"
+model_name = "Y"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# Car: series A: linear Wiener filter of width 100 (MIPS 3230, 30 minutes)
+[[models]]
+model_id = "santa_fe_car"
+model_name = "Car"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+
+# ZH: series D: connectionist networks ...-30-30-1 and 30-100-5 (CM-2 with 16k processors, 8 days)
+[[models]]
+model_id = "santa_fe_zh"
+model_name = "Zhang, Hutchinson"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# C: series D: recurrent network 4-4c-1 (VAX 8530)
+[[models]]
+model_id = "santa_fe_c"
+model_name = "C"
+estimator_family = "Neural Network"
+estimator_method = "Recurrent neural network"
+
+# Z: series D: 36 AR(8) models fitted to the last 4,000 points (SPARC, 10 minutes)
+[[models]]
+model_id = "santa_fe_z"
+model_name = "Z"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+
+# S: series D: feedforward network (SPARC 2, 20 hours)
+[[models]]
+model_id = "santa_fe_s"
+model_name = "S"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# EUNITE 2001 competition: the entries of the results its organisers presented, each named as there, with the method of
+# its report to the competition.
+
+# Chang, Chen and Lin (National Taiwan University): support vector machine
+[[models]]
+model_id = "eunite_lin"
+model_name = "Chih-Jen Lin"
+estimator_family = "Kernel Methods"
+estimator_method = "Support vector machine"
+
+  [[models.references]]
+  bibtex_key = "CCL2004a"
+  role = "Methodology"
+
+# Esp (National Grid): Adaptive Logic Network, a regression by many partial linear fits, on time and temperature, run on estimated January temperatures
+[[models]]
+model_id = "eunite_esp"
+model_name = "David Esp"
+estimator_family = "Neural Network"
+estimator_method = "Adaptive logic network"
+
+# Brockmann and Kuthe, Model A: simple statistics of the loads of past Januaries aligned by weekday
+[[models]]
+model_id = "eunite_brockmann_a"
+model_name = "Werner Brockmann A"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+
+# Živčák: back-propagation network with one hidden layer of 15 to 50 sigmoid neurons
+[[models]]
+model_id = "eunite_zivcak"
+model_name = "Dalibor Zivcak"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# Kowalczyk, second solution: robust polynomial regression of the daily peak load on temperature, with the temperatures of January 1999 reconstructed from Bratislava, Budapest and Vienna
+[[models]]
+model_id = "eunite_kowalczyk_b"
+model_name = "Wojtek Kowalczyk B"
+estimator_family = "Baseline"
+estimator_method = "Polynomial regression"
+
+# Lewandowski, Sandner and Protzel: simple neural network of the load on temperature and weekday, for the winter season
+[[models]]
+model_id = "eunite_lewandowski"
+model_name = "Achim Lewandowski"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# Kowalczyk, first solution: averaging of past loads with three parameters fitted to minimize MAPE
+[[models]]
+model_id = "eunite_kowalczyk_a"
+model_name = "Wojtek Kowalczyk A"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+
+# Ortega and 8 coauthors (Universidad de Oviedo): Kohonen maps of demand patterns, with forecasts by multivariate adaptive regression splines
+[[models]]
+model_id = "eunite_ortega"
+model_name = "Francisco Ortega"
+estimator_family = "Hybrid"
+estimator_method = "Self-organising maps, Multivariate adaptive regression splines"
+
+# King and Tindle: multilayer perceptron 25-8-1 trained by back-propagation
+[[models]]
+model_id = "eunite_king"
+model_name = "Iain King"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+
+# Lotfi: learning fuzzy inference systems, one forecasting temperature and one the maximum load
+[[models]]
+model_id = "eunite_lotfi"
+model_name = "Ahmad Lotfi"
+estimator_family = "Fuzzy System"
+estimator_method = "Fuzzy rule-based system"
+
+# Castillo, Guijarro and Alonso: functional networks, an additive model for weekdays, Saturdays and Sundays
+[[models]]
+model_id = "eunite_guijarro"
+model_name = "Bertha Guijarro"
+estimator_family = "Neural Network"
+estimator_method = "Functional network"
+
+# Weizenegger: fuzzy logic association rules found by data mining (DataDowser 3.3)
+[[models]]
+model_id = "eunite_weizenegger"
+model_name = "Rob Weizenegger"
+estimator_family = "Fuzzy System"
+estimator_method = "Association rules"
+
+# Boger: auto-associative network 48-5-48 clustering the daily load profiles
+[[models]]
+model_id = "eunite_boger"
+model_name = "Zvi Boger"
+estimator_family = "Neural Network"
+estimator_method = "Autoencoder"
+
+# Bontempi: local learning, locally weighted regression on the neighbours of the current state, iterated one step ahead
+[[models]]
+model_id = "eunite_bontempi"
+model_name = "Gianluca Bontempi"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+
+# Pelikán, scenario B: additive time series decomposition, with temperatures estimated by a moving average over 6 days
+[[models]]
+model_id = "eunite_pelikan_b"
+model_name = "Emil Pelikan B"
+estimator_family = "Baseline"
+estimator_method = "Time series decomposition"
+
+# Brockmann and Kuthe, Model D on Model B version 1: nominal weekday loads with a neuro-fuzzy (NetFAN) extension
+[[models]]
+model_id = "eunite_brockmann_d1"
+model_name = "Werner Brockmann D1"
+estimator_family = "Hybrid"
+estimator_method = "Neural networks, Fuzzy logic"
+
+# Pelikán, scenario A: additive time series decomposition, with temperatures estimated by a moving average over 14 days
+[[models]]
+model_id = "eunite_pelikan_a"
+model_name = "Emil Pelikan A"
+estimator_family = "Baseline"
+estimator_method = "Time series decomposition"
+
+# Rivieccio: support vector machine on past daily maxima and temperatures
+[[models]]
+model_id = "eunite_rivieccio"
+model_name = "Fabio Rivieccio"
+estimator_family = "Kernel Methods"
+estimator_method = "Support vector machine"
+
+# Brockmann and Kuthe, Model C on Model B version 1: nominal weekday loads with a hybrid crisp-fuzzy system for holidays
+[[models]]
+model_id = "eunite_brockmann_c1"
+model_name = "Werner Brockmann C1"
+estimator_family = "Hybrid"
+estimator_method = "Statistical methods, Fuzzy logic"
+
+# Ivakhnenko and Ivakhnenko: combinatorial GMDH, a self-organising selection among linear and non-linear polynomial models
+[[models]]
+model_id = "eunite_ivakhnenko"
+model_name = "Gregory Ivakhnenko"
+estimator_family = "Statistical"
+estimator_method = "Automatic model selection"
+
+# Brockmann and Kuthe, Model B version 1: typical loads of each weekday with weights
+[[models]]
+model_id = "eunite_brockmann_b1"
+model_name = "Werner Brockmann B1"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+
+# Brockmann and Kuthe, Model D on Model B version 2: nominal weekday loads with a neuro-fuzzy (NetFAN) extension
+[[models]]
+model_id = "eunite_brockmann_d2"
+model_name = "Werner Brockmann D2"
+estimator_family = "Hybrid"
+estimator_method = "Neural networks, Fuzzy logic"
+
+# Brockmann and Kuthe, Model C on Model B version 2: nominal weekday loads with a hybrid crisp-fuzzy system for holidays
+[[models]]
+model_id = "eunite_brockmann_c2"
+model_name = "Werner Brockmann C2"
+estimator_family = "Hybrid"
+estimator_method = "Statistical methods, Fuzzy logic"
+
+# Brockmann and Kuthe, Model B version 2: typical loads of each weekday with weights, with holidays
+[[models]]
+model_id = "eunite_brockmann_b2"
+model_name = "Werner Brockmann B2"
+estimator_family = "Statistical"
+estimator_method = "Other statistical method"
+
+# Otto: the latest window compared with every past window, the forecast following the most similar situations
+[[models]]
+model_id = "eunite_otto"
+model_name = "Peter Otto"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+
+# Marín, García-Lagos, Joya and Sandoval: Kohonen classification of the daily load profiles, with intervention analysis of each class
+[[models]]
+model_id = "eunite_marin"
+model_name = "Javier Marin"
+estimator_family = "Hybrid"
+estimator_method = "Self-organising maps, Intervention analysis"

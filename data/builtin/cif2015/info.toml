@@ -1,0 +1,11 @@
+competition = "cif2015"
+name = "CIF 2015 – Computational Intelligence in Forecasting"
+format = "monash"
+converted = "2026-11-20T15:27:28.000"
+fingerprint = "4005f65b33b53b0e68d661df84732def916c4fcfa6aeddef48f8740e06176a49"
+
+[forecasts]
+
+[tables]
+observations = 10686
+series = 91

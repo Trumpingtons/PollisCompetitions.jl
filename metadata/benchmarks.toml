@@ -62224,3 +62224,2337 @@ split_protocol = "Monash: fixed horizon, the last 24 values of each monthly seri
   median_mae = 651.393666585286
   mean_rmse = 4100.51283782919
   median_rmse = 888.791371186102
+
+# Tourism forecasting competition: each time series method of Tables 4 to 6 of its paper on tourism_2011 by frequency,
+# with the hold-out of the competition: the last 24 values of each monthly series, 8 of each quarterly and 4 of each
+# yearly. Each score is the paper's average over the horizons of the hold-out, to 2 decimals: mean_mape (percent),
+# mean_mase, mdase (the median absolute scaled error) and pb, the percentage of forecasts more accurate than those of
+# SNaïve (Naïve for yearly series).
+
+[[runs]]
+run_id = "tourism_snaive.tourism_2011.monthly"
+model_id = "tourism_snaive"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mape = 22.56
+  mean_mase = 1.54
+  mdase = 1.14
+
+[[runs]]
+run_id = "tourism_snaive.tourism_2011.quarterly"
+model_id = "tourism_snaive"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mape = 16.46
+  mean_mase = 1.59
+  mdase = 1.21
+
+[[runs]]
+run_id = "tourism_naive.tourism_2011.yearly"
+model_id = "tourism_naive"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mape = 23.61
+  mean_mase = 2.5
+  mdase = 2.08
+
+[[runs]]
+run_id = "tourism_arima.tourism_2011.monthly"
+model_id = "tourism_arima"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mape = 21.13
+  mean_mase = 1.38
+  mdase = 1.02
+  pb = 56.96
+
+[[runs]]
+run_id = "tourism_arima.tourism_2011.quarterly"
+model_id = "tourism_arima"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mape = 16.23
+  mean_mase = 1.47
+  mdase = 1.11
+  pb = 56.15
+
+[[runs]]
+run_id = "tourism_arima.tourism_2011.yearly"
+model_id = "tourism_arima"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mape = 28.03
+  mean_mase = 2.63
+  mdase = 2.02
+  pb = 53.93
+
+[[runs]]
+run_id = "tourism_ets.tourism_2011.monthly"
+model_id = "tourism_ets"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mape = 21.15
+  mean_mase = 1.49
+  mdase = 1.03
+  pb = 54.63
+
+[[runs]]
+run_id = "tourism_ets.tourism_2011.quarterly"
+model_id = "tourism_ets"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mape = 16.05
+  mean_mase = 1.58
+  mdase = 1.14
+  pb = 53.81
+
+[[runs]]
+run_id = "tourism_ets.tourism_2011.yearly"
+model_id = "tourism_ets"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mape = 27.68
+  mean_mase = 2.71
+  mdase = 2.0
+  pb = 54.49
+
+[[runs]]
+run_id = "tourism_damped.tourism_2011.monthly"
+model_id = "tourism_damped"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mape = 23.47
+  mean_mase = 1.66
+  mdase = 1.11
+  pb = 53.2
+
+[[runs]]
+run_id = "tourism_damped.tourism_2011.quarterly"
+model_id = "tourism_damped"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mape = 15.56
+  mean_mase = 1.43
+  mdase = 1.08
+  pb = 58.02
+
+[[runs]]
+run_id = "tourism_damped.tourism_2011.yearly"
+model_id = "tourism_damped"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mape = 28.15
+  mean_mase = 2.75
+  mdase = 2.0
+  pb = 54.78
+
+[[runs]]
+run_id = "tourism_theta.tourism_2011.monthly"
+model_id = "tourism_theta"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mape = 22.11
+  mean_mase = 1.55
+  mdase = 1.06
+  pb = 53.19
+
+[[runs]]
+run_id = "tourism_theta.tourism_2011.quarterly"
+model_id = "tourism_theta"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mape = 16.15
+  mean_mase = 1.56
+  mdase = 1.11
+  pb = 53.45
+
+[[runs]]
+run_id = "tourism_theta.tourism_2011.yearly"
+model_id = "tourism_theta"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mape = 23.45
+  mean_mase = 2.28
+  mdase = 1.89
+  pb = 63.27
+
+[[runs]]
+run_id = "tourism_forecast_pro.tourism_2011.monthly"
+model_id = "tourism_forecast_pro"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mape = 19.91
+  mean_mase = 1.4
+  mdase = 1.01
+  pb = 56.01
+
+[[runs]]
+run_id = "tourism_forecast_pro.tourism_2011.quarterly"
+model_id = "tourism_forecast_pro"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mape = 15.72
+  mean_mase = 1.48
+  mdase = 1.14
+  pb = 55.91
+
+[[runs]]
+run_id = "tourism_forecast_pro.tourism_2011.yearly"
+model_id = "tourism_forecast_pro"
+dataset_id = "tourism_2011"
+split_protocol = "Tourism competition: the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mape = 26.36
+  mean_mase = 2.65
+  mdase = 1.93
+  pb = 55.99
+
+# NN3 competition: each method of Table 4 of its paper on nn3, with the hold-out of the competition, the last 18 values
+# of each series. mean_smape is the mean over the series and horizons of sMAPE, as a fraction (the paper gives it in
+# percent), mdrae the median of the absolute errors relative to those of Naive2, and mean_mase the mean of MASE.
+# The MdRAE of Comb S-H-D ES, printed as 0.09, is left out.
+
+[[runs]]
+run_id = "nn3_b09.nn3"
+model_id = "nn3_b09"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1484
+  mdrae = 0.82
+  mean_mase = 1.13
+
+[[runs]]
+run_id = "nn3_b07.nn3"
+model_id = "nn3_b07"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1489
+  mdrae = 0.88
+  mean_mase = 1.13
+
+[[runs]]
+run_id = "nn3_c27.nn3"
+model_id = "nn3_c27"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1518
+  mdrae = 0.84
+  mean_mase = 1.25
+
+[[runs]]
+run_id = "nn3_b03.nn3"
+model_id = "nn3_b03"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1544
+  mdrae = 0.89
+  mean_mase = 1.17
+
+[[runs]]
+run_id = "nn3_b16.nn3"
+model_id = "nn3_b16"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.159
+  mdrae = 0.94
+  mean_mase = 1.17
+
+[[runs]]
+run_id = "nn3_b17.nn3"
+model_id = "nn3_b17"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1593
+  mean_mase = 1.21
+
+[[runs]]
+run_id = "nn3_b05.nn3"
+model_id = "nn3_b05"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1595
+  mdrae = 0.93
+  mean_mase = 1.18
+
+[[runs]]
+run_id = "nn3_c03.nn3"
+model_id = "nn3_c03"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1631
+  mdrae = 0.93
+  mean_mase = 1.2
+
+[[runs]]
+run_id = "nn3_b14.nn3"
+model_id = "nn3_b14"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1642
+  mdrae = 0.96
+  mean_mase = 1.21
+
+[[runs]]
+run_id = "nn3_b15.nn3"
+model_id = "nn3_b15"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1649
+  mdrae = 0.92
+  mean_mase = 1.31
+
+[[runs]]
+run_id = "nn3_c46.nn3"
+model_id = "nn3_c46"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1655
+  mdrae = 0.94
+  mean_mase = 1.34
+
+[[runs]]
+run_id = "nn3_c13.nn3"
+model_id = "nn3_c13"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1657
+  mdrae = 0.91
+  mean_mase = 1.26
+
+[[runs]]
+run_id = "nn3_b00.nn3"
+model_id = "nn3_b00"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1681
+  mdrae = 0.91
+  mean_mase = 1.21
+
+[[runs]]
+run_id = "nn3_c50.nn3"
+model_id = "nn3_c50"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1692
+  mdrae = 0.9
+  mean_mase = 1.28
+
+[[runs]]
+run_id = "nn3_b13.nn3"
+model_id = "nn3_b13"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1705
+  mdrae = 0.96
+  mean_mase = 1.34
+
+[[runs]]
+run_id = "nn3_c24.nn3"
+model_id = "nn3_c24"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1754
+  mdrae = 1.02
+  mean_mase = 1.43
+
+[[runs]]
+run_id = "nn3_c31.nn3"
+model_id = "nn3_c31"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1762
+  mdrae = 0.96
+  mean_mase = 1.24
+
+[[runs]]
+run_id = "nn3_b06.nn3"
+model_id = "nn3_b06"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1778
+  mdrae = 0.92
+  mean_mase = 1.29
+
+[[runs]]
+run_id = "nn3_b02.nn3"
+model_id = "nn3_b02"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1784
+  mdrae = 0.97
+  mean_mase = 2.03
+
+[[runs]]
+run_id = "nn3_c38.nn3"
+model_id = "nn3_c38"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1787
+  mdrae = 1.0
+  mean_mase = 1.35
+
+[[runs]]
+run_id = "nn3_c26.nn3"
+model_id = "nn3_c26"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1824
+  mdrae = 1.0
+  mean_mase = 1.35
+
+[[runs]]
+run_id = "nn3_b01.nn3"
+model_id = "nn3_b01"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1832
+  mdrae = 1.06
+  mean_mase = 2.3
+
+[[runs]]
+run_id = "nn3_c44.nn3"
+model_id = "nn3_c44"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1858
+  mdrae = 1.06
+  mean_mase = 1.37
+
+[[runs]]
+run_id = "nn3_c11.nn3"
+model_id = "nn3_c11"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1862
+  mdrae = 0.93
+  mean_mase = 1.57
+
+[[runs]]
+run_id = "nn3_c37.nn3"
+model_id = "nn3_c37"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1868
+  mdrae = 0.99
+  mean_mase = 1.3
+
+[[runs]]
+run_id = "nn3_c49.nn3"
+model_id = "nn3_c49"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1872
+  mdrae = 1.06
+  mean_mase = 1.37
+
+[[runs]]
+run_id = "nn3_c59.nn3"
+model_id = "nn3_c59"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1873
+  mdrae = 1.0
+  mean_mase = 1.36
+
+[[runs]]
+run_id = "nn3_c20.nn3"
+model_id = "nn3_c20"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1897
+  mdrae = 0.99
+  mean_mase = 1.31
+
+[[runs]]
+run_id = "nn3_b10.nn3"
+model_id = "nn3_b10"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1914
+  mdrae = 1.04
+  mean_mase = 1.41
+
+[[runs]]
+run_id = "nn3_b11.nn3"
+model_id = "nn3_b11"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1917
+  mdrae = 1.03
+  mean_mase = 1.43
+
+[[runs]]
+run_id = "nn3_c36.nn3"
+model_id = "nn3_c36"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.1951
+  mdrae = 1.13
+  mean_mase = 1.42
+
+[[runs]]
+run_id = "nn3_c15.nn3"
+model_id = "nn3_c15"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.2
+  mdrae = 1.12
+  mean_mase = 1.53
+
+[[runs]]
+run_id = "nn3_c28.nn3"
+model_id = "nn3_c28"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.2019
+  mdrae = 1.13
+  mean_mase = 1.5
+
+[[runs]]
+run_id = "nn3_c51.nn3"
+model_id = "nn3_c51"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.226
+  mdrae = 1.27
+  mean_mase = 1.77
+
+[[runs]]
+run_id = "nn3_b04.nn3"
+model_id = "nn3_b04"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.2269
+  mdrae = 1.0
+  mean_mase = 1.48
+
+[[runs]]
+run_id = "nn3_b12.nn3"
+model_id = "nn3_b12"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.2372
+  mdrae = 1.34
+  mean_mase = 1.8
+
+[[runs]]
+run_id = "nn3_c17.nn3"
+model_id = "nn3_c17"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.2409
+  mdrae = 1.35
+  mean_mase = 1.81
+
+[[runs]]
+run_id = "nn3_c30.nn3"
+model_id = "nn3_c30"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.2513
+  mdrae = 1.37
+  mean_mase = 1.73
+
+[[runs]]
+run_id = "nn3_c57.nn3"
+model_id = "nn3_c57"
+dataset_id = "nn3"
+split_protocol = "NN3 competition: the last 18 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.3266
+  mdrae = 1.51
+  mean_mase = 3.61
+
+# NN5 competition: each method of the results table of its website on nn5, with the hold-out of the competition, the last
+# 56 values of each series. mean_smape is the mean over the series and horizons of sMAPE, as a fraction (the website
+# gives it in percent, to one decimal).
+
+[[runs]]
+run_id = "nn5_c23.nn5"
+model_id = "nn5_c23"
+dataset_id = "nn5"
+split_protocol = "NN5 competition: the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.204
+
+[[runs]]
+run_id = "nn5_c19.nn5"
+model_id = "nn5_c19"
+dataset_id = "nn5"
+split_protocol = "NN5 competition: the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.218
+
+[[runs]]
+run_id = "nn5_c01.nn5"
+model_id = "nn5_c01"
+dataset_id = "nn5"
+split_protocol = "NN5 competition: the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.221
+
+[[runs]]
+run_id = "nn5_b01.nn5"
+model_id = "nn5_b01"
+dataset_id = "nn5"
+split_protocol = "NN5 competition: the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.241
+
+[[runs]]
+run_id = "nn5_c25.nn5"
+model_id = "nn5_c25"
+dataset_id = "nn5"
+split_protocol = "NN5 competition: the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.268
+
+[[runs]]
+run_id = "nn5_c20.nn5"
+model_id = "nn5_c20"
+dataset_id = "nn5"
+split_protocol = "NN5 competition: the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.273
+
+[[runs]]
+run_id = "nn5_b12.nn5"
+model_id = "nn5_b12"
+dataset_id = "nn5"
+split_protocol = "NN5 competition: the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.288
+
+[[runs]]
+run_id = "nn5_b11.nn5"
+model_id = "nn5_b11"
+dataset_id = "nn5"
+split_protocol = "NN5 competition: the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_smape = 0.484
+
+# CIF 2015 competition: each method of Table II of its paper on cif2015, and of Table III on the series of each
+# frequency, named in the run_id, with the hold-out of the competition, the last values of each series, as many as its
+# horizon. mean_smape is the mean over the series of sMAPE, as a fraction, as the paper gives it.
+
+[[runs]]
+run_id = "cif2015_r_frbe.cif2015"
+model_id = "cif2015_r_frbe"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 180 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.11808
+
+[[runs]]
+run_id = "cif2015_r_frbe.cif2015.daily"
+model_id = "cif2015_r_frbe"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 30 to 180 values of each daily series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.22367
+
+[[runs]]
+run_id = "cif2015_r_frbe.cif2015.monthly"
+model_id = "cif2015_r_frbe"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 18 values of each monthly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.08191
+
+[[runs]]
+run_id = "cif2015_r_frbe.cif2015.quarterly"
+model_id = "cif2015_r_frbe"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 12 values of each quarterly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.14621
+
+[[runs]]
+run_id = "cif2015_r_frbe.cif2015.yearly"
+model_id = "cif2015_r_frbe"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 6 values of each yearly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.09438
+
+[[runs]]
+run_id = "cif2015_r_avg.cif2015"
+model_id = "cif2015_r_avg"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 180 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.12379
+
+[[runs]]
+run_id = "cif2015_r_avg.cif2015.daily"
+model_id = "cif2015_r_avg"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 30 to 180 values of each daily series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.23973
+
+[[runs]]
+run_id = "cif2015_r_avg.cif2015.monthly"
+model_id = "cif2015_r_avg"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 18 values of each monthly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.08631
+
+[[runs]]
+run_id = "cif2015_r_avg.cif2015.quarterly"
+model_id = "cif2015_r_avg"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 12 values of each quarterly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.15625
+
+[[runs]]
+run_id = "cif2015_r_avg.cif2015.yearly"
+model_id = "cif2015_r_avg"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 6 values of each yearly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.08374
+
+[[runs]]
+run_id = "cif2015_r_ets.cif2015"
+model_id = "cif2015_r_ets"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 180 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.1276
+
+[[runs]]
+run_id = "cif2015_r_ets.cif2015.daily"
+model_id = "cif2015_r_ets"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 30 to 180 values of each daily series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.20597
+
+[[runs]]
+run_id = "cif2015_r_ets.cif2015.monthly"
+model_id = "cif2015_r_ets"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 18 values of each monthly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.0946
+
+[[runs]]
+run_id = "cif2015_r_ets.cif2015.quarterly"
+model_id = "cif2015_r_ets"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 12 values of each quarterly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.17563
+
+[[runs]]
+run_id = "cif2015_r_ets.cif2015.yearly"
+model_id = "cif2015_r_ets"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 6 values of each yearly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.06982
+
+[[runs]]
+run_id = "cif2015_r_arima.cif2015"
+model_id = "cif2015_r_arima"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 180 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.12906
+
+[[runs]]
+run_id = "cif2015_r_arima.cif2015.daily"
+model_id = "cif2015_r_arima"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 30 to 180 values of each daily series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.23487
+
+[[runs]]
+run_id = "cif2015_r_arima.cif2015.monthly"
+model_id = "cif2015_r_arima"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 18 values of each monthly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.08281
+
+[[runs]]
+run_id = "cif2015_r_arima.cif2015.quarterly"
+model_id = "cif2015_r_arima"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 12 values of each quarterly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.17666
+
+[[runs]]
+run_id = "cif2015_r_arima.cif2015.yearly"
+model_id = "cif2015_r_arima"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 6 values of each yearly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.10183
+
+[[runs]]
+run_id = "cif2015_r_theta.cif2015"
+model_id = "cif2015_r_theta"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 180 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.13043
+
+[[runs]]
+run_id = "cif2015_r_theta.cif2015.daily"
+model_id = "cif2015_r_theta"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 30 to 180 values of each daily series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.27034
+
+[[runs]]
+run_id = "cif2015_r_theta.cif2015.monthly"
+model_id = "cif2015_r_theta"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 18 values of each monthly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.09454
+
+[[runs]]
+run_id = "cif2015_r_theta.cif2015.quarterly"
+model_id = "cif2015_r_theta"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 12 values of each quarterly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.14498
+
+[[runs]]
+run_id = "cif2015_r_theta.cif2015.yearly"
+model_id = "cif2015_r_theta"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 6 values of each yearly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.10169
+
+[[runs]]
+run_id = "cif2015_r_rw.cif2015"
+model_id = "cif2015_r_rw"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 180 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.14216
+
+[[runs]]
+run_id = "cif2015_r_rw.cif2015.daily"
+model_id = "cif2015_r_rw"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 30 to 180 values of each daily series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.27344
+
+[[runs]]
+run_id = "cif2015_r_rw.cif2015.monthly"
+model_id = "cif2015_r_rw"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 18 values of each monthly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.10069
+
+[[runs]]
+run_id = "cif2015_r_rw.cif2015.quarterly"
+model_id = "cif2015_r_rw"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 12 values of each quarterly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.18092
+
+[[runs]]
+run_id = "cif2015_r_rw.cif2015.yearly"
+model_id = "cif2015_r_rw"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 6 values of each yearly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.08747
+
+[[runs]]
+run_id = "cif2015_cfesm.cif2015"
+model_id = "cif2015_cfesm"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 180 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.14405
+
+[[runs]]
+run_id = "cif2015_cfesm.cif2015.daily"
+model_id = "cif2015_cfesm"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 30 to 180 values of each daily series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.23269
+
+[[runs]]
+run_id = "cif2015_cfesm.cif2015.monthly"
+model_id = "cif2015_cfesm"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 18 values of each monthly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.10163
+
+[[runs]]
+run_id = "cif2015_cfesm.cif2015.quarterly"
+model_id = "cif2015_cfesm"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 12 values of each quarterly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.19979
+
+[[runs]]
+run_id = "cif2015_cfesm.cif2015.yearly"
+model_id = "cif2015_cfesm"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 6 values of each yearly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.09812
+
+[[runs]]
+run_id = "cif2015_afcr.cif2015"
+model_id = "cif2015_afcr"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 180 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.15264
+
+[[runs]]
+run_id = "cif2015_afcr.cif2015.daily"
+model_id = "cif2015_afcr"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 30 to 180 values of each daily series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.27908
+
+[[runs]]
+run_id = "cif2015_afcr.cif2015.monthly"
+model_id = "cif2015_afcr"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 18 values of each monthly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.09803
+
+[[runs]]
+run_id = "cif2015_afcr.cif2015.quarterly"
+model_id = "cif2015_afcr"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 12 values of each quarterly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.21013
+
+[[runs]]
+run_id = "cif2015_afcr.cif2015.yearly"
+model_id = "cif2015_afcr"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 6 values of each yearly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.11553
+
+[[runs]]
+run_id = "cif2015_mtsf.cif2015"
+model_id = "cif2015_mtsf"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 180 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.16621
+
+[[runs]]
+run_id = "cif2015_mtsf.cif2015.daily"
+model_id = "cif2015_mtsf"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 30 to 180 values of each daily series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.19286
+
+[[runs]]
+run_id = "cif2015_mtsf.cif2015.monthly"
+model_id = "cif2015_mtsf"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 18 values of each monthly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.11905
+
+[[runs]]
+run_id = "cif2015_mtsf.cif2015.quarterly"
+model_id = "cif2015_mtsf"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 12 values of each quarterly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.24989
+
+[[runs]]
+run_id = "cif2015_mtsf.cif2015.yearly"
+model_id = "cif2015_mtsf"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 6 values of each yearly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.13994
+
+[[runs]]
+run_id = "cif2015_fts_s.cif2015"
+model_id = "cif2015_fts_s"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 180 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.2293
+
+[[runs]]
+run_id = "cif2015_fts_s.cif2015.daily"
+model_id = "cif2015_fts_s"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 30 to 180 values of each daily series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.36438
+
+[[runs]]
+run_id = "cif2015_fts_s.cif2015.monthly"
+model_id = "cif2015_fts_s"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 18 values of each monthly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.15625
+
+[[runs]]
+run_id = "cif2015_fts_s.cif2015.quarterly"
+model_id = "cif2015_fts_s"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 12 values of each quarterly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.31029
+
+[[runs]]
+run_id = "cif2015_fts_s.cif2015.yearly"
+model_id = "cif2015_fts_s"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 6 values of each yearly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.20697
+
+[[runs]]
+run_id = "cif2015_fts_lr.cif2015"
+model_id = "cif2015_fts_lr"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 180 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.23353
+
+[[runs]]
+run_id = "cif2015_fts_lr.cif2015.daily"
+model_id = "cif2015_fts_lr"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 30 to 180 values of each daily series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.36598
+
+[[runs]]
+run_id = "cif2015_fts_lr.cif2015.monthly"
+model_id = "cif2015_fts_lr"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 18 values of each monthly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.16426
+
+[[runs]]
+run_id = "cif2015_fts_lr.cif2015.quarterly"
+model_id = "cif2015_fts_lr"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 12 values of each quarterly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.31339
+
+[[runs]]
+run_id = "cif2015_fts_lr.cif2015.yearly"
+model_id = "cif2015_fts_lr"
+dataset_id = "cif2015"
+split_protocol = "CIF 2015 competition: the last 4 to 6 values of each yearly series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.19987
+
+# CIF 2016 competition: each method of Table I of its paper on cif2016, on all series, on the 24 real series and on the
+# 48 generated ones, the subset named in the run_id, with the hold-out of the competition, the last values of each
+# series, as many as its horizon. mean_smape is the mean over the series of sMAPE, as a fraction, to 3 decimals as
+# the paper gives it.
+
+[[runs]]
+run_id = "cif2016_lstm_des.cif2016"
+model_id = "cif2016_lstm_des"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.105
+
+[[runs]]
+run_id = "cif2016_lstm_des.cif2016.real"
+model_id = "cif2016_lstm_des"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.168
+
+[[runs]]
+run_id = "cif2016_lstm_des.cif2016.generated"
+model_id = "cif2016_lstm_des"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.074
+
+[[runs]]
+run_id = "cif2016_lstm_es.cif2016"
+model_id = "cif2016_lstm_es"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.108
+
+[[runs]]
+run_id = "cif2016_lstm_es.cif2016.real"
+model_id = "cif2016_lstm_es"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.184
+
+[[runs]]
+run_id = "cif2016_lstm_es.cif2016.generated"
+model_id = "cif2016_lstm_es"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.07
+
+[[runs]]
+run_id = "cif2016_es.cif2016"
+model_id = "cif2016_es"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.119
+
+[[runs]]
+run_id = "cif2016_es.cif2016.real"
+model_id = "cif2016_es"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.215
+
+[[runs]]
+run_id = "cif2016_es.cif2016.generated"
+model_id = "cif2016_es"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.071
+
+[[runs]]
+run_id = "cif2016_mlp.cif2016"
+model_id = "cif2016_mlp"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.121
+
+[[runs]]
+run_id = "cif2016_mlp.cif2016.real"
+model_id = "cif2016_mlp"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.21
+
+[[runs]]
+run_id = "cif2016_mlp.cif2016.generated"
+model_id = "cif2016_mlp"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.077
+
+[[runs]]
+run_id = "cif2016_rest.cif2016"
+model_id = "cif2016_rest"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.124
+
+[[runs]]
+run_id = "cif2016_rest.cif2016.real"
+model_id = "cif2016_rest"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.213
+
+[[runs]]
+run_id = "cif2016_rest.cif2016.generated"
+model_id = "cif2016_rest"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.08
+
+[[runs]]
+run_id = "cif2016_frbe.cif2016"
+model_id = "cif2016_frbe"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.129
+
+[[runs]]
+run_id = "cif2016_frbe.cif2016.real"
+model_id = "cif2016_frbe"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.238
+
+[[runs]]
+run_id = "cif2016_frbe.cif2016.generated"
+model_id = "cif2016_frbe"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.075
+
+[[runs]]
+run_id = "cif2016_hem.cif2016"
+model_id = "cif2016_hem"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.13
+
+[[runs]]
+run_id = "cif2016_hem.cif2016.real"
+model_id = "cif2016_hem"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.235
+
+[[runs]]
+run_id = "cif2016_hem.cif2016.generated"
+model_id = "cif2016_hem"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.078
+
+[[runs]]
+run_id = "cif2016_avg.cif2016"
+model_id = "cif2016_avg"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.131
+
+[[runs]]
+run_id = "cif2016_avg.cif2016.real"
+model_id = "cif2016_avg"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.22
+
+[[runs]]
+run_id = "cif2016_avg.cif2016.generated"
+model_id = "cif2016_avg"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.086
+
+[[runs]]
+run_id = "cif2016_bagged_es.cif2016"
+model_id = "cif2016_bagged_es"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.131
+
+[[runs]]
+run_id = "cif2016_bagged_es.cif2016.real"
+model_id = "cif2016_bagged_es"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.258
+
+[[runs]]
+run_id = "cif2016_bagged_es.cif2016.generated"
+model_id = "cif2016_bagged_es"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.068
+
+[[runs]]
+run_id = "cif2016_lstm.cif2016"
+model_id = "cif2016_lstm"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.133
+
+[[runs]]
+run_id = "cif2016_lstm.cif2016.real"
+model_id = "cif2016_lstm"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.241
+
+[[runs]]
+run_id = "cif2016_lstm.cif2016.generated"
+model_id = "cif2016_lstm"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.08
+
+[[runs]]
+run_id = "cif2016_afcr.cif2016"
+model_id = "cif2016_afcr"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.137
+
+[[runs]]
+run_id = "cif2016_afcr.cif2016.real"
+model_id = "cif2016_afcr"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.213
+
+[[runs]]
+run_id = "cif2016_afcr.cif2016.generated"
+model_id = "cif2016_afcr"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.099
+
+[[runs]]
+run_id = "cif2016_pb_grnn.cif2016"
+model_id = "cif2016_pb_grnn"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.145
+
+[[runs]]
+run_id = "cif2016_pb_grnn.cif2016.real"
+model_id = "cif2016_pb_grnn"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.258
+
+[[runs]]
+run_id = "cif2016_pb_grnn.cif2016.generated"
+model_id = "cif2016_pb_grnn"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.088
+
+[[runs]]
+run_id = "cif2016_pb_rf.cif2016"
+model_id = "cif2016_pb_rf"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.145
+
+[[runs]]
+run_id = "cif2016_pb_rf.cif2016.real"
+model_id = "cif2016_pb_rf"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.258
+
+[[runs]]
+run_id = "cif2016_pb_rf.cif2016.generated"
+model_id = "cif2016_pb_rf"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.088
+
+[[runs]]
+run_id = "cif2016_arima.cif2016"
+model_id = "cif2016_arima"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.146
+
+[[runs]]
+run_id = "cif2016_arima.cif2016.real"
+model_id = "cif2016_arima"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.276
+
+[[runs]]
+run_id = "cif2016_arima.cif2016.generated"
+model_id = "cif2016_arima"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.08
+
+[[runs]]
+run_id = "cif2016_rw.cif2016"
+model_id = "cif2016_rw"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.146
+
+[[runs]]
+run_id = "cif2016_rw.cif2016.real"
+model_id = "cif2016_rw"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.217
+
+[[runs]]
+run_id = "cif2016_rw.cif2016.generated"
+model_id = "cif2016_rw"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.11
+
+[[runs]]
+run_id = "cif2016_theta.cif2016"
+model_id = "cif2016_theta"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.148
+
+[[runs]]
+run_id = "cif2016_theta.cif2016.real"
+model_id = "cif2016_theta"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.221
+
+[[runs]]
+run_id = "cif2016_theta.cif2016.generated"
+model_id = "cif2016_theta"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.111
+
+[[runs]]
+run_id = "cif2016_pb_mlp.cif2016"
+model_id = "cif2016_pb_mlp"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.149
+
+[[runs]]
+run_id = "cif2016_pb_mlp.cif2016.real"
+model_id = "cif2016_pb_mlp"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.265
+
+[[runs]]
+run_id = "cif2016_pb_mlp.cif2016.generated"
+model_id = "cif2016_pb_mlp"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.092
+
+[[runs]]
+run_id = "cif2016_tsfis.cif2016"
+model_id = "cif2016_tsfis"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.151
+
+[[runs]]
+run_id = "cif2016_tsfis.cif2016.real"
+model_id = "cif2016_tsfis"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.233
+
+[[runs]]
+run_id = "cif2016_tsfis.cif2016.generated"
+model_id = "cif2016_tsfis"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.11
+
+[[runs]]
+run_id = "cif2016_boot_expos.cif2016"
+model_id = "cif2016_boot_expos"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.153
+
+[[runs]]
+run_id = "cif2016_boot_expos.cif2016.real"
+model_id = "cif2016_boot_expos"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.305
+
+[[runs]]
+run_id = "cif2016_boot_expos.cif2016.generated"
+model_id = "cif2016_boot_expos"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.076
+
+[[runs]]
+run_id = "cif2016_mtsfa.cif2016"
+model_id = "cif2016_mtsfa"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.165
+
+[[runs]]
+run_id = "cif2016_mtsfa.cif2016.real"
+model_id = "cif2016_mtsfa"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.294
+
+[[runs]]
+run_id = "cif2016_mtsfa.cif2016.generated"
+model_id = "cif2016_mtsfa"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.101
+
+[[runs]]
+run_id = "cif2016_fcdnn.cif2016"
+model_id = "cif2016_fcdnn"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.166
+
+[[runs]]
+run_id = "cif2016_fcdnn.cif2016.real"
+model_id = "cif2016_fcdnn"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.318
+
+[[runs]]
+run_id = "cif2016_fcdnn.cif2016.generated"
+model_id = "cif2016_fcdnn"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.09
+
+[[runs]]
+run_id = "cif2016_msakaf.cif2016"
+model_id = "cif2016_msakaf"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.204
+
+[[runs]]
+run_id = "cif2016_msakaf.cif2016.real"
+model_id = "cif2016_msakaf"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.286
+
+[[runs]]
+run_id = "cif2016_msakaf.cif2016.generated"
+model_id = "cif2016_msakaf"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.163
+
+[[runs]]
+run_id = "cif2016_hfm.cif2016"
+model_id = "cif2016_hfm"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.224
+
+[[runs]]
+run_id = "cif2016_hfm.cif2016.real"
+model_id = "cif2016_hfm"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.364
+
+[[runs]]
+run_id = "cif2016_hfm.cif2016.generated"
+model_id = "cif2016_hfm"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.154
+
+[[runs]]
+run_id = "cif2016_corn.cif2016"
+model_id = "cif2016_corn"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each series held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.288
+
+[[runs]]
+run_id = "cif2016_corn.cif2016.real"
+model_id = "cif2016_corn"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 6 or 12 values of each of the 24 real series (fewer than 108 values seen) held out, as many as its horizon"
+
+  [runs.scores]
+  mean_smape = 0.457
+
+[[runs]]
+run_id = "cif2016_corn.cif2016.generated"
+model_id = "cif2016_corn"
+dataset_id = "cif2016"
+split_protocol = "CIF 2016 competition: the last 12 values of each of the 48 generated series (108 values seen) held out"
+
+  [runs.scores]
+  mean_smape = 0.203
+
+# Santa Fe Time Series Prediction Competition: each entry of Tables 2 and 3 of its overview chapter on santa_fe, the
+# series named in the run_id. On series A (laser), nmse_100 is the normalized mean squared error over the 100 values
+# held out, the sum of squared errors divided by the sum of squared deviations of the observed values from their mean,
+# and mean_nll the mean over them of the negative log-likelihood of each observed value, under a Gaussian centred on
+# the prediction with the submitted error bar as its standard deviation, integrated over the unit interval around
+# the value. On series D (computer-generated), nmse_15, nmse_30 and nmse_50 are the normalized mean squared error over
+# the first 15, 30 and 50 of the 500 values held out.
+
+[[runs]]
+run_id = "santa_fe_w.santa_fe.a"
+model_id = "santa_fe_w"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 0.028
+  mean_nll = 3.5
+
+[[runs]]
+run_id = "santa_fe_w.santa_fe.d"
+model_id = "santa_fe_w"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 500 values that follow series D held out"
+
+  [runs.scores]
+  nmse_15 = 7.1
+  nmse_30 = 3.4
+  nmse_50 = 2.4
+
+[[runs]]
+run_id = "santa_fe_sa.santa_fe.a"
+model_id = "santa_fe_sa"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 0.08
+  mean_nll = 4.8
+
+[[runs]]
+run_id = "santa_fe_mel.santa_fe.a"
+model_id = "santa_fe_mel"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 0.77
+  mean_nll = 5.5
+
+[[runs]]
+run_id = "santa_fe_n.santa_fe.a"
+model_id = "santa_fe_n"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 1.0
+  mean_nll = 6.1
+
+[[runs]]
+run_id = "santa_fe_m.santa_fe.a"
+model_id = "santa_fe_m"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 0.38
+  mean_nll = 6.4
+
+[[runs]]
+run_id = "santa_fe_can.santa_fe.a"
+model_id = "santa_fe_can"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 1.4
+  mean_nll = 7.2
+
+[[runs]]
+run_id = "santa_fe_u.santa_fe.a"
+model_id = "santa_fe_u"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 0.62
+  mean_nll = 7.3
+
+[[runs]]
+run_id = "santa_fe_u.santa_fe.d"
+model_id = "santa_fe_u"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 500 values that follow series D held out"
+
+  [runs.scores]
+  nmse_15 = 1.3
+  nmse_30 = 1.4
+  nmse_50 = 1.4
+
+[[runs]]
+run_id = "santa_fe_a.santa_fe.a"
+model_id = "santa_fe_a"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 0.71
+  mean_nll = 10.0
+
+[[runs]]
+run_id = "santa_fe_p.santa_fe.a"
+model_id = "santa_fe_p"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 1.3
+
+[[runs]]
+run_id = "santa_fe_sw.santa_fe.a"
+model_id = "santa_fe_sw"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 1.5
+
+[[runs]]
+run_id = "santa_fe_y.santa_fe.a"
+model_id = "santa_fe_y"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 1.5
+
+[[runs]]
+run_id = "santa_fe_car.santa_fe.a"
+model_id = "santa_fe_car"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 100 values that follow series A held out"
+
+  [runs.scores]
+  nmse_100 = 1.9
+
+[[runs]]
+run_id = "santa_fe_zh.santa_fe.d"
+model_id = "santa_fe_zh"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 500 values that follow series D held out"
+
+  [runs.scores]
+  nmse_15 = 0.086
+  nmse_30 = 0.57
+  nmse_50 = 0.87
+
+[[runs]]
+run_id = "santa_fe_c.santa_fe.d"
+model_id = "santa_fe_c"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 500 values that follow series D held out"
+
+  [runs.scores]
+  nmse_15 = 6.4
+  nmse_30 = 3.2
+  nmse_50 = 2.2
+
+[[runs]]
+run_id = "santa_fe_z.santa_fe.d"
+model_id = "santa_fe_z"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 500 values that follow series D held out"
+
+  [runs.scores]
+  nmse_15 = 4.8
+  nmse_30 = 5.0
+  nmse_50 = 3.2
+
+[[runs]]
+run_id = "santa_fe_s.santa_fe.d"
+model_id = "santa_fe_s"
+dataset_id = "santa_fe"
+split_protocol = "Santa Fe competition: the 500 values that follow series D held out"
+
+  [runs.scores]
+  nmse_15 = 17.0
+  nmse_30 = 9.5
+  nmse_50 = 5.5
+
+# EUNITE 2001 competition: each entry of the results its organisers presented, on eunite_2001, with the hold-out of the
+# competition, the daily maxima of the 31 days of January 1999. mape is the mean absolute percentage error of the daily
+# maxima, in percent, and max_error the largest absolute error, in MW.
+
+[[runs]]
+run_id = "eunite_lin.eunite_2001"
+model_id = "eunite_lin"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 1.9824
+  max_error = 51.415
+
+[[runs]]
+run_id = "eunite_esp.eunite_2001"
+model_id = "eunite_esp"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 2.1489
+  max_error = 40.0
+
+[[runs]]
+run_id = "eunite_brockmann_a.eunite_2001"
+model_id = "eunite_brockmann_a"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 2.4979
+  max_error = 60.5
+
+[[runs]]
+run_id = "eunite_zivcak.eunite_2001"
+model_id = "eunite_zivcak"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 2.8733
+  max_error = 65.8481
+
+[[runs]]
+run_id = "eunite_kowalczyk_b.eunite_2001"
+model_id = "eunite_kowalczyk_b"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 2.9846
+  max_error = 68.6034
+
+[[runs]]
+run_id = "eunite_lewandowski.eunite_2001"
+model_id = "eunite_lewandowski"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 3.2234
+  max_error = 55.2
+
+[[runs]]
+run_id = "eunite_kowalczyk_a.eunite_2001"
+model_id = "eunite_kowalczyk_a"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 3.2644
+  max_error = 77.0047
+
+[[runs]]
+run_id = "eunite_ortega.eunite_2001"
+model_id = "eunite_ortega"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 3.3797
+  max_error = 74.0
+
+[[runs]]
+run_id = "eunite_king.eunite_2001"
+model_id = "eunite_king"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 3.388
+  max_error = 109.0
+
+[[runs]]
+run_id = "eunite_lotfi.eunite_2001"
+model_id = "eunite_lotfi"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 3.3887
+  max_error = 74.5177
+
+[[runs]]
+run_id = "eunite_guijarro.eunite_2001"
+model_id = "eunite_guijarro"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 3.421
+  max_error = 89.0
+
+[[runs]]
+run_id = "eunite_weizenegger.eunite_2001"
+model_id = "eunite_weizenegger"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 3.6943
+  max_error = 76.89
+
+[[runs]]
+run_id = "eunite_boger.eunite_2001"
+model_id = "eunite_boger"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 3.9577
+  max_error = 80.0
+
+[[runs]]
+run_id = "eunite_bontempi.eunite_2001"
+model_id = "eunite_bontempi"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 3.9972
+  max_error = 63.7801
+
+[[runs]]
+run_id = "eunite_pelikan_b.eunite_2001"
+model_id = "eunite_pelikan_b"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 4.3476
+  max_error = 68.1
+
+[[runs]]
+run_id = "eunite_brockmann_d1.eunite_2001"
+model_id = "eunite_brockmann_d1"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 4.3732
+  max_error = 86.9
+
+[[runs]]
+run_id = "eunite_pelikan_a.eunite_2001"
+model_id = "eunite_pelikan_a"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 4.4369
+  max_error = 68.1
+
+[[runs]]
+run_id = "eunite_rivieccio.eunite_2001"
+model_id = "eunite_rivieccio"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 4.5023
+  max_error = 81.0739
+
+[[runs]]
+run_id = "eunite_brockmann_c1.eunite_2001"
+model_id = "eunite_brockmann_c1"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 4.5802
+  max_error = 83.7
+
+[[runs]]
+run_id = "eunite_ivakhnenko.eunite_2001"
+model_id = "eunite_ivakhnenko"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 4.6532
+  max_error = 80.9174
+
+[[runs]]
+run_id = "eunite_brockmann_b1.eunite_2001"
+model_id = "eunite_brockmann_b1"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 4.7115
+  max_error = 99.7
+
+[[runs]]
+run_id = "eunite_brockmann_d2.eunite_2001"
+model_id = "eunite_brockmann_d2"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 5.0871
+  max_error = 91.6
+
+[[runs]]
+run_id = "eunite_brockmann_c2.eunite_2001"
+model_id = "eunite_brockmann_c2"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 5.4245
+  max_error = 91.0
+
+[[runs]]
+run_id = "eunite_brockmann_b2.eunite_2001"
+model_id = "eunite_brockmann_b2"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 5.5557
+  max_error = 105.6
+
+[[runs]]
+run_id = "eunite_otto.eunite_2001"
+model_id = "eunite_otto"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 11.5169
+  max_error = 199.0
+
+[[runs]]
+run_id = "eunite_marin.eunite_2001"
+model_id = "eunite_marin"
+dataset_id = "eunite_2001"
+split_protocol = "EUNITE 2001 competition: the daily maxima of the 31 days of January 1999 held out"
+
+  [runs.scores]
+  mape = 13.4471
+  max_error = 166.0
