@@ -29,7 +29,7 @@ data_structure = "Time-Series"
 geometry = "None"
 response_type = "Regression"
 licence = "CC BY 4.0 (via the Monash archive on Zenodo)"
-delivery = "Download"
+delivery = "Built-in"
 
   [[datasets.references]]
   bibtex_key = "MACFH...1982a"
@@ -60,7 +60,7 @@ data_structure = "Time-Series"
 geometry = "None"
 response_type = "Regression"
 licence = "CC BY 4.0 (via the Monash archive on Zenodo)"
-delivery = "Download"
+delivery = "Built-in"
 
   [[datasets.references]]
   bibtex_key = "MH2000a"
@@ -145,7 +145,7 @@ topic = "Finance"
 data_structure = "Panel"
 geometry = "None"
 licence = "None stated in the repository"
-delivery = "Download"
+delivery = "Built-in"
 source_url = "https://github.com/Mcompetitions/M6-methods"
 
   [[datasets.references]]
@@ -220,7 +220,7 @@ data_structure = "Time-Series"
 geometry = "None"
 response_type = "Regression"
 licence = "None stated (redistributed in the CRAN package tscompdata, GPL-3)"
-delivery = "Built-in"
+delivery = "Download"
 source_url = "http://www.neural-forecasting-competition.com"
 
 [[datasets]]
@@ -785,7 +785,7 @@ dataset_name = "London Smart Meters"
 topic = "Energy"
 data_structure = "Panel"
 geometry = "None"
-delivery = "Built-in"
+delivery = "Download"
 
 [[datasets]]
 dataset_id = "australian_electricity_demand"
@@ -794,7 +794,7 @@ topic = "Energy"
 data_structure = "Panel"
 geometry = "None"
 licence = "CC BY 4.0 (via the Monash archive on Zenodo); AEMO data, which AEMO lets anyone use for any purpose with attribution"
-delivery = "Built-in"
+delivery = "Download"
 
 [[datasets]]
 dataset_id = "monash_wind_solar"
@@ -803,7 +803,7 @@ topic = "Energy"
 data_structure = "Panel"
 geometry = "None"
 licence = "CC BY 4.0 (via the Monash archive on Zenodo); AEMO data (wind and solar at 4 seconds) and NREL data (solar at 10 minutes)"
-delivery = "Built-in"
+delivery = "Download"
 
 [[datasets]]
 dataset_id = "physionet_2012"
@@ -1007,7 +1007,7 @@ dataset_name = "ECB Survey of Professional Forecasters"
 topic = "Macroeconomics"
 response_type = "Regression"
 licence = "ESCB statistics reuse policy: free reuse with the source quoted and the values unchanged"
-delivery = "Built-in"
+delivery = "Download"
 source_url = "https://www.ecb.europa.eu/stats/ecb_surveys/survey_of_professional_forecasters/html/index.en.html"
 
 [[datasets]]

@@ -1,0 +1,11 @@
+competition = "nn5"
+name = "NN5 Competition (ATM cash withdrawals)"
+format = "monash"
+converted = "2026-11-19T23:49:05.815"
+fingerprint = "7a831669420e9c98180bf6c681b6bb34c27d256a93aa604afa00a5b0e12e6cc2"
+
+[forecasts]
+
+[tables]
+observations = 87801
+series = 111

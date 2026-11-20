@@ -1,0 +1,11 @@
+competition = "eunite_2001"
+name = "EUNITE 2001 Electricity Load Competition"
+format = "monash"
+converted = "2026-11-19T23:56:37.886"
+fingerprint = "0e5f265a9b5f98d769cd4d9203feb4f4c540fc48e1f27f3bdb678bdf8442df79"
+
+[forecasts]
+
+[tables]
+observations = 36528
+series = 1

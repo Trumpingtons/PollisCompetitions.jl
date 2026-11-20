@@ -6,7 +6,7 @@ Datasets on which models are scored and ranked, for [Pollis](https://pollis.org)
 import PollisCompetitions as PC
 datasets = PC.load_table("dataset_catalog")
 comparisons = PC.load_table("model_comparisons")
-data = PC.load_dataset("nab")
+data = PC.load_dataset("german_credit")
 yearly = PC.series("m4"; frequency = "Yearly")
 ```
 
@@ -36,7 +36,7 @@ The estimator of a model has two levels: its estimator family, one of the model 
 
 ## Built-in datasets
 
-A dataset whose delivery is Built-in ships with the package, as a Parquet file named by its `dataset_id` in `data/builtin/`. `connect_db` reads each in place, as the view `builtin."<dataset_id>"`, and `load_dataset(dataset_id)` reads one. A dataset whose delivery is Download is fetched by the user from its `source_url`.
+A dataset whose delivery is Built-in ships with the package, as a folder named by its `dataset_id` in `data/builtin/`, with its data in `data.parquet`. `connect_db` reads each in place, as the view `builtin."<dataset_id>"`, and `load_dataset(dataset_id)` reads one. A dataset whose delivery is Download is fetched by the user from its `source_url`.
 
 ## Data and scores
 

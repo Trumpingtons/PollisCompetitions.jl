@@ -118,8 +118,8 @@ end
 
 A DuckDB database at `path` with the five tables of the metadata (`dataset_catalog`, `dataset_references`,
 `model_catalog`, `model_references` and `benchmarks`) filled from the TOML files in the folder `metadata`, the view `model_comparisons`, which
-joins each score to its model and dataset, and, in the schema `builtin`, a view of each Parquet file in the folder
-`builtin`, `builtin."<dataset_id>"`, which reads its Parquet file where it is. Close it with `DBInterface.close!`.
+joins each score to its model and dataset, and, in the schema `builtin`, a view of each built-in dataset, a folder of the
+folder `builtin`, `builtin."<dataset_id>"`, which reads its `data.parquet` where it is. Close it with `DBInterface.close!`.
 """
 function connect_db(path::AbstractString = ":memory:"; metadata = METADATA, builtin = BUILTIN)
 	db = DuckDB.DB(path)
@@ -147,9 +147,10 @@ function connect_db(path::AbstractString = ":memory:"; metadata = METADATA, buil
 			JOIN model_catalog m USING (model_id)
 			JOIN dataset_catalog d USING (dataset_id)""")
 		DBInterface.execute(db, "CREATE SCHEMA builtin")
-		for file in (isdir(builtin) ? readdir(builtin) : String[])
-			endswith(file, ".parquet") || continue
-			DBInterface.execute(db, "CREATE VIEW builtin.\"$(first(splitext(file)))\" AS SELECT * FROM read_parquet($(sql_text(joinpath(builtin, file))))")
+		for dataset_id in (isdir(builtin) ? readdir(builtin) : String[])
+			data = joinpath(builtin, dataset_id, "data.parquet")
+			isfile(data) || continue
+			DBInterface.execute(db, "CREATE VIEW builtin.\"$(dataset_id)\" AS SELECT * FROM read_parquet($(sql_text(data)))")
 		end
 	catch
 		DBInterface.close!(db)
@@ -177,7 +178,8 @@ end
 """
 	load_dataset(dataset_id)
 
-The built-in dataset `dataset_id`, as a table of columns (a NamedTuple of vectors), read from its Parquet file.
+The data of the built-in dataset `dataset_id`, as a table of columns (a NamedTuple of vectors), read from `data.parquet`
+in its folder, `data/builtin/<dataset_id>`.
 """
 function load_dataset(dataset_id::AbstractString)
 	datasets = metadata_entries(METADATA, "datasets.toml", "datasets")
@@ -185,7 +187,7 @@ function load_dataset(dataset_id::AbstractString)
 	entry === nothing && error("No dataset $(dataset_id) in the Dataset Catalog.")
 	delivery = get(datasets[entry], "delivery", missing)
 	delivery == "Built-in" || error("$(dataset_id) is not built in: its delivery is $(coalesce(delivery, "unknown")).")
-	path = joinpath(BUILTIN, "$(dataset_id).parquet")
+	path = joinpath(BUILTIN, dataset_id, "data.parquet")
 	isfile(path) || error("The data of $(dataset_id) are not on this computer: $(path) is missing.")
 	with_database(db -> Tables.columntable(DBInterface.execute(db, "SELECT * FROM read_parquet($(sql_text(path)))")))
 end

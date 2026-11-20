@@ -1,0 +1,11 @@
+competition = "tourism_2011"
+name = "Tourism Forecasting Competition"
+format = "monash"
+converted = "2026-11-19T23:54:20.244"
+fingerprint = "1be847ba9b01a7e899c21de21aa57db5530ac7ca2b0ff0c2c19413eb7af1861c"
+
+[forecasts]
+
+[tables]
+observations = 164581
+series = 1311

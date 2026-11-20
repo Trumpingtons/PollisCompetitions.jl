@@ -1,0 +1,11 @@
+competition = "kdd_cup_2018"
+name = "KDD Cup 2018 – Fresh Air"
+format = "monash"
+converted = "2026-11-19T23:49:09.242"
+fingerprint = "4485e9fae7371b6e1b4272460fdfe847c4807cb98464ee41fdd4571303c4b515"
+
+[forecasts]
+
+[tables]
+observations = 2942364
+series = 270

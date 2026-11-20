@@ -1,0 +1,11 @@
+competition = "santa_fe"
+name = "Santa Fe Time Series Prediction Competition"
+format = "monash"
+converted = "2026-11-19T23:56:37.473"
+fingerprint = "ed44d0f7f41fba42a3121e210c83493f2fc25c5e4e629ddb5bc0974ae51080b9"
+
+[forecasts]
+
+[tables]
+observations = 101600
+series = 2

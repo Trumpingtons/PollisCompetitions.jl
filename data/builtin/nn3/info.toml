@@ -1,0 +1,11 @@
+competition = "nn3"
+name = "NN3 Competition"
+format = "monash"
+converted = "2026-11-19T23:56:36.449"
+fingerprint = "1f2358c66b528db8b4c4da925abd0f2c117d2d014b8e4efb2f71c108c6324ca8"
+
+[forecasts]
+
+[tables]
+observations = 12040
+series = 111
