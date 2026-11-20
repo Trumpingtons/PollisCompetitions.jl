@@ -10,7 +10,7 @@
 #   response_type     Binary | Multiclass | Ordered | Count | Survival | Regression
 #   rows              rows of the data as stored (for a panel, one for each unit and time)
 #   features          columns other than the response and the identifiers
-#   size_mb           size of its Parquet files
+#   size_mb           size of its Parquet files for Built-in, of the compressed files the user downloads for Download
 #   licence           the licence of the data
 #   delivery          Built-in (ships with the package) | Download (fetched by the user)
 #   source_url        where the data come from
@@ -302,6 +302,7 @@ topic = "Web and IT Operations"
 data_structure = "Panel"
 geometry = "None"
 response_type = "Regression"
+size_mb = 611.85
 delivery = "Download"
 source_url = "https://www.kaggle.com/competitions/web-traffic-time-series-forecasting"
 
@@ -326,6 +327,7 @@ topic = "Retail"
 data_structure = "Panel"
 geometry = "None"
 response_type = "Regression"
+size_mb = 27.3
 delivery = "Download"
 source_url = "https://www.kaggle.com/competitions/recruit-restaurant-visitor-forecasting"
 
@@ -338,6 +340,7 @@ topic = "Retail"
 data_structure = "Panel"
 geometry = "None"
 response_type = "Regression"
+size_mb = 479.88
 delivery = "Download"
 source_url = "https://www.kaggle.com/competitions/favorita-grocery-sales-forecasting"
 
@@ -350,6 +353,7 @@ topic = "Retail"
 data_structure = "Panel"
 geometry = "None"
 response_type = "Regression"
+size_mb = 22.42
 delivery = "Download"
 source_url = "https://www.kaggle.com/competitions/store-sales-time-series-forecasting"
 
@@ -374,6 +378,7 @@ topic = "Retail"
 data_structure = "Panel"
 geometry = "None"
 response_type = "Regression"
+size_mb = 3.22
 delivery = "Download"
 source_url = "https://www.kaggle.com/competitions/walmart-recruiting-store-sales-forecasting"
 
@@ -386,6 +391,7 @@ topic = "Retail"
 data_structure = "Panel"
 geometry = "None"
 response_type = "Count"
+size_mb = 9.0
 delivery = "Download"
 source_url = "https://www.kaggle.com/competitions/walmart-recruiting-sales-in-stormy-weather"
 
@@ -473,6 +479,7 @@ topic = "Supply Chain"
 data_structure = "Panel"
 geometry = "None"
 response_type = "Count"
+size_mb = 502.44
 delivery = "Download"
 source_url = "https://www.kaggle.com/competitions/grupo-bimbo-inventory-demand"
 
@@ -608,6 +615,7 @@ topic = "Finance"
 data_structure = "Panel"
 geometry = "None"
 response_type = "Regression"
+size_mb = 213.13
 delivery = "Download"
 source_url = "https://www.kaggle.com/competitions/the-winton-stock-market-challenge"
 
@@ -706,6 +714,7 @@ topic = "Real Estate"
 data_structure = "Cross-section"
 geometry = "None"
 response_type = "Regression"
+size_mb = 22.71
 delivery = "Download"
 source_url = "https://www.kaggle.com/competitions/sberbank-russian-housing-market"
 
