@@ -96,6 +96,108 @@ const METADATA_COLUMNS = Dict(
 	"benchmarks" => ["run_id", "model_id", "dataset_id", "split_protocol", "metric", "score"],
 )
 
+"""
+What each table of the metadata and the view `model_comparisons` hold, by their names, and what each of their columns
+holds, by `<table>.<column>`; a column of `model_comparisons` is described as in the table it comes from.
+"""
+const METADATA_DESCRIPTIONS = Dict(
+	"dataset_catalog" => "The Dataset Catalog: one row per dataset, with its competition, its subject, the structure of its data, its size, its licence and how it reaches the user",
+	"dataset_catalog.dataset_id" => "The id of the dataset, and the schema of its views in this database when its data are built in",
+	"dataset_catalog.dataset_name" => "Its name",
+	"dataset_catalog.competition_name" => "The competition it comes from; empty for a dataset of no competition",
+	"dataset_catalog.competition_year" => "The year of that competition",
+	"dataset_catalog.topic" => "Its subject, such as Finance, Energy or Health",
+	"dataset_catalog.data_structure" => "Cross-section, Time-Series or Panel",
+	"dataset_catalog.geometry" => "None, Spatial Weights Matrix, Coordinates or Polygons, from the poorest to the richest",
+	"dataset_catalog.response_type" => "Binary, Multiclass, Ordered, Count, Survival or Regression",
+	"dataset_catalog.rows" => "The rows of its data as stored; for a panel, one for each unit and time",
+	"dataset_catalog.features" => "The columns other than the response and the identifiers",
+	"dataset_catalog.size_mb" => "The size in MB of its Parquet files for a Built-in dataset, or of the compressed files the user downloads for a Download dataset",
+	"dataset_catalog.licence" => "The licence of its data",
+	"dataset_catalog.delivery" => "Built-in, shipped with the package, or Download, fetched by the user from its source",
+	"dataset_catalog.source_url" => "Where its data come from",
+	"dataset_references" => "The works of each dataset: one row per dataset and work, a key of the references of Pollis (PollisReferences)",
+	"dataset_references.dataset_id" => "The dataset; join dataset_catalog on dataset_id",
+	"dataset_references.bibtex_key" => "The key of the work in PollisReferences",
+	"dataset_references.role" => "What the work is to the dataset: Primary, Competition, Benchmark or Other",
+	"model_catalog" => "The Model Catalog: one row per model, with its estimator in two levels, family and method, and the package that implements it",
+	"model_catalog.model_id" => "The id of the model",
+	"model_catalog.model_name" => "Its name",
+	"model_catalog.estimator_family" => "The family of its estimator: the model types of TabArena, Statistical, Kernel Methods, Fuzzy System or Hybrid, for a model that combines methods of different kinds",
+	"model_catalog.estimator_method" => "The method it estimates with, one of those of its family; that of a Hybrid model names the methods it combines",
+	"model_catalog.package" => "The package that implements it",
+	"model_catalog.language" => "The language of that package: Julia, Python, R, C/C++ or Fortran",
+	"model_references" => "The works of each model: one row per model and work, a key of the references of Pollis (PollisReferences)",
+	"model_references.model_id" => "The model; join model_catalog on model_id",
+	"model_references.bibtex_key" => "The key of the work in PollisReferences",
+	"model_references.role" => "What the work is to the model: Methodology, Software or Other",
+	"benchmarks" => "The Benchmarks: one row per run of a model on a dataset and metric, with its score, as its paper or the organisers published it",
+	"benchmarks.run_id" => "The id of the run, <model_id>.<dataset_id>, with a subset of the dataset after it when the run scores one",
+	"benchmarks.model_id" => "The model; join model_catalog on model_id",
+	"benchmarks.dataset_id" => "The dataset; join dataset_catalog on dataset_id",
+	"benchmarks.split_protocol" => "How the data were split into training and test",
+	"benchmarks.metric" => "The metric, such as rmse, roc_auc, mean_smape or mape",
+	"benchmarks.score" => "The score of the run by that metric",
+	"model_comparisons" => "Each score of benchmarks beside its model and its dataset",
+)
+
+"""What each kind of Parquet file of a built-in dataset holds, by its name, and each of its columns, by `<file>.<column>`."""
+const BUILTIN_DESCRIPTIONS = Dict(
+	"data" => "The data of a tabular dataset, a row per case, with its response and its features",
+	"splits" => "The splits of the cross-validation of a tabular dataset: the fold each row is in the test set of, in each repeat",
+	"splits.row" => "The row of data, from 1",
+	"splits.repeat" => "The repeat of the cross-validation, from 1",
+	"splits.fold" => "The fold whose test set the row is in, in that repeat, from 1",
+	"series" => "The series of a forecasting dataset, a row each: its number, its name in the source, its frequency, seasonal period and horizon, its domain and its start",
+	"series.series" => "The number of the series",
+	"series.competition" => "The id of the dataset",
+	"series.name" => "The name of the series in the source",
+	"series.frequency" => "Its frequency, such as Yearly or Monthly",
+	"series.period" => "Its seasonal period: 12 for a monthly series, 1 for one without seasons",
+	"series.horizon" => "The number of steps ahead its forecasts are scored on",
+	"series.domain" => "Its domain, as the source gives it",
+	"series.start" => "When it starts, as the source gives it",
+	"observations" => "The values of the series of a forecasting dataset: those the forecasters saw, split train, and those their forecasts were scored on, split test",
+	"observations.series" => "The number of the series; join series on series",
+	"observations.t" => "The time, from 1",
+	"observations.value" => "The value",
+	"observations.split" => "train, a value the forecasters saw, or test, a value their forecasts were scored on",
+)
+
+"""
+	describe_db(db, catalog, builtin)
+
+The descriptions of the tables and views of `db`, and of their columns, as `connect_db` makes them: those of the
+metadata, and those of the views of each built-in dataset, with its name and licence from `catalog`, the rows of
+`dataset_catalog`.
+"""
+function describe_db(db, catalog, builtin)
+	execute(sql) = DBInterface.execute(db, sql)
+	for table in (METADATA_TABLES..., "model_comparisons")
+		execute("COMMENT ON $(table == "model_comparisons" ? "VIEW" : "TABLE") $(table) IS $(sql_text(METADATA_DESCRIPTIONS[table]))")
+	end
+	columns = Tables.columntable(execute("SELECT schema_name, table_name, column_name FROM duckdb_columns() WHERE database_name = current_database() AND NOT internal"))
+	for (schema, table, column) in zip(columns.schema_name, columns.table_name, columns.column_name)
+		if schema == "main"
+			keys = ["$(source).$(column)" for source in (table == "model_comparisons" ? ("benchmarks", "model_catalog", "dataset_catalog") : (table,))]
+			key = findfirst(key -> haskey(METADATA_DESCRIPTIONS, key), keys)
+			description = key === nothing ? nothing : METADATA_DESCRIPTIONS[keys[key]]
+		else
+			info = joinpath(builtin, schema, "info.toml")
+			target = isfile(info) ? get(TOML.parsefile(info), "target", nothing) : nothing
+			description = table == "data" && column == target ? "The response, which the models predict" : get(BUILTIN_DESCRIPTIONS, "$(table).$(column)", nothing)
+		end
+		description === nothing || execute("COMMENT ON COLUMN \"$(schema)\".\"$(table)\".\"$(column)\" IS $(sql_text(description))")
+	end
+	field(name) = findfirst(==(name), METADATA_COLUMNS["dataset_catalog"])
+	datasets = Dict(row[field("dataset_id")] => (row[field("dataset_name")], row[field("licence")]) for row in catalog)
+	for schema in unique(filter(!=("main"), columns.schema_name)), table in unique(columns.table_name[columns.schema_name .== schema])
+		name, licence = get(datasets, schema, (schema, missing))
+		text = "$(name): $(get(BUILTIN_DESCRIPTIONS, table, table)). Licence: $(coalesce(licence, "none recorded"))"
+		execute("COMMENT ON VIEW \"$(schema)\".\"$(table)\" IS $(sql_text(text))")
+	end
+end
+
 """The tables under `key` of the TOML file `name` in the folder `metadata` (an empty list when there are none)."""
 metadata_entries(metadata, name, key) = get(TOML.parsefile(joinpath(metadata, name)), key, [])
 
@@ -133,8 +235,8 @@ A DuckDB database at `path` with the five tables of the metadata (`dataset_catal
 `model_catalog`, `model_references` and `benchmarks`) filled from the TOML files in the folder `metadata`, the view `model_comparisons`, which
 joins each score to its model and dataset, and, for each built-in dataset, a folder of the folder `builtin`, a schema
 named by its id with a view of each of its Parquet files, named by the file, which reads it where it is: `m1.series` and
-`m1.observations` for a forecasting dataset, `heloc.data` and `heloc.splits` for a tabular one. Close it with
-`DBInterface.close!`.
+`m1.observations` for a forecasting dataset, `heloc.data` and `heloc.splits` for a tabular one. Each table, view and
+column has its description (`describe_db`). Close it with `DBInterface.close!`.
 """
 function connect_db(path::AbstractString = ":memory:"; metadata = METADATA, builtin = BUILTIN)
 	db = DuckDB.DB(path)
@@ -172,6 +274,7 @@ function connect_db(path::AbstractString = ":memory:"; metadata = METADATA, buil
 				DBInterface.execute(db, "CREATE VIEW \"$(dataset_id)\".\"$(chopsuffix(file, ".parquet"))\" AS SELECT * FROM read_parquet($(sql_text(joinpath(folder, file))))")
 			end
 		end
+		describe_db(db, rows["dataset_catalog"], builtin)
 	catch
 		DBInterface.close!(db)
 		rethrow()
