@@ -1,0 +1,20 @@
+competition = "bladder0"
+name = "bladder0"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46172
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package frailtyHL"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/bladder0.csv"
+licence = "Unlimited"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:11.808"
+fingerprint = "3bd218435a1a738c6121b9d66f2b0b0fe547c03899951e11c9a3650689ff1ee9"
+
+[tables]
+data = 397
+splits = 3970

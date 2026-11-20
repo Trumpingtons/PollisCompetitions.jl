@@ -1,0 +1,20 @@
+competition = "hdfail"
+name = "hdfail"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46167
+repeats = 1
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package frailtySurv"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/hdfail.csv"
+licence = "LGPL-2"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:12.573"
+fingerprint = "d1147df0e9e14dbc82ca665195fddccd000db9633a8f9f973911b367e121242a"
+
+[tables]
+data = 52410
+splits = 52410

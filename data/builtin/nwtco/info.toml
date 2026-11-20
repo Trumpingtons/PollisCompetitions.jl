@@ -1,0 +1,20 @@
+competition = "nwtco"
+name = "nwtco"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46165
+repeats = 5
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package survival"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/nwtco.csv"
+licence = "LGPL (>= 2)"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:12.960"
+fingerprint = "1909f9c57eecea73ceb80f0404f8838fc19874b83a6a7d4beca6adbebe2a4d1f"
+
+[tables]
+data = 4028
+splits = 20140

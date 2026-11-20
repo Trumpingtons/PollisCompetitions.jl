@@ -1,0 +1,20 @@
+competition = "wbc1"
+name = "wbc1"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46152
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package dynpred"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/wbc1.csv"
+licence = "GPL (>= 2)"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:13.253"
+fingerprint = "8fc18050c9b0f8e102dc1d28d98d2b70dcd4ea99275bc61079cd4fe1cc31307d"
+
+[tables]
+data = 190
+splits = 1900

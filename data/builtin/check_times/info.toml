@@ -1,0 +1,20 @@
+competition = "check_times"
+name = "check_times"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 47177
+repeats = 1
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package modeldata"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/check_times.csv"
+licence = "MIT"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:11.963"
+fingerprint = "121cadef195479df674273f9c378d4e96589af9fc927e913ad5ece088ad296e9"
+
+[tables]
+data = 13626
+splits = 13626

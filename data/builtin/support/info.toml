@@ -1,0 +1,20 @@
+competition = "support"
+name = "support"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46144
+repeats = 1
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the Python package pycox"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/support.csv"
+licence = "BSD-2"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:13.049"
+fingerprint = "8f87935b92d0a8383b9c11ba182e59839c2ce96d1efae93ce9c3d41b98fab181"
+
+[tables]
+data = 4000
+splits = 4000

@@ -1,0 +1,20 @@
+competition = "kidtran"
+name = "kidtran"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46155
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package KMsurv"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/kidtran.csv"
+licence = "GPL (>= 3)"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:12.606"
+fingerprint = "2a955b4ede562d62f05b54474d217a5d59e82dbe8304699c0bf43cc0bbff0c64"
+
+[tables]
+data = 863
+splits = 8630

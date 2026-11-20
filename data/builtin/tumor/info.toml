@@ -1,0 +1,20 @@
+competition = "tumor"
+name = "tumor"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46171
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package pammtools"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/tumor.csv"
+licence = "MIT"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:13.079"
+fingerprint = "10b2fe70e9c93c40ceedc37a58b7251577ee030846affb7182bca6420fd613ca"
+
+[tables]
+data = 776
+splits = 7760

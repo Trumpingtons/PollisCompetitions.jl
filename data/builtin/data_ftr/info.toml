@@ -1,0 +1,20 @@
+competition = "data_ftr"
+name = "dataFTR"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46149
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package RISCA"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/dataFTR.csv"
+licence = "GPL (>= 2)"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:12.195"
+fingerprint = "0ecf724f7c1bbad32d12e2f0ce19ed48de210e504f8b77e03d41b8403ee84f35"
+
+[tables]
+data = 2206
+splits = 22060

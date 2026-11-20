@@ -1,0 +1,20 @@
+competition = "rdata"
+name = "rdata"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46146
+repeats = 5
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package relsurv"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/rdata.csv"
+licence = "GPL"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:12.995"
+fingerprint = "3a63fc52ee536468e9f196eace0c41d251e402a40d1f2130fd96ed5f67d9b6cb"
+
+[tables]
+data = 1040
+splits = 5200

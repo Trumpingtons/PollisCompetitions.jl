@@ -1,0 +1,20 @@
+competition = "e1684"
+name = "e1684"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46157
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package smcure"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/e1684.csv"
+licence = "GPL-2"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:12.228"
+fingerprint = "7ae83e7921ad9bbea8f71025eb58a8ca3d9c6006db28ac60a90cff3bf68ebef7"
+
+[tables]
+data = 284
+splits = 2840

@@ -1,0 +1,20 @@
+competition = "data_str"
+name = "dataSTR"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46150
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package RISCA"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/dataSTR.csv"
+licence = "GPL (>= 2)"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:12.216"
+fingerprint = "43ad8df192833dd005fd3e62161916320d85ab60fbac3eaec9bb1085e7ed55ef"
+
+[tables]
+data = 546
+splits = 5460

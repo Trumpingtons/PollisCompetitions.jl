@@ -6,7 +6,7 @@ const HOME = joinpath(homedir(), ".pollis", "competitions")
 
 Whether `path` is the folder of a dataset of your own: an absolute path holding `series.parquet` and
 `observations.parquet`, with the columns of `series` and `observations`, as Pollis writes them when a dataset is added
-in Compose > Prediction Competitions > Manage Competition Datasets. Every function that takes the id of a dataset takes
+in Compose > Prediction Challenges > Manage Challenge Datasets. Every function that takes the id of a dataset takes
 such a folder in its place, and `score` scores it as every forecasting dataset: sMAPE, MASE and OWA, against Naive2
 computed on this computer.
 """

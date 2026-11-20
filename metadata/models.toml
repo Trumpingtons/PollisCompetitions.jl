@@ -4,20 +4,21 @@
 #   model_id          the key
 #   model_name        its name
 #   estimator_family  the family of its estimator, one of those below: the model types of TabArena, Statistical for
-#                     the classical methods of forecasting, Kernel Methods, Fuzzy System, and Hybrid for a model that
-#                     combines methods of different kinds
+#                     the classical methods of forecasting and of survival analysis, Kernel Methods, Fuzzy System, and
+#                     Hybrid for a model that combines methods of different kinds
 #   estimator_method  the method it estimates with, one of those of its family; that of a Hybrid model names the
 #                     methods it combines:
 #     Foundation Model  Pretrained in-context learner | Pretrained hypernetwork | Fine-tuned pretrained transformer |
 #                       Pretrained time-series forecaster
-#     Tree-based        Gradient-boosted trees | Randomized tree ensemble | Generalized additive model
+#     Tree-based        Gradient-boosted trees | Randomized tree ensemble | Generalized additive model | Decision tree
 #     Neural Network    Multilayer perceptron | Ensemble of multilayer perceptrons | Neural nearest neighbours |
 #                       Recurrent neural network | Convolutional neural network | Transformer | Functional network |
 #                       Adaptive logic network | Autoencoder | Other neural network
 #     Baseline          Nearest neighbours | Penalized linear model | Linear regression | Polynomial regression |
-#                       Naive forecast | Time series decomposition
+#                       Naive forecast | Time series decomposition | Nonparametric survival estimator
 #     Statistical       Exponential smoothing | Theta method | ARIMA | Automatic model selection |
-#                       Other statistical method
+#                       Other statistical method | Proportional hazards model | Accelerated failure time model |
+#                       Flexible parametric survival model
 #     Kernel Methods    Support vector machine | Kernel adaptive filtering | Feature-learning kernel machine
 #     Fuzzy System      Fuzzy rule-based system | Neuro-fuzzy system | Fuzzy time series | Fuzzy transform |
 #                       Association rules
@@ -31,7 +32,7 @@
 #                       Fuzzy time series, ARIMA | Self-organising maps, Multivariate adaptive regression splines |
 #                       Self-organising maps, Intervention analysis | Neural networks, Fuzzy logic |
 #                       Statistical methods, Fuzzy logic
-#     Other             Piecewise linear regression
+#     Other             Piecewise linear regression | Componentwise boosting
 #   package           the package that implements it
 #   language          Julia | Python | R | C/C++ | Fortran
 #
@@ -2902,3 +2903,411 @@ model_id = "eunite_marin"
 model_name = "Javier Marin"
 estimator_family = "Hybrid"
 estimator_method = "Self-organising maps, Intervention analysis"
+
+# Low-Dimensional Survival Benchmark: its 21 learners, each tuned on Harrell's C, on the integrated survival Brier score
+# (ISBS), or untuned when it has no hyperparameters to tune; RRT, SSVM, XGBAFT and MBSTAFT are tuned on Harrell's C only.
+# The package is the R package the benchmark runs the learner with, through mlr3proba.
+
+[[models]]
+model_id = "survival_benchmark_km"
+model_name = "Kaplan-Meier (KM)"
+estimator_family = "Baseline"
+estimator_method = "Nonparametric survival estimator"
+package = "survival"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "KM1958a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_nel"
+model_name = "Nelson-Aalen (NEL)"
+estimator_family = "Baseline"
+estimator_method = "Nonparametric survival estimator"
+package = "survival"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "Aal1978a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_ak_harrell_c"
+model_name = "Akritas Estimator (AK), tuned on Harrell's C"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+package = "survivalmodels"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "Akr1994a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_ak_isbs"
+model_name = "Akritas Estimator (AK), tuned on ISBS"
+estimator_family = "Baseline"
+estimator_method = "Nearest neighbours"
+package = "survivalmodels"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "Akr1994a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_cph"
+model_name = "Cox PH (CPH)"
+estimator_family = "Statistical"
+estimator_method = "Proportional hazards model"
+package = "survival"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "Cox1975a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_gam"
+model_name = "Cox GAM (GAM)"
+estimator_family = "Statistical"
+estimator_method = "Proportional hazards model"
+package = "mgcv"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "WPS2016a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_glmn_harrell_c"
+model_name = "CV Regularized CPH (GLMN), tuned on Harrell's C"
+estimator_family = "Baseline"
+estimator_method = "Penalized linear model"
+package = "glmnet"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "SFHT2011a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_glmn_isbs"
+model_name = "CV Regularized CPH (GLMN), tuned on ISBS"
+estimator_family = "Baseline"
+estimator_method = "Penalized linear model"
+package = "glmnet"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "SFHT2011a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_pen_harrell_c"
+model_name = "Penalized (Pen), tuned on Harrell's C"
+estimator_family = "Baseline"
+estimator_method = "Penalized linear model"
+package = "penalized"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "Goe2010a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_pen_isbs"
+model_name = "Penalized (Pen), tuned on ISBS"
+estimator_family = "Baseline"
+estimator_method = "Penalized linear model"
+package = "penalized"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "Goe2010a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_ncv_harrell_c"
+model_name = "CV Nonconvex Penalized CPH (NCV), tuned on Harrell's C"
+estimator_family = "Baseline"
+estimator_method = "Penalized linear model"
+package = "ncvreg"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BH2011a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_ncv_isbs"
+model_name = "CV Nonconvex Penalized CPH (NCV), tuned on ISBS"
+estimator_family = "Baseline"
+estimator_method = "Penalized linear model"
+package = "ncvreg"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BH2011a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_aft_harrell_c"
+model_name = "Parametric (AFT), tuned on Harrell's C"
+estimator_family = "Statistical"
+estimator_method = "Accelerated failure time model"
+package = "survival"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "KP2002a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_aft_isbs"
+model_name = "Parametric (AFT), tuned on ISBS"
+estimator_family = "Statistical"
+estimator_method = "Accelerated failure time model"
+package = "survival"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "KP2002a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_flex_harrell_c"
+model_name = "Flexible Splines (Flex), tuned on Harrell's C"
+estimator_family = "Statistical"
+estimator_method = "Flexible parametric survival model"
+package = "flexsurv"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "RP2002a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_flex_isbs"
+model_name = "Flexible Splines (Flex), tuned on ISBS"
+estimator_family = "Statistical"
+estimator_method = "Flexible parametric survival model"
+package = "flexsurv"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "RP2002a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_rfsrc_harrell_c"
+model_name = "Random Survival Forest (RFSRC), tuned on Harrell's C"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "randomForestSRC"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "IKBL2008a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_rfsrc_isbs"
+model_name = "Random Survival Forest (RFSRC), tuned on ISBS"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "randomForestSRC"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "IKBL2008a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_ran_harrell_c"
+model_name = "Random Survival Forest (RAN), tuned on Harrell's C"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "ranger"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "IKBL2008a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "WZ2017a"
+  role = "Software"
+
+[[models]]
+model_id = "survival_benchmark_ran_isbs"
+model_name = "Random Survival Forest (RAN), tuned on ISBS"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "ranger"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "IKBL2008a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "WZ2017a"
+  role = "Software"
+
+[[models]]
+model_id = "survival_benchmark_cif_harrell_c"
+model_name = "Conditional Inference Forest (CIF), tuned on Harrell's C"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "partykit"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "HHZ2006a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_cif_isbs"
+model_name = "Conditional Inference Forest (CIF), tuned on ISBS"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "partykit"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "HHZ2006a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_orsf_harrell_c"
+model_name = "Oblique Random Survival Forest (ORSF), tuned on Harrell's C"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "aorsf"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "JWLSS...2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_orsf_isbs"
+model_name = "Oblique Random Survival Forest (ORSF), tuned on ISBS"
+estimator_family = "Tree-based"
+estimator_method = "Randomized tree ensemble"
+package = "aorsf"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "JWLSS...2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_rrt_harrell_c"
+model_name = "Relative Risk Tree (RRT), tuned on Harrell's C"
+estimator_family = "Tree-based"
+estimator_method = "Decision tree"
+package = "rpart"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BFOS1998a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_mbstcox_harrell_c"
+model_name = "Model-Based Boosting (MBSTCox), tuned on Harrell's C"
+estimator_family = "Other"
+estimator_method = "Componentwise boosting"
+package = "mboost"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BY2003a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_mbstcox_isbs"
+model_name = "Model-Based Boosting (MBSTCox), tuned on ISBS"
+estimator_family = "Other"
+estimator_method = "Componentwise boosting"
+package = "mboost"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BY2003a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_mbstaft_harrell_c"
+model_name = "Model-Based Boosting (MBSTAFT), tuned on Harrell's C"
+estimator_family = "Other"
+estimator_method = "Componentwise boosting"
+package = "mboost"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BY2003a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_coxb"
+model_name = "CoxBoost (CoxB)"
+estimator_family = "Other"
+estimator_method = "Componentwise boosting"
+package = "CoxBoost"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BS2008a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_xgbcox_harrell_c"
+model_name = "XGBoost (XGBCox), tuned on Harrell's C"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "xgboost"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "CG2016a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_xgbcox_isbs"
+model_name = "XGBoost (XGBCox), tuned on ISBS"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "xgboost"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "CG2016a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_xgbaft_harrell_c"
+model_name = "XGBoost (XGBAFT), tuned on Harrell's C"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "xgboost"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BCH2022a"
+  role = "Methodology"
+
+[[models]]
+model_id = "survival_benchmark_ssvm_harrell_c"
+model_name = "SSVM-Hybrid (SSVM), tuned on Harrell's C"
+estimator_family = "Kernel Methods"
+estimator_method = "Support vector machine"
+package = "survivalsvm"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BPHS2011a"
+  role = "Methodology"

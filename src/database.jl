@@ -9,18 +9,19 @@ const METADATA_TABLES = ("dataset_catalog", "dataset_references", "model_catalog
 
 """
 The vocabulary of the estimator of a model, in two levels: each estimator family, the model types of TabArena,
-Statistical for the classical methods of forecasting, Kernel Methods, Fuzzy System, and Hybrid for a model that combines
-methods of different kinds, with its estimator methods; the method of a Hybrid model names the methods it combines. A
-value is added when a model of the catalogue needs it.
+Statistical for the classical methods of forecasting and of survival analysis, Kernel Methods, Fuzzy System, and Hybrid
+for a model that combines methods of different kinds, with its estimator methods; the method of a Hybrid model names the
+methods it combines. A value is added when a model of the catalogue needs it.
 """
 const ESTIMATOR_METHODS = (
 	"Foundation Model" => ["Pretrained in-context learner", "Pretrained hypernetwork", "Fine-tuned pretrained transformer", "Pretrained time-series forecaster"],
-	"Tree-based" => ["Gradient-boosted trees", "Randomized tree ensemble", "Generalized additive model"],
+	"Tree-based" => ["Gradient-boosted trees", "Randomized tree ensemble", "Generalized additive model", "Decision tree"],
 	"Neural Network" => ["Multilayer perceptron", "Ensemble of multilayer perceptrons", "Neural nearest neighbours", "Recurrent neural network",
 		"Convolutional neural network", "Transformer", "Functional network", "Adaptive logic network", "Autoencoder", "Other neural network"],
 	"Baseline" => ["Nearest neighbours", "Penalized linear model", "Linear regression", "Polynomial regression", "Naive forecast",
-		"Time series decomposition"],
-	"Statistical" => ["Exponential smoothing", "Theta method", "ARIMA", "Automatic model selection", "Other statistical method"],
+		"Time series decomposition", "Nonparametric survival estimator"],
+	"Statistical" => ["Exponential smoothing", "Theta method", "ARIMA", "Automatic model selection", "Other statistical method",
+		"Proportional hazards model", "Accelerated failure time model", "Flexible parametric survival model"],
 	"Kernel Methods" => ["Support vector machine", "Kernel adaptive filtering", "Feature-learning kernel machine"],
 	"Fuzzy System" => ["Fuzzy rule-based system", "Neuro-fuzzy system", "Fuzzy time series", "Fuzzy transform", "Association rules"],
 	"Hybrid" => ["Neural networks, Gaussian processes", "Neural networks, Gaussian processes, Linear models",
@@ -29,7 +30,7 @@ const ESTIMATOR_METHODS = (
 		"Neural networks, Nearest neighbours, Statistical methods", "Neural networks, Exponential smoothing",
 		"Fuzzy time series, Exponential smoothing", "Fuzzy time series, ARIMA", "Self-organising maps, Multivariate adaptive regression splines",
 		"Self-organising maps, Intervention analysis", "Neural networks, Fuzzy logic", "Statistical methods, Fuzzy logic"],
-	"Other" => ["Piecewise linear regression"],
+	"Other" => ["Piecewise linear regression", "Componentwise boosting"],
 )
 
 """The SQL condition that the estimator method of a model is one of the methods of its estimator family."""
@@ -112,7 +113,7 @@ const METADATA_DESCRIPTIONS = Dict(
 	"dataset_catalog.response_type" => "Binary, Multiclass, Ordered, Count, Survival or Continuous",
 	"dataset_catalog.rows" => "The rows of its data as stored; for a panel, one for each unit and time",
 	"dataset_catalog.features" => "The columns other than the response and the identifiers",
-	"dataset_catalog.size_mb" => "The size in MB of its Parquet files for a Built-in dataset, or of the compressed files the user downloads for a Download dataset",
+	"dataset_catalog.size_mb" => "The size in MB of its Parquet files for a Built-in dataset, or of the files the user downloads, compressed or not, for a Download dataset",
 	"dataset_catalog.licence" => "The licence of its data",
 	"dataset_catalog.delivery" => "Built-in, shipped with the package, or Download, fetched by the user from its source",
 	"dataset_catalog.source_url" => "Where its data come from",
@@ -144,7 +145,7 @@ const METADATA_DESCRIPTIONS = Dict(
 """What each kind of Parquet file of a dataset holds, by its name, and each of its columns, by `<file>.<column>`."""
 const DATA_DESCRIPTIONS = Dict(
 	"data" => "The data of a tabular dataset, a row per case, with its response and its features",
-	"splits" => "The splits of the cross-validation of a tabular dataset: the fold each row is in the test set of, in each repeat",
+	"splits" => "The splits of the cross-validation of a tabular dataset: the fold each row is in the test set of, in each repeat; a dataset with one fixed split has one repeat and one fold, and lists only its test rows",
 	"splits.row" => "The row of data, from 1",
 	"splits.repeat" => "The repeat of the cross-validation, from 1",
 	"splits.fold" => "The fold whose test set the row is in, in that repeat, from 1",
@@ -184,8 +185,10 @@ function describe_db(db, catalog, folders)
 			description = key === nothing ? nothing : METADATA_DESCRIPTIONS[keys[key]]
 		else
 			info = joinpath(folders[schema], "info.toml")
-			target = isfile(info) ? get(TOML.parsefile(info), "target", nothing) : nothing
-			description = table == "data" && column == target ? "The response, which the models predict" : get(DATA_DESCRIPTIONS, "$(table).$(column)", nothing)
+			fields = isfile(info) ? TOML.parsefile(info) : Dict{String, Any}()
+			description = table != "data" ? get(DATA_DESCRIPTIONS, "$(table).$(column)", nothing) :
+				column == get(fields, "target", nothing) ? (haskey(fields, "event") ? "The response, which the models predict: the time to the event, or to censoring" : "The response, which the models predict") :
+				column == get(fields, "event", nothing) ? "Whether the time of the response is that of the event (1) or a censored time (0)" : nothing
 		end
 		description === nothing || execute("COMMENT ON COLUMN \"$(schema)\".\"$(table)\".\"$(column)\" IS $(sql_text(description))")
 	end

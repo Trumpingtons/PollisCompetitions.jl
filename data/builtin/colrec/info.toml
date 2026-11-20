@@ -1,0 +1,20 @@
+competition = "colrec"
+name = "colrec"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46145
+repeats = 1
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package relsurv"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/colrec.csv"
+licence = "GPL"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:12.095"
+fingerprint = "1709224e9cf4c1a48ab1e1f363e345ad702144b8b01e9a5e8f495eb598725b60"
+
+[tables]
+data = 5578
+splits = 5578

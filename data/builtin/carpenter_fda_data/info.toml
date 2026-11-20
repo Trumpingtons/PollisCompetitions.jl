@@ -1,0 +1,20 @@
+competition = "carpenter_fda_data"
+name = "CarpenterFdaData"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46159
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package simPH"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/CarpenterFdaData.csv"
+licence = "GPL-3"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:11.828"
+fingerprint = "fe2016c53e06e47c20c24a2cc8974b853008b13bf17c0eb2a8d28247c6aa6320"
+
+[tables]
+data = 408
+splits = 4080

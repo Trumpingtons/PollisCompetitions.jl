@@ -1,0 +1,20 @@
+competition = "aids_id"
+name = "aids.id"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46130
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package JM"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/aids.id.csv"
+licence = "GPL (>= 2)"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:11.740"
+fingerprint = "b006b6abde484d98758aafeef82ab1893fdc313c30e22e7c01b34cff5b80149f"
+
+[tables]
+data = 467
+splits = 4670

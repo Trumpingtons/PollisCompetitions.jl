@@ -10,7 +10,7 @@
 #   response_type     Binary | Multiclass | Ordered | Count | Survival | Continuous
 #   rows              rows of the data as stored (for a panel, one for each unit and time)
 #   features          columns other than the response and the identifiers
-#   size_mb           size of its Parquet files for Built-in, of the compressed files the user downloads for Download
+#   size_mb           size of its Parquet files for Built-in, of the files the user downloads, compressed or not, for Download
 #   licence           the licence of the data
 #   delivery          Built-in (ships with the package) | Download (fetched by the user)
 #   source_url        where the data come from
@@ -98,6 +98,7 @@ topic = "Retail"
 data_structure = "Panel"
 geometry = "None"
 response_type = "Count"
+size_mb = 488.51
 licence = "None stated in the repository"
 delivery = "Download"
 source_url = "https://github.com/Mcompetitions/M5-methods"
@@ -451,7 +452,8 @@ topic = "Supply Chain"
 data_structure = "Panel"
 geometry = "None"
 response_type = "Count"
-licence = "Not found"
+size_mb = 20.46
+licence = "None stated; DataSource.ai asks that use of the datasets cite the competition page"
 delivery = "Download"
 source_url = "https://www.datasource.ai/en/home/data-science-competitions-for-startups/phase-2-vn1-forecasting-accuracy-challenge/description"
 
@@ -935,6 +937,7 @@ topic = "Epidemiology"
 data_structure = "Panel"
 geometry = "None"
 response_type = "Count"
+licence = "None: the DrivenData competition rules allow use for the competition only and forbid redistribution"
 delivery = "Download"
 source_url = "https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/"
 
@@ -983,8 +986,16 @@ topic = "Transport and Mobility"
 data_structure = "Time-Series"
 geometry = "None"
 response_type = "Count"
-delivery = "Download"
-source_url = "https://www.kaggle.com/competitions/bike-sharing-demand"
+rows = 17379
+features = 9
+size_mb = 0.23
+licence = "CC BY 4.0 (via the UCI Machine Learning Repository)"
+delivery = "Built-in"
+source_url = "https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset"
+
+  [[datasets.references]]
+  bibtex_key = "FG2014a"
+  role = "Primary"
 
 [[datasets]]
 dataset_id = "metr_la_pems_bay"
@@ -1005,6 +1016,7 @@ dataset_name = "NYC Taxi demand (TLC Trip Record Data)"
 topic = "Transport and Mobility"
 data_structure = "Panel"
 response_type = "Count"
+licence = "NYC.gov Terms of Use"
 delivery = "Download"
 source_url = "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page"
 
@@ -1808,3 +1820,755 @@ size_mb = 0.56
 licence = "Public Domain (via OpenML)"
 delivery = "Built-in"
 source_url = "https://www.openml.org/d/46979"
+
+# Low-Dimensional Survival Benchmark: the 34 datasets of Burk, Zobolas, Bischl, Bender, Wright and Sonabend (2026),
+# each with the outer splits of the benchmark, 3-fold cross-validation repeated 1, 5 or 10 times, by the number of
+# events. The response is time, with status, 1 for an event and 0 for a censored time.
+
+[[datasets]]
+dataset_id = "aids_id"
+dataset_name = "aids.id"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 467
+features = 5
+size_mb = 0.01
+licence = "GPL (>= 2) (via the R package JM)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46130"
+
+  [[datasets.references]]
+  bibtex_key = "CL2018a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "aids2"
+dataset_name = "aids2"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 2814
+features = 4
+size_mb = 0.04
+licence = "GPL-2 | GPL-3 (via the R package nnet)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46158"
+
+  [[datasets.references]]
+  bibtex_key = "VR2002a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "bladder0"
+dataset_name = "bladder0"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 397
+features = 3
+size_mb = 0.01
+licence = "Unlimited (via the R package frailtyHL)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46172"
+
+  [[datasets.references]]
+  bibtex_key = "SMOWB...2006a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "carpenter_fda_data"
+dataset_name = "CarpenterFdaData"
+topic = "Socioeconomics"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 408
+features = 25
+size_mb = 0.02
+licence = "GPL-3 (via the R package simPH)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46159"
+
+  [[datasets.references]]
+  bibtex_key = "Car2002a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "cat_adoption"
+dataset_name = "cat_adoption"
+topic = "General"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 2257
+features = 18
+size_mb = 0.06
+licence = "MIT (via the R package modeldata)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/47176"
+
+  [[datasets.references]]
+  bibtex_key = "Kuh2024a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "channing"
+dataset_name = "channing"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 458
+features = 2
+size_mb = 0.01
+licence = "GPL (>= 3) (via the R package KMsurv)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46154"
+
+  [[datasets.references]]
+  bibtex_key = "KM2003a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "check_times"
+dataset_name = "check_times"
+topic = "Web and IT Operations"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 13626
+features = 22
+size_mb = 0.46
+licence = "MIT (via the R package modeldata)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/47177"
+
+  [[datasets.references]]
+  bibtex_key = "Kuh2024a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "child"
+dataset_name = "child"
+topic = "Epidemiology"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 26574
+features = 4
+size_mb = 0.23
+licence = "GPL (>= 2) (via the R package eha)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46147"
+
+  [[datasets.references]]
+  bibtex_key = "Bro2021a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "colrec"
+dataset_name = "colrec"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 5578
+features = 5
+size_mb = 0.07
+licence = "GPL (via the R package relsurv)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46145"
+
+  [[datasets.references]]
+  bibtex_key = "PS2006b"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "cost"
+dataset_name = "cost"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 518
+features = 13
+size_mb = 0.02
+licence = "GPL (>= 2) (via the R package pec)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46148"
+
+  [[datasets.references]]
+  bibtex_key = "JNRRO1996a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "data_ftr"
+dataset_name = "dataFTR"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 2206
+features = 2
+size_mb = 0.05
+licence = "GPL (>= 2) (via the R package RISCA)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46149"
+
+  [[datasets.references]]
+  bibtex_key = "TGDF2013a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "data_str"
+dataset_name = "dataSTR"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 546
+features = 4
+size_mb = 0.02
+licence = "GPL (>= 2) (via the R package RISCA)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46150"
+
+  [[datasets.references]]
+  bibtex_key = "TGDF2013a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "e1684"
+dataset_name = "e1684"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 284
+features = 3
+size_mb = 0.01
+licence = "GPL-2 (via the R package smcure)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46157"
+
+  [[datasets.references]]
+  bibtex_key = "KSESB...1996a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "flchain"
+dataset_name = "flchain"
+topic = "Epidemiology"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 4000
+features = 7
+size_mb = 0.07
+licence = "LGPL (>= 2) (via the R package survival)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46161"
+
+  [[datasets.references]]
+  bibtex_key = "DKKLT...2012a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "gbsg"
+dataset_name = "gbsg"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 2232
+features = 7
+size_mb = 0.05
+licence = "BSD-2 (via the Python package pycox)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46131"
+
+  [[datasets.references]]
+  bibtex_key = "KSCBJ...2018a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "grace"
+dataset_name = "grace"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 1000
+features = 6
+size_mb = 0.02
+licence = "LGPL-3 (via the R package mlr3proba)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46168"
+
+  [[datasets.references]]
+  bibtex_key = "HLM2008a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "hdfail"
+dataset_name = "hdfail"
+topic = "Engineering"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 52410
+features = 5
+size_mb = 0.34
+licence = "LGPL-2 (via the R package frailtySurv)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46167"
+
+  [[datasets.references]]
+  bibtex_key = "MGH2018a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "kidtran"
+dataset_name = "kidtran"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 863
+features = 3
+size_mb = 0.02
+licence = "GPL (>= 3) (via the R package KMsurv)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46155"
+
+  [[datasets.references]]
+  bibtex_key = "KM2003a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "liver"
+dataset_name = "liver"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 488
+features = 2
+size_mb = 0.01
+licence = "GPL-3 (via the R package joineR)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46160"
+
+  [[datasets.references]]
+  bibtex_key = "ABGK1993a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "lung"
+dataset_name = "lung"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 167
+features = 8
+size_mb = 0.01
+licence = "LGPL (>= 2) (via the R package survival)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46162"
+
+  [[datasets.references]]
+  bibtex_key = "LLWKN...1994a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "metabric"
+dataset_name = "metabric"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 1903
+features = 9
+size_mb = 0.08
+licence = "BSD-2 (via the Python package pycox)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46142"
+
+  [[datasets.references]]
+  bibtex_key = "KSCBJ...2018a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "mgus"
+dataset_name = "mgus"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 176
+features = 7
+size_mb = 0.01
+licence = "LGPL (>= 2) (via the R package survival)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46163"
+
+  [[datasets.references]]
+  bibtex_key = "Kyl1993a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "nafld1"
+dataset_name = "nafld1"
+topic = "Epidemiology"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 12588
+features = 5
+size_mb = 0.32
+licence = "LGPL (>= 2) (via the R package survival)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46164"
+
+  [[datasets.references]]
+  bibtex_key = "ATLCS...2018a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "nwtco"
+dataset_name = "nwtco"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 4028
+features = 3
+size_mb = 0.06
+licence = "LGPL (>= 2) (via the R package survival)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46165"
+
+  [[datasets.references]]
+  bibtex_key = "BC1999a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "ova"
+dataset_name = "ova"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 358
+features = 5
+size_mb = 0.01
+licence = "GPL (>= 2) (via the R package dynpred)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46151"
+
+  [[datasets.references]]
+  bibtex_key = "HHBON1989a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "rdata"
+dataset_name = "rdata"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 1040
+features = 3
+size_mb = 0.02
+licence = "GPL (via the R package relsurv)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46146"
+
+  [[datasets.references]]
+  bibtex_key = "PS2006b"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "std"
+dataset_name = "std"
+topic = "Epidemiology"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 877
+features = 21
+size_mb = 0.03
+licence = "GPL (>= 3) (via the R package KMsurv)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46156"
+
+  [[datasets.references]]
+  bibtex_key = "KM2003a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "support"
+dataset_name = "support"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 4000
+features = 14
+size_mb = 0.08
+licence = "BSD-2 (via the Python package pycox)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46144"
+
+  [[datasets.references]]
+  bibtex_key = "KSCBJ...2018a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "tumor"
+dataset_name = "tumor"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 776
+features = 7
+size_mb = 0.02
+licence = "MIT (via the R package pammtools)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46171"
+
+  [[datasets.references]]
+  bibtex_key = "BS2018a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "uis"
+dataset_name = "uis"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 575
+features = 12
+size_mb = 0.02
+licence = "GPL (>= 2) (via the R package quantreg)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46153"
+
+  [[datasets.references]]
+  bibtex_key = "HLM2008a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "veteran"
+dataset_name = "veteran"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 137
+features = 6
+size_mb = 0.01
+licence = "LGPL (>= 2) (via the R package survival)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46166"
+
+  [[datasets.references]]
+  bibtex_key = "KP2002a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "wa_churn"
+dataset_name = "wa_churn"
+topic = "Marketing"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 7032
+features = 18
+size_mb = 0.15
+licence = "MIT (via the R package modeldata)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/47178"
+
+  [[datasets.references]]
+  bibtex_key = "Kuh2024a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "wbc1"
+dataset_name = "wbc1"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 190
+features = 2
+size_mb = 0.01
+licence = "GPL (>= 2) (via the R package dynpred)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46152"
+
+  [[datasets.references]]
+  bibtex_key = "BCMLSG1998a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"
+
+[[datasets]]
+dataset_id = "whas"
+dataset_name = "whas"
+topic = "Health"
+data_structure = "Cross-section"
+geometry = "None"
+response_type = "Survival"
+rows = 481
+features = 9
+size_mb = 0.02
+licence = "LGPL-3 (via the R package mlr3proba)"
+delivery = "Built-in"
+source_url = "https://www.openml.org/d/46169"
+
+  [[datasets.references]]
+  bibtex_key = "HLM2008a"
+  role = "Primary"
+
+  [[datasets.references]]
+  bibtex_key = "BZBBW...2026a"
+  role = "Benchmark"

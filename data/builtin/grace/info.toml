@@ -1,0 +1,20 @@
+competition = "grace"
+name = "grace"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46168
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package mlr3proba"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/grace.csv"
+licence = "LGPL-3"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:12.378"
+fingerprint = "4e63ceb543e5de2ccc6673608ed3433f5a12664d8975ac30205aa635911dd501"
+
+[tables]
+data = 1000
+splits = 10000

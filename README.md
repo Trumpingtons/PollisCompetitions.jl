@@ -32,7 +32,7 @@ The header of each file describes its fields. A field left out is unknown, and l
 | `model_references` | model_id, bibtex_key | role |
 | `benchmarks` | run_id, metric | model_id, dataset_id, split_protocol, score |
 
-The estimator of a model has two levels: its estimator family, one of the model types of TabArena (Foundation Model, Tree-based, Neural Network, Baseline, Other), Statistical, for the classical methods of forecasting, Kernel Methods, Fuzzy System, or Hybrid, for a model that combines methods of different kinds, and its estimator method, one of the methods of its family (that of a Hybrid model names the methods it combines); the header of `models.toml` lists both. The database checks each value against its vocabulary and each foreign key. The view `model_comparisons` joins each score to its model and dataset. `load_table(name)` reads one of the five tables or the view.
+The estimator of a model has two levels: its estimator family, one of the model types of TabArena (Foundation Model, Tree-based, Neural Network, Baseline, Other), Statistical, for the classical methods of forecasting and of survival analysis, Kernel Methods, Fuzzy System, or Hybrid, for a model that combines methods of different kinds, and its estimator method, one of the methods of its family (that of a Hybrid model names the methods it combines); the header of `models.toml` lists both. The database checks each value against its vocabulary and each foreign key. The view `model_comparisons` joins each score to its model and dataset. `load_table(name)` reads one of the five tables or the view.
 
 ## Built-in datasets
 

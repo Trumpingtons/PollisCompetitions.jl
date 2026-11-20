@@ -1,0 +1,20 @@
+competition = "child"
+name = "child"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46147
+repeats = 1
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package eha"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/child.csv"
+licence = "GPL (>= 2)"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:12.068"
+fingerprint = "5c79192031f7e30adba8b4a3e22dedbc8be1d73a8fe5e01bed735abe78e69c55"
+
+[tables]
+data = 26574
+splits = 26574

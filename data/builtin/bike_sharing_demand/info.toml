@@ -1,0 +1,22 @@
+competition = "bike_sharing_demand"
+name = "Bike Sharing Demand"
+format = "tabular"
+target = "count"
+repeats = 1
+folds = 1
+source = "Bike Sharing, UCI Machine Learning Repository, dataset 275, by Hadi Fanaee-T and Joao Gama (Fanaee-T and Gama, 2014)"
+source_url = "https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset"
+licence = "CC BY 4.0"
+licence_url = "https://creativecommons.org/licenses/by/4.0/"
+modifications = [
+	"Only the hourly data, hour.csv; the daily data, day.csv, are left out",
+	"The columns named as in Kaggle's Bike Sharing Demand: dteday and hr joined into datetime, weathersit as weather, hum as humidity, cnt as count; instant, yr, mnth and weekday left out",
+	"temp, atemp, humidity and windspeed multiplied by 41, 50, 100 and 67, the divisors of UCI's Readme.txt, to their original scales",
+	"Kaggle's split: the hours of days 1 to 19 of each month are the training set, those of day 20 to the end of the month the test set, fold 1 of splits.parquet",
+]
+converted = "2026-11-20T22:56:31.982"
+fingerprint = "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401"
+
+[tables]
+data = 17379
+splits = 6493

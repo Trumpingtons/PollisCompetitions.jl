@@ -1,0 +1,20 @@
+competition = "gbsg"
+name = "gbsg"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46131
+repeats = 5
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the Python package pycox"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/gbsg.csv"
+licence = "BSD-2"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:12.339"
+fingerprint = "8407088bdeb6cd73c6c7bb9e69dc711c19cd819b2ca2f93515f428ad5bd94d87"
+
+[tables]
+data = 2232
+splits = 11160

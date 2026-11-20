@@ -1,0 +1,20 @@
+competition = "veteran"
+name = "veteran"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46166
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package survival"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/veteran.csv"
+licence = "LGPL (>= 2)"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:13.109"
+fingerprint = "7edfa772e3b2ed36e4f4488ff8066d3c312ed68b5d5d943e8051ba70b5d85b14"
+
+[tables]
+data = 137
+splits = 1370

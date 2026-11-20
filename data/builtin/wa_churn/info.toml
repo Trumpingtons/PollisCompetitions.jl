@@ -1,0 +1,20 @@
+competition = "wa_churn"
+name = "wa_churn"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 47178
+repeats = 5
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package modeldata"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/wa_churn.csv"
+licence = "MIT"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:13.236"
+fingerprint = "a7a04866e15730cef6b1c722b667c99fdd0cedbff71d6ccce1e0c510abe011ac"
+
+[tables]
+data = 7032
+splits = 35160

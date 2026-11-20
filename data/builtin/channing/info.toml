@@ -1,0 +1,20 @@
+competition = "channing"
+name = "channing"
+format = "tabular"
+target = "time"
+event = "status"
+openml_dataset = 46154
+repeats = 10
+folds = 3
+source = "Low-Dimensional Survival Benchmark (Burk, Zobolas, Bischl, Bender, Wright and Sonabend, 2026), from the R package KMsurv"
+source_url = "https://github.com/slds-lmu/paper_2023_survival_benchmark/blob/main/datasets/channing.csv"
+licence = "GPL (>= 3)"
+modifications = [
+	"The CSV of the benchmark converted to Parquet, its rows in the same order, the order its resamplings number them in from 1",
+]
+converted = "2026-11-20T23:13:11.890"
+fingerprint = "f90365bc948fd665cc048a2a4bbbc90ac1c5c3c1979a47dfc4b46d53b299b914"
+
+[tables]
+data = 458
+splits = 4580
