@@ -9,3 +9,9 @@ fingerprint = "4485e9fae7371b6e1b4272460fdfe847c4807cb98464ee41fdd4571303c4b515"
 [tables]
 observations = 2942364
 series = 270
+
+[[frequencies]]
+name = "Hourly"
+series = 270
+shortest_horizon = 168
+longest_horizon = 168

@@ -1,4 +1,6 @@
 competition = "m1"
+name = "M1 Competition"
+format = "monash"
 converted = "2026-11-14T12:52:43.584"
 fingerprint = "0e1ae7f189d1fed79ceb917a5c3c9330e7c61dd13dda51bfd03bfdfb7c924362"
 
@@ -7,3 +9,21 @@ fingerprint = "0e1ae7f189d1fed79ceb917a5c3c9330e7c61dd13dda51bfd03bfdfb7c924362"
 [tables]
 observations = 70457
 series = 1001
+
+[[frequencies]]
+name = "Yearly"
+series = 181
+shortest_horizon = 6
+longest_horizon = 6
+
+[[frequencies]]
+name = "Quarterly"
+series = 203
+shortest_horizon = 8
+longest_horizon = 8
+
+[[frequencies]]
+name = "Monthly"
+series = 617
+shortest_horizon = 18
+longest_horizon = 18

@@ -7,7 +7,7 @@ import PollisCompetitions as PC
 datasets = PC.load_table("dataset_catalog")
 comparisons = PC.load_table("model_comparisons")
 data = PC.load_dataset("german_credit")
-yearly = PC.series("m4"; frequency = "Yearly")
+monthly = PC.series("tourism_2011"; frequency = "Monthly")
 ```
 
 Every function answers a table of columns (a NamedTuple of vectors, which Tables.jl reads).
@@ -36,7 +36,7 @@ The estimator of a model has two levels: its estimator family, one of the model 
 
 ## Built-in datasets
 
-A dataset whose delivery is Built-in ships with the package, as a folder named by its `dataset_id` in `data/builtin/`, with its data in Parquet files: `data.parquet` and `splits.parquet` for a tabular dataset, `series.parquet` and `observations.parquet` for a forecasting one. `connect_db` reads each in place, as a schema named by its `dataset_id` with a view of each file, named by the file (`heloc.data`, `m1.observations`), and `load_dataset(dataset_id)` reads the `data.parquet` of a tabular one. A dataset whose delivery is Download is fetched by the user from its `source_url`.
+A dataset whose delivery is Built-in ships with the package, as a folder named by its `dataset_id` in `data/builtin/`, with its data in Parquet files: `data.parquet` and `splits.parquet` for a tabular dataset, `series.parquet` and `observations.parquet` for a forecasting one. `connect_db` reads each in place, as a schema named by its `dataset_id` with a view of each file, named by the file (`heloc.data`, `nn5.observations`), and `load_dataset(dataset_id)` reads the `data.parquet` of a tabular one. A dataset whose delivery is Download is fetched by the user from its `source_url`, and its reader writes it to `~/.pollis/competitions/<dataset_id>`, where `connect_db` reads it the same way once its `info.toml` is there.
 
 ## Data and scores
 
@@ -44,20 +44,19 @@ The data of a forecasting dataset are a folder of Parquet files: in `data/builti
 
 - `series(id)`: series (a number), competition, name, frequency, period (the seasonal period), horizon, domain and start;
 - `observations(id)`: series, t (from 1), value, and split, `train` for the values the forecasters saw and `test` for those their forecasts were scored on;
-- `entries(id)`, `forecasts(id; entry)` and `published_scores(id)`: the entries of a competition, their forecasts and the scores the organisers published, where they are on this computer;
 - `tables(id)` names the tables of a dataset, and `table(id, name; filters...)` reads one; `query(sql)` runs any SQL on them.
 
-`score(id, forecasts)` scores forecasts of your own (series, h and value), each series forecast over its whole horizon, and `scores(id; entries)` scores the published entries: sMAPE, MASE and OWA against Naive2 for M1, M3, M4, Tourism and datasets of your own; the WRMSSE of the point forecasts of M5; the RPS and IR of M6. `step_errors(id, forecasts)` gives the errors at each step ahead, series by series. `benchmarks(id; methods, series)` computes M4's eight statistical benchmarks from the values the forecasters saw.
+`score(id, forecasts)` scores forecasts of your own (series, h and value) of any forecasting dataset, each series forecast over its whole horizon: sMAPE, MASE and OWA against Naive2, computed on this computer, by frequency, by domain when the dataset gives domains, and in total. `step_errors(id, forecasts)` gives the errors at each step ahead, series by series. `benchmarks(id; methods, series)` computes the eight statistical benchmarks of `Benchmarks` from the values the forecasters saw.
 
 ```julia
-mine = PC.score("m4", (; series = [1, 1], h = [1, 2], value = [7300.0, 7350.0]))
-theirs = PC.scores("m4"; entries = ["118", "Naive2"])
+theta = PC.benchmarks("nn3"; methods = ["Theta"])
+PC.score("nn3", theta)
 ```
 
 ## Other code
 
 - `read_tsf(path)` reads a file of the Monash Time Series Forecasting Archive (.tsf).
-- The submodule `M4Benchmarks` computes the eight statistical benchmarks of the M4 forecasting competition (Naive, sNaive, Naive2, SES, Holt, Damped, Theta and Com), as its organisers computed them in `Benchmarks and Evaluation.R` (Mcompetitions/M4-methods), with simple exponential smoothing and Holt's method fitted as R's forecast 8.2 fits them. `M4Benchmarks.benchmarks(y; period, horizon)` gives the eight for one series, and `is_seasonal`, `seasonal_index`, `ses`, `holt` and `theta` each part. On the series of M4 they give the published forecasts of the benchmarks.
+- The submodule `Benchmarks` computes eight statistical benchmarks of forecasting (Naive, sNaive, Naive2, SES, Holt, Damped, Theta and Com): a series that passes a seasonality test is adjusted by its classical multiplicative seasonal index, and simple exponential smoothing and Holt's method are fitted as R's forecast 8.2 fits them. `Benchmarks.benchmarks(y; period, horizon)` gives the eight for one series, and `is_seasonal`, `seasonal_index`, `ses`, `holt` and `theta` each part.
 
 ## Licence
 

@@ -9,3 +9,9 @@ fingerprint = "762fea98a45aa658c13aee261ddf0a63fbd1c0d83e735839549a482714fbf537"
 [tables]
 observations = 7108
 series = 72
+
+[[frequencies]]
+name = "Monthly"
+series = 72
+shortest_horizon = 6
+longest_horizon = 12

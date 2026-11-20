@@ -9,3 +9,9 @@ fingerprint = "7a831669420e9c98180bf6c681b6bb34c27d256a93aa604afa00a5b0e12e6cc2"
 [tables]
 observations = 87801
 series = 111
+
+[[frequencies]]
+name = "Daily"
+series = 111
+shortest_horizon = 56
+longest_horizon = 56

@@ -102,7 +102,7 @@ holds, by `<table>.<column>`; a column of `model_comparisons` is described as in
 """
 const METADATA_DESCRIPTIONS = Dict(
 	"dataset_catalog" => "The Dataset Catalog: one row per dataset, with its competition, its subject, the structure of its data, its size, its licence and how it reaches the user",
-	"dataset_catalog.dataset_id" => "The id of the dataset, and the schema of its views in this database when its data are built in",
+	"dataset_catalog.dataset_id" => "The id of the dataset, and the schema of its views in this database when its data are here, built in or downloaded",
 	"dataset_catalog.dataset_name" => "Its name",
 	"dataset_catalog.competition_name" => "The competition it comes from; empty for a dataset of no competition",
 	"dataset_catalog.competition_year" => "The year of that competition",
@@ -141,8 +141,8 @@ const METADATA_DESCRIPTIONS = Dict(
 	"model_comparisons" => "Each score of benchmarks beside its model and its dataset",
 )
 
-"""What each kind of Parquet file of a built-in dataset holds, by its name, and each of its columns, by `<file>.<column>`."""
-const BUILTIN_DESCRIPTIONS = Dict(
+"""What each kind of Parquet file of a dataset holds, by its name, and each of its columns, by `<file>.<column>`."""
+const DATA_DESCRIPTIONS = Dict(
 	"data" => "The data of a tabular dataset, a row per case, with its response and its features",
 	"splits" => "The splits of the cross-validation of a tabular dataset: the fold each row is in the test set of, in each repeat",
 	"splits.row" => "The row of data, from 1",
@@ -165,13 +165,13 @@ const BUILTIN_DESCRIPTIONS = Dict(
 )
 
 """
-	describe_db(db, catalog, builtin)
+	describe_db(db, catalog, folders)
 
 The descriptions of the tables and views of `db`, and of their columns, as `connect_db` makes them: those of the
-metadata, and those of the views of each built-in dataset, with its name and licence from `catalog`, the rows of
-`dataset_catalog`.
+metadata, and those of the views of each dataset whose data are here, `folders` giving the folder of each by its id,
+with its name and licence from `catalog`, the rows of `dataset_catalog`.
 """
-function describe_db(db, catalog, builtin)
+function describe_db(db, catalog, folders)
 	execute(sql) = DBInterface.execute(db, sql)
 	for table in (METADATA_TABLES..., "model_comparisons")
 		execute("COMMENT ON $(table == "model_comparisons" ? "VIEW" : "TABLE") $(table) IS $(sql_text(METADATA_DESCRIPTIONS[table]))")
@@ -183,9 +183,9 @@ function describe_db(db, catalog, builtin)
 			key = findfirst(key -> haskey(METADATA_DESCRIPTIONS, key), keys)
 			description = key === nothing ? nothing : METADATA_DESCRIPTIONS[keys[key]]
 		else
-			info = joinpath(builtin, schema, "info.toml")
+			info = joinpath(folders[schema], "info.toml")
 			target = isfile(info) ? get(TOML.parsefile(info), "target", nothing) : nothing
-			description = table == "data" && column == target ? "The response, which the models predict" : get(BUILTIN_DESCRIPTIONS, "$(table).$(column)", nothing)
+			description = table == "data" && column == target ? "The response, which the models predict" : get(DATA_DESCRIPTIONS, "$(table).$(column)", nothing)
 		end
 		description === nothing || execute("COMMENT ON COLUMN \"$(schema)\".\"$(table)\".\"$(column)\" IS $(sql_text(description))")
 	end
@@ -193,7 +193,7 @@ function describe_db(db, catalog, builtin)
 	datasets = Dict(row[field("dataset_id")] => (row[field("dataset_name")], row[field("licence")]) for row in catalog)
 	for schema in unique(filter(!=("main"), columns.schema_name)), table in unique(columns.table_name[columns.schema_name .== schema])
 		name, licence = get(datasets, schema, (schema, missing))
-		text = "$(name): $(get(BUILTIN_DESCRIPTIONS, table, table)). Licence: $(coalesce(licence, "none recorded"))"
+		text = "$(name): $(get(DATA_DESCRIPTIONS, table, table)). Licence: $(coalesce(licence, "none recorded"))"
 		execute("COMMENT ON VIEW \"$(schema)\".\"$(table)\" IS $(sql_text(text))")
 	end
 end
@@ -229,16 +229,18 @@ function metadata_rows(metadata = METADATA)
 end
 
 """
-	connect_db(path = ":memory:"; metadata = METADATA, builtin = BUILTIN)
+	connect_db(path = ":memory:"; metadata = METADATA, builtin = BUILTIN, downloaded = HOME)
 
 A DuckDB database at `path` with the five tables of the metadata (`dataset_catalog`, `dataset_references`,
 `model_catalog`, `model_references` and `benchmarks`) filled from the TOML files in the folder `metadata`, the view `model_comparisons`, which
-joins each score to its model and dataset, and, for each built-in dataset, a folder of the folder `builtin`, a schema
-named by its id with a view of each of its Parquet files, named by the file, which reads it where it is: `m1.series` and
-`m1.observations` for a forecasting dataset, `heloc.data` and `heloc.splits` for a tabular one. Each table, view and
-column has its description (`describe_db`). Close it with `DBInterface.close!`.
+joins each score to its model and dataset, and, for each dataset of the catalogue whose data are here, a schema named
+by its id with a view of each of its Parquet files, named by the file, which reads it where it is: `nn5.series` and
+`nn5.observations` for a forecasting dataset, `heloc.data` and `heloc.splits` for a tabular one. The data of a dataset
+are its folder in `builtin` when it is built in, else its folder in `downloaded` once its `info.toml` is there; a
+folder named by no dataset of the catalogue is left out. Each table, view and column has its description
+(`describe_db`). Close it with `DBInterface.close!`.
 """
-function connect_db(path::AbstractString = ":memory:"; metadata = METADATA, builtin = BUILTIN)
+function connect_db(path::AbstractString = ":memory:"; metadata = METADATA, builtin = BUILTIN, downloaded = HOME)
 	db = DuckDB.DB(path)
 	try
 		for statement in split(METADATA_SCHEMA, ";"; keepempty = false)
@@ -264,17 +266,22 @@ function connect_db(path::AbstractString = ":memory:"; metadata = METADATA, buil
 			JOIN model_catalog m USING (model_id)
 			JOIN dataset_catalog d USING (dataset_id)""")
 		taken = Set(Tables.columntable(DBInterface.execute(db, "SELECT DISTINCT schema_name FROM duckdb_schemas()")).schema_name)
-		for dataset_id in (isdir(builtin) ? readdir(builtin) : String[])
-			folder = joinpath(builtin, dataset_id)
-			files = isdir(folder) ? filter(endswith(".parquet"), readdir(folder)) : String[]
+		folders = Dict{String, String}()
+		for dataset_id in (row[1] for row in rows["dataset_catalog"])
+			here = joinpath(builtin, dataset_id)
+			away = joinpath(downloaded, dataset_id)
+			folder = isdir(here) ? here : isfile(joinpath(away, "info.toml")) ? away : nothing
+			folder === nothing && continue
+			files = filter(endswith(".parquet"), readdir(folder))
 			isempty(files) && continue
-			dataset_id in taken && error("The built-in dataset $(dataset_id) has the name of a schema of DuckDB: rename its folder.")
+			dataset_id in taken && error("The dataset $(dataset_id) has the name of a schema of DuckDB: rename it.")
+			folders[dataset_id] = folder
 			DBInterface.execute(db, "CREATE SCHEMA \"$(dataset_id)\"")
 			for file in files
 				DBInterface.execute(db, "CREATE VIEW \"$(dataset_id)\".\"$(chopsuffix(file, ".parquet"))\" AS SELECT * FROM read_parquet($(sql_text(joinpath(folder, file))))")
 			end
 		end
-		describe_db(db, rows["dataset_catalog"], builtin)
+		describe_db(db, rows["dataset_catalog"], folders)
 	catch
 		DBInterface.close!(db)
 		rethrow()

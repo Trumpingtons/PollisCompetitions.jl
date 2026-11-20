@@ -9,3 +9,21 @@ fingerprint = "1be847ba9b01a7e899c21de21aa57db5530ac7ca2b0ff0c2c19413eb7af1861c"
 [tables]
 observations = 164581
 series = 1311
+
+[[frequencies]]
+name = "Yearly"
+series = 518
+shortest_horizon = 4
+longest_horizon = 4
+
+[[frequencies]]
+name = "Quarterly"
+series = 427
+shortest_horizon = 8
+longest_horizon = 8
+
+[[frequencies]]
+name = "Monthly"
+series = 366
+shortest_horizon = 24
+longest_horizon = 24
