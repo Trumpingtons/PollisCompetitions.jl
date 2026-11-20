@@ -36,7 +36,7 @@ The estimator of a model has two levels: its estimator family, one of the model 
 
 ## Built-in datasets
 
-A dataset whose delivery is Built-in ships with the package, as a folder named by its `dataset_id` in `data/builtin/`, with its data in `data.parquet`. `connect_db` reads each in place, as the view `builtin."<dataset_id>"`, and `load_dataset(dataset_id)` reads one. A dataset whose delivery is Download is fetched by the user from its `source_url`.
+A dataset whose delivery is Built-in ships with the package, as a folder named by its `dataset_id` in `data/builtin/`, with its data in Parquet files: `data.parquet` and `splits.parquet` for a tabular dataset, `series.parquet` and `observations.parquet` for a forecasting one. `connect_db` reads each in place, as a schema named by its `dataset_id` with a view of each file, named by the file (`heloc.data`, `m1.observations`), and `load_dataset(dataset_id)` reads the `data.parquet` of a tabular one. A dataset whose delivery is Download is fetched by the user from its `source_url`.
 
 ## Data and scores
 

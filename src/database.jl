@@ -131,8 +131,10 @@ end
 
 A DuckDB database at `path` with the five tables of the metadata (`dataset_catalog`, `dataset_references`,
 `model_catalog`, `model_references` and `benchmarks`) filled from the TOML files in the folder `metadata`, the view `model_comparisons`, which
-joins each score to its model and dataset, and, in the schema `builtin`, a view of each built-in dataset, a folder of the
-folder `builtin`, `builtin."<dataset_id>"`, which reads its `data.parquet` where it is. Close it with `DBInterface.close!`.
+joins each score to its model and dataset, and, for each built-in dataset, a folder of the folder `builtin`, a schema
+named by its id with a view of each of its Parquet files, named by the file, which reads it where it is: `m1.series` and
+`m1.observations` for a forecasting dataset, `heloc.data` and `heloc.splits` for a tabular one. Close it with
+`DBInterface.close!`.
 """
 function connect_db(path::AbstractString = ":memory:"; metadata = METADATA, builtin = BUILTIN)
 	db = DuckDB.DB(path)
@@ -159,11 +161,16 @@ function connect_db(path::AbstractString = ":memory:"; metadata = METADATA, buil
 			FROM benchmarks b
 			JOIN model_catalog m USING (model_id)
 			JOIN dataset_catalog d USING (dataset_id)""")
-		DBInterface.execute(db, "CREATE SCHEMA builtin")
+		taken = Set(Tables.columntable(DBInterface.execute(db, "SELECT DISTINCT schema_name FROM duckdb_schemas()")).schema_name)
 		for dataset_id in (isdir(builtin) ? readdir(builtin) : String[])
-			data = joinpath(builtin, dataset_id, "data.parquet")
-			isfile(data) || continue
-			DBInterface.execute(db, "CREATE VIEW builtin.\"$(dataset_id)\" AS SELECT * FROM read_parquet($(sql_text(data)))")
+			folder = joinpath(builtin, dataset_id)
+			files = isdir(folder) ? filter(endswith(".parquet"), readdir(folder)) : String[]
+			isempty(files) && continue
+			dataset_id in taken && error("The built-in dataset $(dataset_id) has the name of a schema of DuckDB: rename its folder.")
+			DBInterface.execute(db, "CREATE SCHEMA \"$(dataset_id)\"")
+			for file in files
+				DBInterface.execute(db, "CREATE VIEW \"$(dataset_id)\".\"$(chopsuffix(file, ".parquet"))\" AS SELECT * FROM read_parquet($(sql_text(joinpath(folder, file))))")
+			end
 		end
 	catch
 		DBInterface.close!(db)
