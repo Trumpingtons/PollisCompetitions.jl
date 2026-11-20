@@ -1,0 +1,15 @@
+competition = "house_values"
+name = "houses"
+format = "tabular"
+target = "LnMedianHouseValue"
+openml_task = 363678
+openml_dataset = 46934
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:19.754"
+fingerprint = "6d24d68327b4e9ab948a39bdc56de6d8feb731a0c8ef5e74e6ae16115ebc60fa"
+
+[tables]
+data = 20640
+splits = 206400

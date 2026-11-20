@@ -8,14 +8,17 @@ const BUILTIN = joinpath(dirname(@__DIR__), "data", "builtin")
 const METADATA_TABLES = ("dataset_catalog", "dataset_references", "model_catalog", "model_references", "benchmarks")
 
 """
-The vocabulary of the estimator of a model, in two levels: each estimator family, the model types of TabArena, with its
-estimator methods. A value is added when a model of the catalogue needs it.
+The vocabulary of the estimator of a model, in two levels: each estimator family, the model types of TabArena and
+Statistical for the classical methods of forecasting, with its estimator methods. A value is added when a model of the
+catalogue needs it.
 """
 const ESTIMATOR_METHODS = (
-	"Foundation Model" => ["Pretrained in-context learner", "Pretrained hypernetwork", "Fine-tuned pretrained transformer"],
+	"Foundation Model" => ["Pretrained in-context learner", "Pretrained hypernetwork", "Fine-tuned pretrained transformer", "Pretrained time-series forecaster"],
 	"Tree-based" => ["Gradient-boosted trees", "Randomized tree ensemble", "Generalized additive model"],
-	"Neural Network" => ["Multilayer perceptron", "Ensemble of multilayer perceptrons", "Neural nearest neighbours"],
-	"Baseline" => ["Nearest neighbours", "Penalized linear model"],
+	"Neural Network" => ["Multilayer perceptron", "Ensemble of multilayer perceptrons", "Neural nearest neighbours", "Recurrent neural network",
+		"Convolutional neural network", "Transformer"],
+	"Baseline" => ["Nearest neighbours", "Penalized linear model", "Linear regression"],
+	"Statistical" => ["Exponential smoothing", "Theta method", "ARIMA"],
 	"Other" => ["Kernel machine", "Piecewise linear regression"],
 )
 

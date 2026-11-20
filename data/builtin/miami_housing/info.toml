@@ -1,0 +1,15 @@
+competition = "miami_housing"
+name = "miami_housing"
+format = "tabular"
+target = "SALE_PRC"
+openml_task = 363686
+openml_dataset = 46942
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:22.953"
+fingerprint = "456ed5e93e5e1e6cc6ba744dad649e4a1a46b3f98697cfe55e732704502c3b66"
+
+[tables]
+data = 13776
+splits = 137760

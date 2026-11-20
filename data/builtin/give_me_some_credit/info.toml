@@ -1,0 +1,15 @@
+competition = "give_me_some_credit"
+name = "GiveMeSomeCredit"
+format = "tabular"
+target = "FinancialDistressNextTwoYears"
+openml_task = 363673
+openml_dataset = 46929
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:18.400"
+fingerprint = "210d58e2ccac9b0fe1369abdb0a57bd4e34349097369eabb902aee8de452dca2"
+
+[tables]
+data = 150000
+splits = 1500000

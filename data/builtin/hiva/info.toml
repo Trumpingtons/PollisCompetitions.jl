@@ -1,0 +1,15 @@
+competition = "hiva"
+name = "hiva_agnostic"
+format = "tabular"
+target = "CompoundActivity"
+openml_task = 363677
+openml_dataset = 46933
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:19.195"
+fingerprint = "f71837103bac26ccbf687207b32b7c6c1fbc28a869cabb2e37aed5088ae649fa"
+
+[tables]
+data = 3845
+splits = 38450

@@ -1,0 +1,15 @@
+competition = "bank_customer_churn"
+name = "Bank_Customer_Churn"
+format = "tabular"
+target = "churn"
+openml_task = 363619
+openml_dataset = 46911
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:00.383"
+fingerprint = "fa71519165098b211180c2ec618df0766b67b1d0701cd93b448038a3aba28610"
+
+[tables]
+data = 10000
+splits = 100000

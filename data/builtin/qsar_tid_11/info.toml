@@ -1,0 +1,15 @@
+competition = "qsar_tid_11"
+name = "QSAR-TID-11"
+format = "tabular"
+target = "MEDIAN_PXC50"
+openml_task = 363697
+openml_dataset = 46953
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:25.417"
+fingerprint = "4e884378cd89e16c9ba5d46bfa2ff3417b6d3032ca4ce2d616ee05a75cc6286f"
+
+[tables]
+data = 5742
+splits = 57420

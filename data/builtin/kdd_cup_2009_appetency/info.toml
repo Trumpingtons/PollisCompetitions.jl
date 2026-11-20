@@ -1,0 +1,15 @@
+competition = "kdd_cup_2009_appetency"
+name = "kddcup09_appetency"
+format = "tabular"
+target = "appetency"
+openml_task = 363683
+openml_dataset = 46939
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:22.472"
+fingerprint = "688069c567c6dced9418f38927558bf0f1ecbe346c8097fca0ff5e9d15c3a9e1"
+
+[tables]
+data = 50000
+splits = 500000

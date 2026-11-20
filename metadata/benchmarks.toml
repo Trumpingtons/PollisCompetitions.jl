@@ -58212,3 +58212,4015 @@ split_protocol = "TabArena: 3 repeats of 3-fold cross-validation"
   rmse = 0.5851440495914884
   time_train_s = 2.431779246111142
   time_infer_s = 0.07166505188891076
+
+# Monash Time Series Forecasting Archive: each model of the results table of its website on each dataset of the
+# Dataset Catalog it has results on, with the fixed horizon of its benchmarks: the last values of each series held out,
+# as many as the horizon of its frequency. M1, M3 and Tourism have a run per frequency, named in the run_id. mean_mase
+# is the mean over the series of MASE, to 3 decimals as the table gives it; the models benchmarked in 2025 have it in
+# full, from their results workbook, with median_mase, the mean and median of sMAPE and msMAPE (as fractions, not
+# percent) and of MAE and RMSE (in the units of the series).
+
+[[runs]]
+run_id = "monash_ses.cif2016"
+model_id = "monash_ses"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.291
+
+[[runs]]
+run_id = "monash_ses.kdd_cup_2018"
+model_id = "monash_ses"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.645
+
+[[runs]]
+run_id = "monash_ses.nn5"
+model_id = "monash_ses"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.521
+
+[[runs]]
+run_id = "monash_ses.m1.yearly"
+model_id = "monash_ses"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.938
+
+[[runs]]
+run_id = "monash_ses.m1.quarterly"
+model_id = "monash_ses"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.929
+
+[[runs]]
+run_id = "monash_ses.m1.monthly"
+model_id = "monash_ses"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.379
+
+[[runs]]
+run_id = "monash_ses.m3.yearly"
+model_id = "monash_ses"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.167
+
+[[runs]]
+run_id = "monash_ses.m3.quarterly"
+model_id = "monash_ses"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.417
+
+[[runs]]
+run_id = "monash_ses.m3.monthly"
+model_id = "monash_ses"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.091
+
+[[runs]]
+run_id = "monash_ses.m3.other"
+model_id = "monash_ses"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 3.089
+
+[[runs]]
+run_id = "monash_ses.tourism_2011.yearly"
+model_id = "monash_ses"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.253
+
+[[runs]]
+run_id = "monash_ses.tourism_2011.quarterly"
+model_id = "monash_ses"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 3.21
+
+[[runs]]
+run_id = "monash_ses.tourism_2011.monthly"
+model_id = "monash_ses"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 3.306
+
+[[runs]]
+run_id = "monash_theta.cif2016"
+model_id = "monash_theta"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.997
+
+[[runs]]
+run_id = "monash_theta.kdd_cup_2018"
+model_id = "monash_theta"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.646
+
+[[runs]]
+run_id = "monash_theta.nn5"
+model_id = "monash_theta"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.885
+
+[[runs]]
+run_id = "monash_theta.m1.yearly"
+model_id = "monash_theta"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.191
+
+[[runs]]
+run_id = "monash_theta.m1.quarterly"
+model_id = "monash_theta"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.702
+
+[[runs]]
+run_id = "monash_theta.m1.monthly"
+model_id = "monash_theta"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.091
+
+[[runs]]
+run_id = "monash_theta.m3.yearly"
+model_id = "monash_theta"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.774
+
+[[runs]]
+run_id = "monash_theta.m3.quarterly"
+model_id = "monash_theta"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.117
+
+[[runs]]
+run_id = "monash_theta.m3.monthly"
+model_id = "monash_theta"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 0.864
+
+[[runs]]
+run_id = "monash_theta.m3.other"
+model_id = "monash_theta"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 2.271
+
+[[runs]]
+run_id = "monash_theta.tourism_2011.yearly"
+model_id = "monash_theta"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.015
+
+[[runs]]
+run_id = "monash_theta.tourism_2011.quarterly"
+model_id = "monash_theta"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.661
+
+[[runs]]
+run_id = "monash_theta.tourism_2011.monthly"
+model_id = "monash_theta"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.649
+
+[[runs]]
+run_id = "monash_tbats.cif2016"
+model_id = "monash_tbats"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.861
+
+[[runs]]
+run_id = "monash_tbats.kdd_cup_2018"
+model_id = "monash_tbats"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.394
+
+[[runs]]
+run_id = "monash_tbats.nn5"
+model_id = "monash_tbats"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.858
+
+[[runs]]
+run_id = "monash_tbats.m1.yearly"
+model_id = "monash_tbats"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.499
+
+[[runs]]
+run_id = "monash_tbats.m1.quarterly"
+model_id = "monash_tbats"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.694
+
+[[runs]]
+run_id = "monash_tbats.m1.monthly"
+model_id = "monash_tbats"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.118
+
+[[runs]]
+run_id = "monash_tbats.m3.yearly"
+model_id = "monash_tbats"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.127
+
+[[runs]]
+run_id = "monash_tbats.m3.quarterly"
+model_id = "monash_tbats"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.256
+
+[[runs]]
+run_id = "monash_tbats.m3.monthly"
+model_id = "monash_tbats"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 0.861
+
+[[runs]]
+run_id = "monash_tbats.m3.other"
+model_id = "monash_tbats"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 1.848
+
+[[runs]]
+run_id = "monash_tbats.tourism_2011.yearly"
+model_id = "monash_tbats"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.685
+
+[[runs]]
+run_id = "monash_tbats.tourism_2011.quarterly"
+model_id = "monash_tbats"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.835
+
+[[runs]]
+run_id = "monash_tbats.tourism_2011.monthly"
+model_id = "monash_tbats"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.751
+
+[[runs]]
+run_id = "monash_ets.cif2016"
+model_id = "monash_ets"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.841
+
+[[runs]]
+run_id = "monash_ets.kdd_cup_2018"
+model_id = "monash_ets"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.787
+
+[[runs]]
+run_id = "monash_ets.nn5"
+model_id = "monash_ets"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.865
+
+[[runs]]
+run_id = "monash_ets.m1.yearly"
+model_id = "monash_ets"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.771
+
+[[runs]]
+run_id = "monash_ets.m1.quarterly"
+model_id = "monash_ets"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.658
+
+[[runs]]
+run_id = "monash_ets.m1.monthly"
+model_id = "monash_ets"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.074
+
+[[runs]]
+run_id = "monash_ets.m3.yearly"
+model_id = "monash_ets"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.86
+
+[[runs]]
+run_id = "monash_ets.m3.quarterly"
+model_id = "monash_ets"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.17
+
+[[runs]]
+run_id = "monash_ets.m3.monthly"
+model_id = "monash_ets"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 0.865
+
+[[runs]]
+run_id = "monash_ets.m3.other"
+model_id = "monash_ets"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 1.814
+
+[[runs]]
+run_id = "monash_ets.tourism_2011.yearly"
+model_id = "monash_ets"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.395
+
+[[runs]]
+run_id = "monash_ets.tourism_2011.quarterly"
+model_id = "monash_ets"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.592
+
+[[runs]]
+run_id = "monash_ets.tourism_2011.monthly"
+model_id = "monash_ets"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.526
+
+[[runs]]
+run_id = "monash_arima.cif2016"
+model_id = "monash_arima"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.929
+
+[[runs]]
+run_id = "monash_arima.nn5"
+model_id = "monash_arima"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.013
+
+[[runs]]
+run_id = "monash_arima.m1.yearly"
+model_id = "monash_arima"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.479
+
+[[runs]]
+run_id = "monash_arima.m1.quarterly"
+model_id = "monash_arima"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.787
+
+[[runs]]
+run_id = "monash_arima.m1.monthly"
+model_id = "monash_arima"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.164
+
+[[runs]]
+run_id = "monash_arima.m3.yearly"
+model_id = "monash_arima"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.417
+
+[[runs]]
+run_id = "monash_arima.m3.quarterly"
+model_id = "monash_arima"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.24
+
+[[runs]]
+run_id = "monash_arima.m3.monthly"
+model_id = "monash_arima"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 0.873
+
+[[runs]]
+run_id = "monash_arima.m3.other"
+model_id = "monash_arima"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 1.831
+
+[[runs]]
+run_id = "monash_arima.tourism_2011.yearly"
+model_id = "monash_arima"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.775
+
+[[runs]]
+run_id = "monash_arima.tourism_2011.quarterly"
+model_id = "monash_arima"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.782
+
+[[runs]]
+run_id = "monash_arima.tourism_2011.monthly"
+model_id = "monash_arima"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.589
+
+[[runs]]
+run_id = "monash_dhr_arima.kdd_cup_2018"
+model_id = "monash_dhr_arima"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.982
+
+[[runs]]
+run_id = "monash_pr.cif2016"
+model_id = "monash_pr"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.019
+
+[[runs]]
+run_id = "monash_pr.kdd_cup_2018"
+model_id = "monash_pr"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.265
+
+[[runs]]
+run_id = "monash_pr.nn5"
+model_id = "monash_pr"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.263
+
+[[runs]]
+run_id = "monash_pr.m1.yearly"
+model_id = "monash_pr"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.588
+
+[[runs]]
+run_id = "monash_pr.m1.quarterly"
+model_id = "monash_pr"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.892
+
+[[runs]]
+run_id = "monash_pr.m1.monthly"
+model_id = "monash_pr"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.123
+
+[[runs]]
+run_id = "monash_pr.m3.yearly"
+model_id = "monash_pr"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.223
+
+[[runs]]
+run_id = "monash_pr.m3.quarterly"
+model_id = "monash_pr"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.248
+
+[[runs]]
+run_id = "monash_pr.m3.monthly"
+model_id = "monash_pr"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.01
+
+[[runs]]
+run_id = "monash_pr.m3.other"
+model_id = "monash_pr"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 2.655
+
+[[runs]]
+run_id = "monash_pr.tourism_2011.yearly"
+model_id = "monash_pr"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.516
+
+[[runs]]
+run_id = "monash_pr.tourism_2011.quarterly"
+model_id = "monash_pr"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.643
+
+[[runs]]
+run_id = "monash_pr.tourism_2011.monthly"
+model_id = "monash_pr"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.678
+
+[[runs]]
+run_id = "monash_catboost.cif2016"
+model_id = "monash_catboost"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.175
+
+[[runs]]
+run_id = "monash_catboost.kdd_cup_2018"
+model_id = "monash_catboost"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.233
+
+[[runs]]
+run_id = "monash_catboost.nn5"
+model_id = "monash_catboost"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.973
+
+[[runs]]
+run_id = "monash_catboost.m1.yearly"
+model_id = "monash_catboost"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.427
+
+[[runs]]
+run_id = "monash_catboost.m1.quarterly"
+model_id = "monash_catboost"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 2.031
+
+[[runs]]
+run_id = "monash_catboost.m1.monthly"
+model_id = "monash_catboost"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.209
+
+[[runs]]
+run_id = "monash_catboost.m3.yearly"
+model_id = "monash_catboost"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.788
+
+[[runs]]
+run_id = "monash_catboost.m3.quarterly"
+model_id = "monash_catboost"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.441
+
+[[runs]]
+run_id = "monash_catboost.m3.monthly"
+model_id = "monash_catboost"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.065
+
+[[runs]]
+run_id = "monash_catboost.m3.other"
+model_id = "monash_catboost"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 3.178
+
+[[runs]]
+run_id = "monash_catboost.tourism_2011.yearly"
+model_id = "monash_catboost"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.553
+
+[[runs]]
+run_id = "monash_catboost.tourism_2011.quarterly"
+model_id = "monash_catboost"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.793
+
+[[runs]]
+run_id = "monash_catboost.tourism_2011.monthly"
+model_id = "monash_catboost"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.699
+
+[[runs]]
+run_id = "monash_ffnn.cif2016"
+model_id = "monash_ffnn"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.053
+
+[[runs]]
+run_id = "monash_ffnn.kdd_cup_2018"
+model_id = "monash_ffnn"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.228
+
+[[runs]]
+run_id = "monash_ffnn.nn5"
+model_id = "monash_ffnn"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.941
+
+[[runs]]
+run_id = "monash_ffnn.m1.yearly"
+model_id = "monash_ffnn"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.355
+
+[[runs]]
+run_id = "monash_ffnn.m1.quarterly"
+model_id = "monash_ffnn"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.862
+
+[[runs]]
+run_id = "monash_ffnn.m1.monthly"
+model_id = "monash_ffnn"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.205
+
+[[runs]]
+run_id = "monash_ffnn.m3.yearly"
+model_id = "monash_ffnn"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.399
+
+[[runs]]
+run_id = "monash_ffnn.m3.quarterly"
+model_id = "monash_ffnn"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.329
+
+[[runs]]
+run_id = "monash_ffnn.m3.monthly"
+model_id = "monash_ffnn"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.011
+
+[[runs]]
+run_id = "monash_ffnn.m3.other"
+model_id = "monash_ffnn"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 2.615
+
+[[runs]]
+run_id = "monash_ffnn.tourism_2011.yearly"
+model_id = "monash_ffnn"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.401
+
+[[runs]]
+run_id = "monash_ffnn.tourism_2011.quarterly"
+model_id = "monash_ffnn"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.678
+
+[[runs]]
+run_id = "monash_ffnn.tourism_2011.monthly"
+model_id = "monash_ffnn"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.582
+
+[[runs]]
+run_id = "monash_deepar.cif2016"
+model_id = "monash_deepar"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.159
+
+[[runs]]
+run_id = "monash_deepar.kdd_cup_2018"
+model_id = "monash_deepar"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.699
+
+[[runs]]
+run_id = "monash_deepar.nn5"
+model_id = "monash_deepar"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.919
+
+[[runs]]
+run_id = "monash_deepar.m1.yearly"
+model_id = "monash_deepar"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.603
+
+[[runs]]
+run_id = "monash_deepar.m1.quarterly"
+model_id = "monash_deepar"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.833
+
+[[runs]]
+run_id = "monash_deepar.m1.monthly"
+model_id = "monash_deepar"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.192
+
+[[runs]]
+run_id = "monash_deepar.m3.yearly"
+model_id = "monash_deepar"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.508
+
+[[runs]]
+run_id = "monash_deepar.m3.quarterly"
+model_id = "monash_deepar"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.31
+
+[[runs]]
+run_id = "monash_deepar.m3.monthly"
+model_id = "monash_deepar"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.167
+
+[[runs]]
+run_id = "monash_deepar.m3.other"
+model_id = "monash_deepar"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 2.975
+
+[[runs]]
+run_id = "monash_deepar.tourism_2011.yearly"
+model_id = "monash_deepar"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.205
+
+[[runs]]
+run_id = "monash_deepar.tourism_2011.quarterly"
+model_id = "monash_deepar"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.597
+
+[[runs]]
+run_id = "monash_deepar.tourism_2011.monthly"
+model_id = "monash_deepar"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.409
+
+[[runs]]
+run_id = "monash_nbeats.cif2016"
+model_id = "monash_nbeats"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.971
+
+[[runs]]
+run_id = "monash_nbeats.kdd_cup_2018"
+model_id = "monash_nbeats"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.6
+
+[[runs]]
+run_id = "monash_nbeats.nn5"
+model_id = "monash_nbeats"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.134
+
+[[runs]]
+run_id = "monash_nbeats.m1.yearly"
+model_id = "monash_nbeats"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.384
+
+[[runs]]
+run_id = "monash_nbeats.m1.quarterly"
+model_id = "monash_nbeats"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.788
+
+[[runs]]
+run_id = "monash_nbeats.m1.monthly"
+model_id = "monash_nbeats"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.168
+
+[[runs]]
+run_id = "monash_nbeats.m3.yearly"
+model_id = "monash_nbeats"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.961
+
+[[runs]]
+run_id = "monash_nbeats.m3.quarterly"
+model_id = "monash_nbeats"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.182
+
+[[runs]]
+run_id = "monash_nbeats.m3.monthly"
+model_id = "monash_nbeats"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 0.934
+
+[[runs]]
+run_id = "monash_nbeats.m3.other"
+model_id = "monash_nbeats"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 2.39
+
+[[runs]]
+run_id = "monash_nbeats.tourism_2011.yearly"
+model_id = "monash_nbeats"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.977
+
+[[runs]]
+run_id = "monash_nbeats.tourism_2011.quarterly"
+model_id = "monash_nbeats"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.475
+
+[[runs]]
+run_id = "monash_nbeats.tourism_2011.monthly"
+model_id = "monash_nbeats"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.574
+
+[[runs]]
+run_id = "monash_wavenet.cif2016"
+model_id = "monash_wavenet"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.8
+
+[[runs]]
+run_id = "monash_wavenet.kdd_cup_2018"
+model_id = "monash_wavenet"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.185
+
+[[runs]]
+run_id = "monash_wavenet.nn5"
+model_id = "monash_wavenet"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.916
+
+[[runs]]
+run_id = "monash_wavenet.m1.yearly"
+model_id = "monash_wavenet"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.666
+
+[[runs]]
+run_id = "monash_wavenet.m1.quarterly"
+model_id = "monash_wavenet"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.7
+
+[[runs]]
+run_id = "monash_wavenet.m1.monthly"
+model_id = "monash_wavenet"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.2
+
+[[runs]]
+run_id = "monash_wavenet.m3.yearly"
+model_id = "monash_wavenet"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.014
+
+[[runs]]
+run_id = "monash_wavenet.m3.quarterly"
+model_id = "monash_wavenet"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.29
+
+[[runs]]
+run_id = "monash_wavenet.m3.monthly"
+model_id = "monash_wavenet"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.008
+
+[[runs]]
+run_id = "monash_wavenet.m3.other"
+model_id = "monash_wavenet"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 2.127
+
+[[runs]]
+run_id = "monash_wavenet.tourism_2011.yearly"
+model_id = "monash_wavenet"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.624
+
+[[runs]]
+run_id = "monash_wavenet.tourism_2011.quarterly"
+model_id = "monash_wavenet"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.714
+
+[[runs]]
+run_id = "monash_wavenet.tourism_2011.monthly"
+model_id = "monash_wavenet"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.482
+
+[[runs]]
+run_id = "monash_transformer.cif2016"
+model_id = "monash_transformer"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.173
+
+[[runs]]
+run_id = "monash_transformer.kdd_cup_2018"
+model_id = "monash_transformer"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.696
+
+[[runs]]
+run_id = "monash_transformer.nn5"
+model_id = "monash_transformer"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.958
+
+[[runs]]
+run_id = "monash_transformer.m1.yearly"
+model_id = "monash_transformer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 5.519
+
+[[runs]]
+run_id = "monash_transformer.m1.quarterly"
+model_id = "monash_transformer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 2.772
+
+[[runs]]
+run_id = "monash_transformer.m1.monthly"
+model_id = "monash_transformer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 2.191
+
+[[runs]]
+run_id = "monash_transformer.m3.yearly"
+model_id = "monash_transformer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.003
+
+[[runs]]
+run_id = "monash_transformer.m3.quarterly"
+model_id = "monash_transformer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 2.452
+
+[[runs]]
+run_id = "monash_transformer.m3.monthly"
+model_id = "monash_transformer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.454
+
+[[runs]]
+run_id = "monash_transformer.m3.other"
+model_id = "monash_transformer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each series of other frequency held out"
+
+  [runs.scores]
+  mean_mase = 2.781
+
+[[runs]]
+run_id = "monash_transformer.tourism_2011.yearly"
+model_id = "monash_transformer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.552
+
+[[runs]]
+run_id = "monash_transformer.tourism_2011.quarterly"
+model_id = "monash_transformer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.859
+
+[[runs]]
+run_id = "monash_transformer.tourism_2011.monthly"
+model_id = "monash_transformer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.571
+
+[[runs]]
+run_id = "monash_informer.nn5"
+model_id = "monash_informer"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.933
+
+[[runs]]
+run_id = "monash_autoformer.nn5"
+model_id = "monash_autoformer"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.08713920414447
+  median_mase = 1.04949444532394
+  mean_smape = 0.271895296871662
+  median_smape = 0.271895296871662
+  mean_msmape = 0.270855203270912
+  median_msmape = 0.25384933874011
+  mean_mae = 4.69628405570983
+  median_mae = 4.37557083368301
+  mean_rmse = 6.41035234928131
+  median_rmse = 6.05270159244537
+
+[[runs]]
+run_id = "monash_dlinear.cif2016"
+model_id = "monash_dlinear"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 3.71657361984252
+  median_mase = 0.959090650081634
+  mean_smape = 0.228762501478195
+  median_smape = 0.116657625138759
+  mean_msmape = 0.227865788340568
+  median_msmape = 0.116642369329929
+  mean_mae = 1557526.15
+  median_mae = 106.229803466796
+  mean_rmse = 1826243.05
+  median_rmse = 123.774610900878
+
+[[runs]]
+run_id = "monash_dlinear.kdd_cup_2018"
+model_id = "monash_dlinear"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.28033642768859
+  median_mase = 1.00928641557693
+  mean_smape = 0.518036341667175
+  median_smape = 0.5350754737854
+  mean_msmape = 0.5139652967453
+  median_msmape = 0.53382476568222
+  mean_mae = 37.3985076904296
+  median_mae = 16.9510192871093
+  mean_rmse = 68.5413482666015
+  median_rmse = 22.1237079620361
+
+[[runs]]
+run_id = "monash_dlinear.nn5"
+model_id = "monash_dlinear"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.957787978649139
+  median_mase = 0.887650883197784
+  mean_smape = 0.241344246268272
+  median_smape = 0.232186329364776
+  mean_msmape = 0.240428644418716
+  median_msmape = 0.231461414694786
+  mean_mae = 4.14768934249877
+  median_mae = 3.85803279876709
+  mean_rmse = 5.74369735717773
+  median_rmse = 5.17769603729248
+
+[[runs]]
+run_id = "monash_dlinear.m1.yearly"
+model_id = "monash_dlinear"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 5.72362260818481
+  median_mase = 3.10191659927368
+  mean_smape = 0.200634011626243
+  median_smape = 0.150579762458801
+  mean_msmape = 0.200390276312828
+  median_msmape = 0.150574222207069
+  mean_mae = 138631.084375
+  median_mae = 235.249221801757
+  mean_rmse = 157934.58125
+  median_rmse = 275.903662109375
+
+[[runs]]
+run_id = "monash_dlinear.m1.quarterly"
+model_id = "monash_dlinear"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 3.10706443786621
+  median_mase = 1.69419391155242
+  mean_smape = 0.194296076893806
+  median_smape = 0.123708409070968
+  mean_msmape = 0.193832775950431
+  median_msmape = 0.123594504594802
+  mean_mae = 1805.71596679687
+  median_mae = 24.6111980438232
+  mean_rmse = 2172.15424804687
+  median_rmse = 28.5561691284179
+
+[[runs]]
+run_id = "monash_dlinear.m1.monthly"
+model_id = "monash_dlinear"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.53462047576904
+  median_mase = 1.12375938892364
+  mean_smape = 0.215828797221183
+  median_smape = 0.140702629089355
+  mean_msmape = 0.211693599820137
+  median_msmape = 0.140622013807296
+  mean_mae = 2293.09272460937
+  median_mae = 42.4260536193847
+  mean_rmse = 2773.22524414062
+  median_rmse = 50.0420211791992
+
+[[runs]]
+run_id = "monash_dlinear.m3.yearly"
+model_id = "monash_dlinear"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.993386220932
+  median_mase = 2.09762229919433
+  mean_smape = 0.167984169721603
+  median_smape = 0.118969896435737
+  mean_msmape = 0.167982360720634
+  median_msmape = 0.118968640267848
+  mean_mae = 991.8279296875
+  median_mae = 650.906701660156
+  mean_rmse = 1148.13081054687
+  median_rmse = 761.944006347656
+
+[[runs]]
+run_id = "monash_dlinear.m3.quarterly"
+model_id = "monash_dlinear"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.25389761924743
+  median_mase = 0.915235698223114
+  mean_smape = 0.0972552105784416
+  median_smape = 0.0551802575588226
+  mean_msmape = 0.0972540900111198
+  median_msmape = 0.0551797106862068
+  mean_mae = 517.925305175781
+  median_mae = 312.570153808593
+  mean_rmse = 603.543811035156
+  median_rmse = 367.679016113281
+
+[[runs]]
+run_id = "monash_dlinear.m3.monthly"
+model_id = "monash_dlinear"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.07850149869918
+  median_mase = 0.86821471452713
+  mean_smape = 0.154171076416969
+  median_smape = 0.10382062792778
+  mean_msmape = 0.154168692231178
+  median_msmape = 0.103819140791893
+  mean_mae = 706.187670898437
+  median_mae = 497.963775634765
+  mean_rmse = 842.290380859375
+  median_rmse = 593.271264648437
+
+[[runs]]
+run_id = "monash_dlinear.tourism_2011.yearly"
+model_id = "monash_dlinear"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 6.86269760131835
+  median_mase = 2.70277047157287
+  mean_smape = 0.411947721242904
+  median_smape = 0.194489878416061
+  mean_msmape = 0.411392760276794
+  median_msmape = 0.19448774755001
+  mean_mae = 93392.88125
+  median_mae = 4664.92802734375
+  mean_rmse = 106989.4390625
+  median_rmse = 5187.200390625
+
+[[runs]]
+run_id = "monash_dlinear.tourism_2011.quarterly"
+model_id = "monash_dlinear"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.53993599414825
+  median_mase = 1.3118987083435
+  mean_smape = 0.150316587090492
+  median_smape = 0.123683528602123
+  mean_msmape = 0.150309026241302
+  median_msmape = 0.123680657148361
+  mean_mae = 8660.2916015625
+  median_mae = 907.550244140625
+  mean_rmse = 11657.2751953125
+  median_rmse = 1108.91733398437
+
+[[runs]]
+run_id = "monash_dlinear.tourism_2011.monthly"
+model_id = "monash_dlinear"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.49167320728302
+  median_mase = 1.33917250633239
+  mean_smape = 0.194300392270088
+  median_smape = 0.167314195632934
+  mean_msmape = 0.194280672073364
+  median_msmape = 0.167310923337936
+  mean_mae = 1708.1462890625
+  median_mae = 431.927117919921
+  mean_rmse = 2177.17016601562
+  median_rmse = 555.21826171875
+
+[[runs]]
+run_id = "monash_ttm_zs.cif2016"
+model_id = "monash_ttm_zs"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.21596014499664
+  median_mase = 0.857251942157745
+  mean_smape = 0.156146645545959
+  median_smape = 0.100575886666774
+  mean_msmape = 0.156060203909873
+  median_msmape = 0.100575886666774
+  mean_mae = 408268.875
+  median_mae = 99.9651489257812
+  mean_rmse = 537603.75
+  median_rmse = 115.11449432373
+
+[[runs]]
+run_id = "monash_ttm_zs.nn5"
+model_id = "monash_ttm_zs"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.48673021793365
+  median_mase = 1.4528921842575
+  mean_smape = 0.347327232360839
+  median_smape = 0.336995214223861
+  mean_msmape = 0.346191316843032
+  median_msmape = 0.336018323898315
+  mean_mae = 6.49189567565918
+  median_mae = 5.81764602661132
+  mean_rmse = 8.20932579040527
+  median_rmse = 7.26132869720459
+
+[[runs]]
+run_id = "monash_ttm_zs.m1.yearly"
+model_id = "monash_ttm_zs"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.6557183265686
+  median_mase = 3.67321586608886
+  mean_smape = 0.210916832089424
+  median_smape = 0.167196318507194
+  mean_msmape = 0.210746169090271
+  median_msmape = 0.167080417275428
+  mean_mae = 157844.359375
+  median_mae = 311.439300537109
+  mean_rmse = 179418.234375
+  median_rmse = 370.046295166015
+
+[[runs]]
+run_id = "monash_ttm_zs.m1.quarterly"
+model_id = "monash_ttm_zs"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.8639371395111
+  median_mase = 1.42315626144409
+  mean_smape = 0.170417547225952
+  median_smape = 0.105284720659255
+  mean_msmape = 0.170135423541069
+  median_msmape = 0.105284489691257
+  mean_mae = 2146.43603515625
+  median_mae = 19.7772045135498
+  mean_rmse = 2477.47143554687
+  median_rmse = 21.2011699676513
+
+[[runs]]
+run_id = "monash_ttm_zs.m1.monthly"
+model_id = "monash_ttm_zs"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.30911195278167
+  median_mase = 1.14446544647216
+  mean_smape = 0.165668815374374
+  median_smape = 0.137439653277397
+  mean_msmape = 0.162601634860038
+  median_msmape = 0.135655954480171
+  mean_mae = 2150.3232421875
+  median_mae = 42.9947776794433
+  mean_rmse = 2602.15600585937
+  median_rmse = 49.8513603210449
+
+[[runs]]
+run_id = "monash_ttm_zs.m3.yearly"
+model_id = "monash_ttm_zs"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.00387644767761
+  median_mase = 2.09875440597534
+  mean_smape = 0.167676404118537
+  median_smape = 0.115772105753421
+  mean_msmape = 0.167674615979194
+  median_msmape = 0.115771137177944
+  mean_mae = 960.0732421875
+  median_mae = 648.531860351562
+  mean_rmse = 1108.4375
+  median_rmse = 749.644775390625
+
+[[runs]]
+run_id = "monash_ttm_zs.m3.quarterly"
+model_id = "monash_ttm_zs"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.33824503421783
+  median_mase = 1.00723874568939
+  mean_smape = 0.100989162921905
+  median_smape = 0.0640686303377151
+  mean_msmape = 0.100988015532493
+  median_msmape = 0.0640677437186241
+  mean_mae = 534.897705078125
+  median_mae = 343.677490234375
+  mean_rmse = 628.63671875
+  median_rmse = 394.550964355468
+
+[[runs]]
+run_id = "monash_ttm_zs.m3.monthly"
+model_id = "monash_ttm_zs"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.02368175983428
+  median_mase = 0.806774854660034
+  mean_smape = 0.150582283735275
+  median_smape = 0.101593822240829
+  mean_msmape = 0.150579944252967
+  median_msmape = 0.101592600345611
+  mean_mae = 688.511047363281
+  median_mae = 496.966735839843
+  mean_rmse = 835.586120605468
+  median_rmse = 602.929077148437
+
+[[runs]]
+run_id = "monash_ttm_zs.tourism_2011.yearly"
+model_id = "monash_ttm_zs"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.0779161453247
+  median_mase = 2.27470231056213
+  mean_smape = 0.314672887325286
+  median_smape = 0.174219042062759
+  mean_msmape = 0.314388483762741
+  median_msmape = 0.174044534564018
+  mean_mae = 89375.1328125
+  median_mae = 4341.57421875
+  mean_rmse = 100644.734375
+  median_rmse = 4818.41357421875
+
+[[runs]]
+run_id = "monash_ttm_zs.tourism_2011.quarterly"
+model_id = "monash_ttm_zs"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 3.10534358024597
+  median_mase = 2.17307996749877
+  mean_smape = 0.262812286615371
+  median_smape = 0.208732411265373
+  mean_msmape = 0.262804448604583
+  median_msmape = 0.208730831742286
+  mean_mae = 14575.6064453125
+  median_mae = 1768.25061035156
+  mean_rmse = 16933.37890625
+  median_rmse = 2184.61840820312
+
+[[runs]]
+run_id = "monash_ttm_zs.tourism_2011.monthly"
+model_id = "monash_ttm_zs"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 3.02698183059692
+  median_mase = 2.27707242965698
+  mean_smape = 0.332025796175003
+  median_smape = 0.284892588853836
+  mean_msmape = 0.332004308700561
+  median_msmape = 0.284865140914917
+  mean_mae = 4804.396484375
+  median_mae = 905.547912597656
+  mean_rmse = 6259.27880859375
+  median_rmse = 1206.41088867187
+
+[[runs]]
+run_id = "monash_itransformer.cif2016"
+model_id = "monash_itransformer"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.31550543308258
+  median_mase = 1.01412464380264
+  mean_smape = 0.158527493476867
+  median_smape = 0.116750527918338
+  mean_msmape = 0.158432105183601
+  median_msmape = 0.116725522279739
+  mean_mae = 446267.76875
+  median_mae = 105.199546813964
+  mean_rmse = 483667.18125
+  median_rmse = 120.892179870605
+
+[[runs]]
+run_id = "monash_itransformer.kdd_cup_2018"
+model_id = "monash_itransformer"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.33102340698242
+  median_mase = 1.16307024955749
+  mean_smape = 0.561438512802124
+  median_smape = 0.586268901824951
+  mean_msmape = 0.557208943367004
+  median_msmape = 0.585041320323944
+  mean_mae = 40.2565956115722
+  median_mae = 20.2735858917236
+  mean_rmse = 71.7228622436523
+  median_rmse = 23.9378959655761
+
+[[runs]]
+run_id = "monash_itransformer.nn5"
+model_id = "monash_itransformer"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.949422121047973
+  median_mase = 0.895270729064941
+  mean_smape = 0.239763334393501
+  median_smape = 0.227735489606857
+  mean_msmape = 0.238845804333686
+  median_msmape = 0.227128013968467
+  mean_mae = 4.08327207565307
+  median_mae = 3.74069685935974
+  mean_rmse = 5.72067432403564
+  median_rmse = 5.18791532516479
+
+[[runs]]
+run_id = "monash_itransformer.m1.yearly"
+model_id = "monash_itransformer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.05243763923645
+  median_mase = 3.01998386383056
+  mean_smape = 0.190166237950325
+  median_smape = 0.135897430777549
+  mean_msmape = 0.190026175975799
+  median_msmape = 0.135761451721191
+  mean_mae = 139690.671875
+  median_mae = 276.700134277343
+  mean_rmse = 154975.596875
+  median_rmse = 306.688940429687
+
+[[runs]]
+run_id = "monash_itransformer.m1.quarterly"
+model_id = "monash_itransformer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.94505498409271
+  median_mase = 1.49833354949951
+  mean_smape = 0.178633558750152
+  median_smape = 0.0991982221603393
+  mean_msmape = 0.178350669145584
+  median_msmape = 0.0991713985800743
+  mean_mae = 1685.95737304687
+  median_mae = 21.2243900299072
+  mean_rmse = 1967.28959960937
+  median_rmse = 24.2779239654541
+
+[[runs]]
+run_id = "monash_itransformer.m1.monthly"
+model_id = "monash_itransformer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.43298804759979
+  median_mase = 1.19991426467895
+  mean_smape = 0.182300800085067
+  median_smape = 0.144485202431678
+  mean_msmape = 0.179075050354003
+  median_msmape = 0.143241143226623
+  mean_mae = 2656.805859375
+  median_mae = 45.3861404418945
+  mean_rmse = 3075.9958984375
+  median_rmse = 53.9295372009277
+
+[[runs]]
+run_id = "monash_itransformer.m3.yearly"
+model_id = "monash_itransformer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.95568714141845
+  median_mase = 2.05611243247985
+  mean_smape = 0.171970149874687
+  median_smape = 0.117721500992774
+  mean_msmape = 0.171968391537666
+  median_msmape = 0.117720544338226
+  mean_mae = 1083.04650878906
+  median_mae = 654.745861816406
+  mean_rmse = 1240.56901855468
+  median_rmse = 766.609692382812
+
+[[runs]]
+run_id = "monash_itransformer.m3.quarterly"
+model_id = "monash_itransformer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.26182932853698
+  median_mase = 0.894466805458068
+  mean_smape = 0.100890399515628
+  median_smape = 0.0570993013679981
+  mean_msmape = 0.100889265537261
+  median_msmape = 0.0570987150073051
+  mean_mae = 544.150158691406
+  median_mae = 321.641467285156
+  mean_rmse = 632.626049804687
+  median_rmse = 382.845550537109
+
+[[runs]]
+run_id = "monash_itransformer.m3.monthly"
+model_id = "monash_itransformer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.05076012611389
+  median_mase = 0.835274672508239
+  mean_smape = 0.155347192287445
+  median_smape = 0.105971167981624
+  mean_msmape = 0.155344757437705
+  median_msmape = 0.105970348417758
+  mean_mae = 710.796618652343
+  median_mae = 509.364361572265
+  mean_rmse = 858.281481933593
+  median_rmse = 612.892175292968
+
+[[runs]]
+run_id = "monash_itransformer.tourism_2011.yearly"
+model_id = "monash_itransformer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.75683522224426
+  median_mase = 2.26909365653991
+  mean_smape = 0.250658184289932
+  median_smape = 0.181387928128242
+  mean_msmape = 0.25036107301712
+  median_msmape = 0.181387811899185
+  mean_mae = 77620.7859375
+  median_mae = 3816.53334960937
+  mean_rmse = 90050.390625
+  median_rmse = 4280.92099609375
+
+[[runs]]
+run_id = "monash_itransformer.tourism_2011.quarterly"
+model_id = "monash_itransformer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 2.27260828018188
+  median_mase = 1.93737745285034
+  mean_smape = 0.224118477106094
+  median_smape = 0.18432670533657
+  mean_msmape = 0.224109327793121
+  median_msmape = 0.184323525428771
+  mean_mae = 13358.771484375
+  median_mae = 1445.85942382812
+  mean_rmse = 15635.3220703125
+  median_rmse = 1711.69807128906
+
+[[runs]]
+run_id = "monash_itransformer.tourism_2011.monthly"
+model_id = "monash_itransformer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 2.56068668365478
+  median_mase = 2.24076929092407
+  mean_smape = 0.298521023988723
+  median_smape = 0.262825232744216
+  mean_msmape = 0.298497712612152
+  median_msmape = 0.262814331054687
+  mean_mae = 3499.87041015625
+  median_mae = 807.723364257812
+  mean_rmse = 4389.958984375
+  median_rmse = 1021.40737304687
+
+[[runs]]
+run_id = "monash_nbeats_global.cif2016"
+model_id = "monash_nbeats_global"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 2.261363697052
+  median_mase = 0.982924509048462
+  mean_smape = 0.179796460270881
+  median_smape = 0.109231390058994
+  mean_msmape = 0.178508210182189
+  median_msmape = 0.109220787882804
+  mean_mae = 1267792.575
+  median_mae = 96.2872161865234
+  mean_rmse = 1539123.275
+  median_rmse = 115.035807800292
+
+[[runs]]
+run_id = "monash_nbeats_global.kdd_cup_2018"
+model_id = "monash_nbeats_global"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.25163965225219
+  median_mase = 1.01596394777297
+  mean_smape = 0.527662396430969
+  median_smape = 0.528497326374054
+  mean_msmape = 0.522845005989074
+  median_msmape = 0.525107538700103
+  mean_mae = 37.7570091247558
+  median_mae = 16.7725425720214
+  mean_rmse = 69.434504699707
+  median_rmse = 20.991893005371
+
+[[runs]]
+run_id = "monash_nbeats_global.nn5"
+model_id = "monash_nbeats_global"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.900696229934692
+  median_mase = 0.82977796792984
+  mean_smape = 0.223971918225288
+  median_smape = 0.212363696098327
+  mean_msmape = 0.223135563731193
+  median_msmape = 0.211571824550628
+  mean_mae = 3.90849833488464
+  median_mae = 3.56778979301452
+  mean_rmse = 5.54488267898559
+  median_rmse = 5.00540409088134
+
+[[runs]]
+run_id = "monash_nbeats_global.m1.yearly"
+model_id = "monash_nbeats_global"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 5.52545499801635
+  median_mase = 3.09312281608581
+  mean_smape = 0.20029512643814
+  median_smape = 0.143507948517799
+  mean_msmape = 0.200063154101371
+  median_msmape = 0.143290954828262
+  mean_mae = 132373.884375
+  median_mae = 251.354357910156
+  mean_rmse = 150339.334375
+  median_rmse = 294.099298095703
+
+[[runs]]
+run_id = "monash_nbeats_global.m1.quarterly"
+model_id = "monash_nbeats_global"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 2.54292502403259
+  median_mase = 1.60262837409973
+  mean_smape = 0.18929379582405
+  median_smape = 0.115840359032154
+  mean_msmape = 0.188660356402397
+  median_msmape = 0.115814563632011
+  mean_mae = 1848.84672851562
+  median_mae = 21.8696559906005
+  mean_rmse = 2160.8720703125
+  median_rmse = 25.6615928649902
+
+[[runs]]
+run_id = "monash_nbeats_global.m1.monthly"
+model_id = "monash_nbeats_global"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.25329196453094
+  median_mase = 1.02941943407058
+  mean_smape = 0.17119862139225
+  median_smape = 0.126866380870342
+  mean_msmape = 0.164516004920005
+  median_msmape = 0.126765735447406
+  mean_mae = 2592.8171875
+  median_mae = 37.433203125
+  mean_rmse = 3039.79331054687
+  median_rmse = 43.7860534667968
+
+[[runs]]
+run_id = "monash_nbeats_global.m3.yearly"
+model_id = "monash_nbeats_global"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.0244740486145
+  median_mase = 2.09884476661682
+  mean_smape = 0.16720734834671
+  median_smape = 0.123816907405853
+  mean_msmape = 0.167205473780632
+  median_msmape = 0.123815993964672
+  mean_mae = 952.530004882812
+  median_mae = 680.25830078125
+  mean_rmse = 1108.81867675781
+  median_rmse = 783.709155273437
+
+[[runs]]
+run_id = "monash_nbeats_global.m3.quarterly"
+model_id = "monash_nbeats_global"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.13374423980712
+  median_mase = 0.84405015707016
+  mean_smape = 0.09058877825737
+  median_smape = 0.0525071613490581
+  mean_msmape = 0.0905877277255058
+  median_msmape = 0.052506636083126
+  mean_mae = 478.254315185546
+  median_mae = 303.646667480468
+  mean_rmse = 563.898571777343
+  median_rmse = 362.645153808593
+
+[[runs]]
+run_id = "monash_nbeats_global.m3.monthly"
+model_id = "monash_nbeats_global"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 0.916420257091522
+  median_mase = 0.765434181690216
+  mean_smape = 0.141401761770248
+  median_smape = 0.0932607546448707
+  mean_msmape = 0.141399484872818
+  median_msmape = 0.0932597666978836
+  mean_mae = 635.194091796875
+  median_mae = 445.486212158203
+  mean_rmse = 771.942736816406
+  median_rmse = 537.190405273437
+
+[[runs]]
+run_id = "monash_nbeats_global.tourism_2011.yearly"
+model_id = "monash_nbeats_global"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 109.907834625244
+  median_mase = 3.03291563987731
+  mean_smape = 0.416752183437347
+  median_smape = 0.223956954479217
+  mean_msmape = 0.416656124591827
+  median_msmape = 0.223953300714492
+  mean_mae = 87640.8828125
+  median_mae = 4273.68559570312
+  mean_rmse = 101338.2
+  median_rmse = 4786.1388671875
+
+[[runs]]
+run_id = "monash_nbeats_global.tourism_2011.quarterly"
+model_id = "monash_nbeats_global"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.57043273448944
+  median_mase = 1.32026667594909
+  mean_smape = 0.153126770257949
+  median_smape = 0.126014736294746
+  mean_msmape = 0.153119581937789
+  median_msmape = 0.126013274490833
+  mean_mae = 8639.009765625
+  median_mae = 969.891809082031
+  mean_rmse = 11145.5822265625
+  median_rmse = 1165.43217773437
+
+[[runs]]
+run_id = "monash_nbeats_global.tourism_2011.monthly"
+model_id = "monash_nbeats_global"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.46520991325378
+  median_mase = 1.31777915954589
+  mean_smape = 0.191713941097259
+  median_smape = 0.166208991408348
+  mean_msmape = 0.191695284843444
+  median_msmape = 0.166204452514648
+  mean_mae = 1701.41721191406
+  median_mae = 431.17470703125
+  mean_rmse = 2132.82021484375
+  median_rmse = 546.653063964843
+
+[[runs]]
+run_id = "monash_nhits.cif2016"
+model_id = "monash_nhits"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.62230260372161
+  median_mase = 0.966637313365936
+  mean_smape = 0.171294888854026
+  median_smape = 0.108103197813034
+  mean_msmape = 0.169617027044296
+  median_msmape = 0.107991175353527
+  mean_mae = 1658851.025
+  median_mae = 103.013684082031
+  mean_rmse = 2030849.8
+  median_rmse = 123.881515502929
+
+[[runs]]
+run_id = "monash_nhits.kdd_cup_2018"
+model_id = "monash_nhits"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.19414956569671
+  median_mase = 0.94051399230957
+  mean_smape = 0.492745292186737
+  median_smape = 0.493232178688049
+  mean_msmape = 0.48883911371231
+  median_msmape = 0.489763450622558
+  mean_mae = 36.7822807312011
+  median_mae = 16.5178966522216
+  mean_rmse = 68.2185272216797
+  median_rmse = 20.8410064697265
+
+[[runs]]
+run_id = "monash_nhits.nn5"
+model_id = "monash_nhits"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.908478915691375
+  median_mase = 0.849717986583709
+  mean_smape = 0.225909638404846
+  median_smape = 0.213896957039833
+  mean_msmape = 0.225065365433692
+  median_msmape = 0.213155421614646
+  mean_mae = 3.93492469787597
+  median_mae = 3.59180526733398
+  mean_rmse = 5.59204397201538
+  median_rmse = 5.05410928726196
+
+[[runs]]
+run_id = "monash_nhits.m1.yearly"
+model_id = "monash_nhits"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.83989181518554
+  median_mase = 2.81595826148986
+  mean_smape = 0.189847806096076
+  median_smape = 0.134891772270202
+  mean_msmape = 0.189683398604393
+  median_msmape = 0.134878149628639
+  mean_mae = 136852.040625
+  median_mae = 235.166687011718
+  mean_rmse = 155421.959375
+  median_rmse = 275.447213745117
+
+[[runs]]
+run_id = "monash_nhits.m1.quarterly"
+model_id = "monash_nhits"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 2.36867485046386
+  median_mase = 1.52868998050689
+  mean_smape = 0.184571188688278
+  median_smape = 0.117154738306999
+  mean_msmape = 0.184218880534172
+  median_msmape = 0.117083971202373
+  mean_mae = 1901.81064453125
+  median_mae = 22.3790267944335
+  mean_rmse = 2224.66440429687
+  median_rmse = 25.9976356506347
+
+[[runs]]
+run_id = "monash_nhits.m1.monthly"
+model_id = "monash_nhits"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.25689027309417
+  median_mase = 1.03345749378204
+  mean_smape = 0.170601937174797
+  median_smape = 0.128763276338577
+  mean_msmape = 0.16487837433815
+  median_msmape = 0.128730946779251
+  mean_mae = 2595.22216796875
+  median_mae = 39.1853103637695
+  mean_rmse = 3009.6240234375
+  median_rmse = 46.9795112609863
+
+[[runs]]
+run_id = "monash_nhits.m3.yearly"
+model_id = "monash_nhits"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.82421646118164
+  median_mase = 1.99393627643585
+  mean_smape = 0.163901820778846
+  median_smape = 0.113574729859828
+  mean_msmape = 0.163900062441825
+  median_msmape = 0.113573858141899
+  mean_mae = 974.258923339843
+  median_mae = 650.176123046875
+  mean_rmse = 1130.69641113281
+  median_rmse = 762.288305664062
+
+[[runs]]
+run_id = "monash_nhits.m3.quarterly"
+model_id = "monash_nhits"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.13617315292358
+  median_mase = 0.815278661251068
+  mean_smape = 0.090448921918869
+  median_smape = 0.0500380732119083
+  mean_msmape = 0.0904478877782821
+  median_msmape = 0.0500374913215637
+  mean_mae = 483.669079589843
+  median_mae = 295.361474609375
+  mean_rmse = 566.852856445312
+  median_rmse = 346.293933105468
+
+[[runs]]
+run_id = "monash_nhits.m3.monthly"
+model_id = "monash_nhits"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 0.90637981891632
+  median_mase = 0.748801708221435
+  mean_smape = 0.141647768020629
+  median_smape = 0.0947923883795738
+  mean_msmape = 0.141645488142967
+  median_msmape = 0.0947914898395538
+  mean_mae = 633.867724609375
+  median_mae = 442.896020507812
+  mean_rmse = 770.786120605468
+  median_rmse = 539.953344726562
+
+[[runs]]
+run_id = "monash_nhits.tourism_2011.yearly"
+model_id = "monash_nhits"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.19459300041198
+  median_mase = 2.53202419281005
+  mean_smape = 0.301892679929733
+  median_smape = 0.197135096788406
+  mean_msmape = 0.301495891809463
+  median_msmape = 0.196963101625442
+  mean_mae = 90596.1125
+  median_mae = 4370.90078125
+  mean_rmse = 105554.8609375
+  median_rmse = 4888.22470703125
+
+[[runs]]
+run_id = "monash_nhits.tourism_2011.quarterly"
+model_id = "monash_nhits"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.53486196994781
+  median_mase = 1.28838801383972
+  mean_smape = 0.149288043379783
+  median_smape = 0.124484995007514
+  mean_msmape = 0.149281051754951
+  median_msmape = 0.124482581019401
+  mean_mae = 9018.29296875
+  median_mae = 911.016723632812
+  mean_rmse = 11710.2703125
+  median_rmse = 1093.88569335937
+
+[[runs]]
+run_id = "monash_nhits.tourism_2011.monthly"
+model_id = "monash_nhits"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.47584235668182
+  median_mase = 1.3141304731369
+  mean_smape = 0.192101231217384
+  median_smape = 0.167750099301338
+  mean_msmape = 0.192082676291465
+  median_msmape = 0.167742758989334
+  mean_mae = 1769.27734375
+  median_mae = 436.250317382812
+  mean_rmse = 2215.60126953125
+  median_rmse = 548.306359863281
+
+[[runs]]
+run_id = "monash_nlinear.cif2016"
+model_id = "monash_nlinear"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.33261857032775
+  median_mase = 0.876796770095825
+  mean_smape = 0.170883852243423
+  median_smape = 0.105749309062957
+  mean_msmape = 0.169148626923561
+  median_msmape = 0.105743096768856
+  mean_mae = 344784.9625
+  median_mae = 99.8578079223632
+  mean_rmse = 416618.01875
+  median_rmse = 118.448098754882
+
+[[runs]]
+run_id = "monash_nlinear.kdd_cup_2018"
+model_id = "monash_nlinear"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.25639007091522
+  median_mase = 1.01172503232955
+  mean_smape = 0.523506641387939
+  median_smape = 0.537640440464019
+  mean_msmape = 0.517303889989852
+  median_msmape = 0.528214311599731
+  mean_mae = 36.7747497558593
+  median_mae = 17.6919322967529
+  mean_rmse = 67.597737121582
+  median_rmse = 21.2144664764404
+
+[[runs]]
+run_id = "monash_nlinear.nn5"
+model_id = "monash_nlinear"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.958923733234405
+  median_mase = 0.920405566692352
+  mean_smape = 0.24280118048191
+  median_smape = 0.232046028971672
+  mean_msmape = 0.241867110133171
+  median_msmape = 0.231325760483741
+  mean_mae = 4.1278733253479
+  median_mae = 3.86970510482788
+  mean_rmse = 5.75690326690673
+  median_rmse = 5.25381841659545
+
+[[runs]]
+run_id = "monash_nlinear.m1.yearly"
+model_id = "monash_nlinear"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 8.47474308013916
+  median_mase = 3.80358190536499
+  mean_smape = 0.258526274561882
+  median_smape = 0.195699441432952
+  mean_msmape = 0.258179458975791
+  median_msmape = 0.19558355808258
+  mean_mae = 169576.059375
+  median_mae = 330.90517578125
+  mean_rmse = 193628.9375
+  median_rmse = 398.289288330078
+
+[[runs]]
+run_id = "monash_nlinear.m1.quarterly"
+model_id = "monash_nlinear"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 3.72070274353027
+  median_mase = 1.65799288749694
+  mean_smape = 0.209115356206893
+  median_smape = 0.11430449783802
+  mean_msmape = 0.208576819300651
+  median_msmape = 0.114286783337593
+  mean_mae = 1985.43642578125
+  median_mae = 19.5041805267334
+  mean_rmse = 2344.94829101562
+  median_rmse = 22.7066562652587
+
+[[runs]]
+run_id = "monash_nlinear.m1.monthly"
+model_id = "monash_nlinear"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.70641491413116
+  median_mase = 1.14853010177612
+  mean_smape = 0.204918757081031
+  median_smape = 0.14157788157463
+  mean_msmape = 0.203254252672195
+  median_msmape = 0.141524189710617
+  mean_mae = 2299.93754882812
+  median_mae = 39.2759284973144
+  mean_rmse = 2745.2798828125
+  median_rmse = 47.1008171081542
+
+[[runs]]
+run_id = "monash_nlinear.m3.yearly"
+model_id = "monash_nlinear"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.01956672668457
+  median_mase = 2.16484899520874
+  mean_smape = 0.176885589957237
+  median_smape = 0.120466585457324
+  mean_msmape = 0.176883658766746
+  median_msmape = 0.120465545356273
+  mean_mae = 1027.65612792968
+  median_mae = 641.944763183593
+  mean_rmse = 1185.52155761718
+  median_rmse = 753.977819824218
+
+[[runs]]
+run_id = "monash_nlinear.m3.quarterly"
+model_id = "monash_nlinear"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.20880498886108
+  median_mase = 0.921728515625
+  mean_smape = 0.101991926133632
+  median_smape = 0.0597422339022159
+  mean_msmape = 0.101990741491317
+  median_msmape = 0.0597417406737804
+  mean_mae = 534.9458984375
+  median_mae = 342.565771484375
+  mean_rmse = 624.760339355468
+  median_rmse = 409.92734375
+
+[[runs]]
+run_id = "monash_nlinear.m3.monthly"
+model_id = "monash_nlinear"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 0.988901185989379
+  median_mase = 0.818357622623443
+  mean_smape = 0.151874005794525
+  median_smape = 0.100959740579128
+  mean_msmape = 0.151871627569198
+  median_msmape = 0.100958657264709
+  mean_mae = 688.641174316406
+  median_mae = 470.185162353515
+  mean_rmse = 825.984558105468
+  median_rmse = 566.020739746093
+
+[[runs]]
+run_id = "monash_nlinear.tourism_2011.yearly"
+model_id = "monash_nlinear"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 6.45399103164672
+  median_mase = 2.81276030540466
+  mean_smape = 0.488717097043991
+  median_smape = 0.204893201589584
+  mean_msmape = 0.488139241933822
+  median_msmape = 0.204893004894256
+  mean_mae = 99621.6578125
+  median_mae = 4686.91328125
+  mean_rmse = 111491.04375
+  median_rmse = 5142.78623046875
+
+[[runs]]
+run_id = "monash_nlinear.tourism_2011.quarterly"
+model_id = "monash_nlinear"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.63615756034851
+  median_mase = 1.34823396205902
+  mean_smape = 0.17025279700756
+  median_smape = 0.137655910849571
+  mean_msmape = 0.170243614912033
+  median_msmape = 0.137653902173042
+  mean_mae = 10512.9818359375
+  median_mae = 1001.26768798828
+  mean_rmse = 12764.7791015625
+  median_rmse = 1186.26025390625
+
+[[runs]]
+run_id = "monash_nlinear.tourism_2011.monthly"
+model_id = "monash_nlinear"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.5206170797348
+  median_mase = 1.35017263889312
+  mean_smape = 0.20059677362442
+  median_smape = 0.174481597542762
+  mean_msmape = 0.200576335191726
+  median_msmape = 0.174476832151412
+  mean_mae = 1712.59990234375
+  median_mae = 421.520910644531
+  mean_rmse = 2243.25322265625
+  median_rmse = 541.162585449218
+
+[[runs]]
+run_id = "monash_patchtsmixer.cif2016"
+model_id = "monash_patchtsmixer"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.64960620403289
+  median_mase = 1.23036901950836
+  mean_smape = 0.239607200026512
+  median_smape = 0.12853684425354
+  mean_msmape = 0.239516016840934
+  median_msmape = 0.128520056605339
+  mean_mae = 827117.3125
+  median_mae = 130.829385375976
+  mean_rmse = 872786.625
+  median_rmse = 146.290829467773
+
+[[runs]]
+run_id = "monash_patchtsmixer.kdd_cup_2018"
+model_id = "monash_patchtsmixer"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.2288340806961
+  median_mase = 0.993414378166198
+  mean_smape = 0.514954817295074
+  median_smape = 0.548122084140777
+  mean_msmape = 0.510888814926147
+  median_msmape = 0.545918321609497
+  mean_mae = 37.7319282531738
+  median_mae = 17.4880321502685
+  mean_rmse = 68.7153259277343
+  median_rmse = 22.3752090454101
+
+[[runs]]
+run_id = "monash_patchtsmixer.nn5"
+model_id = "monash_patchtsmixer"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.964735496044159
+  median_mase = 0.922865891456604
+  mean_smape = 0.242529210448265
+  median_smape = 0.232014927268028
+  mean_msmape = 0.241612327098846
+  median_msmape = 0.231319588422775
+  mean_mae = 4.15889797210693
+  median_mae = 3.82253823280334
+  mean_rmse = 5.73282289505004
+  median_rmse = 5.12765979766845
+
+[[runs]]
+run_id = "monash_patchtsmixer.m1.yearly"
+model_id = "monash_patchtsmixer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.16961326599121
+  median_mase = 3.11592044830322
+  mean_smape = 0.193594986200332
+  median_smape = 0.148048540949821
+  mean_msmape = 0.193447944521904
+  median_msmape = 0.147895675897598
+  mean_mae = 138722.6125
+  median_mae = 261.917788696289
+  mean_rmse = 154458.8625
+  median_rmse = 293.700860595703
+
+[[runs]]
+run_id = "monash_patchtsmixer.m1.quarterly"
+model_id = "monash_patchtsmixer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.89091007709503
+  median_mase = 1.4680070400238
+  mean_smape = 0.173655956983566
+  median_smape = 0.0945845708250999
+  mean_msmape = 0.17337811589241
+  median_msmape = 0.0944324627518653
+  mean_mae = 1734.78500976562
+  median_mae = 20.4435050964355
+  mean_rmse = 2046.426953125
+  median_rmse = 24.144676208496
+
+[[runs]]
+run_id = "monash_patchtsmixer.m1.monthly"
+model_id = "monash_patchtsmixer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.26770958900451
+  median_mase = 1.05801293849945
+  mean_smape = 0.165577438473701
+  median_smape = 0.129238632321357
+  mean_msmape = 0.162546604871749
+  median_msmape = 0.127897748351097
+  mean_mae = 2491.37978515625
+  median_mae = 41.0934494018554
+  mean_rmse = 2915.35087890625
+  median_rmse = 49.7787803649902
+
+[[runs]]
+run_id = "monash_patchtsmixer.m3.yearly"
+model_id = "monash_patchtsmixer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.96204724311828
+  median_mase = 2.05767345428466
+  mean_smape = 0.171418541669845
+  median_smape = 0.118349787592887
+  mean_msmape = 0.171416774392128
+  median_msmape = 0.118348875641822
+  mean_mae = 1059.98166503906
+  median_mae = 660.850842285156
+  mean_rmse = 1215.74931640625
+  median_rmse = 765.787170410156
+
+[[runs]]
+run_id = "monash_patchtsmixer.m3.quarterly"
+model_id = "monash_patchtsmixer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.20818922519683
+  median_mase = 0.869614839553833
+  mean_smape = 0.0978909000754356
+  median_smape = 0.0566059693694114
+  mean_msmape = 0.097889769077301
+  median_msmape = 0.0566054791212081
+  mean_mae = 520.260339355468
+  median_mae = 328.994549560546
+  mean_rmse = 605.868774414062
+  median_rmse = 392.717663574218
+
+[[runs]]
+run_id = "monash_patchtsmixer.m3.monthly"
+model_id = "monash_patchtsmixer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.00460357666015
+  median_mase = 0.805345296859741
+  mean_smape = 0.14844487607479
+  median_smape = 0.102069655060768
+  mean_msmape = 0.148442554473876
+  median_msmape = 0.102068582177162
+  mean_mae = 676.411157226562
+  median_mae = 474.261505126953
+  mean_rmse = 817.650805664062
+  median_rmse = 576.119226074218
+
+[[runs]]
+run_id = "monash_patchtsmixer.tourism_2011.yearly"
+model_id = "monash_patchtsmixer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.83622345924377
+  median_mase = 2.25909662246704
+  mean_smape = 0.260651195049285
+  median_smape = 0.17989804148674
+  mean_msmape = 0.260362833738327
+  median_msmape = 0.179772874712944
+  mean_mae = 74397.28359375
+  median_mae = 3955.22583007812
+  mean_rmse = 85695.0390625
+  median_rmse = 4427.86772460937
+
+[[runs]]
+run_id = "monash_patchtsmixer.tourism_2011.quarterly"
+model_id = "monash_patchtsmixer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.61020202636718
+  median_mase = 1.34553232192993
+  mean_smape = 0.161153405904769
+  median_smape = 0.131615886092185
+  mean_msmape = 0.161146050691604
+  median_msmape = 0.131614843010902
+  mean_mae = 9471.1982421875
+  median_mae = 993.152233886718
+  mean_rmse = 11997.5404296875
+  median_rmse = 1183.48989257812
+
+[[runs]]
+run_id = "monash_patchtsmixer.tourism_2011.monthly"
+model_id = "monash_patchtsmixer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.69571597576141
+  median_mase = 1.52264187335968
+  mean_smape = 0.213311466574668
+  median_smape = 0.187573134899139
+  mean_msmape = 0.213292917609214
+  median_msmape = 0.187557655572891
+  mean_mae = 2107.03195800781
+  median_mae = 489.536633300781
+  mean_rmse = 2664.32387695312
+  median_rmse = 608.901318359375
+
+[[runs]]
+run_id = "monash_patchtst.cif2016"
+model_id = "monash_patchtst"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.23025138378143
+  median_mase = 0.833787620067596
+  mean_smape = 0.152785006165504
+  median_smape = 0.108677099645137
+  mean_msmape = 0.152701619267463
+  median_msmape = 0.108664108812809
+  mean_mae = 408067.56875
+  median_mae = 101.339035034179
+  mean_rmse = 469435.34375
+  median_rmse = 121.005316162109
+
+[[runs]]
+run_id = "monash_patchtst.kdd_cup_2018"
+model_id = "monash_patchtst"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.2250610589981
+  median_mase = 1.00636578798294
+  mean_smape = 0.50635529756546
+  median_smape = 0.524391484260559
+  mean_msmape = 0.502389448881149
+  median_msmape = 0.522082507610321
+  mean_mae = 37.12632522583
+  median_mae = 17.3116436004638
+  mean_rmse = 68.3670181274414
+  median_rmse = 21.8865139007568
+
+[[runs]]
+run_id = "monash_patchtst.nn5"
+model_id = "monash_patchtst"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.01633820533752
+  median_mase = 0.987785792350769
+  mean_smape = 0.252875691652297
+  median_smape = 0.235994645953178
+  mean_msmape = 0.251941031217575
+  median_msmape = 0.235357111692428
+  mean_mae = 4.38227367401123
+  median_mae = 4.08207173347473
+  mean_rmse = 5.91608934402465
+  median_rmse = 5.41027812957763
+
+[[runs]]
+run_id = "monash_patchtst.m1.yearly"
+model_id = "monash_patchtst"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.33087501525878
+  median_mase = 3.08605122566223
+  mean_smape = 0.199436831474304
+  median_smape = 0.156089261174201
+  mean_msmape = 0.199281480908393
+  median_msmape = 0.155928045511245
+  mean_mae = 139686.68125
+  median_mae = 263.016500854492
+  mean_rmse = 156147.38125
+  median_rmse = 306.759777832031
+
+[[runs]]
+run_id = "monash_patchtst.m1.quarterly"
+model_id = "monash_patchtst"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 2.06399307250976
+  median_mase = 1.47117252349853
+  mean_smape = 0.185525029897689
+  median_smape = 0.118737423419952
+  mean_msmape = 0.185239917039871
+  median_msmape = 0.118709097802639
+  mean_mae = 2873.4931640625
+  median_mae = 21.4686706542968
+  mean_rmse = 3183.3634765625
+  median_rmse = 24.1466590881347
+
+[[runs]]
+run_id = "monash_patchtst.m1.monthly"
+model_id = "monash_patchtst"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.38064758777618
+  median_mase = 1.17930574417114
+  mean_smape = 0.176232051849365
+  median_smape = 0.14249363541603
+  mean_msmape = 0.173039302229881
+  median_msmape = 0.140514719486236
+  mean_mae = 2598.853125
+  median_mae = 43.3222534179687
+  mean_rmse = 3055.61176757812
+  median_rmse = 50.9479515075683
+
+[[runs]]
+run_id = "monash_patchtst.m3.yearly"
+model_id = "monash_patchtst"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.10404825210571
+  median_mase = 2.2611277103424
+  mean_smape = 0.175050202012062
+  median_smape = 0.118656782805919
+  mean_msmape = 0.175048351287841
+  median_msmape = 0.118655689060688
+  mean_mae = 1022.29108886718
+  median_mae = 681.039099121093
+  mean_rmse = 1176.25717773437
+  median_rmse = 789.778491210937
+
+[[runs]]
+run_id = "monash_patchtst.m3.quarterly"
+model_id = "monash_patchtst"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.26091737747192
+  median_mase = 0.956791245937347
+  mean_smape = 0.0993298232555389
+  median_smape = 0.0602769918739795
+  mean_msmape = 0.0993286922574043
+  median_msmape = 0.0602764353156089
+  mean_mae = 528.748840332031
+  median_mae = 339.218975830078
+  mean_rmse = 617.365808105468
+  median_rmse = 396.405419921875
+
+[[runs]]
+run_id = "monash_patchtst.m3.monthly"
+model_id = "monash_patchtst"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.0801663160324
+  median_mase = 0.861499071121215
+  mean_smape = 0.152884969115257
+  median_smape = 0.10826993882656
+  mean_msmape = 0.15288261771202
+  median_msmape = 0.108268995583057
+  mean_mae = 706.877331542968
+  median_mae = 507.487902832031
+  mean_rmse = 848.669494628906
+  median_rmse = 610.721496582031
+
+[[runs]]
+run_id = "monash_patchtst.tourism_2011.yearly"
+model_id = "monash_patchtst"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.36244688034057
+  median_mase = 2.49214897155761
+  mean_smape = 0.370394039154052
+  median_smape = 0.193561580777168
+  mean_msmape = 0.370075958967208
+  median_msmape = 0.193561288714408
+  mean_mae = 99629.403125
+  median_mae = 4643.39208984375
+  mean_rmse = 113362.4890625
+  median_rmse = 5187.0056640625
+
+[[runs]]
+run_id = "monash_patchtst.tourism_2011.quarterly"
+model_id = "monash_patchtst"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 2.44019589424133
+  median_mase = 1.97607572078704
+  mean_smape = 0.219595655798912
+  median_smape = 0.187993720173835
+  mean_msmape = 0.219587257504463
+  median_msmape = 0.187989050149917
+  mean_mae = 13474.309765625
+  median_mae = 1468.31479492187
+  mean_rmse = 15740.7369140625
+  median_rmse = 1783.453125
+
+[[runs]]
+run_id = "monash_patchtst.tourism_2011.monthly"
+model_id = "monash_patchtst"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 2.12612414360046
+  median_mase = 1.93596420288085
+  mean_smape = 0.260005003213882
+  median_smape = 0.230562281608581
+  mean_msmape = 0.259984064102172
+  median_msmape = 0.230558887124061
+  mean_mae = 2792.48203125
+  median_mae = 640.642370605468
+  mean_rmse = 3583.12797851562
+  median_rmse = 824.706970214843
+
+[[runs]]
+run_id = "monash_tide.cif2016"
+model_id = "monash_tide"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 2.35213627815246
+  median_mase = 1.16479535102844
+  mean_smape = 0.232350862026214
+  median_smape = 0.128001309931278
+  mean_msmape = 0.230474242568016
+  median_msmape = 0.127996169030666
+  mean_mae = 2583061.0
+  median_mae = 121.657405090332
+  mean_rmse = 2993299.45
+  median_rmse = 140.910110473632
+
+[[runs]]
+run_id = "monash_tide.kdd_cup_2018"
+model_id = "monash_tide"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.30448553562164
+  median_mase = 1.00941258668899
+  mean_smape = 0.529923784732818
+  median_smape = 0.552673172950744
+  mean_msmape = 0.525845754146576
+  median_msmape = 0.550103616714477
+  mean_mae = 38.120246887207
+  median_mae = 16.735859298706
+  mean_rmse = 69.2697494506835
+  median_rmse = 22.0511646270751
+
+[[runs]]
+run_id = "monash_tide.nn5"
+model_id = "monash_tide"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.961840271949768
+  median_mase = 0.89249472618103
+  mean_smape = 0.242313903570175
+  median_smape = 0.235268005728721
+  mean_msmape = 0.241393122076988
+  median_msmape = 0.234519097208976
+  mean_mae = 4.15769815444946
+  median_mae = 3.91895351409912
+  mean_rmse = 5.74780645370483
+  median_rmse = 5.20771179199218
+
+[[runs]]
+run_id = "monash_tide.m1.yearly"
+model_id = "monash_tide"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 6.25768394470214
+  median_mase = 3.43333377838134
+  mean_smape = 0.21701756119728
+  median_smape = 0.160196453332901
+  mean_msmape = 0.216748815774917
+  median_msmape = 0.160138392448425
+  mean_mae = 125488.434375
+  median_mae = 270.205212402343
+  mean_rmse = 147442.24375
+  median_rmse = 309.099694824218
+
+[[runs]]
+run_id = "monash_tide.m1.quarterly"
+model_id = "monash_tide"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 2.77694101333618
+  median_mase = 1.57916414737701
+  mean_smape = 0.194796928763389
+  median_smape = 0.12461252361536
+  mean_msmape = 0.19433886706829
+  median_msmape = 0.124533735215663
+  mean_mae = 2201.61105957031
+  median_mae = 23.7918712615966
+  mean_rmse = 2579.759375
+  median_rmse = 26.6145629882812
+
+[[runs]]
+run_id = "monash_tide.m1.monthly"
+model_id = "monash_tide"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.50147078037261
+  median_mase = 1.23017325401306
+  mean_smape = 0.198166427016258
+  median_smape = 0.147860839962959
+  mean_msmape = 0.191728827357292
+  median_msmape = 0.147692328691482
+  mean_mae = 2317.21240234375
+  median_mae = 49.112141418457
+  mean_rmse = 2749.5841796875
+  median_rmse = 58.0727340698242
+
+[[runs]]
+run_id = "monash_tide.m3.yearly"
+model_id = "monash_tide"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.27171049118042
+  median_mase = 2.29368953704833
+  mean_smape = 0.179025366902351
+  median_smape = 0.1283656001091
+  mean_msmape = 0.17902343571186
+  median_msmape = 0.128364431858062
+  mean_mae = 1035.64915771484
+  median_mae = 751.90390625
+  mean_rmse = 1193.60122070312
+  median_rmse = 861.455236816406
+
+[[runs]]
+run_id = "monash_tide.m3.quarterly"
+model_id = "monash_tide"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.5223625421524
+  median_mase = 1.1639558315277
+  mean_smape = 0.109514887630939
+  median_smape = 0.0683164879679679
+  mean_msmape = 0.109513662755489
+  median_msmape = 0.0683159455657005
+  mean_mae = 586.374450683593
+  median_mae = 381.282421875
+  mean_rmse = 683.786975097656
+  median_rmse = 440.653356933593
+
+[[runs]]
+run_id = "monash_tide.m3.monthly"
+model_id = "monash_tide"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.06648824214935
+  median_mase = 0.868375313282012
+  mean_smape = 0.154997754096984
+  median_smape = 0.106763805449008
+  mean_msmape = 0.154995355010032
+  median_msmape = 0.106763030588626
+  mean_mae = 710.434533691406
+  median_mae = 496.404650878906
+  mean_rmse = 849.28173828125
+  median_rmse = 595.561682128906
+
+[[runs]]
+run_id = "monash_tide.tourism_2011.yearly"
+model_id = "monash_tide"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 5.35804224014282
+  median_mase = 2.73031058311462
+  mean_smape = 0.343155747652053
+  median_smape = 0.198051339387893
+  mean_msmape = 0.342527019977569
+  median_msmape = 0.198049747943878
+  mean_mae = 91309.0453125
+  median_mae = 4562.2388671875
+  mean_rmse = 106073.7234375
+  median_rmse = 5063.49248046875
+
+[[runs]]
+run_id = "monash_tide.tourism_2011.quarterly"
+model_id = "monash_tide"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 2.84425573348999
+  median_mase = 2.18476490974426
+  mean_smape = 0.247276893258094
+  median_smape = 0.212163585424423
+  mean_msmape = 0.247269359230995
+  median_msmape = 0.212150999903678
+  mean_mae = 12678.4357421875
+  median_mae = 1729.331640625
+  mean_rmse = 15602.425390625
+  median_rmse = 2078.07312011718
+
+[[runs]]
+run_id = "monash_tide.tourism_2011.monthly"
+model_id = "monash_tide"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.70541448593139
+  median_mase = 1.55465564727783
+  mean_smape = 0.213381785154342
+  median_smape = 0.187640675902366
+  mean_msmape = 0.213362577557563
+  median_msmape = 0.187628066539764
+  mean_mae = 2145.68603515625
+  median_mae = 504.297595214843
+  mean_rmse = 2723.80571289062
+  median_rmse = 636.566870117187
+
+[[runs]]
+run_id = "monash_timemixer.cif2016"
+model_id = "monash_timemixer"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.35998411178588
+  median_mase = 0.999600195884704
+  mean_smape = 0.185484477877616
+  median_smape = 0.118586026132106
+  mean_msmape = 0.18539003431797
+  median_msmape = 0.118582101166248
+  mean_mae = 433377.10625
+  median_mae = 106.854356384277
+  mean_rmse = 495149.4125
+  median_rmse = 126.028941345214
+
+[[runs]]
+run_id = "monash_timemixer.kdd_cup_2018"
+model_id = "monash_timemixer"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.24506556987762
+  median_mase = 1.02415667772293
+  mean_smape = 0.521533197164535
+  median_smape = 0.554978561401367
+  mean_msmape = 0.517335385084152
+  median_msmape = 0.551768469810485
+  mean_mae = 38.1398483276367
+  median_mae = 18.7175682067871
+  mean_rmse = 69.4350479125976
+  median_rmse = 23.1878356933593
+
+[[runs]]
+run_id = "monash_timemixer.nn5"
+model_id = "monash_timemixer"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.933573305606842
+  median_mase = 0.888760435581207
+  mean_smape = 0.232588014006614
+  median_smape = 0.220885935425758
+  mean_msmape = 0.231715101003646
+  median_msmape = 0.219946104288101
+  mean_mae = 4.02710490226745
+  median_mae = 3.69665441513061
+  mean_rmse = 5.70423460006713
+  median_rmse = 5.13871784210205
+
+[[runs]]
+run_id = "monash_timemixer.m1.yearly"
+model_id = "monash_timemixer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.05097427368164
+  median_mase = 3.00665979385375
+  mean_smape = 0.189620348811149
+  median_smape = 0.136059951782226
+  mean_msmape = 0.189480021595954
+  median_msmape = 0.135919466614723
+  mean_mae = 142368.98125
+  median_mae = 270.496951293945
+  mean_rmse = 158513.9125
+  median_rmse = 304.116058349609
+
+[[runs]]
+run_id = "monash_timemixer.m1.quarterly"
+model_id = "monash_timemixer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.86570243835449
+  median_mase = 1.40782752037048
+  mean_smape = 0.17292582988739
+  median_smape = 0.0964806452393531
+  mean_msmape = 0.172640544176101
+  median_msmape = 0.0963085025548935
+  mean_mae = 1642.12756347656
+  median_mae = 19.8389553070068
+  mean_rmse = 1939.22368164062
+  median_rmse = 23.2257507324218
+
+[[runs]]
+run_id = "monash_timemixer.m1.monthly"
+model_id = "monash_timemixer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.26540839672088
+  median_mase = 1.062824344635
+  mean_smape = 0.167589166760444
+  median_smape = 0.132161346077919
+  mean_msmape = 0.164230376482009
+  median_msmape = 0.13097576200962
+  mean_mae = 2682.0537109375
+  median_mae = 40.894652557373
+  mean_rmse = 3197.41967773437
+  median_rmse = 48.7742149353027
+
+[[runs]]
+run_id = "monash_timemixer.m3.yearly"
+model_id = "monash_timemixer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.96263136863708
+  median_mase = 2.05894322395324
+  mean_smape = 0.171868911385536
+  median_smape = 0.118467926979064
+  mean_msmape = 0.171867138147354
+  median_msmape = 0.118466871976852
+  mean_mae = 1073.84165039062
+  median_mae = 657.471252441406
+  mean_rmse = 1230.15083007812
+  median_rmse = 771.661169433593
+
+[[runs]]
+run_id = "monash_timemixer.m3.quarterly"
+model_id = "monash_timemixer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.13858859539031
+  median_mase = 0.809079623222351
+  mean_smape = 0.0944822087883949
+  median_smape = 0.0525193288922309
+  mean_msmape = 0.0944811359047889
+  median_msmape = 0.0525189168751239
+  mean_mae = 508.871026611328
+  median_mae = 306.052648925781
+  mean_rmse = 593.242016601562
+  median_rmse = 361.515924072265
+
+[[runs]]
+run_id = "monash_timemixer.m3.monthly"
+model_id = "monash_timemixer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 0.946981382369995
+  median_mase = 0.769371080398559
+  mean_smape = 0.14518499970436
+  median_smape = 0.0965705037117004
+  mean_msmape = 0.145182690024375
+  median_msmape = 0.0965691238641738
+  mean_mae = 659.723937988281
+  median_mae = 448.066137695312
+  mean_rmse = 801.559362792968
+  median_rmse = 545.217932128906
+
+[[runs]]
+run_id = "monash_timemixer.tourism_2011.yearly"
+model_id = "monash_timemixer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.70971283912658
+  median_mase = 2.12541465759277
+  mean_smape = 0.234063678979873
+  median_smape = 0.179107081890106
+  mean_msmape = 0.233753275871276
+  median_msmape = 0.179022243618965
+  mean_mae = 78914.575
+  median_mae = 3673.28706054687
+  mean_rmse = 91562.1671875
+  median_rmse = 4085.75639648437
+
+[[runs]]
+run_id = "monash_timemixer.tourism_2011.quarterly"
+model_id = "monash_timemixer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.6830084323883
+  median_mase = 1.42246127128601
+  mean_smape = 0.171933913230896
+  median_smape = 0.138887098431587
+  mean_msmape = 0.171924993395805
+  median_msmape = 0.138884565234184
+  mean_mae = 10547.96328125
+  median_mae = 1038.80869140625
+  mean_rmse = 13231.4666015625
+  median_rmse = 1208.48098144531
+
+[[runs]]
+run_id = "monash_timemixer.tourism_2011.monthly"
+model_id = "monash_timemixer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.54736783504486
+  median_mase = 1.39252827167511
+  mean_smape = 0.202360248565673
+  median_smape = 0.173747107386589
+  mean_msmape = 0.20234018266201
+  median_msmape = 0.173742794990539
+  mean_mae = 1694.06154785156
+  median_mae = 456.123413085937
+  mean_rmse = 2169.63745117187
+  median_rmse = 579.700268554687
+
+[[runs]]
+run_id = "monash_tsmixer.cif2016"
+model_id = "monash_tsmixer"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.30225083827972
+  median_mase = 0.905759418010711
+  mean_smape = 0.156982558965682
+  median_smape = 0.115709523856639
+  mean_msmape = 0.156860294938087
+  median_msmape = 0.115681755542755
+  mean_mae = 510175.0875
+  median_mae = 103.053579711914
+  mean_rmse = 573787.31875
+  median_rmse = 121.994941711425
+
+[[runs]]
+run_id = "monash_tsmixer.kdd_cup_2018"
+model_id = "monash_tsmixer"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.24449203014373
+  median_mase = 0.992984235286712
+  mean_smape = 0.525316834449768
+  median_smape = 0.533988463878631
+  mean_msmape = 0.52097954750061
+  median_msmape = 0.530533063411712
+  mean_mae = 38.6888114929199
+  median_mae = 17.1665851593017
+  mean_rmse = 70.0449813842773
+  median_rmse = 22.0233413696289
+
+[[runs]]
+run_id = "monash_tsmixer.nn5"
+model_id = "monash_tsmixer"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 0.941590893268585
+  median_mase = 0.88895354270935
+  mean_smape = 0.235292646288871
+  median_smape = 0.228144478797912
+  mean_msmape = 0.234406676888465
+  median_msmape = 0.227174165844917
+  mean_mae = 4.05712165832519
+  median_mae = 3.76561546325683
+  mean_rmse = 5.69330148696899
+  median_rmse = 5.1517988204956
+
+[[runs]]
+run_id = "monash_tsmixer.m1.yearly"
+model_id = "monash_tsmixer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 4.11385431289672
+  median_mase = 3.05089645385742
+  mean_smape = 0.191917219758033
+  median_smape = 0.140956744551658
+  mean_msmape = 0.191773152351379
+  median_msmape = 0.140737316012382
+  mean_mae = 145368.403125
+  median_mae = 277.24833984375
+  mean_rmse = 161846.40625
+  median_rmse = 302.684747314453
+
+[[runs]]
+run_id = "monash_tsmixer.m1.quarterly"
+model_id = "monash_tsmixer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.89249038696289
+  median_mase = 1.43527207374572
+  mean_smape = 0.175267493724823
+  median_smape = 0.0969831958413124
+  mean_msmape = 0.174978712201118
+  median_msmape = 0.0969696775078773
+  mean_mae = 1687.5671875
+  median_mae = 20.8670661926269
+  mean_rmse = 1998.5734375
+  median_rmse = 23.8371063232421
+
+[[runs]]
+run_id = "monash_tsmixer.m1.monthly"
+model_id = "monash_tsmixer"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.25509228706359
+  median_mase = 1.06085357666015
+  mean_smape = 0.164738312363624
+  median_smape = 0.132612749934196
+  mean_msmape = 0.161717391014099
+  median_msmape = 0.131278571486473
+  mean_mae = 2534.15639648437
+  median_mae = 40.7937614440918
+  mean_rmse = 3020.97890625
+  median_rmse = 48.636417388916
+
+[[runs]]
+run_id = "monash_tsmixer.m3.yearly"
+model_id = "monash_tsmixer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.96130151748657
+  median_mase = 2.06543827056884
+  mean_smape = 0.171852847933769
+  median_smape = 0.118058688938617
+  mean_msmape = 0.171851077675819
+  median_msmape = 0.118057709932327
+  mean_mae = 1076.94333496093
+  median_mae = 656.731726074218
+  mean_rmse = 1233.85246582031
+  median_rmse = 770.628601074218
+
+[[runs]]
+run_id = "monash_tsmixer.m3.quarterly"
+model_id = "monash_tsmixer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.16199164390563
+  median_mase = 0.839497971534729
+  mean_smape = 0.0954061567783355
+  median_smape = 0.0531826227903366
+  mean_msmape = 0.0954050704836845
+  median_msmape = 0.0531821452081203
+  mean_mae = 512.197277832031
+  median_mae = 312.838830566406
+  mean_rmse = 596.634460449218
+  median_rmse = 373.155584716796
+
+[[runs]]
+run_id = "monash_tsmixer.m3.monthly"
+model_id = "monash_tsmixer"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.00021644830703
+  median_mase = 0.812517809867858
+  mean_smape = 0.148625543713569
+  median_smape = 0.10169309079647
+  mean_msmape = 0.148623210191726
+  median_msmape = 0.101692064106464
+  mean_mae = 677.961669921875
+  median_mae = 476.521484375
+  mean_rmse = 818.641821289062
+  median_rmse = 580.966040039062
+
+[[runs]]
+run_id = "monash_tsmixer.tourism_2011.yearly"
+model_id = "monash_tsmixer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 2.73271098136901
+  median_mase = 2.18305349349975
+  mean_smape = 0.237770494818687
+  median_smape = 0.179098078608512
+  mean_msmape = 0.237471422553062
+  median_msmape = 0.17880248427391
+  mean_mae = 73479.42265625
+  median_mae = 3737.09477539062
+  mean_rmse = 85017.796875
+  median_rmse = 4205.43940429687
+
+[[runs]]
+run_id = "monash_tsmixer.tourism_2011.quarterly"
+model_id = "monash_tsmixer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.63310918807983
+  median_mase = 1.37008380889892
+  mean_smape = 0.164467617869377
+  median_smape = 0.133918240666389
+  mean_msmape = 0.164460191130638
+  median_msmape = 0.133917391300201
+  mean_mae = 10365.7328125
+  median_mae = 990.093151855468
+  mean_rmse = 12490.7703125
+  median_rmse = 1188.77512207031
+
+[[runs]]
+run_id = "monash_tsmixer.tourism_2011.monthly"
+model_id = "monash_tsmixer"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.58041136264801
+  median_mase = 1.40210790634155
+  mean_smape = 0.203464928269386
+  median_smape = 0.176470208168029
+  mean_msmape = 0.203445947170257
+  median_msmape = 0.1764578551054
+  mean_mae = 1817.36198730468
+  median_mae = 456.458343505859
+  mean_rmse = 2288.9544921875
+  median_rmse = 574.76767578125
+
+[[runs]]
+run_id = "monash_timesfm_zs.cif2016"
+model_id = "monash_timesfm_zs"
+dataset_id = "cif2016"
+split_protocol = "Monash: fixed horizon, the last 6 or 12 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.26105382154859
+  median_mase = 0.907530443056667
+  mean_smape = 0.164569544976989
+  median_smape = 0.164569544976989
+  mean_msmape = 0.164462393580306
+  median_msmape = 0.109576446229093
+  mean_mae = 535545.626958377
+  median_mae = 113.814798114887
+  mean_rmse = 652886.268407058
+  median_rmse = 128.621262491913
+
+[[runs]]
+run_id = "monash_timesfm_zs.kdd_cup_2018"
+model_id = "monash_timesfm_zs"
+dataset_id = "kdd_cup_2018"
+split_protocol = "Monash: fixed horizon, the last 168 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.36074073348321
+  median_mase = 1.03991140716952
+  mean_smape = 0.557613600862651
+  median_smape = 0.557613600862651
+  mean_msmape = 0.552976685186474
+  median_msmape = 0.559717497149025
+  mean_mae = 40.0137527659125
+  median_mae = 18.120796300116
+  mean_rmse = 71.255911980208
+  median_rmse = 22.8196260089204
+
+[[runs]]
+run_id = "monash_timesfm_zs.nn5"
+model_id = "monash_timesfm_zs"
+dataset_id = "nn5"
+split_protocol = "Monash: fixed horizon, the last 56 values of each series held out"
+
+  [runs.scores]
+  mean_mase = 1.48269063693597
+  median_mase = 1.4716363554676
+  mean_smape = 0.350419418298681
+  median_smape = 0.350419418298681
+  mean_msmape = 0.349235768396441
+  median_msmape = 0.330995485451755
+  mean_mae = 6.44915013324022
+  median_mae = 6.02541087619611
+  mean_rmse = 8.53051083496074
+  median_rmse = 7.91513478055703
+
+[[runs]]
+run_id = "monash_timesfm_zs.m1.yearly"
+model_id = "monash_timesfm_zs"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 5.25651308709653
+  median_mase = 4.17445412185218
+  mean_smape = 0.244597491676384
+  median_smape = 0.244597491676385
+  mean_msmape = 0.244405494533244
+  median_msmape = 0.19503457018923
+  mean_mae = 166204.062491862
+  median_mae = 353.314697265625
+  mean_rmse = 189547.679126295
+  median_rmse = 424.060313795384
+
+[[runs]]
+run_id = "monash_timesfm_zs.m1.quarterly"
+model_id = "monash_timesfm_zs"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.8819601497238
+  median_mase = 1.37599715139531
+  mean_smape = 0.172766627361783
+  median_smape = 0.172766627361783
+  mean_msmape = 0.17249692978416
+  median_msmape = 0.112231994300213
+  mean_mae = 2173.42332335409
+  median_mae = 20.5862951278686
+  mean_rmse = 2524.62252038282
+  median_rmse = 23.5626489841199
+
+[[runs]]
+run_id = "monash_timesfm_zs.m1.monthly"
+model_id = "monash_timesfm_zs"
+dataset_id = "m1"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 1.22340659634235
+  median_mase = 1.04568136567007
+  mean_smape = 0.159172331351869
+  median_smape = 0.159172331351869
+  mean_msmape = 0.156162952781106
+  median_msmape = 0.129476335782946
+  mean_mae = 1946.75298897972
+  median_mae = 41.2843577067057
+  mean_rmse = 2334.78427001505
+  median_rmse = 48.9767576083517
+
+[[runs]]
+run_id = "monash_timesfm_zs.m3.yearly"
+model_id = "monash_timesfm_zs"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 6 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.42780879310275
+  median_mase = 2.49900112374609
+  mean_smape = 0.191003369069977
+  median_smape = 0.191003369069977
+  mean_msmape = 0.191001288208849
+  median_msmape = 0.13646172464439
+  mean_mae = 1076.91426279624
+  median_mae = 752.311816406249
+  mean_rmse = 1229.12424996075
+  median_rmse = 858.409851466361
+
+[[runs]]
+run_id = "monash_timesfm_zs.m3.quarterly"
+model_id = "monash_timesfm_zs"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 1.28953492852156
+  median_mase = 0.983709711000295
+  mean_smape = 0.100724513044053
+  median_smape = 0.100724513044053
+  mean_msmape = 0.100723367050642
+  median_msmape = 0.0633009660393327
+  mean_mae = 535.369640010853
+  median_mae = 333.781164550781
+  mean_rmse = 627.36141174353
+  median_rmse = 399.207307234339
+
+[[runs]]
+run_id = "monash_timesfm_zs.m3.monthly"
+model_id = "monash_timesfm_zs"
+dataset_id = "m3"
+split_protocol = "Monash: fixed horizon, the last 18 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 0.982941670638028
+  median_mase = 0.796656788167461
+  mean_smape = 0.145083109296767
+  median_smape = 0.145083109296766
+  mean_msmape = 0.145080845817678
+  median_msmape = 0.100841079181081
+  mean_mae = 665.112974747041
+  median_mae = 475.494032118055
+  mean_rmse = 806.818341141545
+  median_rmse = 576.954482787645
+
+[[runs]]
+run_id = "monash_timesfm_zs.tourism_2011.yearly"
+model_id = "monash_timesfm_zs"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 4 values of each yearly series held out"
+
+  [runs.scores]
+  mean_mase = 3.25867017706509
+  median_mase = 2.46414891226772
+  mean_smape = 0.3285750503531
+  median_smape = 0.3285750503531
+  mean_msmape = 0.32825314645353
+  median_msmape = 0.198826250353451
+  mean_mae = 100958.804404847
+  median_mae = 4451.865234375
+  mean_rmse = 112117.530476529
+  median_rmse = 5091.11564458877
+
+[[runs]]
+run_id = "monash_timesfm_zs.tourism_2011.quarterly"
+model_id = "monash_timesfm_zs"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 8 values of each quarterly series held out"
+
+  [runs.scores]
+  mean_mase = 2.19277727580286
+  median_mase = 1.74183174519528
+  mean_smape = 0.196547937227458
+  median_smape = 0.196547937227458
+  mean_msmape = 0.196541055538174
+  median_msmape = 0.165881466969968
+  mean_mae = 12057.0300989906
+  median_mae = 1360.13110351562
+  mean_rmse = 14449.5404075377
+  median_rmse = 1694.70659965894
+
+[[runs]]
+run_id = "monash_timesfm_zs.tourism_2011.monthly"
+model_id = "monash_timesfm_zs"
+dataset_id = "tourism_2011"
+split_protocol = "Monash: fixed horizon, the last 24 values of each monthly series held out"
+
+  [runs.scores]
+  mean_mase = 2.27291277820675
+  median_mase = 1.90603992290985
+  mean_smape = 0.258282223837201
+  median_smape = 0.258282223837201
+  mean_msmape = 0.258261582925014
+  median_msmape = 0.233008383482483
+  mean_mae = 3050.13320059996
+  median_mae = 651.393666585286
+  mean_rmse = 4100.51283782919
+  median_rmse = 888.791371186102

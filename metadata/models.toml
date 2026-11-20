@@ -3,12 +3,16 @@
 #
 #   model_id          the key
 #   model_name        its name
-#   estimator_family  the family of its estimator, a model type of TabArena, one of those below
+#   estimator_family  the family of its estimator, one of those below: the model types of TabArena, and Statistical
+#                     for the classical methods of forecasting
 #   estimator_method  the method it estimates with, one of those of its family:
-#     Foundation Model  Pretrained in-context learner | Pretrained hypernetwork | Fine-tuned pretrained transformer
+#     Foundation Model  Pretrained in-context learner | Pretrained hypernetwork | Fine-tuned pretrained transformer |
+#                       Pretrained time-series forecaster
 #     Tree-based        Gradient-boosted trees | Randomized tree ensemble | Generalized additive model
-#     Neural Network    Multilayer perceptron | Ensemble of multilayer perceptrons | Neural nearest neighbours
-#     Baseline          Nearest neighbours | Penalized linear model
+#     Neural Network    Multilayer perceptron | Ensemble of multilayer perceptrons | Neural nearest neighbours |
+#                       Recurrent neural network | Convolutional neural network | Transformer
+#     Baseline          Nearest neighbours | Penalized linear model | Linear regression
+#     Statistical       Exponential smoothing | Theta method | ARIMA
 #     Other             Kernel machine | Piecewise linear regression
 #   package           the package that implements it
 #   language          Julia | Python | R | C/C++ | Fortran
@@ -1355,3 +1359,369 @@ language = "Python"
   [[models.references]]
   bibtex_key = "PVGMT...2011a"
   role = "Software"
+
+# Monash Time Series Forecasting Archive: the models of the results table of its website, as its benchmarks ran them,
+# and those benchmarked in 2025 with the same setup in the nnts code. DHR-ARIMA is dynamic harmonic regression with
+# ARIMA errors, which the benchmarks ran in place of ARIMA on hourly series. The package is the one the benchmarks ran
+# the model with: forecast, stats (glm) and catboost in R; gluonts, Informer2020, nnts, granite-tsfm and timesfm in
+# Python.
+
+[[models]]
+model_id = "monash_ses"
+model_name = "SES"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "HKOS2008a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+[[models]]
+model_id = "monash_theta"
+model_name = "Theta"
+estimator_family = "Statistical"
+estimator_method = "Theta method"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "AN2000a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+[[models]]
+model_id = "monash_tbats"
+model_name = "TBATS"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "LHS2011a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+[[models]]
+model_id = "monash_ets"
+model_name = "ETS"
+estimator_family = "Statistical"
+estimator_method = "Exponential smoothing"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "HKSG2002a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+[[models]]
+model_id = "monash_arima"
+model_name = "ARIMA"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BJRL2015a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+[[models]]
+model_id = "monash_dhr_arima"
+model_name = "DHR-ARIMA"
+estimator_family = "Statistical"
+estimator_method = "ARIMA"
+package = "forecast"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "BJRL2015a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "HK2008a"
+  role = "Software"
+
+[[models]]
+model_id = "monash_pr"
+model_name = "PR"
+estimator_family = "Baseline"
+estimator_method = "Linear regression"
+package = "stats"
+language = "R"
+
+[[models]]
+model_id = "monash_catboost"
+model_name = "CatBoost"
+estimator_family = "Tree-based"
+estimator_method = "Gradient-boosted trees"
+package = "catboost"
+language = "R"
+
+  [[models.references]]
+  bibtex_key = "PGVDG2018a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_ffnn"
+model_name = "FFNN"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "gluonts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "ABBFG...2019a"
+  role = "Software"
+
+[[models]]
+model_id = "monash_deepar"
+model_name = "DeepAR"
+estimator_family = "Neural Network"
+estimator_method = "Recurrent neural network"
+package = "gluonts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "SFGJ2020a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "ABBFG...2019a"
+  role = "Software"
+
+[[models]]
+model_id = "monash_nbeats"
+model_name = "N-BEATS"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "gluonts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "OCCB2019a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "ABBFG...2019a"
+  role = "Software"
+
+[[models]]
+model_id = "monash_wavenet"
+model_name = "WaveNet"
+estimator_family = "Neural Network"
+estimator_method = "Convolutional neural network"
+package = "gluonts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "ODZSV...2016a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "ABBFG...2019a"
+  role = "Software"
+
+[[models]]
+model_id = "monash_transformer"
+model_name = "Transformer"
+estimator_family = "Neural Network"
+estimator_method = "Transformer"
+package = "gluonts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "VSPUJ...2017a"
+  role = "Methodology"
+
+  [[models.references]]
+  bibtex_key = "ABBFG...2019a"
+  role = "Software"
+
+[[models]]
+model_id = "monash_informer"
+model_name = "Informer"
+estimator_family = "Neural Network"
+estimator_method = "Transformer"
+package = "Informer2020"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "ZZPZL...2021a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_autoformer"
+model_name = "Autoformer"
+estimator_family = "Neural Network"
+estimator_method = "Transformer"
+package = "nnts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "WXWL2021a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_dlinear"
+model_name = "DLinear"
+estimator_family = "Baseline"
+estimator_method = "Linear regression"
+package = "nnts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "ZCZX2023a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_ttm_zs"
+model_name = "TTM (zero-shot)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained time-series forecaster"
+package = "granite-tsfm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "EJDMN...2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_itransformer"
+model_name = "iTransformer"
+estimator_family = "Neural Network"
+estimator_method = "Transformer"
+package = "nnts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "LHZWW...2023a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_nbeats_global"
+model_name = "N-BEATS (global)"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "nnts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "OCCB2019a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_nhits"
+model_name = "N-HiTS"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "nnts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "COOGM...2023a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_nlinear"
+model_name = "NLinear"
+estimator_family = "Baseline"
+estimator_method = "Linear regression"
+package = "nnts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "ZCZX2023a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_patchtsmixer"
+model_name = "PatchTSMixer"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "nnts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "EJNSK2023a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_patchtst"
+model_name = "PatchTST"
+estimator_family = "Neural Network"
+estimator_method = "Transformer"
+package = "nnts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "NNSK2022a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_tide"
+model_name = "TiDE"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "nnts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "DKLMS...2023a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_timemixer"
+model_name = "TimeMixer"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "nnts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "WWSHL...2024a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_tsmixer"
+model_name = "TSMixer"
+estimator_family = "Neural Network"
+estimator_method = "Multilayer perceptron"
+package = "nnts"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "CLYAP2023a"
+  role = "Methodology"
+
+[[models]]
+model_id = "monash_timesfm_zs"
+model_name = "TimesFM (zero-shot)"
+estimator_family = "Foundation Model"
+estimator_method = "Pretrained time-series forecaster"
+package = "timesfm"
+language = "Python"
+
+  [[models.references]]
+  bibtex_key = "DKSZ2023a"
+  role = "Methodology"

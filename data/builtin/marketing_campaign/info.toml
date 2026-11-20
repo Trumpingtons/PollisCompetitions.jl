@@ -1,0 +1,15 @@
+competition = "marketing_campaign"
+name = "Marketing_Campaign"
+format = "tabular"
+target = "Response"
+openml_task = 363684
+openml_dataset = 46940
+repeats = 10
+folds = 3
+tabarena_repeats = 10
+converted = "2026-11-19T20:06:22.554"
+fingerprint = "41bfeda4419e8185d1b6ee5ea5f7ba2433a008653e0c23875575f9440497fa05"
+
+[tables]
+data = 2240
+splits = 22400

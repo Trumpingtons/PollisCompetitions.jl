@@ -1,0 +1,15 @@
+competition = "heloc"
+name = "heloc"
+format = "tabular"
+target = "RiskPerformance"
+openml_task = 363676
+openml_dataset = 46932
+repeats = 10
+folds = 3
+tabarena_repeats = 3
+converted = "2026-11-19T20:06:18.846"
+fingerprint = "4cadc94af249369143a8ada42d45f3ab0181ba136b20c0a2867d6a4f335bb8a2"
+
+[tables]
+data = 10459
+splits = 104590
