@@ -13,7 +13,7 @@ using PollisCompetitions.Benchmarks: BENCHMARKS, benchmarks, holt, is_seasonal
 			topic = "Socioeconomics"
 			data_structure = "Cross-section"
 			geometry = "Polygons"
-			response_type = "Regression"
+			response_type = "Continuous"
 			rows = 86
 			features = 23
 			delivery = "Built-in"
