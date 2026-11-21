@@ -1,6 +1,6 @@
 name = "PollisCompetitions"
 uuid = "81a31729-0f0a-40c0-bbf3-614b6aa3b649"
-version = "0.2.14"
+version = "0.2.15"
 authors = ["Antonio Saragga Seabra"]
 
 [deps]
@@ -17,7 +17,7 @@ DuckDB = {path = "/Users/antonio/DuckDB.jl"}
 DBInterface = "2"
 DuckDB = "1, 2"
 JSON = "0.21, 1"
-ModelZoo = "0.1.1"
+ModelZoo = "0.1.2"
 Tables = "1"
 julia = "1.10"
 

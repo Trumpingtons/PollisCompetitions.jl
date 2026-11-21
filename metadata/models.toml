@@ -937,6 +937,8 @@ estimator_family = "Tree-based"
 estimator_method = "Randomized tree ensemble"
 package = "scikit-learn"
 language = "Python"
+julia_package = "ModelZoo"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "GEW2006a"
@@ -997,6 +999,8 @@ estimator_family = "Other"
 estimator_method = "Piecewise linear regression"
 package = "aplr"
 language = "Python"
+julia_package = "ModelZoo"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "OD2024a"
@@ -1043,6 +1047,8 @@ estimator_family = "Tree-based"
 estimator_method = "Randomized tree ensemble"
 package = "scikit-learn"
 language = "Python"
+julia_package = "ModelZoo"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "GEW2006a"
@@ -1101,6 +1107,8 @@ estimator_family = "Other"
 estimator_method = "Piecewise linear regression"
 package = "aplr"
 language = "Python"
+julia_package = "ModelZoo"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "OD2024a"
@@ -1187,6 +1195,8 @@ estimator_family = "Other"
 estimator_method = "Piecewise linear regression"
 package = "aplr"
 language = "Python"
+julia_package = "ModelZoo"
+julia_checked = true
 
   [[models.references]]
   bibtex_key = "OD2024a"
@@ -1243,6 +1253,8 @@ estimator_family = "Tree-based"
 estimator_method = "Randomized tree ensemble"
 package = "scikit-learn"
 language = "Python"
+julia_package = "ModelZoo"
+julia_checked = true
 
   [[models.references]]
   bibtex_key = "GEW2006a"
@@ -3196,6 +3208,8 @@ estimator_family = "Statistical"
 estimator_method = "Flexible parametric survival model"
 package = "flexsurv"
 language = "R"
+julia_package = "ModelZoo"
+julia_checked = true
 
   [[models.references]]
   bibtex_key = "RP2002a"
@@ -3208,6 +3222,8 @@ estimator_family = "Statistical"
 estimator_method = "Flexible parametric survival model"
 package = "flexsurv"
 language = "R"
+julia_package = "ModelZoo"
+julia_checked = true
 
   [[models.references]]
   bibtex_key = "RP2002a"
