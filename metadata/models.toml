@@ -3074,6 +3074,8 @@ estimator_family = "Statistical"
 estimator_method = "Proportional hazards model"
 package = "mgcv"
 language = "R"
+julia_package = "ModelZoo"
+julia_checked = true
 
   [[models.references]]
   bibtex_key = "WPS2016a"
