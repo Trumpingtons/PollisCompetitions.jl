@@ -18,3 +18,15 @@ fingerprint = "7efd5dc9498a629420a23f040f3c8be193854706c04ab13107c9f20da2ff8a7c"
 [tables]
 data = 518
 splits = 5180
+
+[factors]
+"sex" = ["female", "male"]
+"hypTen" = ["no", "yes"]
+"ihd" = ["no", "yes"]
+"prevStroke" = ["no", "yes"]
+"othDisease" = ["no", "yes"]
+"alcohol" = ["no", "yes"]
+"diabetes" = ["no", "yes"]
+"smoke" = ["no", "yes"]
+"atrialFib" = ["no", "yes"]
+"hemor" = ["no", "yes"]

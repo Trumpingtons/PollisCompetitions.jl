@@ -18,3 +18,6 @@ fingerprint = "10b2fe70e9c93c40ceedc37a58b7251577ee030846affb7182bca6420fd613ca"
 [tables]
 data = 776
 splits = 7760
+
+[factors]
+"charlson_score" = ["2", "3", "4", "5", "6", "7", "8"]

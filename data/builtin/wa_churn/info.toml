@@ -18,3 +18,15 @@ fingerprint = "a7a04866e15730cef6b1c722b667c99fdd0cedbff71d6ccce1e0c510abe011ac"
 [tables]
 data = 7032
 splits = 35160
+
+[factors]
+"multiple_lines" = ["No", "Yes"]
+"internet_service" = ["DSL", "Fiber_optic", "No"]
+"online_security" = ["No", "Yes"]
+"online_backup" = ["No", "Yes"]
+"device_protection" = ["No", "Yes"]
+"tech_support" = ["No", "Yes"]
+"streaming_tv" = ["No", "Yes"]
+"streaming_movies" = ["No", "Yes"]
+"contract" = ["Month-to-month", "One_year", "Two_year"]
+"payment_method" = ["Bank_transfer_automatic", "Credit_card_automatic", "Electronic_check", "Mailed_check"]

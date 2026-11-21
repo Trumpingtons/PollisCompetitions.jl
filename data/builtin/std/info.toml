@@ -18,3 +18,9 @@ fingerprint = "eb28ea0f250b2df5939161129dc9ff65777f818b0d59961fdf674cbfe6c7ab33"
 [tables]
 data = 877
 splits = 8770
+
+[factors]
+"race" = ["B", "W"]
+"marital" = ["D", "M", "S"]
+"iinfct" = ["gonorrhea", "chlamydia", "both"]
+"condom" = ["always", "sometime", "never"]

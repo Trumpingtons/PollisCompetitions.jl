@@ -18,3 +18,8 @@ fingerprint = "1466d3796adac5732207350dccfed7860bd36c592a4d0ea72b16258e7a6a7967"
 [tables]
 data = 358
 splits = 3580
+
+[factors]
+"Broders" = ["1", "2", "3", "4", "unknown"]
+"Ascites" = ["absent", "present", "unknown"]
+"Diam" = ["1-2cm", "2-5cm", "gt5cm", "lt1cm", "micr."]

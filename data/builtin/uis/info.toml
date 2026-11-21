@@ -18,3 +18,6 @@ fingerprint = "e3c2289c8e35e6f24a6b7a48be65f4f91dca709fdb19d5f98205348101072e80"
 [tables]
 data = 575
 splits = 5750
+
+[factors]
+"HC" = ["1", "2", "3", "4"]

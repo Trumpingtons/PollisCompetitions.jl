@@ -18,3 +18,8 @@ fingerprint = "d363d46fc2a1054e7431cc4f95d034f78c86b312d24945e0c5be8b965644894e"
 [tables]
 data = 4000
 splits = 20000
+
+[factors]
+"sex" = ["F", "M"]
+"flc.grp" = ["1", "10", "2", "3", "4", "5", "6", "7", "8", "9"]
+"mgus" = ["0", "1"]

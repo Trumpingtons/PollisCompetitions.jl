@@ -18,3 +18,7 @@ fingerprint = "de972b5d60d49407e00f7c415584d2e1a1db619073b7dbe1463d75dec5b41510"
 [tables]
 data = 2814
 splits = 14070
+
+[factors]
+"state" = ["NSW", "Other", "QLD", "VIC"]
+"T.categ" = ["hs", "hsid", "id", "het", "haem", "blood", "mother", "other"]

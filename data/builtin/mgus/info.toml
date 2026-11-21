@@ -18,3 +18,6 @@ fingerprint = "2da917ccfd2b33bb02bdca52b4308ef79eab3d3f6ececdd074b96c777ff12917"
 [tables]
 data = 176
 splits = 1760
+
+[factors]
+"sex" = ["female", "male"]

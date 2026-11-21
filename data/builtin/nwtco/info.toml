@@ -18,3 +18,6 @@ fingerprint = "1909f9c57eecea73ceb80f0404f8838fc19874b83a6a7d4beca6adbebe2a4d1f"
 [tables]
 data = 4028
 splits = 20140
+
+[factors]
+"stage" = ["1", "2", "3", "4"]

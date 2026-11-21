@@ -1,0 +1,256 @@
+# The measures scikit-learn 1.7.2 gives on fixed predictions, written by scripts/tabular_measures.py.
+
+[airfoil_noise]
+response_type = "Continuous"
+mean = 6.952235571019688
+rows = 7.036605138577585
+
+[airline_satisfaction]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5007946266203217
+
+[amazon_employee_access]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.49641108305278414
+
+[annealing]
+response_type = "Multiclass"
+frequency = 0.832340063614958
+rows = 28.35434066610549
+
+[bank_customer_churn]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.49032336797494935
+
+[bank_marketing]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5044078289305551
+
+[bike_sharing_demand]
+response_type = "Count"
+mean = 181.82728710470892
+rows = 181.86391248359197
+
+[biological_response]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.514629569568642
+
+[blood_transfusion]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5135087719298246
+
+[coil_2000_insurance]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.49655149440794133
+
+[concrete_strength]
+response_type = "Continuous"
+mean = 16.978942812080682
+rows = 17.22215421634498
+
+[credit_card_default]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.502813539353445
+
+[customer_churn]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5029003659879899
+
+[data_scientist_job_change]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.48495901755334875
+
+[diabetes_130_us]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5007984484656224
+
+[diamonds]
+response_type = "Continuous"
+mean = 4048.1916045566027
+rows = 4048.1981399443634
+
+[ecommerce_shipping]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5196373544059242
+
+[fitness_club]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.4804049455535391
+
+[food_delivery_time]
+response_type = "Continuous"
+mean = 9.415111384977985
+rows = 9.612591623185677
+
+[german_credit]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5110897435897436
+
+[give_me_some_credit]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.49681822161432954
+
+[good_customer]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.4191968803953087
+
+[hazelnut_contamination]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.49003125000000003
+
+[heloc]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.49326782995049345
+
+[hiva]
+response_type = "Multiclass"
+frequency = 0.17381307191567602
+rows = 24.094704332662555
+
+[house_values]
+response_type = "Continuous"
+mean = 0.5749898616942019
+rows = 2.0706342024510374
+
+[in_vehicle_coupon]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.503640679277228
+
+[insurance_expenses]
+response_type = "Continuous"
+mean = 11557.90838736165
+rows = 11557.870872022238
+
+[jm1_software_defects]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5041467251067524
+
+[kdd_cup_2009_appetency]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5165512794407113
+
+[marketing_campaign]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.47759788089976773
+
+[maternal_health_risk]
+response_type = "Multiclass"
+frequency = 1.0846831764321503
+rows = 24.953298500158027
+
+[miami_housing]
+response_type = "Continuous"
+mean = 322558.5843951596
+rows = 322558.56512830436
+
+[myocardial_infarction]
+response_type = "Multiclass"
+frequency = 0.7092622533102424
+rows = 32.16594111974123
+
+[naticusdroid]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5070764792717952
+
+[online_shoppers]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5005684636635853
+
+[pima_diabetes]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.41767068273092367
+
+[polish_bankruptcy]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5057853293989352
+
+[protein_structure]
+response_type = "Continuous"
+mean = 6.112458118571592
+rows = 6.428905422624838
+
+[qsar_biodegradation]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.4688390377610272
+
+[qsar_fish_toxicity]
+response_type = "Continuous"
+mean = 1.502043524567488
+rows = 2.6892832793706045
+
+[qsar_tid_11]
+response_type = "Continuous"
+mean = 1.5949686380466068
+rows = 2.5814477748365374
+
+[seismic_bumps]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5221423123024953
+
+[splice]
+response_type = "Multiclass"
+frequency = 1.0259850986291528
+rows = 25.169581267024476
+
+[stellar_classification]
+response_type = "Multiclass"
+frequency = 0.9378090805218272
+rows = 24.012016457589652
+
+[student_dropout]
+response_type = "Multiclass"
+frequency = 1.019418446459852
+rows = 23.874338549944035
+
+[superconductivity]
+response_type = "Continuous"
+mean = 34.04899925012633
+rows = 34.12679481384879
+
+[taiwan_bankruptcy]
+response_type = "Binary"
+frequency = 0.5
+rows = 0.5009059775840597
+
+[used_fiat_500]
+response_type = "Continuous"
+mean = 1905.304003316072
+rows = 1905.410832560992
+
+[website_phishing]
+response_type = "Multiclass"
+frequency = 0.9013275619547921
+rows = 24.615177924275123
+
+[wine_quality]
+response_type = "Continuous"
+mean = 0.8531143788641726
+rows = 2.164019823896189

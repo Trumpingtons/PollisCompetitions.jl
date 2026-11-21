@@ -36,34 +36,34 @@ function info(id)
 end
 
 """
-The entry of a dataset of your own in the folder `path`: its id, the folder, its name, from the `[[datasets]]` table of
-the `dataset.toml` Pollis writes beside its files or else the folder's, and its format, that of a forecasting dataset.
+The entry of a dataset of your own in the folder `path`: its id, the folder, its name and response type, from the
+`[[datasets]]` table of the `dataset.toml` Pollis writes beside its files, else the folder's name and no response type,
+and its format, that of a forecasting dataset.
 """
 function dataset_entry(path)
 	toml = joinpath(path, "dataset.toml")
 	datasets = isfile(toml) ? get(TOML.parsefile(toml), "datasets", []) : []
-	name = isempty(datasets) ? basename(normpath(path)) : get(first(datasets), "dataset_name", basename(normpath(path)))
-	Dict("id" => path, "name" => name, "format" => "monash")
+	entry = isempty(datasets) ? Dict{String, Any}() : first(datasets)
+	Dict("id" => path, "name" => get(entry, "dataset_name", basename(normpath(path))), "format" => "monash", "response_type" => get(entry, "response_type", nothing))
 end
 
 """
 	competition(id)
 
-The dataset `id` whose data are on this computer, as the functions that read and score it need it: its id, and the
-name and format its `info.toml` gives, the name of the Dataset Catalog when it gives none. For the folder of a dataset
-of your own (`is_dataset`), its name and format. An error when its data are not on this computer, or its `info.toml`
-gives no format.
+The dataset `id` whose data are on this computer, as the functions that read and score it need it: its id, the name
+and format its `info.toml` gives, the name of the Dataset Catalog when it gives none, and its response type in the
+Dataset Catalog (Binary, Multiclass, Ordered, Count, Survival or Continuous), which decides how predictions of it are
+scored; `nothing` when the catalogue gives none. For the folder of a dataset of your own (`is_dataset`), its name,
+format and response type. An error when its data are not on this computer, or its `info.toml` gives no format.
 """
 function competition(id)
 	is_dataset(id) && return dataset_entry(id)
 	current = info(id)
 	current === nothing && error("The data of $(id) are not on this computer: there is no $(joinpath(folder(id), "info.toml")).")
 	haskey(current, "format") || error("The info.toml of $(id) gives no format: its reader writes it, with its name.")
-	name = get(current, "name", nothing)
-	if name === nothing
-		datasets = metadata_entries(METADATA, "datasets.toml", "datasets")
-		entry = findfirst(entry -> entry["dataset_id"] == id, datasets)
-		name = entry === nothing ? id : datasets[entry]["dataset_name"]
-	end
-	Dict("id" => id, "name" => name, "format" => current["format"])
+	datasets = metadata_entries(METADATA, "datasets.toml", "datasets")
+	found = findfirst(entry -> entry["dataset_id"] == id, datasets)
+	entry = found === nothing ? Dict{String, Any}() : datasets[found]
+	name = get(current, "name", get(entry, "dataset_name", id))
+	Dict("id" => id, "name" => name, "format" => current["format"], "response_type" => get(entry, "response_type", nothing))
 end

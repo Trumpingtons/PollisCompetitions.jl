@@ -18,3 +18,8 @@ fingerprint = "5c79192031f7e30adba8b4a3e22dedbc8be1d73a8fe5e01bed735abe78e69c55"
 [tables]
 data = 26574
 splits = 26574
+
+[factors]
+"sex" = ["male", "female"]
+"socBranch" = ["official", "farming", "business", "worker"]
+"illeg" = ["no", "yes"]

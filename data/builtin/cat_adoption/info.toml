@@ -18,3 +18,9 @@ fingerprint = "c377d699d2ddff13fa71c1373b7d8c791d0d84adea1524811e79996e6ac5f1d1"
 [tables]
 data = 2257
 splits = 11285
+
+[factors]
+"sex" = ["female", "male", "unknown"]
+"neutered" = ["no", "unknown", "yes"]
+"intake_condition" = ["feral", "fractious", "ill_mild", "ill_moderatete", "normal", "under_age_or_weight", "other"]
+"intake_type" = ["owner_surrender", "stray", "other"]

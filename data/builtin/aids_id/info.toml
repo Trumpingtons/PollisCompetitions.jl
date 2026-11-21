@@ -18,3 +18,9 @@ fingerprint = "b006b6abde484d98758aafeef82ab1893fdc313c30e22e7c01b34cff5b80149f"
 [tables]
 data = 467
 splits = 4670
+
+[factors]
+"drug" = ["ddC", "ddI"]
+"gender" = ["female", "male"]
+"prevOI" = ["noAIDS", "AIDS"]
+"AZT" = ["intolerance", "failure"]

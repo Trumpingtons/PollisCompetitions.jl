@@ -18,3 +18,7 @@ fingerprint = "1709224e9cf4c1a48ab1e1f363e345ad702144b8b01e9a5e8f495eb598725b60"
 [tables]
 data = 5578
 splits = 5578
+
+[factors]
+"sex" = ["male", "female"]
+"site" = ["colon", "rectum"]

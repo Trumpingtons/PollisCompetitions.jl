@@ -19,6 +19,7 @@ module PollisCompetitions
 
 import DBInterface
 import DuckDB
+import Printf
 import TOML
 import Tables
 
@@ -30,6 +31,9 @@ include("parquet.jl")
 include("data.jl")
 include("tables.jl")
 include("measures.jl")
+include("survival.jl")
+include("tabular.jl")
+include("scoring.jl")
 include("dataset_benchmarks.jl")
 
 end

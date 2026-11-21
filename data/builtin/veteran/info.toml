@@ -18,3 +18,8 @@ fingerprint = "7edfa772e3b2ed36e4f4488ff8066d3c312ed68b5d5d943e8051ba70b5d85b14"
 [tables]
 data = 137
 splits = 1370
+
+[factors]
+"trt" = ["1", "2"]
+"celltype" = ["squamous", "smallcell", "adeno", "large"]
+"prior" = ["0", "1"]
