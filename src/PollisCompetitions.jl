@@ -4,7 +4,9 @@
 Datasets on which models are scored and ranked, for Pollis: the Dataset Catalog, the Model Catalog and the Benchmarks
 (the scores of each model on each dataset), kept as TOML in `metadata/` and loaded into five tables of DuckDB, and the
 built-in datasets, Parquet files in `data/builtin/`, which DuckDB reads where they are. The data of a forecasting
-dataset are read by `series` and `observations`, and forecasts of it scored by `score`.
+dataset are read by `series` and `observations`, and forecasts of it scored by `score`; a tabular or survival dataset's
+splits by `outer_splits`, its published runs by `published_scores`, and predictions of it are scored by the measures of
+ModelZoo.jl, which this module makes available under the same names (`tabular_scores`, `survival_scores`).
 
 ```julia
 import PollisCompetitions as PC
@@ -19,7 +21,7 @@ module PollisCompetitions
 
 import DBInterface
 import DuckDB
-import Printf
+import ModelZoo
 import TOML
 import Tables
 
@@ -31,9 +33,10 @@ include("parquet.jl")
 include("data.jl")
 include("tables.jl")
 include("measures.jl")
-include("survival.jl")
-include("tabular.jl")
 include("scoring.jl")
+
+# The measures of tabular and survival datasets, from ModelZoo.jl, under the names that runs of Score Models call
+using ModelZoo: MEASURE_BEST, SURVIVAL_MEASURES, TABULAR_MEASURES, log_loss, measure_loss, rmse, roc_auc, survival_scores, tabular_scores
 include("dataset_benchmarks.jl")
 
 end

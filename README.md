@@ -53,7 +53,7 @@ theta = PC.benchmarks("nn3"; methods = ["Theta"])
 PC.score("nn3", theta)
 ```
 
-A tabular dataset's `info.toml` names its `target` (its time, for survival), its `event` (for survival), and the `repeats` and `folds` of its outer splits; a survival dataset's `[factors]` gives the columns read as factors, each with its levels in order. `outer_splits(id)` gives each split: its repeat, its fold, its training rows and its test rows. Its Response Type in the Dataset Catalog decides how predictions are scored, as its benchmark scores them:
+A tabular dataset's `info.toml` names its `target` (its time, for survival), its `event` (for survival), and the `repeats` and `folds` of its outer splits; a survival dataset's `[factors]` gives the columns read as factors, each with its levels in order. `outer_splits(id)` gives each split: its repeat, its fold, its training rows and its test rows. Its Response Type in the Dataset Catalog decides how predictions are scored, as its benchmark scores them, by the measures of [ModelZoo.jl](https://github.com/Trumpingtons/ModelZoo.jl), which this package makes available under the same names:
 
 - Continuous and Count by `rmse`, Binary by `roc_auc` (the probability of the second of its classes, sorted), Multiclass by `log_loss` (`TABULAR_MEASURES`), with `tabular_scores(response_type, truth, prediction)`;
 - Survival by the eight measures of the Low-Dimensional Survival Benchmark (`SURVIVAL_MEASURES`), with `survival_scores(train_time, train_event, test_time, test_event, times, survival)`, where `survival` holds each test row's probability of surviving past each of `times`.
