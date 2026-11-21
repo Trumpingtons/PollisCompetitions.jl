@@ -1,6 +1,6 @@
 name = "PollisCompetitions"
 uuid = "81a31729-0f0a-40c0-bbf3-614b6aa3b649"
-version = "0.2.11"
+version = "0.2.12"
 authors = ["Antonio Saragga Seabra"]
 
 [deps]

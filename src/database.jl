@@ -69,7 +69,10 @@ CREATE TABLE model_catalog (
 	estimator_method VARCHAR NOT NULL,
 	package          VARCHAR,
 	language         VARCHAR CHECK (language IN ('Julia', 'Python', 'R', 'C/C++', 'Fortran')),
-	CHECK ($(ESTIMATOR_CHECK))
+	julia_package    VARCHAR,
+	julia_checked    BOOLEAN,
+	CHECK ($(ESTIMATOR_CHECK)),
+	CHECK ((julia_package IS NULL) = (julia_checked IS NULL))
 );
 CREATE TABLE model_references (
 	model_id   VARCHAR NOT NULL REFERENCES model_catalog (model_id),
@@ -92,7 +95,7 @@ CREATE TABLE benchmarks (
 const METADATA_COLUMNS = Dict(
 	"dataset_catalog" => ["dataset_id", "dataset_name", "competition_name", "competition_year", "topic", "data_structure", "geometry", "response_type", "rows", "features", "size_mb", "licence", "delivery", "source_url"],
 	"dataset_references" => ["dataset_id", "bibtex_key", "role"],
-	"model_catalog" => ["model_id", "model_name", "estimator_family", "estimator_method", "package", "language"],
+	"model_catalog" => ["model_id", "model_name", "estimator_family", "estimator_method", "package", "language", "julia_package", "julia_checked"],
 	"model_references" => ["model_id", "bibtex_key", "role"],
 	"benchmarks" => ["run_id", "model_id", "dataset_id", "split_protocol", "metric", "score"],
 )
@@ -128,6 +131,8 @@ const METADATA_DESCRIPTIONS = Dict(
 	"model_catalog.estimator_method" => "The method it estimates with, one of those of its family; that of a Hybrid model names the methods it combines",
 	"model_catalog.package" => "The package that implements it",
 	"model_catalog.language" => "The language of that package: Julia, Python, R, C/C++ or Fortran",
+	"model_catalog.julia_package" => "Where the model is in Julia: the registered package that has its estimator, in Julia or bound to the compiled library the original runs, or ModelZoo; missing when no package has it",
+	"model_catalog.julia_checked" => "Whether that package, run on the benchmark's splits, gives the published scores; missing when no package has it",
 	"model_references" => "The works of each model: one row per model and work, a key of the references of Pollis (PollisReferences)",
 	"model_references.model_id" => "The model; join model_catalog on model_id",
 	"model_references.bibtex_key" => "The key of the work in PollisReferences",
@@ -262,7 +267,7 @@ function connect_db(path::AbstractString = ":memory:"; metadata = METADATA, buil
 		end
 		DBInterface.execute(db, """
 			CREATE VIEW model_comparisons AS
-			SELECT b.run_id, b.model_id, m.model_name, m.estimator_family, m.estimator_method, m.package, m.language,
+			SELECT b.run_id, b.model_id, m.model_name, m.estimator_family, m.estimator_method, m.package, m.language, m.julia_package, m.julia_checked,
 				b.dataset_id, d.dataset_name, d.data_structure, d.geometry, d.response_type,
 				b.split_protocol, b.metric, b.score
 			FROM benchmarks b

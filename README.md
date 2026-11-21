@@ -28,11 +28,11 @@ The header of each file describes its fields. A field left out is unknown, and l
 |---|---|---|
 | `dataset_catalog` | dataset_id | dataset_name, competition_name, competition_year, topic, data_structure, geometry, response_type, rows, features, size_mb, licence, delivery, source_url |
 | `dataset_references` | dataset_id, bibtex_key | role |
-| `model_catalog` | model_id | model_name, estimator_family, estimator_method, package, language |
+| `model_catalog` | model_id | model_name, estimator_family, estimator_method, package, language, julia_package, julia_checked |
 | `model_references` | model_id, bibtex_key | role |
 | `benchmarks` | run_id, metric | model_id, dataset_id, split_protocol, score |
 
-The estimator of a model has two levels: its estimator family, one of the model types of TabArena (Foundation Model, Tree-based, Neural Network, Baseline, Other), Statistical, for the classical methods of forecasting and of survival analysis, Kernel Methods, Fuzzy System, or Hybrid, for a model that combines methods of different kinds, and its estimator method, one of the methods of its family (that of a Hybrid model names the methods it combines); the header of `models.toml` lists both. The database checks each value against its vocabulary and each foreign key. The view `model_comparisons` joins each score to its model and dataset. `load_table(name)` reads one of the five tables or the view.
+The estimator of a model has two levels: its estimator family, one of the model types of TabArena (Foundation Model, Tree-based, Neural Network, Baseline, Other), Statistical, for the classical methods of forecasting and of survival analysis, Kernel Methods, Fuzzy System, or Hybrid, for a model that combines methods of different kinds, and its estimator method, one of the methods of its family (that of a Hybrid model names the methods it combines); the header of `models.toml` lists both. `julia_package` says where a model is in Julia: the registered package that has its estimator, in Julia or bound to the compiled library the original runs, or ModelZoo for a model of [ModelZoo.jl](https://github.com/Trumpingtons/ModelZoo.jl); `julia_checked` whether that package, run on the benchmark's splits, gives the published scores. The database checks each value against its vocabulary and each foreign key. The view `model_comparisons` joins each score to its model and dataset. `load_table(name)` reads one of the five tables or the view.
 
 ## Built-in datasets
 

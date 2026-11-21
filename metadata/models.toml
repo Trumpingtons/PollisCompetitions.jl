@@ -35,6 +35,11 @@
 #     Other             Piecewise linear regression | Componentwise boosting
 #   package           the package that implements it
 #   language          Julia | Python | R | C/C++ | Fortran
+#   julia_package     where the model is in Julia: the registered package that has its estimator, in Julia or bound to
+#                     the compiled library the original runs (not a package that runs Python), for every configuration,
+#                     default or tuned, or ModelZoo for a model of ModelZoo.jl; left out when no package has it
+#   julia_checked     true when that package, run on the benchmark's splits, gives the published scores; false when it
+#                     has the same estimator but has not been checked against them
 #
 # [[models.references]] are its references: bibtex_key, a key of PollisReferences, and role, one of
 # Methodology | Software | Other.
@@ -422,6 +427,8 @@ estimator_family = "Tree-based"
 estimator_method = "Gradient-boosted trees"
 package = "lightgbm"
 language = "Python"
+julia_package = "LightGBM"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "KMFWC...2017a"
@@ -510,6 +517,8 @@ estimator_family = "Tree-based"
 estimator_method = "Gradient-boosted trees"
 package = "lightgbm"
 language = "Python"
+julia_package = "LightGBM"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "KMFWC...2017a"
@@ -554,6 +563,8 @@ estimator_family = "Tree-based"
 estimator_method = "Gradient-boosted trees"
 package = "xgboost"
 language = "Python"
+julia_package = "XGBoost"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "CG2016a"
@@ -622,6 +633,8 @@ estimator_family = "Tree-based"
 estimator_method = "Gradient-boosted trees"
 package = "xgboost"
 language = "Python"
+julia_package = "XGBoost"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "CG2016a"
@@ -898,6 +911,8 @@ estimator_family = "Tree-based"
 estimator_method = "Gradient-boosted trees"
 package = "xgboost"
 language = "Python"
+julia_package = "XGBoost"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "CG2016a"
@@ -994,6 +1009,8 @@ estimator_family = "Tree-based"
 estimator_method = "Gradient-boosted trees"
 package = "lightgbm"
 language = "Python"
+julia_package = "LightGBM"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "KMFWC...2017a"
@@ -1050,6 +1067,8 @@ estimator_family = "Tree-based"
 estimator_method = "Randomized tree ensemble"
 package = "scikit-learn"
 language = "Python"
+julia_package = "DecisionTree"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "Bre2001a"
@@ -1094,6 +1113,8 @@ estimator_family = "Tree-based"
 estimator_method = "Randomized tree ensemble"
 package = "scikit-learn"
 language = "Python"
+julia_package = "DecisionTree"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "Bre2001a"
@@ -1254,6 +1275,8 @@ estimator_family = "Tree-based"
 estimator_method = "Randomized tree ensemble"
 package = "scikit-learn"
 language = "Python"
+julia_package = "DecisionTree"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "Bre2001a"
@@ -1270,6 +1293,8 @@ estimator_family = "Baseline"
 estimator_method = "Nearest neighbours"
 package = "scikit-learn"
 language = "Python"
+julia_package = "NearestNeighborModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "CH1967a"
@@ -1286,6 +1311,8 @@ estimator_family = "Baseline"
 estimator_method = "Penalized linear model"
 package = "scikit-learn"
 language = "Python"
+julia_package = "MLJLinearModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HK1970b"
@@ -1306,6 +1333,8 @@ estimator_family = "Baseline"
 estimator_method = "Penalized linear model"
 package = "scikit-learn"
 language = "Python"
+julia_package = "MLJLinearModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HK1970b"
@@ -1334,6 +1363,8 @@ estimator_family = "Baseline"
 estimator_method = "Nearest neighbours"
 package = "scikit-learn"
 language = "Python"
+julia_package = "NearestNeighborModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "CH1967a"
@@ -1350,6 +1381,8 @@ estimator_family = "Baseline"
 estimator_method = "Penalized linear model"
 package = "scikit-learn"
 language = "Python"
+julia_package = "MLJLinearModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HK1970b"
@@ -1370,6 +1403,8 @@ estimator_family = "Baseline"
 estimator_method = "Nearest neighbours"
 package = "scikit-learn"
 language = "Python"
+julia_package = "NearestNeighborModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "CH1967a"
@@ -1392,6 +1427,8 @@ estimator_family = "Statistical"
 estimator_method = "Exponential smoothing"
 package = "forecast"
 language = "R"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HKOS2008a"
@@ -1408,6 +1445,8 @@ estimator_family = "Statistical"
 estimator_method = "Theta method"
 package = "forecast"
 language = "R"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "AN2000a"
@@ -1456,6 +1495,8 @@ estimator_family = "Statistical"
 estimator_method = "ARIMA"
 package = "forecast"
 language = "R"
+julia_package = "StateSpaceModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "BJRL2015a"
@@ -1488,6 +1529,8 @@ estimator_family = "Baseline"
 estimator_method = "Polynomial regression"
 package = "stats"
 language = "R"
+julia_package = "GLM"
+julia_checked = false
 
 [[models]]
 model_id = "monash_catboost"
@@ -1756,18 +1799,24 @@ model_id = "tourism_snaive"
 model_name = "SNaïve"
 estimator_family = "Baseline"
 estimator_method = "Naive forecast"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
 [[models]]
 model_id = "tourism_naive"
 model_name = "Naïve"
 estimator_family = "Baseline"
 estimator_method = "Naive forecast"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
 [[models]]
 model_id = "tourism_arima"
 model_name = "ARIMA"
 estimator_family = "Statistical"
 estimator_method = "ARIMA"
+julia_package = "StateSpaceModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HK2008a"
@@ -1788,6 +1837,8 @@ model_id = "tourism_damped"
 model_name = "Damped trend"
 estimator_family = "Statistical"
 estimator_method = "Exponential smoothing"
+julia_package = "StateSpaceModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HKSG2002a"
@@ -1799,6 +1850,8 @@ model_name = "Theta"
 estimator_family = "Statistical"
 estimator_method = "Theta method"
 package = "TIFIS CM3"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "AN2000a"
@@ -1830,6 +1883,8 @@ model_name = "Theta"
 estimator_family = "Statistical"
 estimator_method = "Theta method"
 package = "TIFIS CM3"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "AN2000a"
@@ -1856,6 +1911,8 @@ model_id = "nn3_b16"
 model_name = "Dampen ES"
 estimator_family = "Statistical"
 estimator_method = "Exponential smoothing"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
 # B17: Original M3 benchmark: equally weighted combination of single, Holt and damped trend exponential smoothing
 [[models]]
@@ -1863,6 +1920,8 @@ model_id = "nn3_b17"
 model_name = "Comb S-H-D ES"
 estimator_family = "Statistical"
 estimator_method = "Exponential smoothing"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
 # B05: Autobox expert system forecast, version 6.0 (June 2007)
 [[models]]
@@ -1885,6 +1944,8 @@ model_id = "nn3_b14"
 model_name = "Single ES"
 estimator_family = "Statistical"
 estimator_method = "Exponential smoothing"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
 # B15: Original M3 benchmark for the M3 competition
 [[models]]
@@ -1892,6 +1953,8 @@ model_id = "nn3_b15"
 model_name = "Holt ES"
 estimator_family = "Statistical"
 estimator_method = "Exponential smoothing"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
 # C46: Ensemble regression trees
 [[models]]
@@ -2070,6 +2133,8 @@ model_id = "nn3_b04"
 model_name = "Naïve"
 estimator_family = "Baseline"
 estimator_method = "Naive forecast"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
 # B12: Decomposition to random sequence basis functions and a temperature-dependent SOFTMAX combiner
 [[models]]
@@ -2173,6 +2238,8 @@ model_id = "nn5_b12"
 model_name = "Naïve Seasonal"
 estimator_family = "Baseline"
 estimator_method = "Naive forecast"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
 # B11: The benchmark Naïve Level
 [[models]]
@@ -2180,6 +2247,8 @@ model_id = "nn5_b11"
 model_name = "Naïve Level"
 estimator_family = "Baseline"
 estimator_method = "Naive forecast"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
 # CIF 2015 competition (Computational Intelligence in Forecasting): the methods of the results of its paper
 # (Štěpnička and Burda, 2015), the five of its contenders and the six benchmarks its organisers ran in R, by the
@@ -2240,6 +2309,8 @@ estimator_family = "Statistical"
 estimator_method = "ARIMA"
 package = "forecast"
 language = "R"
+julia_package = "StateSpaceModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "BJRL2015a"
@@ -2257,6 +2328,8 @@ estimator_family = "Statistical"
 estimator_method = "Theta method"
 package = "forecast"
 language = "R"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "AN2000a"
@@ -2274,6 +2347,8 @@ estimator_family = "Baseline"
 estimator_method = "Naive forecast"
 package = "forecast"
 language = "R"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HK2008a"
@@ -2487,6 +2562,8 @@ estimator_family = "Statistical"
 estimator_method = "ARIMA"
 package = "forecast"
 language = "R"
+julia_package = "StateSpaceModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "BJRL2015a"
@@ -2504,6 +2581,8 @@ estimator_family = "Baseline"
 estimator_method = "Naive forecast"
 package = "forecast"
 language = "R"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HK2008a"
@@ -2517,6 +2596,8 @@ estimator_family = "Statistical"
 estimator_method = "Theta method"
 package = "forecast"
 language = "R"
+julia_package = "PollisCompetitions"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "AN2000a"
@@ -2915,6 +2996,8 @@ estimator_family = "Baseline"
 estimator_method = "Nonparametric survival estimator"
 package = "survival"
 language = "R"
+julia_package = "Survival"
+julia_checked = true
 
   [[models.references]]
   bibtex_key = "KM1958a"
@@ -2927,6 +3010,8 @@ estimator_family = "Baseline"
 estimator_method = "Nonparametric survival estimator"
 package = "survival"
 language = "R"
+julia_package = "Survival"
+julia_checked = true
 
   [[models.references]]
   bibtex_key = "Aal1978a"
@@ -2963,6 +3048,8 @@ estimator_family = "Statistical"
 estimator_method = "Proportional hazards model"
 package = "survival"
 language = "R"
+julia_package = "Survival"
+julia_checked = true
 
   [[models.references]]
   bibtex_key = "Cox1975a"
@@ -2987,6 +3074,8 @@ estimator_family = "Baseline"
 estimator_method = "Penalized linear model"
 package = "glmnet"
 language = "R"
+julia_package = "GLMNet"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "SFHT2011a"
@@ -2999,6 +3088,8 @@ estimator_family = "Baseline"
 estimator_method = "Penalized linear model"
 package = "glmnet"
 language = "R"
+julia_package = "GLMNet"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "SFHT2011a"
@@ -3059,6 +3150,8 @@ estimator_family = "Statistical"
 estimator_method = "Accelerated failure time model"
 package = "survival"
 language = "R"
+julia_package = "SurvivalModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "KP2002a"
@@ -3071,6 +3164,8 @@ estimator_family = "Statistical"
 estimator_method = "Accelerated failure time model"
 package = "survival"
 language = "R"
+julia_package = "SurvivalModels"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "KP2002a"
@@ -3271,6 +3366,8 @@ estimator_family = "Tree-based"
 estimator_method = "Gradient-boosted trees"
 package = "xgboost"
 language = "R"
+julia_package = "XGBoost"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "CG2016a"
@@ -3283,6 +3380,8 @@ estimator_family = "Tree-based"
 estimator_method = "Gradient-boosted trees"
 package = "xgboost"
 language = "R"
+julia_package = "XGBoost"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "CG2016a"
@@ -3295,6 +3394,8 @@ estimator_family = "Tree-based"
 estimator_method = "Gradient-boosted trees"
 package = "xgboost"
 language = "R"
+julia_package = "XGBoost"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "BCH2022a"
