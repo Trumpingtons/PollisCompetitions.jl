@@ -2811,12 +2811,16 @@ estimator_method = "Multilayer perceptron"
 # EUNITE 2001 competition: the entries of the results its organisers presented, each named as there, with the method of
 # its report to the competition.
 
-# Chang, Chen and Lin (National Taiwan University): support vector machine
+# Chang, Chen and Lin (National Taiwan University): support vector regression with LIBSVM
 [[models]]
 model_id = "eunite_lin"
 model_name = "Chih-Jen Lin"
 estimator_family = "Kernel Methods"
 estimator_method = "Support vector machine"
+package = "LIBSVM"
+language = "C/C++"
+julia_package = "LIBSVM"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "CCL2004a"
