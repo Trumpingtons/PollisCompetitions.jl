@@ -1463,6 +1463,8 @@ estimator_family = "Statistical"
 estimator_method = "Exponential smoothing"
 package = "forecast"
 language = "R"
+julia_package = "Durbyn"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "LHS2011a"
@@ -1479,6 +1481,8 @@ estimator_family = "Statistical"
 estimator_method = "Exponential smoothing"
 package = "forecast"
 language = "R"
+julia_package = "Durbyn"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HKSG2002a"
@@ -1513,6 +1517,8 @@ estimator_family = "Statistical"
 estimator_method = "ARIMA"
 package = "forecast"
 language = "R"
+julia_package = "Durbyn"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "BJRL2015a"
@@ -1827,6 +1833,8 @@ model_id = "tourism_ets"
 model_name = "ETS"
 estimator_family = "Statistical"
 estimator_method = "Exponential smoothing"
+julia_package = "Durbyn"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HKSG2002a"
@@ -2292,6 +2300,8 @@ estimator_family = "Statistical"
 estimator_method = "Exponential smoothing"
 package = "forecast"
 language = "R"
+julia_package = "Durbyn"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HKSG2002a"
@@ -2439,6 +2449,8 @@ estimator_family = "Statistical"
 estimator_method = "Exponential smoothing"
 package = "forecast"
 language = "R"
+julia_package = "Durbyn"
+julia_checked = false
 
   [[models.references]]
   bibtex_key = "HKSG2002a"
